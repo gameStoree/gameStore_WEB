@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\diamondGameController;
+use App\Http\Controllers\jokiMlController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('adminDev')->group(
+    function () {
+        Route::get('/', function() {
+            return view('adminDev.layout');
+        });
+        Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
+        Route::resource('diamondGame', diamondGameController::class);
+        Route::resource('jokiML', jokiMlController::class);
+    });
