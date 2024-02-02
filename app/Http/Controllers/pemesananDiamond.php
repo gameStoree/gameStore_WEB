@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class jokiMlController extends Controller
+class pemesananDiamond extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('adminDev.jokiML.index');
+        return view('adminDev.pemesanan.diamaondGame.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class jokiMlController extends Controller
      */
     public function create()
     {
-        return view('adminDev.jokiML.create');
+        //
     }
 
     /**

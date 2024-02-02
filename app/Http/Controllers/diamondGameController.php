@@ -19,7 +19,7 @@ class diamondGameController extends Controller
      */
     public function create()
     {
-        //
+        return view('adminDev.diamondGame.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class diamondGameController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // return view('adminDev.diamondGame.update');
     }
 
     /**

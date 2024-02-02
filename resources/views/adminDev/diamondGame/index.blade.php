@@ -3,7 +3,7 @@
 @section('conten')
     <div class="card">
         <div class="p-3">
-            <button type="button" class="btn btn-primary col-2"> + Diamond Game</button>
+            <a href="{{ route('diamondGame.create') }}" class="btn btn-primary col-2"> + Diamond Game</a>
         </div>
         <div class="table-responsive text-nowrap">
             <table class="table">

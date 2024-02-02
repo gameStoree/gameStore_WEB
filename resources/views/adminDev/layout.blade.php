@@ -111,20 +111,39 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
-                    <li class="menu-item">
+                    <li class="menu-item active">
                         <a href="{{ route('dashboard.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
 
-                    <!-- Layouts -->
+                    <!-- Game -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-layout"></i>
                             <div data-i18n="Layouts">Game</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('diamondGame.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Diamond Game</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('jokiML.index') }}" class="menu-link">
+                                    <div data-i18n="Without navbar">Joki ML</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
+                    <!-- Pemesanan -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Layouts">Pemesanan</div>
+                        </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('diamondGame.index') }}" class="menu-link">

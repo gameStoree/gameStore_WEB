@@ -2,9 +2,6 @@
 
 @section('conten')
     <div class="card">
-        <div class="p-3">
-            <a href="{{ route('jokiML.create') }}" class="btn btn-primary col-2"> + Paket Joki</a>
-        </div>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>

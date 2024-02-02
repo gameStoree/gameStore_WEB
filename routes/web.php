@@ -3,6 +3,7 @@
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\diamondGameController;
 use App\Http\Controllers\jokiMlController;
+use App\Http\Controllers\pemesananDiamond;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,5 @@ Route::prefix('adminDev')->group(
         Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
         Route::resource('diamondGame', diamondGameController::class);
         Route::resource('jokiML', jokiMlController::class);
+        Route::resource('pemesanan/diamondGame', pemesananDiamond::class);
     });
