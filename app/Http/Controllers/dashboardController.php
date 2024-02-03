@@ -9,6 +9,7 @@ class dashboardController extends Controller
     public function index() {
         return view('adminDev.dashboard.index', [
             'active' => 'dashboard',
+            'judul' => 'DASHBOARD',
         ]);
     }
 }

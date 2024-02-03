@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class pemesananDiamond extends Controller
+class pemesananDiamondController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('adminDev.pemesanan.diamaondGame.index');
+        return view('adminDev.pemesanan.diamond.index', [
+            'judul' => 'PEMESANAN DIAMOND',
+        ]);
     }
 
     /**

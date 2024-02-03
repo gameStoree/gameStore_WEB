@@ -121,7 +121,7 @@
                     <!-- Game -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <i class="menu-icon tf-icons bx bx-game"></i>
                             <div data-i18n="Layouts">Game</div>
                         </a>
                         <ul class="menu-sub">
@@ -146,16 +146,24 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{ route('diamondGame.index') }}" class="menu-link">
+                                <a href="{{ route('diamond.index') }}" class="menu-link">
                                     <div data-i18n="Without menu">Diamond Game</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('jokiML.index') }}" class="menu-link">
+                                <a href="{{ route('joki.index') }}" class="menu-link">
                                     <div data-i18n="Without navbar">Joki ML</div>
                                 </a>
                             </li>
                         </ul>
+                    </li>
+
+                    <!-- Worker -->
+                    <li class="menu-item">
+                        <a href="{{ route('worker.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Analytics">Worker</div>
+                        </a>
                     </li>
                 </ul>
             </aside>
@@ -175,7 +183,7 @@
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
                         <div class="navbar-nav align-items-center">
-                            DASHBOARD
+                            {{ $judul }}
                         </div>
                         <!-- /Search -->
 

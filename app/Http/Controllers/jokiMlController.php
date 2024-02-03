@@ -11,7 +11,9 @@ class jokiMlController extends Controller
      */
     public function index()
     {
-        return view('adminDev.jokiML.index');
+        return view('adminDev.jokiML.index', [
+            'judul' => 'JOKI ML',
+        ]);
     }
 
     /**

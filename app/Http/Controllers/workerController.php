@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class diamondGameController extends Controller
+class workerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('adminDev.diamondGame.index', [
-            'judul' => 'DIAMOND GAME',
+        return view('adminDev.worker.index', [
+            'judul' =>'WORKER',
         ]);
     }
 
@@ -21,7 +21,7 @@ class diamondGameController extends Controller
      */
     public function create()
     {
-        return view('adminDev.diamondGame.create');
+        return view('adminDev.worker.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class diamondGameController extends Controller
      */
     public function edit(string $id)
     {
-        // return view('adminDev.diamondGame.update');
+        //
     }
 
     /**
