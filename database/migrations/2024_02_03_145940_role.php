@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('diamond_games', function (Blueprint $table) {
+        Schema::create('role', function (Blueprint $table) {
             $table->id();
+            $table->string('role');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('diamond_games');
+        Schema::dropIfExists('role');
     }
 };

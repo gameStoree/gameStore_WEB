@@ -11,9 +11,9 @@
                         <label for="exampleFormControlSelect1" class="form-label">Nama Game</label>
                         <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
                             <option selected><--- Pilih Game ---></option>
-                            <option value="1">Mobile Legend</option>
-                            <option value="2">Free Fire</option>
-                            <option value="3">PUBG</option>
+                            <option value="Mobile Legend">Mobile Legend</option>
+                            <option value="Free Fire">Free Fire</option>
+                            <option value="PUBG">PUBG</option>
                         </select>
                     </div>
                     <div class="mb-3">

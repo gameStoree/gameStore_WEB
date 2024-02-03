@@ -165,6 +165,14 @@
                             <div data-i18n="Analytics">Worker</div>
                         </a>
                     </li>
+
+                    <!-- Laporan-->
+                    <li class="menu-item">
+                        <a href="{{ route('laporan.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-report"></i>
+                            <div data-i18n="Analytics">Laporan</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -181,11 +189,11 @@
                     </div>
 
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <!-- Search -->
+                        <!-- Judul -->
                         <div class="navbar-nav align-items-center">
                             {{ $judul }}
                         </div>
-                        <!-- /Search -->
+                        <!-- /Judul -->
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->

@@ -2,25 +2,15 @@
 
 @section('conten')
     <div class="content-wrapper">
-        <div id="pemesanan_top" class="w-full">
-            <div id="pesanan_masuk">
-                <h4 id="pesanan-masuk">Pesanan Masuk</h4>
-                <span class="line-active"></span>
-            </div>
-            <div id="pesanan_terkonfirmasi">
-                <h4 id="pesanan-terkonfimasi">Pesanan Terkonfirmasi</h4>
-                <!-- <span class="line-active"></span> -->
-            </div>
-        </div>
         <div class="card">
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Project</th>
-                            <th>Client</th>
-                            <th>Users</th>
-                            <th>Status</th>
+                            <th>No Transaksi</th>
+                            <th>Jenis Transaksi</th>
+                            <th>Harga</th>
+                            <th>Tanggal Transaksi</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

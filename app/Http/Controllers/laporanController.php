@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\diamondGame;
 use Illuminate\Http\Request;
 
-class diamondGameController extends Controller
+class laporanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('adminDev.diamondGame.index', [
-            'judul' => 'DIAMOND GAME',
-            'data' => diamondGame::all()
+        return view('adminDev.laporan.index', [
+            'judul' => 'LAPORAN',
         ]);
     }
 
@@ -23,9 +21,7 @@ class diamondGameController extends Controller
      */
     public function create()
     {
-        return view('adminDev.diamondGame.create', [
-            'judul' => 'DIAMOND GAME',
-        ]);
+        //
     }
 
     /**
@@ -33,15 +29,7 @@ class diamondGameController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama_game' => 'required|max:30',
-            'jumlah_diamond' => 'required|max:30',
-            'harga_diamond' => 'required|max:30'
-        ]);        
-
-        diamondGame::create($validatedData);
-    
-        return redirect()->route('diamondGame.index')->with('success', 'Berhasil menambahkan data');
+        //
     }
 
     /**
@@ -57,7 +45,7 @@ class diamondGameController extends Controller
      */
     public function edit(string $id)
     {
-        // return view('adminDev.diamondGame.update');
+        //
     }
 
     /**

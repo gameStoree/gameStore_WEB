@@ -3,6 +3,7 @@
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\diamondGameController;
 use App\Http\Controllers\jokiMlController;
+use App\Http\Controllers\laporanController;
 use App\Http\Controllers\pemesananDiamond;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\pemesananJokiController;
@@ -35,4 +36,5 @@ Route::prefix('adminDev')->group(
         Route::resource('pemesanan/diamond', pemesananDiamondController::class);
         Route::resource('pemesanan/joki', pemesananJokiController::class);
         Route::resource('worker', workerController::class);
+        Route::resource('laporan', laporanController::class);
     });
