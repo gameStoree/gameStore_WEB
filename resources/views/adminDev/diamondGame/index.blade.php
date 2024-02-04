@@ -22,17 +22,24 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $i }}</strong></td>
+                                    <strong>{{ $i }}</strong>
+                                </td>
                                 <td>{{ $item->nama_game }}</td>
                                 <td>{{ $item->jumlah_diamond }}</td>
                                 <td><span class="badge bg-label-primary me-1">{{ $item->harga_diamond }}</span></td>
                                 <td>
-                                    <button type="button" class="btn btn-icon btn-outline-warning">
+                                    <a href="{{ route('diamondGame.edit', $item->id) }}"
+                                        class="btn btn-icon btn-outline-warning">
                                         <i class='bx bxs-pencil'></i>
-                                    </button>
-                                    <button type="button" class="btn btn-icon btn-outline-danger">
-                                        <i class="bx bx-trash-alt"></i>
-                                    </button>
+                                    </a>
+                                    <form action="{{ route('diamondGame.destroy', $item->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button id="confirmDelete" type="submit" class="btn btn-icon btn-outline-danger" data-confirm-delete="true">
+                                            <i class="bx bx-trash-alt"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -43,4 +50,21 @@
         </div>
     </div>
     @include('sweetalert::alert')
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Hapus Data!',
+                text: 'Apakah Anda yakin ingin menghapus data?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form-' + id).submit();
+                }
+            });
+        }
+    </script>
 @endsection

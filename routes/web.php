@@ -4,7 +4,6 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\diamondGameController;
 use App\Http\Controllers\jokiMlController;
 use App\Http\Controllers\laporanController;
-use App\Http\Controllers\pemesananDiamond;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\pemesananJokiController;
 use App\Http\Controllers\workerController;

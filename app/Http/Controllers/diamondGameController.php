@@ -12,6 +12,10 @@ class diamondGameController extends Controller
      */
     public function index()
     {
+        $title = 'Hapus Data!';
+        $text = "Apakah anda yakin ingin menghapus data?";
+        confirmDelete($title, $text);
+
         return view('adminDev.diamondGame.index', [
             'judul' => 'DIAMOND GAME',
             'data' => diamondGame::all()
@@ -57,7 +61,10 @@ class diamondGameController extends Controller
      */
     public function edit(string $id)
     {
-        // return view('adminDev.diamondGame.update');
+        $data = diamondGame::where('id', $id)->first();
+        return view('adminDev.diamondGame.update', [
+            'judul' => 'DIAMOND GAME',
+        ])->with('data', $data);
     }
 
     /**
@@ -65,7 +72,15 @@ class diamondGameController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_game' => 'required|max:30',
+            'jumlah_diamond' => 'required|max:30',
+            'harga_diamond' => 'required|max:30'
+        ]);
+    
+        diamondGame::findOrFail($id)->update($validatedData);
+    
+        return redirect()->route('diamondGame.index')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -73,6 +88,10 @@ class diamondGameController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $title = 'Hapus Data!';
+        $text = "Apakah anda yakin ingin menghapus data?";
+
+        diamondGame::where('id', $id)->delete();
+        return redirect()->route('diamondGame.index')->with('confirmDelete', $title, $text);
     }
 }
