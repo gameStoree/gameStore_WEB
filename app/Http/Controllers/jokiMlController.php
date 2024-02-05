@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\jokiML;
 use Illuminate\Http\Request;
 
 class jokiMlController extends Controller
@@ -21,7 +22,9 @@ class jokiMlController extends Controller
      */
     public function create()
     {
-        return view('adminDev.jokiML.create');
+        return view('adminDev.jokiML.create', [
+            'judul' => 'JOKI ML',
+        ]);
     }
 
     /**
@@ -29,7 +32,15 @@ class jokiMlController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nama_paket' => 'required|max:30',
+            'joki_rank' => 'required|max:30',
+            'harga' => 'required|max:30',
+        ]);
+
+        jokiML::create($validateData);
+
+        return redirect()->route('jokiML.index')->with('success', 'Berhasil menambahkan data');
     }
 
     /**
