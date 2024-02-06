@@ -14,6 +14,7 @@ class jokiMlController extends Controller
     {
         return view('adminDev.jokiML.index', [
             'judul' => 'JOKI ML',
+            'data' => jokiML::all()
         ]);
     }
 
@@ -24,6 +25,7 @@ class jokiMlController extends Controller
     {
         return view('adminDev.jokiML.create', [
             'judul' => 'JOKI ML',
+            'data' => jokiML::all()
         ]);
     }
 
@@ -35,7 +37,7 @@ class jokiMlController extends Controller
         $validateData = $request->validate([
             'nama_paket' => 'required|max:30',
             'joki_rank' => 'required|max:30',
-            'harga' => 'required|max:30',
+            'harga_joki' => 'required|max:30',
         ]);
 
         jokiML::create($validateData);
@@ -56,7 +58,10 @@ class jokiMlController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = jokiML::where('id', $id)->first();
+        return view('adminDev.jokiML.update', [
+            'judul' => 'JOKI ML',
+        ])->with('data', $data);
     }
 
     /**
@@ -64,7 +69,14 @@ class jokiMlController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validateData = $request->validate([
+            'nama_paket' => 'required|max:30',
+            'joki_rank' => 'required|max:30',
+            'harga_joki' => 'required|max:30',
+        ]);
+
+        jokiML::findOrFail($id)->update($validateData);
+        return redirect()->route('jokiML.index')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -72,6 +84,7 @@ class jokiMlController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        jokiML::where('id', $id)->delete();
+        return redirect()->route('jokiML.index')->with('success', 'Berhasil menghapus data');
     }
 }

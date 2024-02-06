@@ -18,51 +18,73 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1. </strong></td>
-                            <td>Joki satuan</td>
-                            <td>Elite - legend</td>
-                            <td><span class="badge bg-label-primary me-1">40.000</span></td>
-                            <td>
-                                <button type="button" class="btn btn-icon btn-outline-warning">
-                                    <i class='bx bxs-pencil'></i>
-                                </button>
-                                <button type="button" class="btn btn-icon btn-outline-danger">
-                                    <i class="bx bx-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>2.</strong></td>
-                            <td>Joki Paketan</td>
-                            <td>Epic - Mytich Honor</td>
-                            <td><span class="badge bg-label-success me-1">200.000</span></td>
-                            <td>
-                                <button type="button" class="btn btn-icon btn-outline-warning">
-                                    <i class='bx bxs-pencil'></i>
-                                </button>
-                                <button type="button" class="btn btn-icon btn-outline-danger">
-                                    <i class="bx bx-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>3.</strong></td>
-                            <td>Joki Satuan</td>
-                            <td>legend 5 - mytich grading</td>
-                            <td><span class="badge bg-label-info me-1">60.000</span></td>
-                            <td>
-                                <button type="button" class="btn btn-icon btn-outline-warning">
-                                    <i class='bx bxs-pencil'></i>
-                                </button>
-                                <button type="button" class="btn btn-icon btn-outline-danger">
-                                    <i class="bx bx-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        <?php $i = 1; ?>
+                        @foreach ($data as $item)
+                            <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <strong>{{ $i }}</strong>
+                                </td>
+                                <td>{{ $item->nama_paket }}</td>
+                                <td>{{ $item->joki_rank }}</td>
+                                <td><span class="badge bg-label-primary me-1">{{ $item->harga_joki }}</span></td>
+                                <td>
+                                    <a href="{{ route('jokiML.edit', $item->id) }}"
+                                        class="btn btn-icon btn-outline-warning">
+                                        <i class='bx bxs-pencil'></i>
+                                    </a>
+                                    <form action="{{ route('jokiML.destroy', $item->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button id="confirmDelete" type="submit" class="btn btn-icon btn-outline-danger" data-confirm-delete="true">
+                                            <i class="bx bx-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        $(document).ready(function(){
+            $('form').on('submit', function(e){
+                e.preventDefault();
+                var form = $(this);
+                var url = form.attr('action');
+                
+                Swal.fire({
+                    title: 'Hapus Data!',
+                    text: 'Apakah Anda yakin ingin menghapus data?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: url,
+                            data: form.serialize(),
+                            success: function(response) {
+                                Swal.fire('Sukses!', response.success, 'success');
+                                // Refresh halaman setelah penghapusan data
+                                location.reload();
+                            },
+                            error: function(xhr) {
+                                Swal.fire('Error!', 'Gagal menghapus data.', 'error');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
 @endsection
