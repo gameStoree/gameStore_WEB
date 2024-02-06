@@ -32,6 +32,7 @@
                                         class="btn btn-icon btn-outline-warning">
                                         <i class='bx bxs-pencil'></i>
                                     </a>
+                                    {{-- <a href="{{ route('diamondGame.destroy',  $item->id) }}" class="btn btn-icon btn-outline-danger" data-confirm-delete="true"><i class="bx bx-trash-alt"></i></a> --}}
                                     <form action="{{ route('diamondGame.destroy', $item->id) }}" method="POST"
                                         class="d-inline">
                                         @csrf
@@ -50,8 +51,10 @@
         </div>
     </div>
     @include('sweetalert::alert')
-    <script>
-        function confirmDelete(id) {
+    {{-- <script>
+        $('confirmDelete').click(function(event){
+            var form = $(this).closest("form");
+            event.preventDefault();
             Swal.fire({
                 title: 'Hapus Data!',
                 text: 'Apakah Anda yakin ingin menghapus data?',
@@ -65,6 +68,7 @@
                     document.getElementById('delete-form-' + id).submit();
                 }
             });
-        }
-    </script>
+        })
+        
+    </script> --}}
 @endsection

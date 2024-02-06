@@ -12,9 +12,10 @@ class diamondGameController extends Controller
      */
     public function index()
     {
-        $title = 'Hapus Data!';
-        $text = "Apakah anda yakin ingin menghapus data?";
-        confirmDelete($title, $text);
+        
+        // $title = 'Hapus Data!';
+        // $text = "Apakah anda yakin ingin menghapus data?";
+        // confirmDelete($title, $text);
 
         return view('adminDev.diamondGame.index', [
             'judul' => 'DIAMOND GAME',
@@ -88,10 +89,10 @@ class diamondGameController extends Controller
      */
     public function destroy(string $id)
     {
-        $title = 'Hapus Data!';
-        $text = "Apakah anda yakin ingin menghapus data?";
+        // $title = 'Hapus Data!';
+        // $text = "Apakah anda yakin ingin menghapus data?";
 
         diamondGame::where('id', $id)->delete();
-        return redirect()->route('diamondGame.index')->with('confirmDelete', $title, $text);
+        return redirect()->route('diamondGame.index')->with('success', 'Berhasil menghapus data');
     }
 }
