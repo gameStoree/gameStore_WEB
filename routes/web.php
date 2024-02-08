@@ -6,6 +6,7 @@ use App\Http\Controllers\jokiMlController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\pemesananJokiController;
+use App\Http\Controllers\profileAdminController;
 use App\Http\Controllers\workerController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,4 +37,5 @@ Route::prefix('adminDev')->group(
         Route::resource('pemesanan/joki', pemesananJokiController::class);
         Route::resource('worker', workerController::class);
         Route::resource('laporan', laporanController::class);
+        Route::resource('profileAdmin', profileAdminController::class);
     });

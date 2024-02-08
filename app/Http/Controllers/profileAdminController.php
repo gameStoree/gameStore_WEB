@@ -11,7 +11,9 @@ class profileAdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('adminDev.profileAdmin.index', [
+            'judul' => 'PROFILE ADMIN',
+        ]);
     }
 
     /**
