@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/vendor/css/theme-default.css"
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/demo.css" />
+    <link rel="stylesheet" href="{{ asset('css')}}/pemesananDiamond.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('admin') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
