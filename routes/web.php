@@ -4,6 +4,7 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\diamondGameController;
 use App\Http\Controllers\jokiMlController;
 use App\Http\Controllers\laporanController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\pemesananJokiController;
 use App\Http\Controllers\profileAdminController;
@@ -21,9 +22,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login', function () {
+    return view('login.index');
 });
+
+Route::get('/login', [loginController::class, 'index'])->name('login.index');
+Route::post('/login', [loginController::class, 'login']);
 
 Route::prefix('adminDev')->group(
     function () {
