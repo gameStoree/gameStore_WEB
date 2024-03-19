@@ -18,9 +18,13 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Project</th>
-                                <th>Client</th>
-                                <th>Users</th>
+                                <th>ID Transaksi TopUp</th>
+                                <th>ID TopUp</th>
+                                <th>ID ML</th>
+                                <th>Server ML</th>
+                                <th>No Hp</th>
+                                <th>Customer</th>
+                                <th>Metode Pembayaran</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -28,30 +32,15 @@
                         <tbody class="table-border-bottom-0">
                             <tr>
                                 <td>
-                                    <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bootstrap
-                                        Project</strong>
+                                    <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>TRK0001</strong>
                                 </td>
-                                <td>Jerry Milton</td>
-                                <td>
-                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                            class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                            <img src="{{ asset('admin') }}/img/avatars/5.png" alt="Avatar"
-                                                class="rounded-circle" />
-                                        </li>
-                                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                            class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
-                                            <img src="{{ asset('admin') }}/img/avatars/6.png" alt="Avatar"
-                                                class="rounded-circle" />
-                                        </li>
-                                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                            class="avatar avatar-xs pull-up" title="Christina Parker">
-                                            <img src="{{ asset('admin') }}/img/avatars/7.png" alt="Avatar"
-                                                class="rounded-circle" />
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td><span class="badge bg-label-warning me-1">Pending</span></td>
+                                <td>ML01</td>
+                                <td>2003</td>
+                                <td>12334332</td>
+                                <td>085233661118</td>
+                                <td>Iqbal</td>
+                                <td>BCA</td>
+                                <td><span class="badge bg-label-warning me-1">Belum bayar</span></td>
                                 <td>
                                     <button type="button" class="btn btn-icon btn-outline-success">
                                         <i class='bx bx-check'></i>

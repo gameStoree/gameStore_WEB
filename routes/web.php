@@ -26,15 +26,22 @@ Route::get('/login', function () {
     return view('login.index');
 });
 
-Route::get('/login', [loginController::class, 'index'])->name('login.index');
-Route::post('/login', [loginController::class, 'login']);
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [loginController::class, 'index'])->name('login');
+    Route::post('/login', [loginController::class, 'login']);
+});
 
-Route::prefix('adminDev')->group(
+Route::get('/home', function () {
+    return redirect('adminDev');
+});
+
+Route::prefix('adminDev')->middleware('auth')->group(
     function () {
-        Route::get('/', function() {
+        Route::get('/', function () {
             return view('adminDev.layout');
         });
         Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
         Route::resource('diamondGame', diamondGameController::class);
         Route::resource('jokiML', jokiMlController::class);
         Route::resource('pemesanan/diamond', pemesananDiamondController::class);
@@ -42,4 +49,8 @@ Route::prefix('adminDev')->group(
         Route::resource('worker', workerController::class);
         Route::resource('laporan', laporanController::class);
         Route::resource('profileAdmin', profileAdminController::class);
-    });
+        Route::get('/home', function () {
+            return redirect('/login');
+        });
+    }
+);

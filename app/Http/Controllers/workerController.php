@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\worker;
 use Illuminate\Http\Request;
 
 class workerController extends Controller
@@ -13,6 +14,7 @@ class workerController extends Controller
     {
         return view('adminDev.worker.index', [
             'judul' =>'WORKER',
+            'data' => worker::all()
         ]);
     }
 
@@ -21,7 +23,9 @@ class workerController extends Controller
      */
     public function create()
     {
-        return view('adminDev.worker.create');
+        return view('adminDev.worker.create', [
+            'judul' =>'WORKER',
+        ]);
     }
 
     /**
@@ -29,7 +33,27 @@ class workerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_lengkap' => 'required|max:30',
+            'email' => 'required|max:30',
+            'password' => 'required|max:8',
+            'tggl_lahir' => 'required',
+            'alamat' => 'required',
+            'foto' => 'required|image|max:2048',
+            'high_rank' => 'required|max:20',
+            'role' => 'required|max:30',
+        ]);
+
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $fileName = $file->getClientOriginalName();
+            $filePath = $file->storeAs('foto-worker', $fileName);
+            $validatedData['foto'] = $filePath;
+        }
+
+        worker::create($validatedData);
+
+        return redirect()->route('worker.index')->with('success', 'Berhasil menambahkan worker');
     }
 
     /**
@@ -45,7 +69,10 @@ class workerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = worker::where('id', $id)->first();
+        return view('adminDev.worker.update', [
+            'judul' => 'WORKER',
+        ])->with('data', $data);
     }
 
     /**
@@ -53,7 +80,27 @@ class workerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_lengkap' => 'required|max:30',
+            'email' => 'required|max:30',
+            'password' => 'required|max:8',
+            'tggl_lahir' => 'required',
+            'alamat' => 'required',
+            'foto' => 'required|image|max:2048',
+            'high_rank' => 'required|max:20',
+            'role' => 'required|max:30',
+        ]);
+
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $fileName = $file->getClientOriginalName();
+            $filePath = $file->storeAs('foto-worker', $fileName);
+            $validatedData['foto'] = $filePath;
+        }
+
+        worker::findOrFail($id)->update($validatedData);
+
+        return redirect()->route('worker.index')->with('success', 'Data worker berhasil diupdate');
     }
 
     /**
