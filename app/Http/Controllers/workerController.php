@@ -108,6 +108,7 @@ class workerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        worker::where('id', $id)->delete();
+        return redirect()->route('worker.index')->with('success', 'Berhasil menghapus data');
     }
 }

@@ -35,9 +35,14 @@
                                         class="btn btn-icon btn-outline-warning">
                                         <i class='bx bxs-pencil'></i>
                                     </a>
-                                    <button type="button" class="btn btn-icon btn-outline-danger">
-                                        <i class="bx bx-trash-alt"></i>
-                                    </button>
+                                    <form action="{{ route('worker.destroy', $worker->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button id="confirmDelete" type="submit" class="btn btn-icon btn-outline-danger" data-confirm-delete="true">
+                                            <i class="bx bx-trash-alt"></i>
+                                        </button>
+                                    </form>
                                     <button type="button" class="btn btn-icon btn-outline-secondary">
                                         <i class="bx bx-info-circle"></i>
                                     </button>

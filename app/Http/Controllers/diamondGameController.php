@@ -12,7 +12,7 @@ class diamondGameController extends Controller
      */
     public function index()
     {
-        
+
         // $title = 'Hapus Data!';
         // $text = "Apakah anda yakin ingin menghapus data?";
         // confirmDelete($title, $text);
@@ -42,10 +42,10 @@ class diamondGameController extends Controller
             'nama_game' => 'required|max:30',
             'jumlah_diamond' => 'required|max:30',
             'harga_diamond' => 'required|max:30'
-        ]);        
+        ]);
 
         diamondGame::create($validatedData);
-    
+
         return redirect()->route('diamondGame.index')->with('success', 'Berhasil menambahkan data');
     }
 
@@ -78,9 +78,9 @@ class diamondGameController extends Controller
             'jumlah_diamond' => 'required|max:30',
             'harga_diamond' => 'required|max:30'
         ]);
-    
+
         diamondGame::findOrFail($id)->update($validatedData);
-    
+
         return redirect()->route('diamondGame.index')->with('success', 'Data berhasil diupdate');
     }
 

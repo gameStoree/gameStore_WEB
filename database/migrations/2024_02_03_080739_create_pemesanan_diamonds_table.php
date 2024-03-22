@@ -11,8 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pemesanan_diamonds', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pemesanan_diamond', function (Blueprint $table) {
+            $table->char('id_transaksi_topUp', 10)->primary();
+            $table->integer('id_game');
+            $table->string('metode_pembayaran');
+            $table->string('bukti_tf');
+            $table->char('no_hp', 13);
+            $table->string('status', 20);
+            $table->unsignedBigInteger('id_diamond');
+            $table->unsignedBigInteger('id_user');
+
+
             $table->timestamps();
         });
     }
@@ -22,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pemesanan_diamonds');
+        Schema::dropIfExists('pemesanan_diamond');
     }
 };

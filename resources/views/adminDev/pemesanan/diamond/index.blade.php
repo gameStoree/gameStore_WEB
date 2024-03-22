@@ -19,12 +19,11 @@
                         <thead>
                             <tr>
                                 <th>ID Transaksi TopUp</th>
-                                <th>ID TopUp</th>
-                                <th>ID ML</th>
-                                <th>Server ML</th>
+                                <th>ID Game</th>
                                 <th>No Hp</th>
                                 <th>Customer</th>
                                 <th>Metode Pembayaran</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -34,11 +33,10 @@
                                 <td>
                                     <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>TRK0001</strong>
                                 </td>
-                                <td>ML01</td>
-                                <td>2003</td>
                                 <td>12334332</td>
                                 <td>085233661118</td>
                                 <td>Iqbal</td>
+                                <td>BCA</td>
                                 <td>BCA</td>
                                 <td><span class="badge bg-label-warning me-1">Belum bayar</span></td>
                                 <td>
