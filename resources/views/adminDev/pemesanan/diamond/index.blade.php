@@ -20,6 +20,7 @@
                             <tr>
                                 <th>ID Transaksi TopUp</th>
                                 <th>ID Game</th>
+                                <th>Nama Game</th>
                                 <th>No Hp</th>
                                 <th>Customer</th>
                                 <th>Metode Pembayaran</th>
@@ -29,25 +30,33 @@
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <tr>
-                                <td>
-                                    <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>TRK0001</strong>
-                                </td>
-                                <td>12334332</td>
-                                <td>085233661118</td>
-                                <td>Iqbal</td>
-                                <td>BCA</td>
-                                <td>BCA</td>
-                                <td><span class="badge bg-label-warning me-1">Belum bayar</span></td>
-                                <td>
-                                    <button type="button" class="btn btn-icon btn-outline-success">
-                                        <i class='bx bx-check'></i>
-                                    </button>
-                                    <button type="button" class="btn btn-icon btn-outline-danger">
-                                        <i class="bx bx-trash-alt"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach ($dataMasuk as $pesananMasuk)
+                                <tr>
+                                    <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
+                                        <strong>{{ $pesananMasuk->id }}</strong>
+                                    </td>
+                                    <td>{{ $pesananMasuk->id_game }}</td>
+                                    <td>{{ $pesananMasuk->nama_game }}</td>
+                                    <td>{{ $pesananMasuk->no_hp }}</td>
+                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
+                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
+                                    <td>{{ $pesananMasuk->bukti_tf }}</td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
+                                    <td class="d-flex gap-2">
+                                        <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="btn btn-icon btn-outline-success">
+                                                <i class='bx bx-check'></i>
+                                            </button>
+                                        </form>
+                                        <button type="button" class="btn btn-icon btn-outline-danger">
+                                            <i class="bx bx-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -60,38 +69,31 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Project</th>
-                                <th>Client</th>
-                                <th>Users</th>
+                                <th>ID Transaksi TopUp</th>
+                                <th>ID Game</th>
+                                <th>Nama Game</th>
+                                <th>No Hp</th>
+                                <th>Customer</th>
+                                <th>Metode Pembayaran</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <tr>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong>
-                                </td>
-                                <td>Albert Cook</td>
-                                <td>
-                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                            class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                            <img src="{{ asset('admin') }}/img/avatars/5.png" alt="Avatar"
-                                                class="rounded-circle" />
-                                        </li>
-                                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                            class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
-                                            <img src="{{ asset('admin') }}/img/avatars/6.png" alt="Avatar"
-                                                class="rounded-circle" />
-                                        </li>
-                                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                            class="avatar avatar-xs pull-up" title="Christina Parker">
-                                            <img src="{{ asset('admin') }}/img/avatars/7.png" alt="Avatar"
-                                                class="rounded-circle" />
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td><span class="badge bg-label-primary me-1">Active</span></td>
-                            </tr>
+                            @foreach ($dataTerkonfirmasi as $pesananMasuk)
+                                <tr>
+                                    <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
+                                        <strong>{{ $pesananMasuk->id }}</strong>
+                                    </td>
+                                    <td>{{ $pesananMasuk->id_game }}</td>
+                                    <td>{{ $pesananMasuk->nama_game }}</td>
+                                    <td>{{ $pesananMasuk->no_hp }}</td>
+                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
+                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
+                                    <td>{{ $pesananMasuk->bukti_tf }}</td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -127,4 +129,5 @@
             });
         });
     </script>
+    @include('sweetalert::alert')
 @endsection

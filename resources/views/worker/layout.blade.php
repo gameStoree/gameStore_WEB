@@ -110,7 +110,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item {{ Request::is('adminDev/pemesanan/diamond') ? 'active' : '' }}">
-                                <a href="{{ route('pemesananDiamond.index') }}" class="menu-link">
+                                <a href="{{ route('diamond.index') }}" class="menu-link">
                                     <div data-i18n="Without menu">Diamond Game</div>
                                 </a>
                             </li>
