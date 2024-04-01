@@ -13,18 +13,16 @@
             </div>
         </div>
         <div id="pemesanan_content_masuk">
-            <div class="card">
-                <div class="table-responsive text-nowrap">
-                    <table class="table">
+            <div class="col-md-6e p-1">
+                <div class="card-body bg-white p-2" style="border-radius: 18px;">
+                    <table class="table table-hover large" id="diamondMasuk">
                         <thead>
                             <tr>
                                 <th>ID Transaksi TopUp</th>
                                 <th>ID Game</th>
                                 <th>Nama Game</th>
-                                <th>No Hp</th>
                                 <th>Customer</th>
                                 <th>Metode Pembayaran</th>
-                                <th>Bukti Pembayaran</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -37,10 +35,8 @@
                                     </td>
                                     <td>{{ $pesananMasuk->id_game }}</td>
                                     <td>{{ $pesananMasuk->nama_game }}</td>
-                                    <td>{{ $pesananMasuk->no_hp }}</td>
                                     <td>{{ $pesananMasuk->nama_lengkap }}</td>
                                     <td>{{ $pesananMasuk->metode_pembayaran }}</td>
-                                    <td>{{ $pesananMasuk->bukti_tf }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
                                     <td class="d-flex gap-2">
                                         <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
@@ -54,6 +50,10 @@
                                         <button type="button" class="btn btn-icon btn-outline-danger">
                                             <i class="bx bx-trash-alt"></i>
                                         </button>
+                                        <button type="button" class="btn btn-icon btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#modalLong">
+                                            <i class="bx bx-info-circle"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -64,9 +64,9 @@
         </div>
 
         <div id="pemesanan_content_terkonfirmasi">
-            <div class="card">
-                <div class="table-responsive text-nowrap">
-                    <table class="table">
+            <div class="col-md-6e p-1">
+                <div class="card-body bg-white p-2" style="border-radius: 18px;">
+                    <table class="table table-hover large" id="diamondTerkonfirmasi">
                         <thead>
                             <tr>
                                 <th>ID Transaksi TopUp</th>
@@ -129,5 +129,22 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#diamondMasuk').DataTable({
+
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#diamondTerkonfirmasi').DataTable({
+
+            });
+        });
+    </script>
     @include('sweetalert::alert')
+    @include('adminDev.pemesanan.diamond.modal')
 @endsection
