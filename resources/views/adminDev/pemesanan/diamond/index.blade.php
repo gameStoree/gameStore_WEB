@@ -15,7 +15,7 @@
         <div id="pemesanan_content_masuk">
             <div class="col-md-6e p-1">
                 <div class="card-body bg-white p-2" style="border-radius: 18px;">
-                    <table class="table table-hover large" id="diamondMasuk">
+                    <table class="table table-hover large" id="myTable">
                         <thead>
                             <tr>
                                 <th>ID Transaksi TopUp</th>
@@ -66,7 +66,7 @@
         <div id="pemesanan_content_terkonfirmasi">
             <div class="col-md-6e p-1">
                 <div class="card-body bg-white p-2" style="border-radius: 18px;">
-                    <table class="table table-hover large" id="diamondTerkonfirmasi">
+                    <table class="table table-hover large" id="myTable1">
                         <thead>
                             <tr>
                                 <th>ID Transaksi TopUp</th>
@@ -126,22 +126,6 @@
 
                 $(this).addClass("active");
                 $("#pesanan_masuk").removeClass("active");
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#diamondMasuk').DataTable({
-
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#diamondTerkonfirmasi').DataTable({
-
             });
         });
     </script>
