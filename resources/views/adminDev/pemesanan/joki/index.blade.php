@@ -18,28 +18,30 @@
                     <table class="table table-hover large" id="jokianMasuk">
                         <thead>
                             <tr>
-                                <th>ID Transaksi TopUp</th>
-                                <th>ID Game</th>
-                                <th>Nama Game</th>
-                                <th>Customer</th>
+                                <th>ID Transaksi Joki</th>
+                                <th>Nama Customer</th>
+                                <th>Nama Paket</th>
+                                <th>Joki Rank</th>
+                                <th>Harga</th>
                                 <th>Metode Pembayaran</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($dataMasuk as $pesananMasuk)
+                            @foreach ($jokiMasuk as $pesananMasuk)
                                 <tr>
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $pesananMasuk->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->id_game }}</td>
-                                    <td>{{ $pesananMasuk->nama_game }}</td>
                                     <td>{{ $pesananMasuk->nama_lengkap }}</td>
+                                    <td>{{ $pesananMasuk->nama_paket }}</td>
+                                    <td>{{ $pesananMasuk->joki_rank }}</td>
+                                    <td>{{ $pesananMasuk->harga_joki }}</td>
                                     <td>{{ $pesananMasuk->metode_pembayaran }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
                                     <td class="d-flex gap-2">
-                                        <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
+                                        {{-- <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('PUT')
@@ -49,7 +51,7 @@
                                         </form>
                                         <button type="button" class="btn btn-icon btn-outline-danger">
                                             <i class="bx bx-trash-alt"></i>
-                                        </button>
+                                        </button> --}}
                                         <button type="button" class="btn btn-icon btn-outline-secondary"
                                             data-bs-toggle="modal" data-bs-target="#modalLong">
                                             <i class="bx bx-info-circle"></i>
@@ -69,28 +71,27 @@
                     <table class="table table-hover large" id="jokianTerkonfirmasi">
                         <thead>
                             <tr>
-                                <th>ID Transaksi TopUp</th>
-                                <th>ID Game</th>
-                                <th>Nama Game</th>
-                                <th>No Hp</th>
-                                <th>Customer</th>
+                                <th>ID Transaksi Joki</th>
+                                <th>Nama Customer</th>
+                                <th>Nama Paket</th>
+                                <th>Joki Rank</th>
+                                <th>Harga</th>
                                 <th>Metode Pembayaran</th>
-                                <th>Bukti Pembayaran</th>
                                 <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($dataTerkonfirmasi as $pesananMasuk)
+                            @foreach ($jokiTerkonfirmasi as $pesananMasuk)
                                 <tr>
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $pesananMasuk->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->id_game }}</td>
-                                    <td>{{ $pesananMasuk->nama_game }}</td>
-                                    <td>{{ $pesananMasuk->no_hp }}</td>
                                     <td>{{ $pesananMasuk->nama_lengkap }}</td>
+                                    <td>{{ $pesananMasuk->nama_paket }}</td>
+                                    <td>{{ $pesananMasuk->joki_rank }}</td>
+                                    <td>{{ $pesananMasuk->harga_joki }}</td>
                                     <td>{{ $pesananMasuk->metode_pembayaran }}</td>
-                                    <td>{{ $pesananMasuk->bukti_tf }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
                                 </tr>
                             @endforeach

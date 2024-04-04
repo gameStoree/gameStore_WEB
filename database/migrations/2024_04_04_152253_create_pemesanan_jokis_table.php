@@ -11,19 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pemesanan_diamonds', function (Blueprint $table) {
+        Schema::create('pemesanan_jokis', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_game');
+            $table->unsignedBigInteger('id_paket');
+            $table->string('login_via', 20);
+            $table->string('nickname_ml', 30);
+            $table->string('email_no_hp_montonID', 30);
+            $table->string('password');
+            $table->string('request_hero');
+            $table->string('catatan_penjoki');
             $table->string('metode_pembayaran');
             $table->string('bukti_tf');
             $table->char('no_hp', 13);
             $table->string('status', 20);
-            $table->unsignedBigInteger('id_diamond');
             $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_worker');
             $table->timestamps();
 
-            $table->foreign('id_diamond')->references('id')->on('diamond_game');
+            $table->foreign('id_paket')->references('id')->on('joki_m_l');
             $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_worker')->references('id')->on('worker');
         });
     }
 
@@ -32,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pemesanan_diamonds');
+        Schema::dropIfExists('pemesanan_jokis');
     }
 };

@@ -39,20 +39,20 @@ class pemesananDiamondController extends Controller
 
     public function hapusPesanan(string $id)
     {
-        $pemesanan = pemesananDiamond::findOrFail($id);
+        // $pemesanan = pemesananDiamond::findOrFail($id);
 
-        if ($pemesanan->status == 'Belum Bayar') {
-            $waktuPengiriman = $pemesanan->created_at;
-            $batasWaktu = $waktuPengiriman->addMinutes(2);
+        // if ($pemesanan->status == 'Belum Bayar') {
+        //     $waktuPengiriman = $pemesanan->created_at;
+        //     $batasWaktu = $waktuPengiriman->addMinutes(2);
 
-            if (now()->greaterThanOrEqualTo($batasWaktu)) {
-                $pemesanan->delete();
-                return redirect()->back()->with('success', 'Pesanan berhasil dihapus karena tidak dibayar dalam waktu 2 menit.');
-            } else {
-                return redirect()->back()->with('error', 'Pesanan belum dapat dihapus karena belum mencapai batas waktu.');
-            }
-        } else {
-            return redirect()->back()->with('error', 'Pesanan tidak dapat dihapus karena sudah dibayar.');
-        }
+        //     if (now()->greaterThanOrEqualTo($batasWaktu)) {
+        //         $pemesanan->delete();
+        //         return redirect()->back()->with('success', 'Pesanan berhasil dihapus karena tidak dibayar dalam waktu 2 menit.');
+        //     } else {
+        //         return redirect()->back()->with('error', 'Pesanan belum dapat dihapus karena belum mencapai batas waktu.');
+        //     }
+        // } else {
+        //     return redirect()->back()->with('error', 'Pesanan tidak dapat dihapus karena sudah dibayar.');
+        // }
     }
 }

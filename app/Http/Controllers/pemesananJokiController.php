@@ -3,64 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\pemesananJoki;
 
 class pemesananJokiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function pesananJokiMasuk()
     {
+        $jokiMasuk = pemesananJoki::select('pemesanan_jokis.*', 'users.nama_lengkap', 'joki_m_l.nama_paket', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            ->join('users', 'pemesanan_jokis.id_user', '=', 'users.id')
+            ->where('pemesanan_jokis.status', '=', 'Belum bayar')
+            ->get();
+
+        $jokiTerkonfirmasi = pemesananJoki::select('pemesanan_jokis.*', 'users.nama_lengkap', 'joki_m_l.nama_paket', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            ->join('users', 'pemesanan_jokis.id_user', '=', 'users.id')
+            ->where('pemesanan_jokis.status', '=', 'SudahBayar')
+            ->get();
+
         return view('adminDev.pemesanan.joki.index', [
-            'judul' => 'PEMESANAN JOKI',
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            'judul' => 'PEMESANAN JOKI'
+        ], compact('jokiMasuk', 'jokiTerkonfirmasi'));
     }
 }

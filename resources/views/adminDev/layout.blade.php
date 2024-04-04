@@ -117,7 +117,7 @@
                                 </a>
                             </li>
                             <li class="menu-item {{ Request::is('adminDev/pemesanan/joki') ? 'active' : '' }}">
-                                <a href="{{ route('joki.index') }}" class="menu-link">
+                                <a href="{{ route('pemesananJoki.index') }}" class="menu-link">
                                     <div data-i18n="Without navbar">Joki ML</div>
                                 </a>
                             </li>

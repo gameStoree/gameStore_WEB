@@ -9,6 +9,7 @@ use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\pemesananJokiController;
 use App\Http\Controllers\profileAdminController;
 use App\Http\Controllers\workerController;
+use App\Models\pemesananJoki;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,7 +47,7 @@ Route::prefix('adminDev')->middleware('auth')->group(
         Route::resource('jokiML', jokiMlController::class);
         Route::get('/pemesanan/diamond', [pemesananDiamondController::class, 'pesananMasuk'])->name('pemesananDiamond.index');
         Route::put('/pemesanan/diamond/{id}/kirim', [pemesananDiamondController::class, 'diamondKonfirmasiKirim'])->name('pemesanan.diamond.kirim');
-        Route::resource('pemesanan/joki', pemesananJokiController::class);
+        Route::get('/pemesanan/joki', [pemesananJokiController::class, 'pesananJokiMasuk'])->name('pemesananJoki.index');
         Route::resource('worker', workerController::class);
         Route::resource('laporan', laporanController::class);
         Route::resource('profileAdmin', profileAdminController::class);
