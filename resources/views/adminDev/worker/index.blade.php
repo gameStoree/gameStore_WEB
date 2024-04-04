@@ -11,11 +11,12 @@
                     <thead>
                         <tr>
                             <th>ID Worker</th>
-                            <th>Nama Lenngkap</th>
+                            <th>Nama Lengkap</th>
                             <th>Email</th>
                             <th>Password</th>
                             <th>Role</th>
                             <th>High Rank</th>
+                            <th>Foto</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -24,12 +25,20 @@
                         @foreach ($data as $worker)
                             <tr>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $i }}</strong></td>
+                                    <strong>{{ $i }}</strong>
+                                </td>
                                 <td>{{ $worker->nama_lengkap }}</td>
                                 <td>{{ $worker->email }}</td>
                                 <td>{{ $worker->password }}</span></td>
                                 <td>{{ $worker->role }}</span></td>
                                 <td>{{ $worker->high_rank }}</td>
+                                <td>
+                                    @if ($worker->foto)
+                                        <img style="max-height: 150px; overflow:hidden" src="{{ asset('storage/' . $worker->foto) }}" alt="">
+                                    @else
+                                        <img style="max-height: 180px; overflow:hidden" src="{{ asset('dist/img/not-found.jpg') }}" alt="">
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('worker.edit', $worker->id) }}"
                                         class="btn btn-icon btn-outline-warning">
@@ -39,7 +48,8 @@
                                         class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button id="confirmDelete" type="submit" class="btn btn-icon btn-outline-danger" data-confirm-delete="true">
+                                        <button id="confirmDelete" type="submit" class="btn btn-icon btn-outline-danger"
+                                            data-confirm-delete="true">
                                             <i class="bx bx-trash-alt"></i>
                                         </button>
                                     </form>

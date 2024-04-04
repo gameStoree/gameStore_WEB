@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return view('login.index');
+Route::get('/', function () {
+    return redirect()->route('login');
 });
 
 Route::middleware('guest')->group(function () {
@@ -44,7 +44,8 @@ Route::prefix('adminDev')->middleware('auth')->group(
         Route::get('/logout', [loginController::class, 'logout'])->name('logout');
         Route::resource('diamondGame', diamondGameController::class);
         Route::resource('jokiML', jokiMlController::class);
-        Route::resource('pemesanan/diamond', pemesananDiamondController::class);
+        Route::get('/pemesanan/diamond', [pemesananDiamondController::class, 'pesananMasuk'])->name('pemesananDiamond.index');
+        Route::put('/pemesanan/diamond/{id}/kirim', [pemesananDiamondController::class, 'diamondKonfirmasiKirim'])->name('pemesanan.diamond.kirim');
         Route::resource('pemesanan/joki', pemesananJokiController::class);
         Route::resource('worker', workerController::class);
         Route::resource('laporan', laporanController::class);

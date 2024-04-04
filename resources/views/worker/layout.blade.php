@@ -33,8 +33,6 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/css/demo.css" />
     <link rel="stylesheet" href="{{ asset('css') }}/pemesananDiamond.css" />
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
-
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('admin') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
@@ -112,7 +110,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item {{ Request::is('adminDev/pemesanan/diamond') ? 'active' : '' }}">
-                                <a href="{{ route('pemesananDiamond.index') }}" class="menu-link">
+                                <a href="{{ route('diamond.index') }}" class="menu-link">
                                     <div data-i18n="Without menu">Diamond Game</div>
                                 </a>
                             </li>
@@ -255,29 +253,6 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js">
-    </script>
-    <script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
-    </script>
-    <script type="text/javascript" charset="utf8"
-        src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js">
-    </script>
-    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-    <script>
-        new DataTable('#myTable', {
-            info: false,
-        });
-        new DataTable('#myTable1', {
-            info: false,
-        });
-    </script>
-
-
 </body>
 
 </html>

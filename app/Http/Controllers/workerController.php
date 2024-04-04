@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\worker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class workerController extends Controller
 {
@@ -47,7 +48,11 @@ class workerController extends Controller
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $fileName = $file->getClientOriginalName();
-            $filePath = $file->storeAs('foto-worker', $fileName);
+            $filePath = 'foto-worker/' . $fileName;
+            $filePathStorage = 'public/foto-worker/' . $fileName;
+            // $filePath = $file->storePublicly('foto-worker', 'public');
+            // $filePath = "public/".$file->storePublicly('foto-worker', $fileName);
+            Storage::put($filePathStorage, file_get_contents($file));
             $validatedData['foto'] = $filePath;
         }
 
@@ -94,7 +99,11 @@ class workerController extends Controller
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $fileName = $file->getClientOriginalName();
-            $filePath = $file->storeAs('foto-worker', $fileName);
+            $filePath = 'foto-worker/' . $fileName;
+            $filePathStorage = 'public/foto-worker/' . $fileName;
+            // $filePath = $file->storePublicly('foto-worker', 'public');
+            // $filePath = "public/".$file->storePublicly('foto-worker', $fileName);
+            Storage::put($filePathStorage, file_get_contents($file));
             $validatedData['foto'] = $filePath;
         }
 
