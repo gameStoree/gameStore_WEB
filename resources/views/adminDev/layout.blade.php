@@ -32,6 +32,7 @@
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/demo.css" />
     <link rel="stylesheet" href="{{ asset('css') }}/pemesananDiamond.css" />
+    <link rel="stylesheet" href="{{ asset('css') }}/pemesananJoki.css" />
 
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
 
@@ -182,8 +183,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span class="fw-semibold d-block">{{ Auth::user()->nama_lengkap }}</span>
+                                                    <small class="text-muted">{{ Auth::user()->role }}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -273,6 +274,12 @@
             info: false,
         });
         new DataTable('#myTable1', {
+            info: false,
+        });
+        new DataTable('#myTable2', {
+            info: false,
+        });
+        new DataTable('#myTable3', {
             info: false,
         });
     </script>

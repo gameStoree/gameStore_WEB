@@ -29,6 +29,7 @@
     </div>
 @endforeach --}}
 
+@foreach ($dataMasuk as $pesananMasuk)
 <div class="col-lg-4 col-md-3">
     <!-- Modal -->
     <div class="modal fade" id="modalLong" tabindex="-1" aria-hidden="true">
@@ -61,3 +62,4 @@
         </div>
     </div>
 </div>
+@endforeach
