@@ -43,8 +43,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alamat"></textarea>
+                                <label class="form-label" for="email">No HP</label>
+                                <input type="number" class="form-control" id="no_hp"
+                                    placeholder="Masukkan alamat email" name="no_hp" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -77,6 +78,12 @@
                                     <option value="Gold Laner">Gold Laner</option>
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alamat"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>

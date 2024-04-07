@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("email", 30);
             $table->string("password", 8);
             $table->date("tggl_lahir");
+            $table->char("no_hp", 13);
             $table->text("alamat", 50);
             $table->string("foto", 50);
             $table->string("high_rank", 20);
