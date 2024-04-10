@@ -7,7 +7,7 @@ use App\Http\Controllers\laporanController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\pemesananJokiController;
-use App\Http\Controllers\profileAdminController;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\workerController;
 use App\Models\pemesananJoki;
 use Illuminate\Support\Facades\Route;
@@ -50,7 +50,7 @@ Route::prefix('adminDev')->middleware('auth')->group(
         Route::get('/pemesanan/joki', [pemesananJokiController::class, 'pesananJokiMasuk'])->name('pemesananJoki.index');
         Route::resource('worker', workerController::class);
         Route::resource('laporan', laporanController::class);
-        Route::resource('profileAdmin', profileAdminController::class);
+        Route::resource('profileAdmin', profileController::class);
         Route::get('/home', function () {
             return redirect('/login');
         });

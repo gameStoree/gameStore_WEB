@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class profileAdminController extends Controller
+class profileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $user = auth()->user();
+
         return view('adminDev.profileAdmin.index', [
             'judul' => 'PROFILE ADMIN',
+            'user' => $user
         ]);
     }
 
