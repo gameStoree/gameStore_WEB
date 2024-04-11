@@ -193,7 +193,7 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('profileAdmin.index') }}">
+                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
                                             <i class="bx bx-user me-2"></i>
                                             <span class="align-middle">My Profile</span>
                                         </a>

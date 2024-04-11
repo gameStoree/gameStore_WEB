@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class profileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $user = auth()->user();
@@ -19,51 +18,28 @@ class profileController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'nama_lengkap' => 'required|max:30',
+            'email' => 'required|max:30',
+            'password' => 'required|max:30',
+            'no_hp' => 'required|max:30',
+            'alamat' => 'required|max:30',
+            'foto_user' => 'image|max:2048',
+            'role' => 'required|in:admin,worker,customer', 
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        if ($request->hasFile('foto_user')) {
+            $file = $request->file('foto_user');
+            $fileName = $file->getClientOriginalName();
+            $filePath = 'foto-worker/' . $fileName;
+            $filePathStorage = 'public/foto-worker/' . $fileName;
+            Storage::put($filePathStorage, file_get_contents($file));
+            $validatedData['foto_user'] = $filePath;
+        }
+
+        profile::findOrFail($id)->update($validatedData);
+        return redirect()->route('profile.index')->with('success', 'Data worker berhasil diupdate');
     }
 }

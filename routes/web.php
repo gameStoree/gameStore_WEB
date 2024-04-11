@@ -50,7 +50,8 @@ Route::prefix('adminDev')->middleware('auth')->group(
         Route::get('/pemesanan/joki', [pemesananJokiController::class, 'pesananJokiMasuk'])->name('pemesananJoki.index');
         Route::resource('worker', workerController::class);
         Route::resource('laporan', laporanController::class);
-        Route::resource('profileAdmin', profileController::class);
+        Route::get('/profile', [profileController::class, 'index'])->name('profile.index');
+        Route::put('/profile/{id}', [profileController::class, 'update'])->name('profile.update');
         Route::get('/home', function () {
             return redirect('/login');
         });
