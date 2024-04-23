@@ -74,12 +74,19 @@
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
-                    {{-- @dd(Request()) --}}
                     <!-- Dashboard -->
                     <li class="menu-item {{ Request::is('adminDev') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <!-- Kategori game -->
+                    <li class="menu-item {{ Request::is('adminDev/kategoriGame') ? 'active' : '' }}">
+                        <a href="{{ route('kategoriGame.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-category-alt"></i>
+                            <div data-i18n="Analytics">Kategori Game</div>
                         </a>
                     </li>
 
@@ -168,7 +175,7 @@
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="{{ asset('admin') }}/img/avatars/1.png" alt
+                                        <img src="{{ asset("storage") }}/{{ Auth::user()->foto_user }}" alt
                                             class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </a>

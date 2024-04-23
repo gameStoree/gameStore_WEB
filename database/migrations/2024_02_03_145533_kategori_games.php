@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('diamond_game', function (Blueprint $table) {
+        Schema::create('kategori_games', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('nama_game');
-            $table->string('jumlah_diamond');
-            $table->integer('harga_diamond');
+            $table->string('nama_game', 20);
+            $table->string('poster_game', 50);
             $table->timestamps();
-
-            $table->foreign('nama_game')->references('id')->on('kategori_games');
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('game');
+        //
     }
 };

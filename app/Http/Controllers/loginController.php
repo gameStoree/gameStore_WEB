@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class loginController extends Controller
 {
-    function index() {
+    function index()
+    {
         return view('login.index');
     }
 
-    function login(Request $request) {
+    function login(Request $request)
+    {
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -22,18 +24,27 @@ class loginController extends Controller
         ]);
 
         $cekLogin = [
-            'email'=> $request->email,
-            'password'=> $request->password,
+            'email' => $request->email,
+            'password' => $request->password,
         ];
 
-        if(Auth::attempt($cekLogin)) {
-            return redirect()->route('dashboard.index');
+        if (Auth::attempt($cekLogin)) {
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('dashboard.index');
+            } else if (Auth::user()->role == 'worker') {
+                return redirect()->route('dashboardWorker.index');
+            } else if (Auth::user()->role == 'customer') {
+                // Tindakan untuk role 'customer' di sini
+            } else {
+                return redirect('/')->withErrors('Email dan password yang anda masukkan tidak sesuai')->withInput();
+            }
         } else {
-            return redirect('')->withErrors('email dan password yang anda masukkan tidak sesuai')->withInput();
+            return redirect('/')->withErrors('Email dan password yang anda masukkan tidak sesuai')->withInput();
         }
     }
 
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
         return redirect('/login');
     }

@@ -73,68 +73,10 @@
                 <ul class="menu-inner py-1">
                     {{-- @dd(Request()) --}}
                     <!-- Dashboard -->
-                    <li class="menu-item {{ Request::is('adminDev') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.index') }}" class="menu-link">
+                    <li class="menu-item {{ Request::is('wokrer') ? 'active' : '' }}">
+                        <a href="{{ route('dashboardWorker.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
-                        </a>
-                    </li>
-
-                    <!-- Game -->
-                    <li
-                        class="menu-item {{ Request::is('adminDev/diamondGame') || Request::is('adminDev/jokiML') ? 'active open' : '' }}">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-game"></i>
-                            <div data-i18n="Layouts">Game</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item {{ Request::is('adminDev/diamondGame') ? 'active' : '' }}">
-                                <a href="{{ route('diamondGame.index') }}" class="menu-link">
-                                    <div data-i18n="Without menu">Diamond Game</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ Request::is('adminDev/jokiML') ? 'active' : '' }}">
-                                <a href="{{ route('jokiML.index') }}" class="menu-link">
-                                    <div data-i18n="Without navbar">Joki ML</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Pemesanan -->
-                    <li
-                        class="menu-item {{ Request::is('adminDev/pemesanan/diamond') || Request::is('adminDev/pemesanan/joki') ? 'active open' : '' }}">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-layout"></i>
-                            <div data-i18n="Layouts">Pemesanan</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item {{ Request::is('adminDev/pemesanan/diamond') ? 'active' : '' }}">
-                                <a href="{{ route('diamond.index') }}" class="menu-link">
-                                    <div data-i18n="Without menu">Diamond Game</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ Request::is('adminDev/pemesanan/joki') ? 'active' : '' }}">
-                                <a href="{{ route('joki.index') }}" class="menu-link">
-                                    <div data-i18n="Without navbar">Joki ML</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Worker -->
-                    <li class="menu-item {{ Request::is('adminDev/worker') ? 'active' : '' }}">
-                        <a href="{{ route('worker.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-user"></i>
-                            <div data-i18n="Analytics">Worker</div>
-                        </a>
-                    </li>
-
-                    <!-- Laporan-->
-                    <li class="menu-item {{ Request::is('adminDev/laporan') ? 'active' : '' }}">
-                        <a href="{{ route('laporan.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-report"></i>
-                            <div data-i18n="Analytics">Laporan</div>
                         </a>
                     </li>
                 </ul>
@@ -190,7 +132,7 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('profileAdmin.index') }}">
+                                        <a class="dropdown-item" href="#">
                                             <i class="bx bx-user me-2"></i>
                                             <span class="align-middle">My Profile</span>
                                         </a>

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\dashboardWorkerController;
 use App\Http\Controllers\diamondGameController;
 use App\Http\Controllers\jokiMlController;
+use App\Http\Controllers\kategoriGameController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\pemesananDiamondController;
@@ -43,6 +45,7 @@ Route::prefix('adminDev')->middleware('auth')->group(
         });
         Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+        Route::resource('kategoriGame', kategoriGameController::class);
         Route::resource('diamondGame', diamondGameController::class);
         Route::resource('jokiML', jokiMlController::class);
         Route::get('/pemesanan/diamond', [pemesananDiamondController::class, 'pesananMasuk'])->name('pemesananDiamond.index');
@@ -55,5 +58,14 @@ Route::prefix('adminDev')->middleware('auth')->group(
         Route::get('/home', function () {
             return redirect('/login');
         });
+    }
+);
+
+Route::prefix('worker')->middleware('auth')->group(
+    function () {
+        Route::get('/', function () {
+            return view('worker.layout');
+        });
+        Route::get('/', [dashboardWorkerController::class, 'index'])->name('dashboardWorker.index');
     }
 );
