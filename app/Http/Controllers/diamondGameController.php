@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\diamondGame;
+use App\Models\kategoriGame;
 use Illuminate\Http\Request;
 
 class diamondGameController extends Controller
@@ -28,8 +29,10 @@ class diamondGameController extends Controller
      */
     public function create()
     {
+        $data_kategori = kategoriGame::all();
         return view('adminDev.diamondGame.create', [
             'judul' => 'DIAMOND GAME',
+            'data_kategori' => $data_kategori,
         ]);
     }
 
@@ -89,9 +92,6 @@ class diamondGameController extends Controller
      */
     public function destroy(string $id)
     {
-        // $title = 'Hapus Data!';
-        // $text = "Apakah anda yakin ingin menghapus data?";
-
         diamondGame::where('id', $id)->delete();
         return redirect()->route('diamondGame.index')->with('success', 'Berhasil menghapus data');
     }

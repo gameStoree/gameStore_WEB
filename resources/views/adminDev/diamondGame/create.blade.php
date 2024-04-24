@@ -6,25 +6,27 @@
             {{-- <div class="card-header d-flex justify-content-between align-items-center">
             </div> --}}
             <div class="card-body">
-                <form action="{{ route('diamondGame.store')}}" method="POST">
+                <form action="{{ route('diamondGame.store') }}" method="POST">
                     @csrf
                     <div class="mb-4">
                         <label for="exampleFormControlSelect1" class="form-label">Nama Game</label>
                         <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="nama_game">
-                            <option selected><--- Pilih Game ---></option>
-                            <option value="Mobile Legend">Mobile Legend</option>
-                            <option value="Free Fire">Free Fire</option>
-                            <option value="PUBG">PUBG</option>
+                            <option selected disabled><--- Pilih Game ---></option>
+                            @foreach($data_kategori as $kategori)
+                                <option value="{{ $kategori->id }}">{{ $kategori->nama_game }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-company">Jumlah Diamond</label>
-                        <input type="text" class="form-control" id="basic-default-company" placeholder="Masukkan jumlah diamond" name="jumlah_diamond" />
+                        <input type="text" class="form-control" id="basic-default-company"
+                            placeholder="Masukkan jumlah diamond" name="jumlah_diamond" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-email">Harga Diamond</label>
                         <div class="input-group input-group-merge">
-                            <input type="text" id="basic-default-email" class="form-control" placeholder="Masukkan harga diamond" name="harga_diamond" />
+                            <input type="text" id="basic-default-email" class="form-control"
+                                placeholder="Masukkan harga diamond" name="harga_diamond" />
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
