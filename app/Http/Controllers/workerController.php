@@ -103,7 +103,7 @@ class workerController extends Controller
             'password' => 'required|max:8',
             'tggl_lahir' => 'required',
             'alamat' => 'required',
-            'foto' => 'required|image|max:2048',
+            'foto' => 'image|max:2048',
             'high_rank' => 'required|max:20',
             'role' => 'required|max:30',
         ]);
@@ -117,6 +117,10 @@ class workerController extends Controller
             // $filePath = "public/".$file->storePublicly('foto-worker', $fileName);
             Storage::put($filePathStorage, file_get_contents($file));
             $validatedData['foto'] = $filePath;
+        } else {
+            // Jika tidak ada file yang diunggah, gunakan nilai yang sudah ada dalam database
+            $existingData = worker::findOrFail($id);
+            $validatedData['foto'] = $existingData->foto;
         }
 
         worker::findOrFail($id)->update($validatedData);
