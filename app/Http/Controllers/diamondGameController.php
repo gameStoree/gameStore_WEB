@@ -13,14 +13,13 @@ class diamondGameController extends Controller
      */
     public function index()
     {
-
-        // $title = 'Hapus Data!';
-        // $text = "Apakah anda yakin ingin menghapus data?";
-        // confirmDelete($title, $text);
+        $diamondGames = diamondGame::select('diamond_game.*', 'kategori_games.nama_game', 'diamond_game.jumlah_diamond', 'diamond_game.harga_diamond')
+            ->join('kategori_games', 'diamond_game.nama_game', '=', 'kategori_games.id')
+            ->get();
 
         return view('adminDev.diamondGame.index', [
             'judul' => 'DIAMOND GAME',
-            'data' => diamondGame::all()
+            'data' => $diamondGames
         ]);
     }
 

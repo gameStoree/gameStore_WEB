@@ -14,7 +14,8 @@
     <!-- LOGO -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGOID.png" />
+    {{-- <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGOID.png" /> --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="{{ asset('admin') }}/fonts.googleapis.com" />
@@ -176,7 +177,7 @@
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
                                         <img src="{{ asset("storage") }}/{{ Auth::user()->foto_user }}" alt
-                                            class="w-px-40 h-auto rounded-circle" />
+                                            class="w-px-30 h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">

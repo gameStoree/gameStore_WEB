@@ -14,7 +14,8 @@
     <!-- LOGO -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGOID.png" />
+    {{-- <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGOID.png" /> --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="{{ asset('admin') }}/fonts.googleapis.com" />
@@ -73,7 +74,7 @@
                 <ul class="menu-inner py-1">
                     {{-- @dd(Request()) --}}
                     <!-- Dashboard -->
-                    <li class="menu-item {{ Request::is('wokrer') ? 'active' : '' }}">
+                    <li class="menu-item {{ Request::is('worker') ? 'active' : '' }}">
                         <a href="{{ route('dashboardWorker.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
@@ -107,8 +108,8 @@
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="{{ asset('admin') }}/img/avatars/1.png" alt
-                                            class="w-px-40 h-auto rounded-circle" />
+                                        <img src="{{ asset("storage") }}/{{ Auth::user()->foto_user }}" alt
+                                            class="w-px-40h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -117,13 +118,13 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="{{ asset('admin') }}/img/avatars/1.png" alt
-                                                            class="w-px-40 h-auto rounded-circle" />
+                                                        <img src="{{ asset("storage") }}/{{ Auth::user()->foto_user }}" alt
+                                                            class="w-px-40h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span class="fw-semibold d-block">{{ Auth::user()->nama_lengkap }}</span>
+                                                    <small class="text-muted">{{ Auth::user()->role }}</small>
                                                 </div>
                                             </div>
                                         </a>
