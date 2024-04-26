@@ -14,8 +14,8 @@
     <!-- LOGO -->
 
     <!-- Favicon -->
-    {{-- <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGOID.png" /> --}}
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGO2.png" />
+    {{-- <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/favicon.ico" /> --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="{{ asset('admin') }}/fonts.googleapis.com" />
@@ -78,6 +78,14 @@
                         <a href="{{ route('dashboardWorker.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+
+                    {{-- Take Job --}}
+                    <li class="menu-item {{ Request::is('worker') ? 'active' : '' }}">
+                        <a href="{{ route('#') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Take Job</div>
                         </a>
                     </li>
                 </ul>
