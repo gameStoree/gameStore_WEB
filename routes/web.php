@@ -10,6 +10,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\pemesananJokiController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\takeJobController;
 use App\Http\Controllers\workerController;
 use App\Models\pemesananJoki;
 use Illuminate\Support\Facades\Route;
@@ -67,5 +68,6 @@ Route::prefix('worker')->middleware('auth')->group(
             return view('worker.layout');
         });
         Route::get('/', [dashboardWorkerController::class, 'index'])->name('dashboardWorker.index');
+        Route::resource('takeJob', takeJobController::class);
     }
 );

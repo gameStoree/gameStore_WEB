@@ -33,6 +33,9 @@
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/demo.css" />
     <link rel="stylesheet" href="{{ asset('css') }}/pemesananDiamond.css" />
+    <link rel="stylesheet" href="{{ asset('css') }}/takeJob.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('admin') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -82,9 +85,9 @@
                     </li>
 
                     {{-- Take Job --}}
-                    <li class="menu-item {{ Request::is('worker') ? 'active' : '' }}">
-                        <a href="{{ route('#') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <li class="menu-item {{ Request::is('worker/takeJob') ? 'active' : '' }}">
+                        <a href="{{ route('takeJob.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-joystick-alt"></i>
                             <div data-i18n="Analytics">Take Job</div>
                         </a>
                     </li>
@@ -204,6 +207,21 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script>
+        new DataTable('#myTable', {
+            info: false,
+        });
+        new DataTable('#myTable1', {
+            info: false,
+        });
+        new DataTable('#myTable2', {
+            info: false,
+        });
+        new DataTable('#myTable3', {
+            info: false,
+        });
+    </script>
 </body>
 
 </html>
