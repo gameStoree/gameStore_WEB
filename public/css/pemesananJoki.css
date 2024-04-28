@@ -18,34 +18,16 @@ b93d8d7 :root {
     padding: 5px 20px;
     margin-bottom: 30px;
 }
+
 #pemesanan_top h4 {
     font-size: 18px;
 }
 
-#pesanan_masuk.active {
-    color: blue;
-}
-
-#pesanan_terkonfirmasi.active {
-    color: blue;
-}
-
-#pesanan_masuk.active {
-    color: blue;
-}
-#pesanan_lunas.active {
-    color: blue;
-}
-#pesanan_progres.active {
-    color: blue;
-}
-#pesanan_done.active {
-    color: blue;
-}
-
-#line {
-    margin-top: -60px;
-    margin-left: 60px;
+#pesanan_masuk.active, #pesanan_lunas.active .line-text, #pesanan_progres.active .line-text, #pesanan_done.active .line-text {
+    height: 2px; /* Sesuaikan tinggi garis dengan kebutuhan */
+    width: auto;
+    display: block;
+    margin-top: 5px;
 }
 
 #line .line-border {
@@ -58,75 +40,34 @@ b93d8d7 :root {
     margin-top: 10px;
 }
 
-#line .line-bold {
-    position: absolute;
-    content: "";
-    height: 4px;
-    background-color: black;
-    width: 36.3%;
-    margin-left: -60px;
-    margin-top: 10px;
-}
-
-#pemesanan_top .line-active {
-    z-index: 99;
-    position: absolute;
-    content: "";
-    height: 4px;
+#pesanan_masuk.active .line-text {
+    height: 2px;
     background-color: blue;
     width: auto;
-    width: 20%;
-    margin-left: -110px;
-    margin-top: 10px;
+    display: block;
+    margin-top: 5px;
 }
 
-#pemesanan_content_masuk {
-    margin: 40px 30px;
-    padding: 40px 70px 100px;
-    border-radius: 20px;
-    background-color: white;
+#pesanan_lunas.active .line-text {
+    height: 2px;
+    background-color: blue;
+    width: auto;
+    display: block;
+    margin-top: 5px;
 }
 
-#pemesanan_content_masuk .btn_terima {
-    padding: 4px 8px;
-    background-color: #1f9254;
-    text-decoration: none;
-    color: white;
-    border-radius: 20px;
-}
-#pemesanan_content_masuk .btn_tolak {
-    padding: 4px 8px;
-    background-color: #b75348;
-    text-decoration: none;
-    color: white;
-    border-radius: 20px;
+#pesanan_progres.active .line-text {
+    height: 2px;
+    background-color: blue;
+    width: auto;
+    display: block;
+    margin-top: 5px;
 }
 
-#pemesanan_content_masuk .btn_detail {
-    padding: 4px 8px;
-    background-color: #4848b7;
-    text-decoration: none;
-    color: white;
-    border-radius: 20px;
-}
-
-#pemesanan_content_lunas {
-    margin: 40px 30px;
-    padding: 40px 70px 100px;
-    border-radius: 20px;
-    background-color: white;
-}
-
-#pemesanan_content_progres {
-    margin: 40px 30px;
-    padding: 40px 70px 100px;
-    border-radius: 20px;
-    background-color: white;
-}
-
-#pemesanan_content_done {
-    margin: 40px 30px;
-    padding: 40px 70px 100px;
-    border-radius: 20px;
-    background-color: white;
+#pesanan_done.active .line-text {
+    height: 2px;
+    background-color: blue;
+    width: auto;
+    display: block;
+    margin-top: 5px;
 }

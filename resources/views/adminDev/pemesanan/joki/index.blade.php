@@ -5,16 +5,20 @@
         <div id="pemesanan_top" class="w-full">
             <div id="pesanan_masuk">
                 <h4 id="pesanan-masuk">Pesanan Masuk</h4>
-                <span class="line-active"></span>
+                {{-- <span class="line-active"></span> --}}
+                <span class="line-text"></span>
             </div>
             <div id="pesanan_lunas">
                 <h4 id="pesanan-terkonfimasi">Pesanan Lunas</h4>
+                <span class="line-text"></span>
             </div>
             <div id="pesanan_progres">
                 <h4 id="pesanan-progres">Pesanan Progres</h4>
+                <span class="line-text"></span>
             </div>
             <div id="pesanan_done">
                 <h4 id="pesanan-done">Pesanan Done</h4>
+                <span class="line-text"></span>
             </div>
         </div>
         <div id="pemesanan_content_masuk">
@@ -183,7 +187,7 @@
             $("#pemesanan_content_done").hide();
             $("#pesanan_masuk").addClass("active");
 
-            var initialPosition = $(".line-active").position().left;
+            var initialPosition = $(".line-text").position().left;
 
             $("#pesanan_masuk").click(function() {
                 $("#pemesanan_content_masuk").show();
@@ -196,7 +200,7 @@
                 $("#pesanan_progres").removeClass("active");
                 $("#pesanan_done").removeClass("active");
 
-                $(".line-active").css("left", initialPosition);
+                $(".line-text").css("left", initialPosition);
             });
 
             $("#pesanan_lunas").click(function() {
@@ -210,7 +214,7 @@
                 $("#pesanan_progres").removeClass("active");
                 $("#pesanan_done").removeClass("active");
 
-                $(".line-active").css("left", "500px");
+                $(".line-text").css("left", "500px");
             });
 
             $("#pesanan_progres").click(function() {
@@ -224,7 +228,7 @@
                 $("#pesanan_lunas").removeClass("active");
                 $("#pesanan_done").removeClass("active");
 
-                $(".line-active").css("left", "500px");
+                $(".line-text").css("left", "500px");
             });
 
             $("#pesanan_done").click(function() {
@@ -238,7 +242,7 @@
                 $("#pesanan_lunas").removeClass("active");
                 $("#pesanan_progres").removeClass("active");
 
-                $(".line-active").css("left", "500px");
+                $(".line-text").css("left", "500px");
             });
         });
     </script>
