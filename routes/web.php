@@ -39,7 +39,7 @@ Route::get('/home', function () {
     return redirect('adminDev');
 });
 
-Route::prefix('adminDev')->middleware('auth')->group(
+Route::prefix('adminDev')->middleware('UserAkses:admin')->group(
     function () {
         Route::get('/', function () {
             return view('adminDev.layout');
@@ -62,11 +62,12 @@ Route::prefix('adminDev')->middleware('auth')->group(
     }
 );
 
-Route::prefix('worker')->middleware('auth')->group(
+Route::prefix('worker')->middleware('UserAkses:worker')->group(
     function () {
         Route::get('/', function () {
             return view('worker.layout');
         });
+        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
         Route::get('/', [dashboardWorkerController::class, 'index'])->name('dashboardWorker.index');
         Route::resource('takeJob', takeJobController::class);
     }
