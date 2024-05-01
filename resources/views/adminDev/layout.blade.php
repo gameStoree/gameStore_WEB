@@ -14,7 +14,7 @@
     <!-- LOGO -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGO2.png" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGOID.png" />
     {{-- <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/favicon.ico" /> --}}
 
     <!-- Fonts -->
@@ -209,8 +209,8 @@
                                     <li>
                                         <div class="dropdown-divider"></div>
                                     </li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}">
                                             <i class="bx bx-power-off me-2"></i>
                                             <span class="align-middle">Log Out</span>
                                         </a>

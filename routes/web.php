@@ -35,9 +35,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [loginController::class, 'login']);
 });
 
-Route::get('/home', function () {
-    return redirect('adminDev');
-});
+Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
 Route::prefix('adminDev')->middleware('UserAkses:admin')->group(
     function () {
@@ -45,7 +43,6 @@ Route::prefix('adminDev')->middleware('UserAkses:admin')->group(
             return view('adminDev.layout');
         });
         Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
-        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
         Route::resource('kategoriGame', kategoriGameController::class);
         Route::resource('diamondGame', diamondGameController::class);
         Route::resource('jokiML', jokiMlController::class);
@@ -67,7 +64,6 @@ Route::prefix('worker')->middleware('UserAkses:worker')->group(
         Route::get('/', function () {
             return view('worker.layout');
         });
-        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
         Route::get('/', [dashboardWorkerController::class, 'index'])->name('dashboardWorker.index');
         Route::resource('takeJob', takeJobController::class);
     }
