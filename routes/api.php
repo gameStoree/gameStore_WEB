@@ -3,15 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthCustomerController;
-<<<<<<< Updated upstream
 use App\Http\Controllers\Api\DiamondGameController;
 use App\Http\Controllers\Api\UploadFotoController;
 use App\Http\Controllers\Api\JokiRankController;
 use App\Http\Controllers\Api\PemesananJokiController;
-=======
 use App\Http\Controllers\Api\UserApiController;
 use App\Http\Controllers\dashboardController;
->>>>>>> Stashed changes
 
 
 Route::post('/register', [AuthCustomerController::class, 'register']);
