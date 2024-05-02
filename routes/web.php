@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\dashboardWorkerController;
+use App\Http\Controllers\dashboardCustomerController;
+use App\Http\Controllers\jokiRankCustomerController;
 use App\Http\Controllers\diamondGameController;
 use App\Http\Controllers\jokiMlController;
 use App\Http\Controllers\kategoriGameController;
@@ -66,5 +68,16 @@ Route::prefix('worker')->middleware('UserAkses:worker')->group(
         });
         Route::get('/', [dashboardWorkerController::class, 'index'])->name('dashboardWorker.index');
         Route::resource('takeJob', takeJobController::class);
+    }
+);
+
+
+Route::prefix('customer')->group(
+    function () {
+        Route::get('/', function () {
+            return view('customer.Beranda');
+        });
+        Route::get('/', [dashboardCustomerController::class, 'index'])->name('dashboardCustomer.index');
+        Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
     }
 );
