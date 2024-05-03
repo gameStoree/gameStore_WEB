@@ -5,11 +5,11 @@
         <div id="pemesanan_top" class="w-full">
             <div id="pesanan_masuk">
                 <h4 id="pesanan-masuk">Pesanan Masuk</h4>
-                <span class="line-active"></span>
+                <span class="line-text"></span>
             </div>
             <div id="pesanan_terkonfirmasi">
                 <h4 id="pesanan-terkonfimasi">Pesanan Terkonfirmasi</h4>
-                <!-- <span class="line-active"></span> -->
+                <span class="line-text"></span>
             </div>
         </div>
         <div id="pemesanan_content_masuk">
@@ -106,7 +106,7 @@
             $("#pemesanan_content_terkonfirmasi").hide();
             $("#pesanan_masuk").addClass("active");
 
-            var initialPosition = $(".line-active").position().left;
+            var initialPosition = $(".line-text").position().left;
 
             $("#pesanan_masuk").click(function() {
                 $("#pemesanan_content_masuk").show();
@@ -115,14 +115,14 @@
                 $(this).addClass("active");
                 $("#pesanan_terkonfirmasi").removeClass("active");
 
-                $(".line-active").css("left", initialPosition);
+                $("line-text").css("left", initialPosition);
             });
 
             $("#pesanan_terkonfirmasi").click(function() {
                 $("#pemesanan_content_terkonfirmasi").show();
                 $("#pemesanan_content_masuk").hide();
 
-                $(".line-active").css("left", "650px");
+                $("line-text").css("left", "650px");
 
                 $(this).addClass("active");
                 $("#pesanan_masuk").removeClass("active");
