@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\dashboardWorkerController;
-use App\Http\Controllers\dashboardCustomerController;
-use App\Http\Controllers\jokiRankCustomerController;
-use App\Http\Controllers\diamondGameController;
-use App\Http\Controllers\jokiMlController;
-use App\Http\Controllers\kategoriGameController;
-use App\Http\Controllers\laporanController;
-use App\Http\Controllers\loginController;
-use App\Http\Controllers\pemesananDiamondController;
-use App\Http\Controllers\pemesananJokiController;
-use App\Http\Controllers\profileController;
-use App\Http\Controllers\takeJobController;
-use App\Http\Controllers\workerController;
 use App\Models\pemesananJoki;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiMlController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\jokiMlController;
+use App\Http\Controllers\workerController;
+use App\Http\Controllers\laporanController;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\takeJobController;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\diamondGameController;
+use App\Http\Controllers\kategoriGameController;
+use App\Http\Controllers\pemesananJokiController;
+use App\Http\Controllers\dashboardWorkerController;
+use App\Http\Controllers\jokiRankCustomerController;
+use App\Http\Controllers\pemesananDiamondController;
+use App\Http\Controllers\dashboardCustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
 
 Route::get('/', function () {
     return redirect()->route('login');

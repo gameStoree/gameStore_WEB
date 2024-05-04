@@ -17,6 +17,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/LOGOID.png" />
     {{-- <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/img/favicon/favicon.ico" /> --}}
 
+    {{-- SweetAlert --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
     <!-- Fonts -->
     <link rel="preconnect" href="{{ asset('admin') }}/fonts.googleapis.com" />
     <link rel="preconnect" href="{{ asset('admin') }}/fonts.gstatic.com" crossorigin />
