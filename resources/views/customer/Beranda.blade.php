@@ -10,6 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
+<style>
+    /* Tampilan menu saat aktif */
+    .active-menu {
+        background-color: #184E77; /* Atur latar belakang transparan */
+        color: #FFFFFF; /* Warna teks putih */
+    }
+
+    /* Tampilan menu saat di-hover */
+    .menu li:hover {
+        background-color: #007497; /* Warna latar belakang saat di-hover */
+        cursor: pointer;
+    }
+
+    /* Tampilan menu saat tidak aktif */
+    .menu li {
+        color: #FFFFFF; /* Warna teks putih */
+        cursor: pointer;
+    }
+</style>
+
+
 
 <nav class=" bg-[#184E77] fixed top-0 w-full z-50">
     <div class="navbar h-[60px] w-[70%]  m-auto items-center justify-center">
@@ -95,7 +116,7 @@
             </div>
             <div class="m-auto w-[70%]">
                 <div href class="grid grid-cols-3 gap-4 ">
-                    <div class="card bg-base-100 shadow-xl">
+                    <div class="card bg-base-50 shadow-xl">
                         @foreach ($kategori as $item)
                             <a href="/customer">
                                 <figure><img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" />
@@ -112,46 +133,41 @@
                             </a>
                         @endforeach
                     </div>
-
-                    {{-- <div class="card bg-base-100 shadow-xl">
-                        <figure><img src="{{ asset('admin/img/img/jokirank1.png') }}" alt="Shoes" /></figure>
-                        <div class="card-body flex flex-col items-start justify-between rounded-b-xl bg-primary-500 bg- bg-contain bg-[120px] bg-[#184E77] py-2 px-4 sm:bg-right
-                            md:flex-row md:items-center md:py-4">
-                            <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">Free Fire!</h2>
-                            <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">GamingStore</h2>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
-            <div class="h-auto w-[70%]  m-auto flex my-4 ">
-                <ul class="menu grid grid-cols-3 gap-4 rounded-box ">
-                    <li class="bg-[#184E77] text-white rounded-xl w-auto justify-center items-center w-auto">
-                        <a href="#">TopUp 1</a>
-                    </li>
-                    <li class="bg-[#184E77] text-white rounded-xl w-auto justify-center items-center ">
-                        <a href="#">Jasa Mobile Legends</a>
-                    </li>
-                    <li class="bg-[#184E77] text-white rounded-xl w-auto justify-center items-center ">
-                        <a href="#">Pulsa & Token</a>
-                    </li>
-
+            <div class="h-auto w-[70%] m-auto flex my-4">
+                <ul class="menu grid grid-cols-3 gap-4 rounded-box">
+                    <li id="topUp"
+                        class="bg-[#] text-white rounded-xl w-auto justify-center items-center w-auto topup1"
+                        style="font-size: 16px; padding: 10px 20px; border: 2px solid white; border-radius: 10px;">Top
+                        Up</li>
+                    <li id="jasa_ml"
+                        class="bg-[#] text-white rounded-xl w-auto justify-center items-center jasa_ml"
+                        style="font-size: 16px; padding: 10px 20px; border: 2px solid white; border-radius: 10px;">Jasa
+                        Mobile Legends</li>
                 </ul>
             </div>
 
-            <div class="m-auto w-[70%] p-[112px 0px 0px]">
-                <div class="grid grid-cols-6 gap-4">
-                    <div class="card  bg-[#184E77] shadow-xl">
-                        @foreach ($kategori as $item)
-                            <figure class="p-0">
-                                <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes"
-                                    class="rounded-xl" />
-                            </figure>
-                            <div class="card-body  items-center text-center p-2">
-                                <h2 class="text-white">{{ $item->nama_game }}</h2>
-                            </div>
-                        @endforeach
+            <div id="topup1-content" style="display: none;">
+                <div class="m-auto w-[70%] p-[112px 0px 0px]">
+                    <div class="grid grid-cols-6 gap-4">
+                        <div class="card  bg-[#184E77] shadow-xl">
+                            @foreach ($kategori as $item)
+                                <figure class="p-0">
+                                    <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes"
+                                        class="rounded-xl" />
+                                </figure>
+                                <div class="card-body  items-center text-center p-2">
+                                    <h2 class="text-white">{{ $item->nama_game }}</h2>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="mobileLegends-content" style="display: none;">
+                Isi konten untuk Jasa Mobile Legends
             </div>
 
             {{-- GAMBAR FOOTER --}}
@@ -214,6 +230,30 @@
         </div>
     </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Sembunyikan semua konten saat halaman dimuat kecuali yang pertama
+            $("#topup1-content").show();
+            $("#mobileLegends-content").hide();
+            $(".topup1").addClass("active-menu");
+
+            $(".topup1").click(function () {
+                $("#topup1-content").show();
+                $("#mobileLegends-content").hide();
+                $(".menu li").removeClass("active-menu");
+                $(this).addClass("active-menu");
+            });
+
+            $(".jasa_ml").click(function () {
+                $("#topup1-content").hide();
+                $("#mobileLegends-content").show();
+                $(".menu li").removeClass("active-menu");
+                $(this).addClass("active-menu");
+            });
+        });
+    </script>
+
 </body>
 
 </html>
