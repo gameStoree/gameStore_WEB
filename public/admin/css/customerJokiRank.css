@@ -1,10 +1,55 @@
+.backround {
+    height: 5000px;
+    width: auto;
+    margin: auto;
+    background-image: linear-gradient(to bottom right,  #34A0A4, #184E77);
+    align-items: center;
+}
+
+.container-layanan {
+    margin: auto;
+    margin-top: 30px;
+}
+.layanan {
+display: flex;
+margin: auto;
+padding: 4px 16px;
+background-color: #184E77;
+height: 40px;
+width: 70%;
+justify-content: center;
+align-items: center;
+}
+
+.layanan-isi-jaminanLayanan1,
+.layanan-isi-jaminanLayanan2,
+.layanan-isi-jaminanLayanan3,
+.layanan-isi-jaminanLayanan4 {
+margin: auto;
+
+}
+
+.okegen1 {
+    margin: auto;
+    display: block; /* Menghindari space tambahan di bawah gambar */
+    width: 100%; /* Lebar gambar akan mengikuti lebar parent elemen */
+    height: auto; /* Tinggi gambar akan menyesuaikan proporsi gambar */
+    padding: 0px;
+}
+
+
+
+
+
+
+
+
+
 .behind {
-    height: auto;
+    height: 200px;
     background-color: blue;
     width: 70%;
     margin: auto;
-    padding-top: 10px; /* Sesuaikan dengan tinggi yang diinginkan */
-
 }
 .bgTop {
 
@@ -57,7 +102,7 @@
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 .judulPetunjuk {
-    color: aliceblue;
+    color: rgb(96, 160, 217);
     display: flex;
     font-size: 20px;
     padding: 8px;
