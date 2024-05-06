@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class AuthCustomerController extends Controller
 {
@@ -17,16 +19,26 @@ class AuthCustomerController extends Controller
         'email' => 'required|email|unique:users',
         'password' => 'required',
         'no_hp' => 'required',
+        'alamat' => 'required',
     ]);
+    // $id_baru = Str::uuid();
+    // Membuat ID baru
+    // $tanggal_sekarang = Carbon::now()->format('Ymd'); // Format tanggal sekarang (misal: 20220501)
+    // $id_terakhir = User::latest()->first(); // Mendapatkan record terakhir dari tabel user
+    // $nomor_urut = $id_terakhir ? (int) substr($id_terakhir->id, -3) + 1 : 1; // Mendapatkan nomor urut berikutnya
+    // $nomor_urut_format = str_pad($nomor_urut, 3, '0', STR_PAD_LEFT); // Format nomor urut menjadi 3 digit dengan leading zero
+    // $id_baru = 'US' . $tanggal_sekarang . $nomor_urut_format; // Gabungkan semua komponen untuk membuat ID baru
 
+    // Membuat objek User baru
     $user = new User([
+        // 'id' => $id_baru,
         'nama_lengkap' => $request->nama_lengkap,
         'email' => $request->email,
         'password' => Hash::make($request->password),
         'no_hp' => $request->no_hp,
+        'alamat' => $request->alamat,
         'role' => 'customer',
     ]);
-
     $user->save();
 
     return response()->json(['message' => 'success', 'data' => $user], 201);

@@ -91,6 +91,14 @@
                             <div data-i18n="Analytics">Take Job</div>
                         </a>
                     </li>
+
+                    {{-- Coba --}}
+                    <li class="menu-item {{ Request::is('worker/apiMl') ? 'active' : '' }}">
+                        <a href="{{ route('apiMl.tampilan') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-joystick-alt"></i>
+                            <div data-i18n="Analytics">API ML</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
