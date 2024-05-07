@@ -7,25 +7,28 @@
     <title>Beranda</title>
     <link rel="stylesheet" href="{{ asset('admin') }}/css/index.css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
+    {{-- @vite('resource/css/app.css') --}}
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
 </head>
 <style>
     /* Tampilan menu saat aktif */
     .active-menu {
-        background-color: #184E77; /* Atur latar belakang transparan */
-        color: #FFFFFF; /* Warna teks putih */
+        background-color: #184E77; 
+        color: #FFFFFF;
     }
 
     /* Tampilan menu saat di-hover */
     .menu li:hover {
-        background-color: #007497; /* Warna latar belakang saat di-hover */
+        background-color: #007497;
+        color: #f6ff00;
         cursor: pointer;
     }
 
     /* Tampilan menu saat tidak aktif */
     .menu li {
-        color: #FFFFFF; /* Warna teks putih */
+        color: #FFFFFF;
         cursor: pointer;
     }
 </style>
@@ -109,32 +112,31 @@
         </div>
 
         <div class="w-full h-full p-[32px 0px]">
-            <div class="h-auto w-[70%]  m-auto ">
+            <div class="h-auto w-[70%] m-auto">
                 <h3 class="mb-3 text-2xl text-white  font-semibold uppercase leading-relaxed tracking-wider ">
                     ✨ POPULER
                 </h3>
             </div>
             <div class="m-auto w-[70%]">
                 <div href class="grid grid-cols-3 gap-4 ">
-                    <div class="card bg-base-50 shadow-xl">
-                        @foreach ($kategori as $item)
-                            <a href="/customer">
-                                <figure><img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" />
-                                </figure>
-                                <div
-                                    class="card-body flex flex-col items-start justify-between rounded-b-xl
+                    @foreach ($kategori as $item)
+                    <div class="card bg-base-100 shadow-xl">
+                        <a href="/customer">
+                            <figure><img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" /></figure>
+                            <div
+                                class="card-body flex flex-col items-start justify-between rounded-b-xl
                                     bg-primary-500 bg- bg-contain bg-[120px] bg-[#184E77] py-2 px-4 sm:bg-right
                                     md:flex-row md:items-center md:py-4">
-                                    <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">
-                                        {{ $item->nama_game }}</h2>
-                                    <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">GamingStore
-                                    </h2>
-                                </div>
-                            </a>
-                        @endforeach
+                                <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">{{ $item->nama_game }}
+                                </h2>
+                                <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">GamingStore</h2>
+                            </div>
+                        </a>
                     </div>
+                    @endforeach
                 </div>
             </div>
+
             <div class="h-auto w-[70%] m-auto flex my-4">
                 <ul class="menu grid grid-cols-3 gap-4 rounded-box">
                     <li id="topUp"
@@ -151,23 +153,35 @@
             <div id="topup1-content" style="display: none;">
                 <div class="m-auto w-[70%] p-[112px 0px 0px]">
                     <div class="grid grid-cols-6 gap-4">
+                        @foreach ($kategori as $item)
                         <div class="card  bg-[#184E77] shadow-xl">
-                            @foreach ($kategori as $item)
-                                <figure class="p-0">
-                                    <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes"
-                                        class="rounded-xl" />
-                                </figure>
-                                <div class="card-body  items-center text-center p-2">
-                                    <h2 class="text-white">{{ $item->nama_game }}</h2>
-                                </div>
-                            @endforeach
+                            <figure class="p-0">
+                                <img src="{{ asset('storage/' . $item->poster_game) }}"
+                                    alt="Shoes" class="rounded-xl" />
+                            </figure>
+                            <div class="card-body  items-center text-center p-2">
+                                <h2 class="text-white">{{ $item->nama_game }}</h2>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
 
             <div id="mobileLegends-content" style="display: none;">
-                Isi konten untuk Jasa Mobile Legends
+                <div class="m-auto w-[70%] p-[112px 0px 0px]">
+                    <div class="grid grid-cols-6 gap-4">
+                        <div class="card  bg-[#184E77] shadow-xl">
+                            <figure class="p-0">
+                                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                                    alt="Shoes" class="rounded-xl" />
+                            </figure>
+                            <div class="card-body  items-center text-center p-2">
+                                <h2 class="text-white  ">Mobile Legends!</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {{-- GAMBAR FOOTER --}}
