@@ -5,67 +5,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Beranda</title>
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/customerJokiRank.css" />
-
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/index.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 
 </head>
+<style>
+    /* Tampilan menu saat aktif */
+    .active-menu {
+        background-color: #184E77;
+        /* Atur latar belakang transparan */
+        color: #FFFFFF;
+        /* Warna teks putih */
+    }
 
-<body>
+    /* Tampilan menu saat di-hover */
+    .menu li:hover {
+        background-color: #007497;
+        /* Warna latar belakang saat di-hover */
+        cursor: pointer;
+    }
 
-    <div class="backround">
+    /* Tampilan menu saat tidak aktif */
+    .menu li {
+        color: #FFFFFF;
+        /* Warna teks putih */
+        cursor: pointer;
+    }
+</style>
 
-        <img src="{{ asset('admin/img/imgOrder/bgJokirank.png') }}" class="okegen1" alt="">
 
 
-        <div class="container">
-            <div class="bg-blue-500">
-                <div class="flex items-center justify-center gap-2 p-14">
-                    <div class="my-4 flex-none w-auto bg-[#50d71e] text-center p-2">
-                        01
-                    </div>
-                    <div class="flex-none w-auto bg-gray-100 text-center p-2">
-                        02
-                    </div>
-                    <div class="flex-none w-auto bg-gray-400 text-center p-2">
-                        03
-                    </div>
-                </div>
-
+<nav class=" bg-[#184E77] fixed top-0 w-full z-50">
+    <div class="navbar h-[60px] w-[70%]  m-auto items-center justify-center">
+        <div class="flex-1">
+            <a href="/customer" rel="noopener noreferrer">
+                <img src="{{ asset('admin/img/img/logo.png') }}" alt="Hubungi Kami">
+            </a>
+        </div>
+        <div class="flex-none">
+            <div class="flex items-center justify-center hover:border-b-2">
+                <img src="{{ asset('admin/img/img/hubungikami.png') }}" class=" h-[20px]">
+                <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Hubungi Kami</a>
+            </div>
+            <div class="flex items-center justify-center hover:border-b-2">
+                <img src="{{ asset('admin/img/img/cektransaksi.png') }}" class=" h-[20px]">
+                <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Cek Transaksi</a>
+            </div>
+            <div class="flex items-center justify-center hover:border-b-2">
+                <img src="{{ asset('admin/img/img/calculator.png') }}" class=" h-[20px]">
+                <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Kalkulator</a>
+            </div>
+            <div class="flex items-center justify-center hover:border-b-2">
+                <img src="{{ asset('admin/img/img/home.png') }}" class=" h-[20px]">
+                <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Masuk</a>
+            </div>
+            <div
+                class="menu ml-6 hover:bg-[#007497] bg-[#168AAD] h-[40px] items-center justify-center  rounded-l-xl border-r-[3px] border-white menu-horizontal p-0 ">
+                <a href="/customer" class="text-white  text-[15px] py-[10px] px-4 font-bold">Masuk</a>
+            </div>
+            <div
+                class="menu hover:bg-[#007497] bg-[#168AAD] h-[40px] items-center justify-center rounded-r-xl menu-horizontal p-0">
+                <a href="/customer" class="text-white  text-[15px] py-[10px]  px-4 font-bold">Daftar Sekarang</a>
             </div>
         </div>
+    </div>
+</nav>
+
+<body class="  w-full h-auto">
+    <div class="bg-gradient-to-br from-[#34A0A4] to-[#184E77] h-auto w-full ">
+
 
 
 
     </div>
 
 
-
-
 </body>
 
-
-
-
-
-
-
 </html>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-</script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
