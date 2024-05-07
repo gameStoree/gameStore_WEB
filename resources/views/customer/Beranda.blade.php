@@ -13,19 +13,23 @@
 <style>
     /* Tampilan menu saat aktif */
     .active-menu {
-        background-color: #184E77; /* Atur latar belakang transparan */
-        color: #FFFFFF; /* Warna teks putih */
+        background-color: #184E77;
+        /* Atur latar belakang transparan */
+        color: #FFFFFF;
+        /* Warna teks putih */
     }
 
     /* Tampilan menu saat di-hover */
     .menu li:hover {
-        background-color: #007497; /* Warna latar belakang saat di-hover */
+        background-color: #007497;
+        /* Warna latar belakang saat di-hover */
         cursor: pointer;
     }
 
     /* Tampilan menu saat tidak aktif */
     .menu li {
-        color: #FFFFFF; /* Warna teks putih */
+        color: #FFFFFF;
+        /* Warna teks putih */
         cursor: pointer;
     }
 </style>
@@ -116,7 +120,7 @@
             </div>
             <div class="m-auto w-[70%]">
                 <div href class="grid grid-cols-3 gap-4 ">
-                    <div class="card bg-base-50 shadow-xl">
+                    <div class="card rounded-xl bg-base-50 shadow-xl">
                         @foreach ($kategori as $item)
                             <a href="/customer">
                                 <figure><img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" />
@@ -141,8 +145,7 @@
                         class="bg-[#] text-white rounded-xl w-auto justify-center items-center w-auto topup1"
                         style="font-size: 16px; padding: 10px 20px; border: 2px solid white; border-radius: 10px;">Top
                         Up</li>
-                    <li id="jasa_ml"
-                        class="bg-[#] text-white rounded-xl w-auto justify-center items-center jasa_ml"
+                    <li id="jasa_ml" class="bg-[#] text-white rounded-xl w-auto justify-center items-center jasa_ml"
                         style="font-size: 16px; padding: 10px 20px; border: 2px solid white; border-radius: 10px;">Jasa
                         Mobile Legends</li>
                 </ul>
@@ -166,86 +169,99 @@
                 </div>
             </div>
 
-            <div id="mobileLegends-content" style="display: none;">
-                Isi konten untuk Jasa Mobile Legends
-            </div>
+            {{-- <div id="topup1-content" style="display: none;">
+                <div class="m-auto w-[70%] p-[112px 0px 0px]">
+                    <div class="grid grid-cols-6 gap-4">
+                        <div class="card">
+                            <a class="card" href="URL_ANDA">
+                                <img src="{{ asset('admin/img/img/TopUpCLASHROYAL.png') }}" alt="Shoes"
+                                    class="rounded-xl" />
+                            </a>
+                        </div>
+                    </div>
+                </div> --}}
 
-            {{-- GAMBAR FOOTER --}}
-            <div class="m-auto w-auto pt-32  ">
-                <div class="bg-cover bg-center">
-                    <img src="{{ asset('admin/img/img/footer.png') }}" class="w-full" />
+
+
+                {{-- GAMBAR FOOTER --}}
+                <div class="m-auto w-auto pt-32  ">
+                    <div class="bg-cover bg-center">
+                        <img src="{{ asset('admin/img/img/footer.png') }}" class="w-full" />
+                    </div>
                 </div>
-            </div>
-            <div class="m-auto w-auto bg-[#184E77] ">
-                <div class="pt-10 pb-10 m-auto w-[70%]">
-                    <p class="justify-center items-center text-center text-white">
-                        GamingStore adalah Platform Top Up Game Termurah di Indonesia. Penuhi Kebutuhan Gaming Mu
-                        Bersama GamingStore. Store Specialist Game Mobile Legends No.1 Murah , Aman , Terpercaya Dan
-                        Legal 100% (Open 24 Jam) . GamingStore Sahabat Para Gamers Kami berdedikasi untuk menyediakan
-                        layanan terbaik dan terus menerus inovatif untuk memenuhi kebutuhan gamers. Jangan lewatkan
-                        kesempatan untuk mengikuti kami di sosial media dan tetap update dengan informasi terbaru, tips,
-                        trik, dan promo-promo menarik lainnya. Jadilah bagian dari komunitas gamers terbesar dan
-                        terpercaya dengan GamingStore! Jangan Lupa Follow Sosial Media Kita Dapatkan info dan promo
-                        menarik yang akan terus mengalir untuk menambah kegembiraan dalam setiap game yang Anda mainkan.
-                        GamingStore, solusi one-stop untuk semua kebutuhan gaming Anda!
-                    </p>
-                </div>
-                <div class="m-auto w-[70%] pt-4 pb-12 ">
-                    <footer class="footer pt-8 bg-[#184E77] text-neutral-content">
-                        <nav>
-                            <h6 class="footer-title opacity-100 text-white">Services</h6>
-                            <a class="link link-hover">Tiktok </a>
-                            <a class="link link-hover">Design</a>
-                            <a class="link link-hover">Marketing</a>
-                            <a class="link link-hover">Advertisement</a>
-                        </nav>
-                        <nav>
-                            <h6 class="footer-title opacity-100 text-white">Company</h6>
-                            <a class="link link-hover">About us</a>
-                            <a class="link link-hover">Contact</a>
-                            <a class="link link-hover">Jobs</a>
-                            <a class="link link-hover">Press kit</a>
-                        </nav>
-                        <nav>
-                            <h6 class="footer-title opacity-100 text-white">Legal</h6>
-                            <a class="link link-hover">Terms of use</a>
-                            <a class="link link-hover">Privacy policy</a>
-                            <a class="link link-hover">Cookie policy</a>
-                        </nav>
-                        <nav>
-                            <h6 class="footer-title opacity-100 text-white">Services</h6>
-                            <a class="link link-hover">Branding</a>
-                            <a class="link link-hover">Design</a>
-                            <a class="link link-hover">Marketing</a>
-                            <a class="link link-hover">Advertisement</a>
-                        </nav>
-                    </footer>
-                </div>
-                <div class="h-auto w-[70%] m-auto ">
-                    <h3 class="pb-8 pt-8 text-xs leading-5  text-white border-t-2 border-white border-opacity-10 ">
-                        @ 2023 GAMINGSTORE. All rights reserved.
-                    </h3>
+                <div class="m-auto w-auto bg-[#184E77] ">
+                    <div class="pt-10 pb-10 m-auto w-[70%]">
+                        <p class="justify-center items-center text-center text-white">
+                            GamingStore adalah Platform Top Up Game Termurah di Indonesia. Penuhi Kebutuhan Gaming Mu
+                            Bersama GamingStore. Store Specialist Game Mobile Legends No.1 Murah , Aman , Terpercaya Dan
+                            Legal 100% (Open 24 Jam) . GamingStore Sahabat Para Gamers Kami berdedikasi untuk
+                            menyediakan
+                            layanan terbaik dan terus menerus inovatif untuk memenuhi kebutuhan gamers. Jangan lewatkan
+                            kesempatan untuk mengikuti kami di sosial media dan tetap update dengan informasi terbaru,
+                            tips,
+                            trik, dan promo-promo menarik lainnya. Jadilah bagian dari komunitas gamers terbesar dan
+                            terpercaya dengan GamingStore! Jangan Lupa Follow Sosial Media Kita Dapatkan info dan promo
+                            menarik yang akan terus mengalir untuk menambah kegembiraan dalam setiap game yang Anda
+                            mainkan.
+                            GamingStore, solusi one-stop untuk semua kebutuhan gaming Anda!
+                        </p>
+                    </div>
+                    <div class="m-auto w-[70%] pt-4 pb-12 ">
+                        <footer class="footer pt-8 bg-[#184E77] text-neutral-content">
+                            <nav>
+                                <h6 class="footer-title opacity-100 text-white">Services</h6>
+                                <a class="link link-hover">Tiktok </a>
+                                <a class="link link-hover">Design</a>
+                                <a class="link link-hover">Marketing</a>
+                                <a class="link link-hover">Advertisement</a>
+                            </nav>
+                            <nav>
+                                <h6 class="footer-title opacity-100 text-white">Company</h6>
+                                <a class="link link-hover">About us</a>
+                                <a class="link link-hover">Contact</a>
+                                <a class="link link-hover">Jobs</a>
+                                <a class="link link-hover">Press kit</a>
+                            </nav>
+                            <nav>
+                                <h6 class="footer-title opacity-100 text-white">Legal</h6>
+                                <a class="link link-hover">Terms of use</a>
+                                <a class="link link-hover">Privacy policy</a>
+                                <a class="link link-hover">Cookie policy</a>
+                            </nav>
+                            <nav>
+                                <h6 class="footer-title opacity-100 text-white">Services</h6>
+                                <a class="link link-hover">Branding</a>
+                                <a class="link link-hover">Design</a>
+                                <a class="link link-hover">Marketing</a>
+                                <a class="link link-hover">Advertisement</a>
+                            </nav>
+                        </footer>
+                    </div>
+                    <div class="h-auto w-[70%] m-auto ">
+                        <h3 class="pb-8 pt-8 text-xs leading-5  text-white border-t-2 border-white border-opacity-10 ">
+                            @ 2023 GAMINGSTORE. All rights reserved.
+                        </h3>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Sembunyikan semua konten saat halaman dimuat kecuali yang pertama
             $("#topup1-content").show();
             $("#mobileLegends-content").hide();
             $(".topup1").addClass("active-menu");
 
-            $(".topup1").click(function () {
+            $(".topup1").click(function() {
                 $("#topup1-content").show();
                 $("#mobileLegends-content").hide();
                 $(".menu li").removeClass("active-menu");
                 $(this).addClass("active-menu");
             });
 
-            $(".jasa_ml").click(function () {
+            $(".jasa_ml").click(function() {
                 $("#topup1-content").hide();
                 $("#mobileLegends-content").show();
                 $(".menu li").removeClass("active-menu");
