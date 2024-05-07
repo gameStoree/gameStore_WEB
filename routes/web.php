@@ -17,6 +17,8 @@ use App\Http\Controllers\dashboardWorkerController;
 use App\Http\Controllers\jokiRankCustomerController;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\dashboardCustomerController;
+use App\Http\Controllers\kalkulatorCustomerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -78,9 +80,10 @@ Route::prefix('worker')->middleware('UserAkses:worker')->group(
 Route::prefix('customer')->group(
     function () {
         Route::get('/', function () {
-            return view('customer.Beranda');
+            return view('customer.beranda');
         });
         Route::get('/', [dashboardCustomerController::class, 'index'])->name('dashboardCustomer.index');
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
+        Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
     }
 );

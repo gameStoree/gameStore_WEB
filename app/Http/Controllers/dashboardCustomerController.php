@@ -9,7 +9,7 @@ class dashboardCustomerController extends Controller
 {
     public function index() {
         $kategori = kategoriGame::all();
-        return view('customer.Beranda', [
+        return view('customer.beranda', [
             'kategori' => $kategori
         ]);
     }
