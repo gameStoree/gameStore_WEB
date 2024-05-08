@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Beranda</title>
+    <title>GAMINGSTORE</title>
     <link rel="stylesheet" href="{{ asset('admin') }}/css/index.css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="flex items-center justify-center hover:border-b-2">
                     <img src="{{ asset('admin/img/img/home.png') }}" class=" h-[20px]">
-                    <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Masuk</a>
+                    <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Beranda</a>
                 </div>
                 <div
                     class="menu ml-6 hover:bg-[#007497] bg-[#168AAD] h-[40px] items-center justify-center  rounded-l-xl border-r-[3px] border-white menu-horizontal p-0 ">
@@ -78,8 +78,8 @@
     <div class="bg-gradient-to-br from-[#34A0A4] to-[#184E77] h-auto w-full ">
 
 
-
-        <div class="w-full pt-[60px] h-auto p-[16px] m-[0px 0px 16px] justify-center items-center m-auto">
+        <div class="w-full pt-[60px] h-auto p-[16px] m-[0px 0px 16px] justify-center items-center m-auto bg-cover bg-center"
+            style="background-image: url('admin/img/img/bg.png')">>
             <div class="w-[72%] p-4 m-auto h-auto justify-center items-center">
                 <div class="carousel w-full ">
                     <div id="slide1" class="carousel-item relative w-full">
@@ -116,7 +116,7 @@
 
         <div class="w-full h-full p-[32px 0px]">
             <div class="h-auto w-[70%]  m-auto ">
-                <h3 class="mb-3 text-2xl text-white  font-semibold uppercase leading-relaxed tracking-wider ">
+                <h3 class="mb-3 mt-3 text-2xl text-white  font-semibold uppercase leading-relaxed tracking-wider ">
                     ✨ POPULER
                 </h3>
             </div>
