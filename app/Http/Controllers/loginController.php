@@ -43,6 +43,11 @@ class loginController extends Controller
         }
     }
 
+    function tampilanRegister()
+    {
+        return view('login.register');
+    }
+
     public function logout()
     {
         Auth::logout();
