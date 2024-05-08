@@ -117,7 +117,7 @@
 
               <p class="text-center">
                 <span>Belum punya akun?</span>
-                <a href="auth-register-basic.html">
+                <a href="{{ route('register') }}">
                   <span>Daftar disini</span>
                 </a>
               </p>
