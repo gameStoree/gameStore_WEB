@@ -22,7 +22,7 @@ class PemesananJokiController extends Controller
                     'joki_m_l.harga_joki',
                     'users.nama_lengkap AS nama_user',
                     'worker.nama_lengkap AS nama_worker',
-                )
+                )   
                 ->findOrFail($orderId);
 
             // Mengembalikan data pemesanan sebagai response API

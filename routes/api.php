@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\DiamondGameController;
 use App\Http\Controllers\Api\UploadFotoController;
 use App\Http\Controllers\Api\JokiRankController;
 use App\Http\Controllers\Api\PemesananJokiController;
-
+use App\Http\Controllers\ApiTransaksiIpaymu;
 
 Route::post('/register', [AuthCustomerController::class, 'register']);
 Route::post('/login', [AuthCustomerController::class, 'login']);
@@ -17,6 +17,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', [AuthCustomerController::class, 'me']);
     Route::post('/logout', [AuthCustomerController::class, 'logout']);
     Route::post('/upload-photo',    [UploadFotoController::class, 'uploadPhoto']);
+    // Route::post('/transactions', [TransactionController::class, 'store']);
 
 
 });
@@ -38,6 +39,8 @@ Route::get('/jokirank', [JokiRankController::class, 'index']);
 // Route::get('/pemesanan/{orderId}', 'PemesananJokiController@searchById');
 Route::get('/pemesanan/{orderId}', [PemesananJokiController::class, 'searchById']);
 
+
+Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
 
 
 
