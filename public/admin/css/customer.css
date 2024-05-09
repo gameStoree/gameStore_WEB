@@ -1,9 +1,8 @@
 
 html, body {
-    height: 500px;
+    height: auto;
     margin: 0;
     padding: 0;
-  background-image: linear-gradient(to bottom right,  #34A0A4, #184E77);
 }
 
 .navbarleft {
@@ -288,9 +287,7 @@ margin-right: 10px;
     transition: transform 0.3s ease-in-out; /* Adding transition for smooth animation */
 }
 
-.menu img:hover {
-    transform: scale(1.1); /* Scale the image on hover */
-}
+
 
 
 /* Untuk keadaan normal */
@@ -331,8 +328,8 @@ margin-right: 10px;
     text-decoration-line: none;
 }
 .menu1 {
-    display: flex;
-    flex-wrap: wrap;
+    grid-row: inherit;
+
     justify-content: center;
 }
 
@@ -403,7 +400,7 @@ margin-right: 10px;
 .footer{
     max-width: 100%;
     height: auto;
-    background-color: #279bf3;
+    background-color: #184E77;
 }
 
 .container-footer {

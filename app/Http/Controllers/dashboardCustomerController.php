@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kategoriGame;
 use Illuminate\Http\Request;
 
 class dashboardCustomerController extends Controller
 {
     public function index() {
-        return view('customer.Beranda');
+        $kategori = kategoriGame::all();
+        return view('customer.beranda', [
+            'kategori' => $kategori
+        ]);
     }
 }

@@ -4,206 +4,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Beranda</title>
+    <title>GAMINGSTORE</title>
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/index.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
+    {{-- @vite('resource/css/app.css') --}}
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/customer.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+
 </head>
+<style>
+    /* Tampilan menu saat aktif */
+    .active-menu {
+        background-color: #184E77; /* Atur latar belakang transparan */
+        color: #FFFFFF; /* Warna teks putih */
+    }
 
-<body>
-    <div class="backroundgambar">
-        <div class="gambardepan">
-            <div class="containergambar">
-                <img src="{{ asset('admin/img/img/wwwwwwww.jpg') }}" alt="Deskripsi Gambar" class="background-image">
-            </div>
-        </div>
+    /* Tampilan menu saat di-hover */
+    .menu li:hover {
+        background-color: #007497; /* Warna latar belakang saat di-hover */
+        cursor: pointer;
+    }
 
-        <img class="slide" src="{{ asset('admin/img/img/image 40.png') }}" alt="">
-        <img class="slide" src="{{ asset('admin/img/img/image 41.png') }}" alt="">
-        <img class="slide" src="{{ asset('admin/img/img/image 42.png') }}" alt="">
-
-        <div class="additional-image">
-            <img src="{{ asset('admin/img/img/panah-kiri.png') }}" alt="Additional Image 1" class="panah-kiri">
-            <img src="{{ asset('admin/img/img/panah-kanan.png') }}" alt="Additional Image 2" class="panah-kanan">
-
-        </div>
-
-    </div>
-
+    /* Tampilan menu saat tidak aktif */
+    .menu li {
+        color: #FFFFFF; /* Warna teks putih */
+        cursor: pointer;
+    }
+</style>
 
 
-    <div class="backround">
-        
 
-        <div class="containerbg">
-            <h2 class="textjudul">🔥Populer</h2>
-            <div class="menu">
-                <a href="#">
-                    <img src="{{ asset('admin/img/img/PO_ml.png') }}" class="menu1" alt="">
+
+
+<body class="  w-full h-auto">
+    <nav class=" bg-[#184E77] fixed top-0 w-full z-50">
+        <div class="navbar h-[60px] w-[70%]  m-auto items-center justify-center">
+            <div class="flex-1">
+                <a href="/customer" rel="noopener noreferrer">
+                    <img src="{{ asset('admin/img/img/logo.png') }}" alt="Hubungi Kami">
                 </a>
-                <img src="{{ asset('admin/img/img/PO_coc.png') }}" class="menu1" alt="">
-                <img src="{{ asset('admin/img/img/PO_FF.png') }}" class="menu1" alt="">
-                <img src="{{ asset('admin/img/img/PO_ML_topup.png') }}" class="menu1" alt="">
-                <img src="{{ asset('admin/img/img/PO_pubg.png') }}" class="menu1" alt="">
-                <img src="{{ asset('admin/img/img/PO_genshin.png') }}" class="menu1" alt="">
-                <img src="{{ asset('admin/img/img/PO_valo.png') }}" class="menu1" alt="">
             </div>
-        </div>
-        <div class="containerbg1">
-            <a href="#"
-                style="margin-left: 70px; margin-top: 50px; text-decoration: none;
-    display: inline-block;">
-                <span
-                    style="background-color: #184E77; color: white;
-        display: inline-block; border: 2px solid #184E77; border-radius: 20px;
-        padding: 10px;">TopUp
-                    Game</span>
-            </a>
-
-            <a href="{{ url('halaman_hubungi_kami') }}" class="daftar-paket-text"><span>Jasa Mobile Legends</span></a>
-            <a href="{{ url('halaman_hubungi_kami') }}" class="daftar-paket-text"><span>Pulsa & Token</span></a>
-
-
-            <div class="containerbg2">
-                <div class="menu2">
-                    <a href="{{ url('halaman_topup_clashroyal') }}"><img
-                            src="{{ asset('admin/img/img/topup -clashroyal.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_codm') }}"><img
-                            src="{{ asset('admin/img/img/topup -codm.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_honkai') }}"><img
-                            src="{{ asset('admin/img/img/topup-honkai.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_mlbb') }}"><img
-                            src="{{ asset('admin/img/img/topup -mlbb.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_efootball') }}"><img
-                            src="{{ asset('admin/img/img/topup -efootball.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_fortnite') }}"><img
-                            src="{{ asset('admin/img/img/topup -fortnite.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_genshin') }}"><img
-                            src="{{ asset('admin/img/img/topup -genshin.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_freefire') }}"><img
-                            src="{{ asset('admin/img/img/topup -freefire.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_pubgnewstate') }}"><img
-                            src="{{ asset('admin/img/img/topup -pubgnewstate.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_valo') }}"><img
-                            src="{{ asset('admin/img/img/topup -valo.png') }}" alt=""></a>
-                    <a href="{{ url('halaman_topup_aov') }}"><img src="{{ asset('admin/img/img/topup-aov.png') }}"
-                            alt=""></a>
-                    <a href="{{ url('halaman_topup_pubg') }}"><img
-                            src="{{ asset('admin/img/img/topup -pubg.png') }}" alt=""></a>
-
+            <div class="flex-none">
+                <div class="flex items-center justify-center hover:border-b-2">
+                    <img src="{{ asset('admin/img/img/hubungikami.png') }}" class=" h-[20px]">
+                    <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Hubungi Kami</a>
+                </div>
+                <div class="flex items-center justify-center hover:border-b-2">
+                    <img src="{{ asset('admin/img/img/cektransaksi.png') }}" class=" h-[20px]">
+                    <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Cek Transaksi</a>
+                </div>
+                <div class="flex items-center justify-center hover:border-b-2">
+                    <img src="{{ asset('admin/img/img/calculator.png') }}" class=" h-[20px]">
+                    <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Kalkulator</a>
+                </div>
+                <div class="flex items-center justify-center hover:border-b-2">
+                    <img src="{{ asset('admin/img/img/home.png') }}" class=" h-[20px]">
+                    <a href="/customer" class="text-white text-[15px] py-4 pl-2 pr-4 font-bold">Beranda</a>
+                </div>
+                <div
+                    class="menu ml-6 hover:bg-[#007497] bg-[#168AAD] h-[40px] items-center justify-center  rounded-l-xl border-r-[3px] border-white menu-horizontal p-0 ">
+                    <a href="/customer" class="text-white  text-[15px] py-[10px] px-4 font-bold">Masuk</a>
+                </div>
+                <div
+                    class="menu hover:bg-[#007497] bg-[#168AAD] h-[40px] items-center justify-center rounded-r-xl menu-horizontal p-0">
+                    <a href="/customer" class="text-white  text-[15px] py-[10px]  px-4 font-bold">Daftar Sekarang</a>
                 </div>
             </div>
         </div>
-        <img src="{{ asset('admin/img/img/footerbg.png') }}" class="okegen" alt="">
-    </div>
+    </nav>
 
-    <footer class="footer">
-        <div class="gambarfooter">
-            <div class="container-footer">
-                <div class="deskripsi">
-                    GamingStore adalah Platform Top Up Game Termurah di Indonesia.
-                    Penuhi Kebutuhan Gaming Mu Bersama GamingStore.
-                    Store Specialist Game Mobile Legends No.1 Murah , Aman , Terpercaya Dan Legal 100% (Open 24 Jam) .
-                    GamingStore Sahabat Para Gamers Kami berdedikasi untuk menyediakan layanan terbaik dan terus menerus
-                    inovatif untuk memenuhi kebutuhan gamers.
-                    Jangan lewatkan kesempatan untuk mengikuti kami di sosial media dan
-                    tetap update dengan informasi terbaru, tips, trik, dan promo-promo menarik lainnya.
-                    Jadilah bagian dari komunitas gamers terbesar dan terpercaya dengan GamingStore!
-                    Jangan Lupa Follow Sosial Media Kita Dapatkan info dan promo menarik yang akan terus mengalir
-                    untuk menambah kegembiraan dalam setiap game yang Anda mainkan. GamingStore, solusi one-stop untuk
-                    semua kebutuhan gaming Anda!
-                </div>
-                <div class="clear1"></div>
-                <div class="container-footer2">
-                    <div class="container-sosial">
-
-                        <ul class="container-dukungan">
-                            <li class="dukungan-link">Social Media</li>
-                            <li><img src="/admin/img/img/tt.png" class="dukungan">Tiktok GamingStore</li>
-                            <li><img src="/admin/img/img/tt.png" class="dukungan">Tiktok HanzShadows</li>
-                            <li><img src="/admin/img/img/ig.png" class="dukungan">Instagram</li>
-                            <li><img src="/admin/img/img/yt.png" class="dukungan">Youtube</li>
-                        </ul>
+    <div class="bg-gradient-to-br from-[#34A0A4] to-[#184E77] h-auto w-full ">
 
 
-                        <ul class="container-dukungan">
-                            <li class="dukungan-link">Peta Situs</li>
-                            <li class="dukungan">WhatsApp</li>
-                            <li class="dukungan">Email</li>
-                            <li class="dukungan">Instagram</li>
-                        </ul>
-
-                        <ul class="container-dukungan">
-                            <li class="dukungan-link">Dukungan</li>
-                            <li class="dukungan">Beranda</li>
-                            <li class="dukungan">Cek Transaksi</li>
-                            <li class="dukungan">Kalkulator</li>
-                            <li class="dukungan">Hubungi Kami</li>
-                        </ul>
-
-                        <ul class="container-dukungan">
-                            <li class="dukungan-link">Legalitas</li>
-                            <li class="dukungan">Kebijakan Pribadi</li>
-                            <li class="dukungan">Syarat % Ketentuan</li>
-                        </ul>
+        <div class="w-full pt-[60px] h-auto p-[16px] m-[0px 0px 16px] justify-center items-center m-auto bg-cover bg-center"
+            style="background-image: url('admin/img/img/bg.png')">>
+            <div class="w-[72%] p-4 m-auto h-auto justify-center items-center">
+                <div class="carousel w-full ">
+                    <div id="slide1" class="carousel-item relative w-full">
+                        <img src="{{ asset('admin/img/img/image1.png') }}" class="w-full" />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide4" class="btn btn-circle">❮</a>
+                            <a href="#slide2" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide2" class="carousel-item relative w-full">
+                        <img src="{{ asset('admin/img/img/image2.png') }}" class="w-full" />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide1" class="btn btn-circle">❮</a>
+                            <a href="#slide3" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide3" class="carousel-item relative w-full">
+                        <img src="{{ asset('admin/img/img/image3.png') }}" class="w-full" />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide2" class="btn btn-circle">❮</a>
+                            <a href="#slide4" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide4" class="carousel-item relative w-full ">
+                        <img src="{{ asset('admin/img/img/image4.png') }}" class="w-full " />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide3" class="btn btn-circle">❮</a>
+                            <a href="#slide1" class="btn btn-circle">❯</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
 
+        <div class="w-full h-full p-[32px 0px]">
+            <div class="h-auto w-[70%]  m-auto ">
+                <h3 class="mb-3 text-2xl text-white  font-semibold uppercase leading-relaxed tracking-wider ">
+                    ✨ POPULER
+                </h3>
+            </div>
+            <div class="m-auto w-[70%]">
+                <div href class="grid grid-cols-3 gap-4 ">
+                    <div class="card bg-base-50 shadow-xl">
+                        @foreach ($kategori as $item)
+                            <a href="/customer">
+                                <figure><img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" />
+                                </figure>
+                                <div
+                                    class="card-body flex flex-col items-start justify-between rounded-b-xl
+                                    bg-primary-500 bg- bg-contain bg-[120px] bg-[#184E77] py-2 px-4 sm:bg-right
+                                    md:flex-row md:items-center md:py-4">
+                                <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">{{ $item->nama_game }}
+                                </h2>
+                                <h2 class="font-chakra text-xs font-semibold text-white sm:text-base">GamingStore</h2>
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="h-auto w-[70%] m-auto flex my-4">
+                <ul class="menu grid grid-cols-3 gap-4 rounded-box">
+                    <li id="topUp"
+                        class="bg-[#] text-white rounded-xl w-auto justify-center items-center w-auto topup1"
+                        style="font-size: 16px; padding: 10px 20px; border: 2px solid white; border-radius: 10px;">Top
+                        Up</li>
+                    <li id="jasa_ml" class="bg-[#] text-white rounded-xl w-auto justify-center items-center jasa_ml"
+                        style="font-size: 16px; padding: 10px 20px; border: 2px solid white; border-radius: 10px;">Jasa
+                        Mobile Legends</li>
+                </ul>
+            </div>
+
+            <div id="topup1-content" style="display: none;">
+                <div class="m-auto w-[70%] p-[112px 0px 0px]">
+                    <div class="grid grid-cols-6 gap-4">
+                        @foreach ($kategori as $item)
+                        <div class="card  bg-[#184E77] shadow-xl">
+                            <figure class="p-0">
+                                <img src="{{ asset('storage/' . $item->poster_game) }}"
+                                    alt="Shoes" class="rounded-xl" />
+                            </figure>
+                            <div class="card-body  items-center text-center p-2">
+                                <h2 class="text-white">{{ $item->nama_game }}</h2>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobileLegends-content" style="display: none;">
+                Isi konten untuk Jasa Mobile Legends
+            </div>
+
+            {{-- GAMBAR FOOTER --}}
+            <div class="m-auto w-auto pt-32  ">
+                <div class="bg-cover bg-center">
+                    <img src="{{ asset('admin/img/img/footer.png') }}" class="w-full" />
+                </div>
+            </div>
+            <div class="m-auto w-auto bg-[#184E77] ">
+                <div class="pt-10 pb-10 m-auto w-[70%]">
+                    <p class="justify-center items-center text-center text-white">
+                        GamingStore adalah Platform Top Up Game Termurah di Indonesia. Penuhi Kebutuhan Gaming Mu
+                        Bersama GamingStore. Store Specialist Game Mobile Legends No.1 Murah , Aman , Terpercaya Dan
+                        Legal 100% (Open 24 Jam) . GamingStore Sahabat Para Gamers Kami berdedikasi untuk
+                        menyediakan
+                        layanan terbaik dan terus menerus inovatif untuk memenuhi kebutuhan gamers. Jangan lewatkan
+                        kesempatan untuk mengikuti kami di sosial media dan tetap update dengan informasi terbaru,
+                        tips,
+                        trik, dan promo-promo menarik lainnya. Jadilah bagian dari komunitas gamers terbesar dan
+                        terpercaya dengan GamingStore! Jangan Lupa Follow Sosial Media Kita Dapatkan info dan promo
+                        menarik yang akan terus mengalir untuk menambah kegembiraan dalam setiap game yang Anda
+                        mainkan.
+                        GamingStore, solusi one-stop untuk semua kebutuhan gaming Anda!
+                    </p>
+                </div>
+                <div class="m-auto w-[70%] pt-4 pb-12 ">
+                    <footer class="footer pt-8 bg-[#184E77] text-neutral-content">
+                        <nav>
+                            <h6 class="footer-title opacity-100 text-white">Services</h6>
+                            <a class="link link-hover">Tiktok </a>
+                            <a class="link link-hover">Design</a>
+                            <a class="link link-hover">Marketing</a>
+                            <a class="link link-hover">Advertisement</a>
+                        </nav>
+                        <nav>
+                            <h6 class="footer-title opacity-100 text-white">Company</h6>
+                            <a class="link link-hover">About us</a>
+                            <a class="link link-hover">Contact</a>
+                            <a class="link link-hover">Jobs</a>
+                            <a class="link link-hover">Press kit</a>
+                        </nav>
+                        <nav>
+                            <h6 class="footer-title opacity-100 text-white">Legal</h6>
+                            <a class="link link-hover">Terms of use</a>
+                            <a class="link link-hover">Privacy policy</a>
+                            <a class="link link-hover">Cookie policy</a>
+                        </nav>
+                        <nav>
+                            <h6 class="footer-title opacity-100 text-white">Services</h6>
+                            <a class="link link-hover">Branding</a>
+                            <a class="link link-hover">Design</a>
+                            <a class="link link-hover">Marketing</a>
+                            <a class="link link-hover">Advertisement</a>
+                        </nav>
+                    </footer>
+                </div>
+                <div class="h-auto w-[70%] m-auto ">
+                    <h3 class="pb-8 pt-8 text-xs leading-5  text-white border-t-2 border-white border-opacity-10 ">
+                        @ 2023 GAMINGSTORE. All rights reserved.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
+        $(document).ready(function() {
+            // Sembunyikan semua konten saat halaman dimuat kecuali yang pertama
+            $("#topup1-content").show();
+            $("#mobileLegends-content").hide();
+            $(".topup1").addClass("active-menu");
 
-            function showSlide(index) {
-                // Sembunyikan semua slide
-                for (let i = 0; i < slides.length; i++) {
-                    slides[i].style.display = 'none';
-                }
-                // Tampilkan slide dengan indeks yang diberikan
-                slides[index].style.display = 'block';
-            }
-
-            // Fungsi untuk menampilkan slide sebelumnya
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            // Fungsi untuk menampilkan slide berikutnya
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            // Tampilkan slide pertama saat halaman dimuat
-            showSlide(currentSlide);
-
-            // Event listener untuk klik pada gambar panah kiri
-            document.querySelector('.panah-kiri').addEventListener('click', function() {
-                prevSlide();
+            $(".topup1").click(function() {
+                $("#topup1-content").show();
+                $("#mobileLegends-content").hide();
+                $(".menu li").removeClass("active-menu");
+                $(this).addClass("active-menu");
             });
 
-            // Event listener untuk klik pada gambar panah kanan
-            document.querySelector('.panah-kanan').addEventListener('click', function() {
-                nextSlide();
+            $(".jasa_ml").click(function() {
+                $("#topup1-content").hide();
+                $("#mobileLegends-content").show();
+                $(".menu li").removeClass("active-menu");
+                $(this).addClass("active-menu");
             });
-
-            // Menggeser slide setiap 3 detik
-            setInterval(nextSlide, 5000);
         });
     </script>
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
+
 </html>

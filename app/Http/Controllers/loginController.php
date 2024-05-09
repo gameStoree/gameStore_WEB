@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller
 {
@@ -41,6 +43,31 @@ class loginController extends Controller
         } else {
             return redirect('/')->withErrors('Email dan password yang anda masukkan tidak sesuai')->withInput();
         }
+    }
+
+    function tampilanRegister()
+    {
+        return view('login.register');
+    }
+
+    public function register(Request $request)
+    {
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'nama_lengkap' => 'required|max:30',
+            'email' => 'required|max:30',
+            'password' => 'required|max:30',
+            'no_hp' => 'required|max:13',
+            'role' => 'required|max:20',
+        ]);
+
+        if ($request->password !== $request->confirm_password) {
+            return redirect()->back()->withErrors(['confirm_password' => 'Password dan konfirmasi password harus sama.'])->withInput();
+        }
+
+        $validatedData['password'] = Hash::make($request->password);
+        User::create($validatedData);
+        return redirect()->route('login')->with('success', 'Akun anda berhasil didaftarkan');
     }
 
     public function logout()

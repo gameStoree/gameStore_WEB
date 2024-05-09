@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('harga_diamond');
             $table->timestamps();
 
-            $table->foreign('nama_game')->references('id')->on('kategori_games');
+            $table->foreign('nama_game')->references('id')->on('kategori_games')->onDelete('cascade');
         });
     }
 

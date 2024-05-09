@@ -1,32 +1,26 @@
 <?php
 
-use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\dashboardWorkerController;
-use App\Http\Controllers\dashboardCustomerController;
-use App\Http\Controllers\jokiRankCustomerController;
-use App\Http\Controllers\diamondGameController;
-use App\Http\Controllers\jokiMlController;
-use App\Http\Controllers\kategoriGameController;
-use App\Http\Controllers\laporanController;
-use App\Http\Controllers\loginController;
-use App\Http\Controllers\pemesananDiamondController;
-use App\Http\Controllers\pemesananJokiController;
-use App\Http\Controllers\profileController;
-use App\Http\Controllers\takeJobController;
-use App\Http\Controllers\workerController;
 use App\Models\pemesananJoki;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiMlController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\jokiMlController;
+use App\Http\Controllers\workerController;
+use App\Http\Controllers\laporanController;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\takeJobController;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\diamondGameController;
+use App\Http\Controllers\kategoriGameController;
+use App\Http\Controllers\pemesananJokiController;
+use App\Http\Controllers\dashboardWorkerController;
+use App\Http\Controllers\jokiRankCustomerController;
+use App\Http\Controllers\pemesananDiamondController;
+use App\Http\Controllers\dashboardCustomerController;
+use App\Http\Controllers\kalkulatorCustomerController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -35,6 +29,8 @@ Route::get('/', function () {
 Route::middleware('guest')->group(function () {
     Route::get('/login', [loginController::class, 'index'])->name('login');
     Route::post('/login', [loginController::class, 'login']);
+    Route::get('/register', [loginController::class, 'tampilanRegister'])->name('register');
+    Route::post('/register', [loginController::class, 'register'])->name('register.post');
 });
 
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');
@@ -75,9 +71,10 @@ Route::prefix('worker')->middleware('UserAkses:worker')->group(
 Route::prefix('customer')->group(
     function () {
         Route::get('/', function () {
-            return view('customer.Beranda');
+            return view('customer.beranda');
         });
         Route::get('/', [dashboardCustomerController::class, 'index'])->name('dashboardCustomer.index');
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
+        Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
     }
 );
