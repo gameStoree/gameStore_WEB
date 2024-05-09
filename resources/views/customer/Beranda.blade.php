@@ -122,8 +122,8 @@
             </div>
             <div class="m-auto w-[70%]">
                 <div href class="grid grid-cols-3 gap-4 ">
-                    <div class="card rounded-xl bg-base-50 shadow-xl">
-                        @foreach ($kategori as $item)
+                    @foreach ($kategori as $item)
+                        <div class="card rounded-xl bg-base-50 shadow-xl">
                             <a href="/customer">
                                 <figure><img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" />
                                 </figure>
@@ -137,8 +137,8 @@
                                     </h2>
                                 </div>
                             </a>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="h-auto w-[70%] m-auto flex my-4">
@@ -155,35 +155,41 @@
 
             <div id="topup1-content" style="display: none;">
                 <div class="m-auto w-[70%] p-[112px 0px 0px]">
-                    <div class="grid grid-cols-6 gap-4">
-                        <div class="card  bg-[#184E77] shadow-xl">
+                    <a href="#">
+                        <div class="grid grid-cols-6 gap-4">
                             @foreach ($kategori as $item)
-                                <figure class="p-0">
-                                    <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes"
-                                        class="rounded-xl" />
-                                </figure>
-                                <div class="card-body  items-center text-center p-2">
-                                    <h2 class="text-white">{{ $item->nama_game }}</h2>
+                                <div class="card  bg-[#184E77] shadow-xl">
+                                    <figure class="p-0">
+                                        <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes"
+                                            class="rounded-xl" />
+                                    </figure>
+                                    <div class="card-body  items-center text-center p-2">
+                                        <h2 class="text-white">{{ $item->nama_game }}</h2>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
-            {{-- <div id="topup1-content" style="display: none;">
+            <div id="mobileLegends-content" style="display: none;">
                 <div class="m-auto w-[70%] p-[112px 0px 0px]">
-                    <div class="grid grid-cols-6 gap-4">
-                        <div class="card">
-                            <a class="card" href="URL_ANDA">
-                                <img src="{{ asset('admin/img/img/TopUpCLASHROYAL.png') }}" alt="Shoes"
-                                    class="rounded-xl" />
-                            </a>
+                    <a href="{{ route('jokiRankCustomer.index') }}">
+                        <div class="grid grid-cols-6 gap-4">
+                            <div class="card  bg-[#184E77] shadow-xl">
+                                <figure class="p-0">
+                                    <img src="{{ asset('admin/img/img/jokirank.png') }}" alt="Shoes"
+                                        class="rounded-xl" />
+                                </figure>
+                                <div class="card-body  items-center text-center p-2">
+                                    <h2 class="text-white">Joki Rank</h2>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div> --}}
-
-
+                    </a>
+                </div>
+            </div>
 
             {{-- GAMBAR FOOTER --}}
             <div class="m-auto w-auto pt-32  ">

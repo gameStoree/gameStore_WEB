@@ -669,193 +669,73 @@
                                 <div class="2 h-auto mt-8">
                                     <div class="flex w-full h-auto ">
                                         <div
-                                            class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
+                                            class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl ">
                                             2</div>
                                         <h3
                                             class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
                                             Masukkan Data Akun Kamu</h3>
                                     </div>
                                     <div class="h-auto w-full p-[24px] bg-[#184E77] rounded-b-xl">
-                                        <h3 class="font-semibold text-text-color pb-2 text-white">Joki Rank/Star</h3>
+                                        <h3 class="font-semibold text-text-color pb-2 text-white">Joki Satuan</h3>
                                         <div class="grid grid-cols-3 gap-4 ">
-                                            <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                aria-checked="false" tabindex="-1" data-headlessui-state=""
-                                                aria-labelledby="headlessui-label-:r17:"
-                                                aria-describedby="headlessui-description-:r18:"><span
-                                                    class="flex flex-1"><span
-                                                        class="flex flex-col justify-between"><span
-                                                            class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                            id="headlessui-label-:r17:">Legend / Star</span>
-                                                        <div><span
-                                                                class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                id="headlessui-description-:r18:">Rp&nbsp;8.089</span>
-                                                        </div>
-                                                    </span></span>
-                                                <div class="flex aspect-square w-8 items-center"><img
-                                                        src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                        alt="Joki Rank - Legend / Star" fetchpriority="high"
-                                                        width="300" height="300" decoding="async"
-                                                        data-nimg="1" class="object-contain object-right"
-                                                        sizes="80vh" style="color: transparent;"></div>
-                                            </div>
+                                            @foreach ($jokiSatuan as $jokiItem)
+                                                <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
+                                                    id="headlessui-radiogroup-option-:r16:" role="radio"
+                                                    aria-checked="false" tabindex="-1" data-headlessui-state=""
+                                                    aria-labelledby="headlessui-label-:r17:"
+                                                    aria-describedby="headlessui-description-:r18:">
+                                                    <span class="flex flex-1">
+                                                        <span class="flex flex-col justify-between">
+                                                            <span
+                                                                class="trunc block text-xs font-semibold text-white dark:text-white"
+                                                                id="headlessui-label-:r17:">{{ $jokiItem->nama_paket }}</span>
+                                                            <div>
+                                                                <span
+                                                                    class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
+                                                                    id="headlessui-description-:r18:">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                    <div class="flex aspect-square w-8 items-center">
+                                                        <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
+                                                            alt="Joki Rank - Legend / Star" fetchpriority="high"
+                                                            width="300" height="300" decoding="async"
+                                                            data-nimg="1" class="object-contain object-right"
+                                                            sizes="80vh" style="color: transparent;">
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Paket Grand
-                                            Masterr
-                                        </h3>
+                                        <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki Paketan</h3>
                                         <div class="grid grid-cols-3 gap-4 ">
-                                            <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                aria-checked="false" tabindex="-1" data-headlessui-state=""
-                                                aria-labelledby="headlessui-label-:r17:"
-                                                aria-describedby="headlessui-description-:r18:"><span
-                                                    class="flex flex-1"><span
-                                                        class="flex flex-col justify-between"><span
-                                                            class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                            id="headlessui-label-:r17:">Legend / Star</span>
-                                                        <div><span
-                                                                class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                id="headlessui-description-:r18:">Rp&nbsp;8.089</span>
-                                                        </div>
-                                                    </span></span>
-                                                <div class="flex aspect-square w-8 items-center"><img
-                                                        src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                        alt="Joki Rank - Legend / Star" fetchpriority="high"
-                                                        width="300" height="300" decoding="async"
-                                                        data-nimg="1" class="object-contain object-right"
-                                                        sizes="80vh" style="color: transparent;"></div>
-                                            </div>
+                                            @foreach ($jokiPaketan as $jokiItem)
+                                                <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
+                                                    id="headlessui-radiogroup-option-:r16:" role="radio"
+                                                    aria-checked="false" tabindex="-1" data-headlessui-state=""
+                                                    aria-labelledby="headlessui-label-:r17:"
+                                                    aria-describedby="headlessui-description-:r18:">
+                                                    <span class="flex flex-1">
+                                                        <span class="flex flex-col justify-between">
+                                                            <span
+                                                                class="trunc block text-xs font-semibold text-white dark:text-white"
+                                                                id="headlessui-label-:r17:">{{ $jokiItem->nama_paket }}</span>
+                                                            <div>
+                                                                <span
+                                                                    class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
+                                                                    id="headlessui-description-:r18:">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                    <div class="flex aspect-square w-8 items-center">
+                                                        <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
+                                                            alt="Joki Rank - Legend / Star" fetchpriority="high"
+                                                            width="300" height="300" decoding="async"
+                                                            data-nimg="1" class="object-contain object-right"
+                                                            sizes="80vh" style="color: transparent;">
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        <h3 class="font-semibold text-text-color pb-2 pt-2 text-white">Paket Epic</h3>
-                                        <div class="grid grid-cols-3 gap-4 ">
-                                            <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                aria-checked="false" tabindex="-1" data-headlessui-state=""
-                                                aria-labelledby="headlessui-label-:r17:"
-                                                aria-describedby="headlessui-description-:r18:"><span
-                                                    class="flex flex-1"><span
-                                                        class="flex flex-col justify-between"><span
-                                                            class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                            id="headlessui-label-:r17:">Legend / Star</span>
-                                                        <div><span
-                                                                class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                id="headlessui-description-:r18:">Rp&nbsp;8.089</span>
-                                                        </div>
-                                                    </span></span>
-                                                <div class="flex aspect-square w-8 items-center"><img
-                                                        src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                        alt="Joki Rank - Legend / Star" fetchpriority="high"
-                                                        width="300" height="300" decoding="async"
-                                                        data-nimg="1" class="object-contain object-right"
-                                                        sizes="80vh" style="color: transparent;"></div>
-                                            </div>
-                                        </div>
-                                        <h3 class="font-semibold text-text-color pb-2 pt-2 text-white">Paket Legend
-                                        </h3>
-                                        <div class="grid grid-cols-3 gap-4 ">
-                                            <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                aria-checked="false" tabindex="-1" data-headlessui-state=""
-                                                aria-labelledby="headlessui-label-:r17:"
-                                                aria-describedby="headlessui-description-:r18:"><span
-                                                    class="flex flex-1"><span
-                                                        class="flex flex-col justify-between"><span
-                                                            class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                            id="headlessui-label-:r17:">Legend / Star</span>
-                                                        <div><span
-                                                                class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                id="headlessui-description-:r18:">Rp&nbsp;8.089</span>
-                                                        </div>
-                                                    </span></span>
-                                                <div class="flex aspect-square w-8 items-center"><img
-                                                        src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                        alt="Joki Rank - Legend / Star" fetchpriority="high"
-                                                        width="300" height="300" decoding="async"
-                                                        data-nimg="1" class="object-contain object-right"
-                                                        sizes="80vh" style="color: transparent;"></div>
-                                            </div>
-                                        </div>
-                                        <h3 class="font-semibold text-text-color pb-2 pt-2 text-white">Paket Mythic
-                                        </h3>
-                                        <div class="grid grid-cols-3 gap-4 ">
-                                            <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                aria-checked="false" tabindex="-1" data-headlessui-state=""
-                                                aria-labelledby="headlessui-label-:r17:"
-                                                aria-describedby="headlessui-description-:r18:"><span
-                                                    class="flex flex-1"><span
-                                                        class="flex flex-col justify-between"><span
-                                                            class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                            id="headlessui-label-:r17:">Legend / Star</span>
-                                                        <div><span
-                                                                class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                id="headlessui-description-:r18:">Rp&nbsp;8.089</span>
-                                                        </div>
-                                                    </span></span>
-                                                <div class="flex aspect-square w-8 items-center"><img
-                                                        src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                        alt="Joki Rank - Legend / Star" fetchpriority="high"
-                                                        width="300" height="300" decoding="async"
-                                                        data-nimg="1" class="object-contain object-right"
-                                                        sizes="80vh" style="color: transparent;"></div>
-                                            </div>
-                                        </div>
-                                        <h3 class="font-semibold text-text-color pb-2 pt-2 text-white">Paket Mythic
-                                            Honor
-                                        </h3>
-                                        <div class="grid grid-cols-3 gap-4 ">
-                                            <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                aria-checked="false" tabindex="-1" data-headlessui-state=""
-                                                aria-labelledby="headlessui-label-:r17:"
-                                                aria-describedby="headlessui-description-:r18:"><span
-                                                    class="flex flex-1"><span
-                                                        class="flex flex-col justify-between"><span
-                                                            class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                            id="headlessui-label-:r17:">Legend / Star</span>
-                                                        <div><span
-                                                                class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                id="headlessui-description-:r18:">Rp&nbsp;8.089</span>
-                                                        </div>
-                                                    </span></span>
-                                                <div class="flex aspect-square w-8 items-center"><img
-                                                        src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                        alt="Joki Rank - Legend / Star" fetchpriority="high"
-                                                        width="300" height="300" decoding="async"
-                                                        data-nimg="1" class="object-contain object-right"
-                                                        sizes="80vh" style="color: transparent;"></div>
-                                            </div>
-                                        </div>
-                                        <h3 class="font-semibold text-text-color pb-2 pt-2 text-white">Paket Mythic
-                                            Glory
-                                        </h3>
-                                        <div class="grid grid-cols-3 gap-4 ">
-                                            <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                aria-checked="false" tabindex="-1" data-headlessui-state=""
-                                                aria-labelledby="headlessui-label-:r17:"
-                                                aria-describedby="headlessui-description-:r18:"><span
-                                                    class="flex flex-1"><span
-                                                        class="flex flex-col justify-between"><span
-                                                            class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                            id="headlessui-label-:r17:">Legend / Star</span>
-                                                        <div><span
-                                                                class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                id="headlessui-description-:r18:">Rp&nbsp;8.089</span>
-                                                        </div>
-                                                    </span></span>
-                                                <div class="flex aspect-square w-8 items-center"><img
-                                                        src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                        alt="Joki Rank - Legend / Star" fetchpriority="high"
-                                                        width="300" height="300" decoding="async"
-                                                        data-nimg="1" class="object-contain object-right"
-                                                        sizes="80vh" style="color: transparent;"></div>
-                                            </div>
-                                        </div>
-
-
-
-
                                     </div>
                                     <div class="flex w-full h-auto mt-8">
                                         <div
