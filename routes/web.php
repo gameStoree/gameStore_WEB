@@ -18,6 +18,7 @@ use App\Http\Controllers\jokiRankCustomerController;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\dashboardCustomerController;
 use App\Http\Controllers\kalkulatorCustomerController;
+use App\Http\Controllers\hubungiKamiCustomerController;
 
 
 Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
@@ -76,5 +77,7 @@ Route::prefix('customer')->group(
         Route::get('/', [dashboardCustomerController::class, 'index'])->name('dashboardCustomer.index');
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
+        Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
+
     }
 );
