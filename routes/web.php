@@ -20,17 +20,6 @@ use App\Http\Controllers\dashboardCustomerController;
 use App\Http\Controllers\kalkulatorCustomerController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
 
 Route::get('/', function () {
@@ -39,8 +28,9 @@ Route::get('/', function () {
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [loginController::class, 'index'])->name('login');
-    Route::get('/register', [loginController::class, 'tampilanRegister'])->name('register');
     Route::post('/login', [loginController::class, 'login']);
+    Route::get('/register', [loginController::class, 'tampilanRegister'])->name('register');
+    Route::post('/register', [loginController::class, 'register'])->name('register.post');
 });
 
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');

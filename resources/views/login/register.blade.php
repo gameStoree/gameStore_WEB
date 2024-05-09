@@ -63,8 +63,8 @@
                         </div>
                         <!-- /Logo -->
                         <h4 class="mb-4">Isi data dengan lengkap!!!</h4>
-
-                        <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('register.post') }}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="nama_lengkap" />
@@ -95,7 +95,10 @@
                                 <label for="email" class="form-label">No HP</label>
                                 <input type="text" class="form-control" id="no_hp" name="no_hp" />
                             </div>
-                            <button class="btn btn-primary d-grid w-100">Sign up</button>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" value="customer" name="role" />
+                            </div>
+                            <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
                         </form>
                         <p class="text-center">
                             <span>Sudah punya akun?</span>
