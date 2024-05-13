@@ -19,6 +19,8 @@ use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\dashboardCustomerController;
 use App\Http\Controllers\kalkulatorCustomerController;
 use App\Http\Controllers\hubungiKamiCustomerController;
+use App\Http\Controllers\cekInvoiceCustomerController;
+use App\Http\Controllers\pesanDiamondCustomerController;
 
 
 Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
@@ -78,6 +80,8 @@ Route::prefix('customer')->group(
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
+        Route::get('/cekInvoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
+        Route::get('/pesanDiamond', [pesanDiamondCustomerController::class, 'index'])->name('pesanDiamond.index');
 
     }
 );

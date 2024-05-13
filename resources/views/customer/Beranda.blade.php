@@ -238,7 +238,7 @@
                         </nav>
                         <nav>
                             <h6 class="footer-title opacity-100 text-white">Services</h6>
-                            <a class="link link-hover">Branding</a>
+                            <a class="link link-hover ">Branding</a>
                             <a class="link link-hover">Design</a>
                             <a class="link link-hover">Marketing</a>
                             <a class="link link-hover">Advertisement</a>

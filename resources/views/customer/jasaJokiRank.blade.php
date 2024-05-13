@@ -867,17 +867,83 @@
                                             </div>
                                         </div>
                                         <div class="relative">
-                                            <button
-                                                class="inline-flex bg-[#57CC99] items-center justify-center text-white rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75 btn-order relative flex w-full gap-2 overflow-hidden"
-                                                type="button">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            <!-- Open the modal using ID.showModal() method -->
+                                            <button class="btn w-full text-black bg-[#57CC99] hover:bg-[#57CC99]"
+                                                onclick="my_modal_1.showModal()"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                    aria-hidden="true" class="h-5 w-5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+                                                    aria-hidden="true" class="h-5 w-5  text-black">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3
+                                                         3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114
+                                                          0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75
+                                                           0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
                                                     </path>
-                                                </svg><span>Pesan Sekarang!</span>
+                                                </svg>
+                                                Pesan Sekarang
                                             </button>
+                                            <dialog id="my_modal_1" class="modal ">
+                                                <div class="bg-[#184E77] text-white relative transform overflow-hidden rounded-lg bg-secondary-700 px-4 pt-5 pb-4 text-left text-text-color shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 opacity-100 translate-y-0 sm:scale-100"
+                                                    id="headlessui-dialog-panel-:r5j:" data-headlessui-state="open">
+                                                    <div>
+                                                        <div
+                                                            class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#57CC99]">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke-width="1.5"
+                                                                stroke="currentColor" aria-hidden="true"
+                                                                class="h-6 w-6 text-emerald-900">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M4.5 12.75l6 6 9-13.5"></path>
+                                                            </svg></div>
+                                                        <div class="mt-3 text-center sm:mt-5">
+                                                            <h3 class="text-lg font-semibold leading-6"
+                                                                id="headlessui-dialog-title-:r5k:"
+                                                                data-headlessui-state="open">Buat Pesanan</h3>
+                                                            <p class="pt-2 text-sm md:text-base"
+                                                                id="headlessui-description-:r5l:"
+                                                                data-headlessui-state="open">Pastikan data akun Kamu
+                                                                dan produk yang Kamu pilih valid dan sesuai.</p>
+                                                            <div class="mt-2">
+                                                                <div
+                                                                    class="my-4 grid grid-cols-3 gap-2 rounded-md bg-secondary-600 p-4 text-left text-sm text-text-color md:text-base">
+                                                                    <div>login</div>
+                                                                    <div class="col-span-2">: Moonton (Rekomendasi)
+                                                                    </div>
+                                                                    <div>idnick</div>
+                                                                    <div class="col-span-2">: hanz</div>
+                                                                    <div>emailhpmoonton</div>
+                                                                    <div class="col-span-2">: slurrr</div>
+                                                                    <div>password</div>
+                                                                    <div class="col-span-2">: 123Wwda12</div>
+                                                                    <div>hero</div>
+                                                                    <div class="col-span-2">: Fanny</div>
+                                                                    <div>catatan</div>
+                                                                    <div class="col-span-2">: Semangat</div>
+                                                                    <div>Item</div>
+                                                                    <div class="col-span-2">: 10 Star Epic</div>
+                                                                    <div>Product</div>
+                                                                    <div class="col-span-2">: Joki Rank</div>
+                                                                    <div>Payment</div>
+                                                                    <div class="col-span-2">: QRIS (All Payment)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+                                                        <button id="button-checkout" type="button" for="modal-toggle"
+                                                            class="bg-[#57CC99] text-black inline-flex w-full justify-center rounded-md border
+                                                            border-transparent bg-primary-500 px-4 py-2 text-base font-medium text-text-color-foreground
+                                                            shadow-sm hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+                                                            focus:ring-offset-secondary-900 sm:col-start-2 sm:text-sm">Pesan
+                                                            Sekarang!</button><button type="button" for="modal-toggle"
+                                                            class="mt-3 inline-flex w-full justify-center rounded-md border border-secondary-700 bg-secondary-600
+                                                            px-4 py-2 text-base font-medium text-text-color shadow-sm hover:bg-secondary-500 focus:outline-none
+                                                            focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900
+                                                            sm:col-start-1 sm:mt-0 sm:text-sm">Batalkan</button>
+                                                    </div>
+                                                </div>
+                                            </dialog>
+
                                         </div>
                                     </div>
                                 </div>
@@ -962,6 +1028,19 @@
                 event.preventDefault(); // Menghentikan tindakan default dari link
                 promoCodeInput.disabled = false; // Mengatur input menjadi aktif
             });
+        });
+
+
+
+
+
+
+        document.getElementById('orderButton').addEventListener('click', function() {
+            document.getElementById('notification').classList.remove('hidden');
+        });
+
+        document.getElementById('closeButton').addEventListener('click', function() {
+            document.getElementById('notification').classList.add('hidden');
         });
     </script>
 </body>
