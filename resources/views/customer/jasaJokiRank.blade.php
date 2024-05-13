@@ -615,9 +615,8 @@
                                         </select>
                                     </div>
                                     <div><label for="idnick"
-                                            class="block text-xs font-medium \ text-text-color pb-2">User
-                                            ID
-                                            &amp; Nick Name</label>
+                                            class="block text-xs font-medium \ text-text-color pb-2">User ID &
+                                            Server</label>
                                         <div class="flex flex-col items-start"><input
                                                 class="relative block w-full bg-[#57CC99]  appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
                                                 type="text" id="idnick" name="idnick"
@@ -691,7 +690,7 @@
                                                                 <span class="flex flex-col justify-between">
                                                                     <span
                                                                         class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                                        id="headlessui-label-:r17:">{{ $jokiItem->nama_paket }}</span>
+                                                                        id="headlessui-label-:r17:">{{ $jokiItem->joki_rank }}</span>
                                                                     <div>
                                                                         <span
                                                                             class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
@@ -728,7 +727,7 @@
                                                                 <span class="flex flex-col justify-between">
                                                                     <span
                                                                         class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                                        id="headlessui-label-:r17:">{{ $jokiItem->nama_paket }}</span>
+                                                                        id="headlessui-label-:r17:">{{ $jokiItem->joki_rank }}</span>
                                                                     <div>
                                                                         <span
                                                                             class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
@@ -770,7 +769,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex w-full h-auto mt-8">
+                                    {{-- <div class="flex w-full h-auto mt-8">
                                         <div
                                             class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
                                             4</div>
@@ -824,12 +823,12 @@
                                                 </div>
                                             </dt>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="flex w-full h-auto mt-8">
                                         <div
                                             class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
-                                            5</div>
+                                            4</div>
                                         <h3
                                             class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
                                             Detail Kontak Anda</h3>
@@ -840,7 +839,7 @@
                                                 <div class=" flex flex-col items-start"><input
                                                         class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
                                                         type="text" id="promo-code"
-                                                        placeholder="Ketik Kode Promo Kamu Disini" value="">
+                                                        placeholder="Masukkan nomor whatsApp anda" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -867,15 +866,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="relative"><button
+                                        <div class="relative">
+                                            <button
                                                 class="inline-flex bg-[#57CC99] items-center justify-center text-white rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75 btn-order relative flex w-full gap-2 overflow-hidden"
-                                                type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                     aria-hidden="true" class="h-5 w-5">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
                                                     </path>
-                                                </svg><span>Pesan Sekarang!</span></button></div>
+                                                </svg><span>Pesan Sekarang!</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -962,4 +965,5 @@
         });
     </script>
 </body>
+
 </html>

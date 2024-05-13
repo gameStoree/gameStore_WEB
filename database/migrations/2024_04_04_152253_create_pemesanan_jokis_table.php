@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_paket');
             $table->string('login_via', 20);
-            $table->string('nickname_ml', 30);
+            $table->string('Id_Server', 30);
             $table->string('email_no_hp_montonID', 30);
             $table->string('password');
             $table->string('request_hero');
