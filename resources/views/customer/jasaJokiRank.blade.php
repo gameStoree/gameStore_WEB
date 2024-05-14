@@ -844,63 +844,34 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="container space-y-4 py-4">
-                                        <div class="flex items-start justify-start space-x-4 py-2 md:hidden">
-                                            <div class="flex w-full flex-col space-y-1">
-                                                <div class="rounded-md border-l-4 border-yellow-400 bg-yellow-100 p-4">
-                                                    <div class="flex">
-                                                        <div class="flex-shrink-0"><svg
-                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 24 24" stroke-width="1.5"
-                                                                stroke="currentColor" aria-hidden="true"
-                                                                class="h-5 w-5 text-text-color">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z">
-                                                                </path>
-                                                            </svg></div>
-                                                        <div class="ml-3">
-                                                            <p class="text-sm text-black">Belum ada item produk yang
-                                                                dipilih.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="relative">
-                                            <!-- Open the modal using ID.showModal() method -->
-                                            <button class="btn w-full text-black bg-[#57CC99] hover:bg-[#57CC99]"
-                                                onclick="my_modal_1.showModal()"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                    aria-hidden="true" class="h-5 w-5  text-black">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3
-                                                        3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114
-                                                        0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75
-                                                        0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
-                                                    </path>
-                                                </svg>
-                                                Pesan Sekarang
-                                            </button>
-                                            <dialog id="my_modal_1" class="modal">
+                                    <!-- The button to open modal -->
+                                    <div class="w-full h-auto mt-8">
+                                        <label for="my_modal_6" class="btn w-full  ">open modal</label>
+
+                                        <!-- Put this part before </body> tag -->
+                                        <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+                                        <div class="modal " role="dialog">
+                                            <div
+                                                class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                                                 <div class="bg-[#184E77] text-white relative transform overflow-hidden rounded-lg bg-secondary-700 px-4 pt-5 pb-4 text-left text-text-color shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 opacity-100 translate-y-0 sm:scale-100"
-                                                    id="headlessui-dialog-panel-:r5j:" data-headlessui-state="open">
+                                                    id="headlessui-dialog-panel-:r5p:" data-headlessui-state="open">
                                                     <div>
                                                         <div
-                                                            class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#57CC99]">
+                                                            class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500">
                                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                                 viewBox="0 0 24 24" stroke-width="1.5"
                                                                 stroke="currentColor" aria-hidden="true"
-                                                                class="h-6 w-6 text-emerald-900">
+                                                                class="h-6 w-6 text-emerald-800">
                                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                                     d="M4.5 12.75l6 6 9-13.5"></path>
                                                             </svg>
                                                         </div>
                                                         <div class="mt-3 text-center sm:mt-5">
                                                             <h3 class="text-lg font-semibold leading-6"
-                                                                id="headlessui-dialog-title-:r5k:"
+                                                                id="headlessui-dialog-title-:r5q:"
                                                                 data-headlessui-state="open">Buat Pesanan</h3>
                                                             <p class="pt-2 text-sm md:text-base"
-                                                                id="headlessui-description-:r5l:"
+                                                                id="headlessui-description-:r5r:"
                                                                 data-headlessui-state="open">Pastikan data akun Kamu
                                                                 dan produk yang Kamu pilih valid dan sesuai.</p>
                                                             <div class="mt-2">
@@ -929,29 +900,30 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div
-                                                        class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                                                        <button id="button-checkout" type="button"
-                                                            for="modal-toggle"
-                                                            class="bg-[#57CC99] text-black inline-flex w-full justify-center rounded-md border
-                                                            border-transparent bg-primary-500 px-4 py-2 text-base font-medium text-text-color-foreground
-                                                            shadow-sm hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
-                                                            focus:ring-offset-secondary-900 sm:col-start-2 sm:text-sm">Pesan
-                                                            Sekarang!
-                                                        </button>
-                                                        <div class="modal-action">
-                                                            <form method="dialog">
-                                                                <button id="closeButton" type="button" for="modal-toggle"
-                                                                    class="mt-3 inline-flex w-full justify-center rounded-md border border-secondary-700 bg-secondary-600
-                                                                    px-4 py-2 text-base font-medium text-text-color shadow-sm hover:bg-secondary-500 focus:outline-none
-                                                                    focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-secondary-900
-                                                                    sm:col-start-1 sm:mt-0 sm:text-sm">Batalkan
-                                                                </button>
-                                                            </form>
+                                                    <div class="modal-action mt-5 grid grid-cols-2 gap-3">
+                                                        <div>
+                                                            <label for="my_modal_6"
+                                                                class=" bg-emerald-500 text-white btn mt-3 inline-flex w-full justify-center rounded-md border
+                                                            border-secondary-700 bg-secondary-600 px-4 py-2 text-base font-medium
+                                                            text-text-color shadow-sm hover:bg-emerald-600 focus:outline-none
+                                                            focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+                                                            focus:ring-offset-secondary-900 sm:col-start-1 sm:mt-0
+                                                            sm:text-sm">Pesan
+                                                                Sekarang </label>
+                                                        </div>
+                                                        <div>
+                                                            <label for="my_modal_6"
+                                                                class=" bg-emerald-500 text-white btn mt-3 inline-flex w-full justify-center rounded-md border
+                                                            border-secondary-700 bg-secondary-600 px-4 py-2 text-base font-medium
+                                                            text-text-color shadow-sm hover:bg-emerald-600 focus:outline-none
+                                                            focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+                                                            focus:ring-offset-secondary-900 sm:col-start-1 sm:mt-0
+                                                            sm:text-sm">Batalkan
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </dialog>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -81,7 +81,7 @@
         </div>
         <div class="w-[70%] m-auto">
 
-            <div class="container grid grid-cols-1 gap-8 md:grid-cols-2 ">
+            <div class="container grid grid-cols-1 gap-8 md:grid-cols-2">
                 <div class="text-white">
                     <div class="mt-8 text-white">
                         <h2 class="text-2xl font-bold tracking-tight text-text-color">GAMINGSTORE</h2>
@@ -239,6 +239,9 @@
                         <a class="link link-hover">Marketing</a>
                         <a class="link link-hover">Advertisement</a>
                     </nav>
+                    <button class="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 text-orange duration-300 ...">
+                        Save Changes
+                      </button>
                     <nav>
                         <h6 class="footer-title opacity-100 text-white">Company</h6>
                         <a class="link link-hover">About us</a>
