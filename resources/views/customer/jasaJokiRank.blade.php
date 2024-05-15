@@ -846,17 +846,13 @@
                                     </div>
                                     <!-- The button to open modal -->
                                     <div class="w-full h-auto mt-8">
-
-                                        <label for="my_modal_6"
-                                            class="btn bg-[#57CC99] hover:bg-[#57CC99] text-white border-white hover:border-white w-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                aria-hidden="true" class="h-5 w-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+                                        <label for="my_modal_6" class="btn bg-[#57CC99] hover:bg-[#57CC99] text-white w-full" onclick="tampilkanPesanan()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
                                                 </path>
                                             </svg>
-                                            Pesan</label>
+                                            Pesan
+                                        </label>
 
                                         <!-- Put this part before </body> tag -->
                                         <input type="checkbox" id="my_modal_6" class="modal-toggle" />
@@ -888,24 +884,32 @@
                                                                 <div
                                                                     class="my-4 grid grid-cols-3 gap-2 rounded-md bg-secondary-600 p-4 text-left text-sm text-text-color md:text-base">
                                                                     <div>login</div>
-                                                                    <div class="col-span-2">: Moonton (Rekomendasi)
+                                                                    <div id="modal-login-value" class="col-span-2">:
                                                                     </div>
                                                                     <div>idnick</div>
-                                                                    <div class="col-span-2">: hanz</div>
+                                                                    <div id="modal-idnick-value" class="col-span-2">:
+                                                                    </div>
                                                                     <div>emailhpmoonton</div>
-                                                                    <div class="col-span-2">: slurrr</div>
+                                                                    <div id="modal-emailhpmoonton-value"
+                                                                        class="col-span-2">:</div>
                                                                     <div>password</div>
-                                                                    <div class="col-span-2">: 123Wwda12</div>
+                                                                    <div id="modal-password-value" class="col-span-2">
+                                                                        :</div>
                                                                     <div>hero</div>
-                                                                    <div class="col-span-2">: Fanny</div>
+                                                                    <div id="modal-hero-value" class="col-span-2">:
+                                                                    </div>
                                                                     <div>catatan</div>
-                                                                    <div class="col-span-2">: Semangat</div>
+                                                                    <div id="modal-catatan-value" class="col-span-2">:
+                                                                    </div>
                                                                     <div>Item</div>
-                                                                    <div class="col-span-2">: 10 Star Epic</div>
+                                                                    <div id="modal-item-value" class="col-span-2">:
+                                                                    </div>
                                                                     <div>Product</div>
-                                                                    <div class="col-span-2">: Joki Rank</div>
+                                                                    <div id="modal-product-value" class="col-span-2">:
+                                                                    </div>
                                                                     <div>Payment</div>
-                                                                    <div class="col-span-2">: QRIS (All Payment)</div>
+                                                                    <div id="modal-payment-value" class="col-span-2">:
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1020,15 +1024,29 @@
             });
         });
     </script>
-    {{-- <script>
-        document.getElementById('orderButton').addEventListener('click', function() {
-            document.getElementById('my_modal_1').classList.remove('hidden');
-        });
+    <script>
+        function tampilkanPesanan(jokiRank) {
+            // Ambil nilai dari inputan lainnya
+            var loginValue = document.getElementById('login').value;
+            var idnickValue = document.getElementById('idnick').value;
+            var emailhpmoontonValue = document.getElementById('emailhpmoonton').value;
+            var passwordValue = document.getElementById('password').value;
+            var heroValue = document.getElementById('hero').value;
+            var catatanValue = document.getElementById('catatan').value;
+            var itemValue = jokiRank; // Ambil nilai joki rank yang dipilih
 
-        document.getElementById('closeButton').addEventListener('click', function() {
-            document.getElementById('my_modal_1').close();
-        });
-    </script> --}}
+            // Update nilai-nilai di dalam modal
+            document.getElementById('modal-login-value').innerText = ': ' + loginValue;
+            document.getElementById('modal-idnick-value').innerText = ': ' + idnickValue;
+            document.getElementById('modal-emailhpmoonton-value').innerText = ': ' + emailhpmoontonValue;
+            document.getElementById('modal-password-value').innerText = ': ' + passwordValue;
+            document.getElementById('modal-hero-value').innerText = ': ' + heroValue;
+            document.getElementById('modal-catatan-value').innerText = ': ' + catatanValue;
+            document.getElementById('modal-item-value').innerText = ': ' + itemValue; // Tampilkan nilai joki rank di item
+            document.getElementById('modal-product-value').innerText = ': ' + 'Joki Rank';
+            document.getElementById('modal-payment-value').innerText = ': ' + 'QRIS (All Payment)';
+        }
+    </script>
 </body>
 
 </html>
