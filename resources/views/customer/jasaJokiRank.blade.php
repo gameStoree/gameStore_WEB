@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/css/index.css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 
@@ -677,76 +677,63 @@
                                     <div class="h-auto w-full p-[24px] bg-[#184E77] rounded-b-xl">
                                         <div id="jokiSatuan">
                                             <h3 class="font-semibold text-text-color pb-2 text-white">Joki Satuan</h3>
-                                            <a href="#">
-                                                <div class="grid grid-cols-3 gap-4 ">
-                                                    @foreach ($jokiSatuan as $jokiItem)
-                                                        <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                            id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                            aria-checked="false" tabindex="-1"
-                                                            data-headlessui-state=""
-                                                            aria-labelledby="headlessui-label-:r17:"
-                                                            aria-describedby="headlessui-description-:r18:">
-                                                            <span class="flex flex-1">
-                                                                <span class="flex flex-col justify-between">
-                                                                    <span
-                                                                        class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                                        id="headlessui-label-:r17:">{{ $jokiItem->joki_rank }}</span>
-                                                                    <div>
-                                                                        <span
-                                                                            class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                            id="headlessui-description-:r18:">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
-                                                                    </div>
-                                                                </span>
+                                            <div class="grid grid-cols-3 gap-4">
+                                                @foreach ($jokiSatuan as $jokiItem)
+                                                    <input type="radio" name="itemPaket" value="{{ $jokiItem->joki_rank }}" id="jokiSatuan-radio-{{ $loop->index }}" class="hidden">
+                                                    <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
+                                                        role="radio"
+                                                        aria-checked="false" tabindex="-1"
+                                                        onclick="selectRadio('jokiSatuan-radio-{{ $loop->index }}')"
+                                                        data-radio="jokiSatuan-radio-{{ $loop->index }}">
+                                                        <span class="flex flex-1">
+                                                            <span class="flex flex-col justify-between">
+                                                                <span class="trunc block text-xs font-semibold text-white dark:text-white">{{ $jokiItem->joki_rank }}</span>
+                                                                <div>
+                                                                    <span class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
+                                                                </div>
                                                             </span>
-                                                            <div class="flex aspect-square w-8 items-center">
-                                                                <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                                    alt="Joki Rank - Legend / Star"
-                                                                    fetchpriority="high" width="300"
-                                                                    height="300" decoding="async" data-nimg="1"
-                                                                    class="object-contain object-right" sizes="80vh"
-                                                                    style="color: transparent;">
-                                                            </div>
+                                                        </span>
+                                                        <div class="flex aspect-square w-8 items-center">
+                                                            <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
+                                                                alt="Joki Rank - Legend / Star"
+                                                                fetchpriority="high" width="300"
+                                                                height="300" decoding="async" data-nimg="1"
+                                                                class="object-contain object-right" sizes="80vh"
+                                                                style="color: transparent;">
                                                         </div>
-                                                    @endforeach
-                                                </div>
-                                            </a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                         <div class="jokiPaketan">
-                                            <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki
-                                                Paketan</h3>
-                                            <a href="#">
-                                                <div class="grid grid-cols-3 gap-4 ">
-                                                    @foreach ($jokiPaketan as $jokiItem)
-                                                        <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                            id="headlessui-radiogroup-option-:r16:" role="radio"
-                                                            aria-checked="false" tabindex="-1"
-                                                            data-headlessui-state=""
-                                                            aria-labelledby="headlessui-label-:r17:"
-                                                            aria-describedby="headlessui-description-:r18:">
-                                                            <span class="flex flex-1">
-                                                                <span class="flex flex-col justify-between">
-                                                                    <span
-                                                                        class="trunc block text-xs font-semibold text-white dark:text-white"
-                                                                        id="headlessui-label-:r17:">{{ $jokiItem->joki_rank }}</span>
-                                                                    <div>
-                                                                        <span
-                                                                            class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75"
-                                                                            id="headlessui-description-:r18:">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
-                                                                    </div>
-                                                                </span>
+                                            <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki Paketan</h3>
+                                            <div class="grid grid-cols-3 gap-4">
+                                                @foreach ($jokiPaketan as $jokiItem)
+                                                    <input type="radio" name="itemPaket" value="{{ $jokiItem->joki_rank }}" id="jokiPaketan-radio-{{ $loop->index }}" class="hidden">
+                                                    <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
+                                                        role="radio"
+                                                        aria-checked="false" tabindex="-1"
+                                                        onclick="selectRadio('jokiPaketan-radio-{{ $loop->index }}')"
+                                                        data-radio="jokiPaketan-radio-{{ $loop->index }}">
+                                                        <span class="flex flex-1">
+                                                            <span class="flex flex-col justify-between">
+                                                                <span class="trunc block text-xs font-semibold text-white dark:text-white">{{ $jokiItem->joki_rank }}</span>
+                                                                <div>
+                                                                    <span class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
+                                                                </div>
                                                             </span>
-                                                            <div class="flex aspect-square w-8 items-center">
-                                                                <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                                    alt="Joki Rank - Legend / Star"
-                                                                    fetchpriority="high" width="300"
-                                                                    height="300" decoding="async" data-nimg="1"
-                                                                    class="object-contain object-right" sizes="80vh"
-                                                                    style="color: transparent;">
-                                                            </div>
+                                                        </span>
+                                                        <div class="flex aspect-square w-8 items-center">
+                                                            <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
+                                                                alt="Joki Rank - Legend / Star"
+                                                                fetchpriority="high" width="300"
+                                                                height="300" decoding="async" data-nimg="1"
+                                                                class="object-contain object-right" sizes="80vh"
+                                                                style="color: transparent;">
                                                         </div>
-                                                    @endforeach
-                                                </div>
-                                            </a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="flex w-full h-auto mt-8">
@@ -1025,6 +1012,11 @@
         });
     </script>
     <script>
+        function selectRadio(radioId) {
+            const radio = document.getElementById(radioId);
+            radio.checked = true;
+        }
+
         function tampilkanPesanan(jokiRank) {
             // Ambil nilai dari inputan lainnya
             var loginValue = document.getElementById('login').value;
@@ -1033,7 +1025,7 @@
             var passwordValue = document.getElementById('password').value;
             var heroValue = document.getElementById('hero').value;
             var catatanValue = document.getElementById('catatan').value;
-            var itemValue = jokiRank; // Ambil nilai joki rank yang dipilih
+            var itemValue = document.querySelector('input[name="itemPaket"]:checked').value;
 
             // Update nilai-nilai di dalam modal
             document.getElementById('modal-login-value').innerText = ': ' + loginValue;
@@ -1042,7 +1034,7 @@
             document.getElementById('modal-password-value').innerText = ': ' + passwordValue;
             document.getElementById('modal-hero-value').innerText = ': ' + heroValue;
             document.getElementById('modal-catatan-value').innerText = ': ' + catatanValue;
-            document.getElementById('modal-item-value').innerText = ': ' + itemValue; // Tampilkan nilai joki rank di item
+            document.getElementById('modal-item-value').innerText = ': ' + itemValue;
             document.getElementById('modal-product-value').innerText = ': ' + 'Joki Rank';
             document.getElementById('modal-payment-value').innerText = ': ' + 'QRIS (All Payment)';
         }
