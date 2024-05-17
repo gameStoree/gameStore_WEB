@@ -155,21 +155,20 @@
 
             <div id="topup1-content" style="display: none;">
                 <div class="m-auto w-[70%] p-[112px 0px 0px]">
-                    <a href="#">
-                        <div class="grid grid-cols-6 gap-4">
-                            @foreach ($kategori as $item)
-                                <div class="card  bg-[#184E77] shadow-xl">
+                    <div class="grid grid-cols-6 gap-4">
+                        @foreach ($kategori as $item)
+                            <a href="{{ route('pesanDiamond.show', $item->id) }}">
+                                <div class="card bg-[#184E77] shadow-xl">
                                     <figure class="p-0">
-                                        <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes"
-                                            class="rounded-xl" />
+                                        <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" class="rounded-xl" />
                                     </figure>
-                                    <div class="card-body  items-center text-center p-2">
+                                    <div class="card-body items-center text-center p-2">
                                         <h2 class="text-white">{{ $item->nama_game }}</h2>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                    </a>
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
 

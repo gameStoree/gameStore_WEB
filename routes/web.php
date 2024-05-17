@@ -81,7 +81,6 @@ Route::prefix('customer')->group(
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
         Route::get('/cekInvoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
-        Route::get('/pesanDiamond', [pesanDiamondCustomerController::class, 'index'])->name('pesanDiamond.index');
-
+        Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
     }
 );
