@@ -80,7 +80,7 @@ Route::prefix('customer')->group(
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
-        Route::get('/cekInvoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
+        Route::get('/Invoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
         Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
     }
 );

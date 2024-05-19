@@ -7,7 +7,9 @@
     <title>GAMINGSTORE</title>
     <link rel="stylesheet" href="{{ asset('admin') }}/css/index.css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
+    @vite('resources/css/app.css')
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./carousel.css">
 
 </head>
 <style>
@@ -38,7 +40,7 @@
 
 
 
-<body class="  w-full h-auto">
+<body class=" w-full h-auto">
     <nav class=" bg-[#184E77] fixed top-0 w-full z-50">
         <div class="navbar h-[60px] w-[70%]  m-auto items-center justify-center">
             <div class="flex-1">
@@ -78,41 +80,60 @@
 
 
     <div class="bg-gradient-to-br from-[#34A0A4] to-[#184E77] h-auto w-full ">
-        <div class="w-full pt-[60px] h-auto p-[16px] m-[0px 0px 16px] justify-center items-center m-auto bg-cover bg-center"
-            style="background-image: url('admin/img/img/bg.png')">>
-            <div class="w-[72%] p-4 m-auto h-auto justify-center items-center">
-                <div class="carousel w-full ">
-                    <div id="slide1" class="carousel-item relative w-full">
-                        <img src="{{ asset('admin/img/img/image1.png') }}" class="w-full" />
-                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide4" class="btn btn-circle">❮</a>
-                            <a href="#slide2" class="btn btn-circle">❯</a>
-                        </div>
+        <div class="w-full mt-[60px] h-auto m-[0px 0px 16px] justify-center items-center m-auto ">
+            <div class="relative m-auto w-full h-auto overflow-hidden ">
+                <div class="absolute z-10 h-full w-full bg-blue-950 bg-opacity-40">
+                    <div class="area">
+                        <ul class="circles">
+                            <li class="animation1"></li>
+                            <li class="animation2"></li>
+                            <li class="animation3"></li>
+                            <li class="animation4"></li>
+                            <li class="animation5"></li>
+                            <li class="animation6"></li>
+                            <li class="animation7"></li>
+                            <li class="animation8"></li>
+                            <li class="animation9"></li>
+                            <li class="animation10"></li>
+                        </ul>
                     </div>
-                    <div id="slide2" class="carousel-item relative w-full">
-                        <img src="{{ asset('admin/img/img/image2.png') }}" class="w-full" />
-                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide1" class="btn btn-circle">❮</a>
-                            <a href="#slide3" class="btn btn-circle">❯</a>
+                </div>
+                <div class="w-[72%] p-6 m-auto h-auto justify-center items-center relative z-20">
+                    <div class="carousel w-full ">
+                        <div id="slide1" class="carousel-item relative w-full">
+                            <img src="{{ asset('admin/img/img/image1.png') }}" class="w-full" />
+                            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                <a href="#slide4" class="btn btn-circle">❮</a>
+                                <a href="#slide2" class="btn btn-circle">❯</a>
+                            </div>
                         </div>
-                    </div>
-                    <div id="slide3" class="carousel-item relative w-full">
-                        <img src="{{ asset('admin/img/img/image3.png') }}" class="w-full" />
-                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide2" class="btn btn-circle">❮</a>
-                            <a href="#slide4" class="btn btn-circle">❯</a>
+                        <div id="slide2" class="carousel-item relative w-full">
+                            <img src="{{ asset('admin/img/img/image2.png') }}" class="w-full" />
+                            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                <a href="#slide1" class="btn btn-circle">❮</a>
+                                <a href="#slide3" class="btn btn-circle">❯</a>
+                            </div>
                         </div>
-                    </div>
-                    <div id="slide4" class="carousel-item relative w-full ">
-                        <img src="{{ asset('admin/img/img/image4.png') }}" class="w-full " />
-                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide3" class="btn btn-circle">❮</a>
-                            <a href="#slide1" class="btn btn-circle">❯</a>
+                        <div id="slide3" class="carousel-item relative w-full">
+                            <img src="{{ asset('admin/img/img/image3.png') }}" class="w-full" />
+                            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                <a href="#slide2" class="btn btn-circle">❮</a>
+                                <a href="#slide4" class="btn btn-circle">❯</a>
+                            </div>
+                        </div>
+                        <div id="slide4" class="carousel-item relative w-full ">
+                            <img src="{{ asset('admin/img/img/image4.png') }}" class="w-full " />
+                            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                <a href="#slide3" class="btn btn-circle">❮</a>
+                                <a href="#slide1" class="btn btn-circle">❯</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
         <div class="w-full h-full p-[32px 0px]">
             <div class="h-auto w-[70%]  m-auto ">
@@ -160,7 +181,8 @@
                             <a href="{{ route('pesanDiamond.show', $item->id) }}">
                                 <div class="card bg-[#184E77] shadow-xl">
                                     <figure class="p-0">
-                                        <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes" class="rounded-xl" />
+                                        <img src="{{ asset('storage/' . $item->poster_game) }}" alt="Shoes"
+                                            class="rounded-xl" />
                                     </figure>
                                     <div class="card-body items-center text-center p-2">
                                         <h2 class="text-white">{{ $item->nama_game }}</h2>
