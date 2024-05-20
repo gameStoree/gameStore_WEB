@@ -870,22 +870,22 @@
                                                             <div class="mt-2">
                                                                 <div
                                                                     class="my-4 grid grid-cols-3 gap-2 rounded-md bg-secondary-600 p-4 text-left text-sm text-text-color md:text-base">
-                                                                    <div>login</div>
+                                                                    <div>Login</div>
                                                                     <div id="modal-login-value" class="col-span-2">:
                                                                     </div>
-                                                                    <div>idnick</div>
+                                                                    <div>IdNick</div>
                                                                     <div id="modal-idnick-value" class="col-span-2">:
                                                                     </div>
-                                                                    <div>emailhpmoonton</div>
+                                                                    <div>Email/Hp/Moonton</div>
                                                                     <div id="modal-emailhpmoonton-value"
                                                                         class="col-span-2">:</div>
-                                                                    <div>password</div>
+                                                                    <div>Password</div>
                                                                     <div id="modal-password-value" class="col-span-2">
                                                                         :</div>
-                                                                    <div>hero</div>
+                                                                    <div>Hero</div>
                                                                     <div id="modal-hero-value" class="col-span-2">:
                                                                     </div>
-                                                                    <div>catatan</div>
+                                                                    <div>Catatan</div>
                                                                     <div id="modal-catatan-value" class="col-span-2">:
                                                                     </div>
                                                                     <div>Item</div>

@@ -80,8 +80,8 @@
 
 
     <div class="bg-gradient-to-br from-[#34A0A4] to-[#184E77] h-auto w-full ">
-        <div class="w-full mt-[60px] h-auto m-[0px 0px 16px] justify-center items-center m-auto ">
-            <div class="relative m-auto w-full h-auto overflow-hidden ">
+
+            <div class="relative m-auto mt-[64px] w-full h-auto overflow-hidden ">
                 <div class="absolute z-10 h-full w-full bg-blue-950 bg-opacity-40">
                     <div class="area">
                         <ul class="circles">
@@ -98,7 +98,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="w-[72%] p-6 m-auto h-auto justify-center items-center relative z-20">
+                <div class="w-[72%] p-8  m-auto h-auto justify-center items-center relative z-20">
                     <div class="carousel w-full ">
                         <div id="slide1" class="carousel-item relative w-full">
                             <img src="{{ asset('admin/img/img/image1.png') }}" class="w-full" />
@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
 
 
 

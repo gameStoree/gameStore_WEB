@@ -20,6 +20,8 @@ use App\Http\Controllers\dashboardCustomerController;
 use App\Http\Controllers\kalkulatorCustomerController;
 use App\Http\Controllers\hubungiKamiCustomerController;
 use App\Http\Controllers\cekInvoiceCustomerController;
+use App\Http\Controllers\diamondInvoiceController;
+use App\Http\Controllers\jokiRankInvoiceController;
 use App\Http\Controllers\pesanDiamondCustomerController;
 
 
@@ -82,5 +84,7 @@ Route::prefix('customer')->group(
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
         Route::get('/Invoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
         Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
+        Route::get('/pesanDiamondInvoice', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::get('/jokiRankInvoice', [jokiRankInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
     }
 );
