@@ -25,4 +25,23 @@ class pemesananJokiController extends Controller
             'judul' => 'PEMESANAN JOKI'
         ], compact('jokiMasuk', 'jokiTerkonfirmasi'));
     }
+
+    public function addPemesananJoki(Request $request)
+    {
+        dd($request->all());
+        $validatedData = $request->validate([
+            'login' => 'required|max:20',
+            'Id_server' => 'required|max:20',
+            'email_no_hp_montonID' => 'required|max:30',
+            'password' => 'required|max:255',
+            'request_hero' => 'required|max:255',
+            'catata_penjoki' => 'required|max:255',
+            'no_hp' => 'required|max:13',
+            'id_paket' => 'required|max:3',
+        ]);
+
+        pemesananJoki::create($validatedData);
+
+        // return redirect('/pemesananJoki')->with('success', 'Pemesanan Joki Berhasil');
+    }
 }

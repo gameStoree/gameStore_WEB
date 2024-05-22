@@ -36,7 +36,7 @@ class loginController extends Controller
             } else if (Auth::user()->role == 'worker') {
                 return redirect()->route('dashboardWorker.index');
             } else if (Auth::user()->role == 'customer') {
-                // Tindakan untuk role 'customer' di sini
+                return redirect()->route('dashboardCustomer.index');
             } else {
                 return redirect('/')->withErrors('Email dan password yang anda masukkan tidak sesuai')->withInput();
             }

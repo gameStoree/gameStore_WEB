@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pemesanan_jokis', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('id_paket');
+            $table->integer('jumlah_bintang')->nullable();
             $table->string('login_via', 20);
             $table->string('Id_Server', 30);
             $table->string('email_no_hp_montonID', 30);
@@ -22,8 +23,8 @@ return new class extends Migration
             $table->string('catatan_penjoki');
             $table->char('no_hp', 13);
             $table->string('status', 20);
-            $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_worker');
+            $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_worker')->nullable();
             $table->timestamps();
 
             $table->foreign('id_paket')->references('id')->on('joki_m_l');

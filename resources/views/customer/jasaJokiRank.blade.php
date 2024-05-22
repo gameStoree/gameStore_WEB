@@ -604,12 +604,12 @@
                                     <div><label for="login"
                                             class="block text-xs  font-medium text-white pb-2">Login
                                             Via</label>
-                                        <select id="login" name="login"
+                                        <select id="login" name="login_via"
                                             class="w-full pb-[8px] pt-[6px] pl-[12px] text-black bg-[#57CC99] rounded-lg pr-[12px] bg[#808080]!rounded-md !border-0 !bg-secondary-200 !text-xs !text-secondary-800
                                             !placeholder-secondary-800 accent-secondary-800 !ring-0 placeholder:text-xs focus:!border-transparent focus:!bg-[#57CC99] focus:!ring-transparent">
                                             <option value="">Pilih Login Via</option>
-                                            <option value="Moonton (Rekomendasi)">Moonton (Rekomendasi)</option>
-                                            <option value="VK (Rekomendasi)">VK (Rekomendasi)</option>
+                                            <option value="Moonton">Moonton (Rekomendasi)</option>
+                                            <option value="VK">VK (Rekomendasi)</option>
                                             <option value="Tiktok">Tiktok</option>
                                             <option value="Facebook">Facebook</option>
                                         </select>
@@ -617,42 +617,40 @@
                                     <div><label for="idnick"
                                             class="block text-xs font-medium \ text-text-color pb-2">User ID &
                                             Server</label>
-                                        <div class="flex flex-col items-start"><input
-                                                class="relative block w-full bg-[#57CC99]  appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                type="text" id="idnick" name="idnick"
+                                        <div class="flex flex-col items-start">
+                                            <input class="relative block w-full bg-[#57CC99]  appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                type="text" id="idnick" name="Id_server"
                                                 placeholder="Ketikan User ID &amp; Nick Name ..." value="">
                                         </div>
                                     </div>
                                     <div><label for="emailhpmoonton"
                                             class="block text-xs font-medium text-text-color pb-2">Email/No. Hp/Moonton
                                             ID</label>
-                                        <div class="flex flex-col items-start"><input
-                                                class="relative block w-full bg-[#57CC99] appearance-none  rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                type="text" id="emailhpmoonton" name="emailhpmoonton"
+                                        <div class="flex flex-col items-start">
+                                            <input class="relative block w-full bg-[#57CC99] appearance-none  rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                type="text" id="emailhpmoonton" name="email_no_hp_montonID"
                                                 placeholder="Ketikan Email/No. Hp/Moonton ID ..." value="">
                                         </div>
                                     </div>
                                     <div><label for="password"
                                             class="block text-xs font-medium text-text-color pb-2">Password</label>
-                                        <div class="flex flex-col items-start "><input
-                                                class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                        <div class="flex flex-col items-start ">
+                                            <input class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
                                                 type="text" id="password" name="password"
                                                 placeholder="Ketikan Password ..." value=""></div>
                                     </div>
                                     <div><label for="hero"
-                                            class="block text-xs font-medium text-text-color pb-2">Request
-                                            Hero</label>
-                                        <div class="flex flex-col items-start"><input
-                                                class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                type="text" id="hero" name="hero"
+                                            class="block text-xs font-medium text-text-color pb-2">Request Hero</label>
+                                        <div class="flex flex-col items-start">
+                                            <input class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                type="text" id="hero" name="request_hero"
                                                 placeholder="Ketikan Request Hero ..." value=""></div>
                                     </div>
                                     <div><label for="catatan"
-                                            class="block text-xs font-medium text-text-color pb-2">Catatan
-                                            Untuk Penjoki</label>
-                                        <div class="flex flex-col items-start"><input
-                                                class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                type="text" id="catatan" name="catatan"
+                                            class="block text-xs font-medium text-text-color pb-2">Catatan Untuk Penjoki</label>
+                                        <div class="flex flex-col items-start">
+                                            <input class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                type="text" id="catatan" name="catatan_penjoki"
                                                 placeholder="Ketikan Catatan Untuk Penjoki ..." value=""></div>
                                     </div>
                                 </div>
