@@ -23,7 +23,7 @@ use App\Http\Controllers\cekInvoiceCustomerController;
 use App\Http\Controllers\diamondInvoiceController;
 use App\Http\Controllers\jokiRankInvoiceController;
 use App\Http\Controllers\pesanDiamondCustomerController;
-
+use Illuminate\Routing\Route as RoutingRoute;
 
 Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
 
@@ -86,5 +86,6 @@ Route::prefix('customer')->group(
         Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
         Route::get('/pesanDiamondInvoice', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
         Route::get('/jokiRankInvoice', [jokiRankInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::post('/jokiRank/addPemesanan', [pemesananJokiController::class, 'addPemesananJoki'])->name('pemesananJoki.addPemesanan');
     }
 );

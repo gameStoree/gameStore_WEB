@@ -38,10 +38,12 @@ class pemesananJokiController extends Controller
             'catata_penjoki' => 'required|max:255',
             'no_hp' => 'required|max:13',
             'id_paket' => 'required|max:3',
+            'jumlah_bintang' => 'required|max:3',
         ]);
 
+        $validatedData['status'] = 'Belum Bayar';
         pemesananJoki::create($validatedData);
 
-        // return redirect('/pemesananJoki')->with('success', 'Pemesanan Joki Berhasil');
+        return redirect('/pemesananJoki')->with('success', 'Pemesanan Joki Berhasil');
     }
 }
