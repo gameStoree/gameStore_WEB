@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pemesanan_diamonds', function (Blueprint $table) {
-            $table->id();
-            $table->String('id_game');
-            $table->string('metode_pembayaran');
-            $table->string('bukti_tf');
+
+            $table->unsignedBigInteger('id')->primary();
+            $table->string('id_server', 30);
             $table->char('no_hp', 13);
             $table->string('status', 20);
             $table->unsignedBigInteger('id_diamond');

@@ -9,14 +9,8 @@
                 <form id="searchForm" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label" for="basic-default-company">ID ML</label>
-                        <input type="text" class="form-control" id="basic-default-company" name="id_ml" />
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="basic-default-email">Server</label>
-                        <div class="input-group input-group-merge">
-                            <input type="text" id="basic-default-email" class="form-control" name="zone" />
-                        </div>
+                        <label class="form-label" for="basic-default-nickname">ID ML (Zone)</label>
+                        <input type="text" class="form-control" id="id_zone" name="nickname" />
                     </div>
                     <button type="submit" class="btn btn-primary">Cari</button>
                 </form>
@@ -28,17 +22,19 @@
     <script>
         $(document).ready(function() {
             $("#searchForm").submit(function(event) {
-                event.preventDefault(); // Menghentikan pengiriman form default
+                event.preventDefault();
 
-                var idMl = $("#basic-default-company").val();
-                var server = $("#basic-default-email").val();
+                var nickname = $("#id_zone").val();
+                var parts = nickname.split("(");
+                var idMl = parts[0];
+                var zone = parts[1].replace(")", ""); // Hapus tanda kurung tutup
 
                 $.ajax({
                     url: "https://api.isan.eu.org/nickname/ml",
                     method: "GET",
                     data: {
                         id: idMl,
-                        zone: server
+                        zone: zone
                     },
                     success: function(result) {
                         // Manipulasi data JSON untuk menghilangkan status dan game

@@ -18,7 +18,12 @@ use App\Http\Controllers\jokiRankCustomerController;
 use App\Http\Controllers\pemesananDiamondController;
 use App\Http\Controllers\dashboardCustomerController;
 use App\Http\Controllers\kalkulatorCustomerController;
-
+use App\Http\Controllers\hubungiKamiCustomerController;
+use App\Http\Controllers\cekInvoiceCustomerController;
+use App\Http\Controllers\diamondInvoiceController;
+use App\Http\Controllers\jokiRankInvoiceController;
+use App\Http\Controllers\pesanDiamondCustomerController;
+use Illuminate\Routing\Route as RoutingRoute;
 
 Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
 
@@ -76,5 +81,11 @@ Route::prefix('customer')->group(
         Route::get('/', [dashboardCustomerController::class, 'index'])->name('dashboardCustomer.index');
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
+        Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
+        Route::get('/Invoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
+        Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
+        Route::get('/pesanDiamondInvoice', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::get('/jokiRankInvoice', [jokiRankInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::post('/jokiRank/addPemesanan', [pemesananJokiController::class, 'addPemesananJoki'])->name('pemesananJoki.addPemesanan');
     }
 );

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_paket');
             $table->string('joki_rank');
-            $table->string('harga_joki');
+            $table->integer('harga_joki');
             $table->timestamps();
         });
     }
