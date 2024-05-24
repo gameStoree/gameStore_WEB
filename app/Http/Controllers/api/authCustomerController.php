@@ -37,7 +37,7 @@ class AuthCustomerController extends Controller
         'password' => Hash::make($request->password),
         'no_hp' => $request->no_hp,
         'alamat' => $request->alamat,
-        'role' => 'admin',
+        'role' => 'customer',
     ]);
     $user->save();
 

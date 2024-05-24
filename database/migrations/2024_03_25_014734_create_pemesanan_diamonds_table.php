@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pemesanan_diamonds', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_game');
+            $table->String('id_game');
             $table->string('metode_pembayaran');
             $table->string('bukti_tf');
             $table->char('no_hp', 13);
