@@ -11,4 +11,6 @@ class pemesananDiamond extends Model
 
     protected $table = "pemesanan_diamonds";
     protected $fillable = ['id_game', 'metode_pembayaran', 'bukti_tf', 'no_hp', 'status', 'id_diamond', 'id_user'];
+    // public $incrementing = false;
+    // protected $keyType = 'unsignedBigInteger';
 }

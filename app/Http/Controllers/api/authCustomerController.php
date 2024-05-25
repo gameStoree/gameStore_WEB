@@ -29,7 +29,7 @@ class AuthCustomerController extends Controller
     // $nomor_urut_format = str_pad($nomor_urut, 3, '0', STR_PAD_LEFT); // Format nomor urut menjadi 3 digit dengan leading zero
     // $id_baru = 'US' . $tanggal_sekarang . $nomor_urut_format; // Gabungkan semua komponen untuk membuat ID baru
 
-    // Membuat objek User baru
+    // Membuat objek User baru customer
     $user = new User([
         // 'id' => $id_baru,
         'nama_lengkap' => $request->nama_lengkap,

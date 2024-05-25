@@ -4,48 +4,74 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\PemesananDiamond;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PemesananDiamondController extends Controller
 {
-    public function pemesanan(Request $request)
-    {
-        // Validasi request
-        $request->validate([
-            'id_game' => 'required',
-            'metode_pembayaran' => 'required',
-            'status' => 'required',
-            'bukti_tf' => 'required',
-            'no_hp' => 'required',
-            'id_diamond' => 'required',
-            'id_user' => 'required',
-        ]);
-        // $transaction->bukti_tf = $validatedData['bukti_tf'];
-        // Simpan data ke dalam database
-        $pemesananDiamond = new PemesananDiamond();
-        $pemesananDiamond->id_game = $request->input('id_game');
-        $pemesananDiamond->metode_pembayaran = $request->input('metode_pembayaran');
-        $pemesananDiamond->bukti_tf = $request->input('bukti_tf');
-        $pemesananDiamond->status = $request->input('status');
-        $pemesananDiamond->no_hp = $request->input('no_hp');
-        $pemesananDiamond->id_diamond = $request->input('id_diamond');
-        $pemesananDiamond->id_user = $request->input('id_user');
-        $pemesananDiamond->created_at = now();
-        $pemesananDiamond->save();
-
-        return response()->json(['message' => 'Pemesanan berhasil disimpan'], 201);
-    }
-
-            private function parseIdGame($combinedIdGame)
+        public function pemesanan(Request $request)
         {
-            // Misalnya, Anda bisa menggunakan regular expression untuk memisahkan nilai
-            // Di sini hanya contoh sederhana, Anda mungkin perlu menyesuaikan dengan kebutuhan Anda
-            preg_match('/^(\d+) \((\d+)\)$/', $combinedIdGame, $matches);
+            $validatedData = $request->validate([
+                'id_server' => 'required',
+                'status' => 'required',
+                'no_hp' => 'required',
+                'id_diamond' => 'required',
+                'id_user' => 'required',
+            ]);
 
-            // $matches[1] akan berisi idGame
-            // $matches[2] akan berisi serverGame
+            $pemesanan = new PemesananDiamond();
+            $pemesanan->id = $this->generateId();
+            $pemesanan->id_server = $validatedData['id_server'];
+            $pemesanan->status = $validatedData['status'];
+            $pemesanan->no_hp = $validatedData['no_hp'];
+            $pemesanan->id_diamond = $validatedData['id_diamond'];
+            $pemesanan->id_user = $validatedData['id_user'];
+            $pemesanan->save();
 
-            // Anda bisa mengembalikan salah satu dari keduanya atau keduanya bergantung pada kebutuhan Anda
-            return (int)$matches[1]; // Kembalikan idGame sebagai integer
+            return response()->json(['message' => 'Pemesanan berhasil dibuat'], 201);
         }
-}
+
+        private function generateId()
+        {
+            $prefix = 732;
+            $randomNumber = rand(100, 99999);
+            $suffix = str_pad($this->getNextSequenceNumber(), 4, '0', STR_PAD_LEFT);
+
+            return (int) ($prefix . $randomNumber . $suffix);
+        }
+
+        private function getNextSequenceNumber()
+        {
+            $lastRecord = PemesananDiamond::orderBy('id', 'desc')->first();
+            if (!$lastRecord) {
+                return 10;
+            } else {
+                $lastId = (string) $lastRecord->id;
+                $lastSequenceNumber = (int) substr($lastId, -4);
+                return $lastSequenceNumber + 1;
+            }
+        }
+
+                private function parseIdGame($combinedIdGame)
+            {
+                // Misalnya, Anda bisa menggunakan regular expression untuk memisahkan nilai
+                // Di sini hanya contoh sederhana, Anda mungkin perlu menyesuaikan dengan kebutuhan Anda
+                preg_match('/^(\d+) \((\d+)\)$/', $combinedIdGame, $matches);
+                return (int)$matches[1]; // Kembalikan idGame sebagai integer
+            }
+
+
+            public function getOrdersByUser($id_user)
+            {
+                $oneWeekAgo = \Carbon\Carbon::now()->subWeek();
+
+                $orders = PemesananDiamond::where('id_user', $id_user)
+                            ->where('created_at', '>=', $oneWeekAgo)
+                            ->get(['id', 'created_at']);
+
+                return response()->json(['orders' => $orders]);
+            }
+
+
+
+    }

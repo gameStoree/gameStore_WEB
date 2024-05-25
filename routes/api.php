@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 });
 
-Route::post('/users/{id}/photo', [UploadFotoController::class, 'updatePhoto']); 
+Route::post('/users/{id}/photo', [UploadFotoController::class, 'updatePhoto']);
 Route::get('/users/{id}/getphoto', [UploadFotoController::class, 'getPhoto']);
 
 
@@ -49,6 +49,7 @@ Route::get('/jokirank', [JokiRankController::class, 'index']);
 Route::get('/pemesanan/{orderId}', [PemesananJokiController::class, 'searchById']);
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);
+Route::get('order-ids/{id_user}', [PemesananDiamondController::class, 'getOrdersByUser']);
 
 
 

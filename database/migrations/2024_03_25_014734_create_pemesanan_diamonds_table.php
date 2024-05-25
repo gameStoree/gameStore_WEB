@@ -7,12 +7,11 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations.  
      */
     public function up(): void
     {
         Schema::create('pemesanan_diamonds', function (Blueprint $table) {
-
             $table->unsignedBigInteger('id')->primary();
             $table->string('id_server', 30);
             $table->char('no_hp', 13);
@@ -20,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_diamond');
             $table->unsignedBigInteger('id_user');
             $table->timestamps();
-
             $table->foreign('id_diamond')->references('id')->on('diamond_game');
             $table->foreign('id_user')->references('id')->on('users');
         });

@@ -26,7 +26,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user')->nullable();
             $table->unsignedBigInteger('id_worker')->nullable();
             $table->timestamps();
-
             $table->foreign('id_paket')->references('id')->on('joki_m_l');
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_worker')->references('id')->on('worker');
