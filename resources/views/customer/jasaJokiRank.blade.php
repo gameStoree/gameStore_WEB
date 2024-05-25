@@ -629,8 +629,7 @@
                                         </div>
                                         <div><label for="emailhpmoonton"
                                                 class="block text-xs font-medium text-text-color pb-2">Email/No.
-                                                Hp/Moonton
-                                                ID</label>
+                                                Hp/Moonton ID</label>
                                             <div class="flex flex-col items-start">
                                                 <input
                                                     class="relative block w-full bg-[#57CC99] appearance-none  rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
@@ -694,7 +693,8 @@
                                                 <div class="grid grid-cols-3 gap-4">
                                                     @foreach ($jokiSatuan as $jokiItem)
                                                         <input type="radio" name="itemPaket"
-                                                            value="{{ $jokiItem->joki_rank }}" data-harga="{{ $jokiItem->harga_joki }}"
+                                                            value="{{ $jokiItem->joki_rank }}"
+                                                            data-harga="{{ $jokiItem->harga_joki }}"
                                                             id="jokiSatuan-radio-{{ $loop->index }}" class="hidden">
                                                         <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
                                                             role="radio" aria-checked="false" tabindex="-1"
@@ -730,7 +730,7 @@
                                                         <input type="radio" name="itemPaket"
                                                             value="{{ $jokiItem->joki_rank }}"
                                                             id="jokiPaketan-radio-{{ $loop->index }}">
-                                                            class="hidden">
+                                                        class="hidden">
                                                         <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
                                                             role="radio" aria-checked="false" tabindex="-1"
                                                             onclick="selectRadio('jokiPaketan-radio-{{ $loop->index }}')"
@@ -771,9 +771,17 @@
                                                 <!-- Input jumlah bintang -->
                                                 <div class="grow">
                                                     <div class="flex flex-col items-start">
-                                                        <input class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                        <input
+                                                            class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
                                                             type="text" id="jumlah-bintang" name="jumlah_bintang"
-                                                            placeholder="Isi jumlah bintang yang kamu inginkan" value="">
+                                                            placeholder="Isi jumlah bintang yang kamu inginkan"
+                                                            value="">
+                                                        <input
+                                                            class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                            type="hidden" id="harga-keseluruhan"
+                                                            name="harga_keseluruhan"
+                                                            placeholder="Isi jumlah bintang yang kamu inginkan"
+                                                            value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1030,30 +1038,32 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const jumlahBintang = document.getElementById("jumlah-bintang");
-    const hargaJokiElement = document.getElementById("harga-joki");
-    const totalHargaElement = document.getElementById("total-harga");
+        const jumlahBintang = document.getElementById("jumlah-bintang");
+        const hargaJokiElement = document.getElementById("harga-joki");
+        const totalHargaElement = document.getElementById("total-harga");
+        const hargaKeseluruhanElement = document.getElementById("harga-keseluruhan");
 
-    jumlahBintang.addEventListener("input", function () {
-        const jumlahBintangValue = parseInt(jumlahBintang.value); // Pastikan nilai berupa angka
-        const radioChecked = document.querySelector('input[name="itemPaket"]:checked');
-        if (radioChecked && !isNaN(jumlahBintangValue)) { // Periksa bahwa nilai bintang adalah angka dan ada radio yang dipilih
-            const hargaJoki = parseInt(radioChecked.dataset.harga);
-            const totalHarga = hargaJoki * jumlahBintangValue;
-            hargaJokiElement.innerText = ": Rp. " + formatNumber(hargaJoki);
-            totalHargaElement.innerText = ": Rp. " + formatNumber(totalHarga);
-        } else {
-            // Handle jika nilai bintang tidak valid
-            hargaJokiElement.innerText = ": -";
-            totalHargaElement.innerText = ": -";
+        jumlahBintang.addEventListener("input", function () {
+            const jumlahBintangValue = parseInt(jumlahBintang.value); // Pastikan nilai berupa angka
+            const radioChecked = document.querySelector('input[name="itemPaket"]:checked');
+            if (radioChecked && !isNaN(jumlahBintangValue)) { // Periksa bahwa nilai bintang adalah angka dan ada radio yang dipilih
+                const hargaJoki = parseInt(radioChecked.dataset.harga);
+                const totalHarga = hargaJoki * jumlahBintangValue;
+                hargaJokiElement.innerText = ": Rp. " + formatNumber(hargaJoki);
+                totalHargaElement.innerText = ": Rp. " + formatNumber(totalHarga);
+                hargaKeseluruhanElement.value = totalHarga;
+            } else {
+                // Handle jika nilai bintang tidak valid
+                hargaJokiElement.innerText = ": -";
+                totalHargaElement.innerText = ": -";
+                hargaKeseluruhanElement.value = "";
+            }
+        });
+
+        function formatNumber(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
     });
-
-    function formatNumber(number) {
-        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-});
-
     </script>
 </body>
 
