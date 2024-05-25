@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pemesanan_jokis', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+            $table->string('id', 12)->primary();
             $table->unsignedBigInteger('id_paket');
             $table->integer('jumlah_bintang')->nullable();
             $table->integer('harga_keseluruhan')->nullable();

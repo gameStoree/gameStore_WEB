@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pemesanan_diamonds', function (Blueprint $table) {
-
-            $table->unsignedBigInteger('id')->primary();
+            $table->string('id', 12)->primary();
             $table->string('id_server', 30);
             $table->char('no_hp', 13);
             $table->string('status', 20);
