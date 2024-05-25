@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/css/index.css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript"
+        src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ config('midtrans.client_key') }}"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
@@ -623,7 +628,7 @@
                                             <div class="flex flex-col items-start">
                                                 <input
                                                     class="relative block w-full bg-[#57CC99]  appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                    type="text" id="idnick" name="Id_server"
+                                                    type="text" id="idnick" name="Id_Server"
                                                     placeholder="Ketikan User ID &amp; Nick Name ..." value="">
                                             </div>
                                         </div>
@@ -688,12 +693,11 @@
                                         </div>
                                         <div class="h-auto w-full p-[24px] bg-[#184E77] rounded-b-xl">
                                             <div id="jokiSatuan">
-                                                <h3 class="font-semibold text-text-color pb-2 text-white">Joki Satuan
-                                                </h3>
+                                                <h3 class="font-semibold text-text-color pb-2 text-white">Joki Satuan</h3>
                                                 <div class="grid grid-cols-3 gap-4">
                                                     @foreach ($jokiSatuan as $jokiItem)
-                                                        <input type="radio" name="itemPaket"
-                                                            value="{{ $jokiItem->joki_rank }}"
+                                                        <input type="radio" name="id_paket"
+                                                            value="{{ $jokiItem->id }}"
                                                             data-harga="{{ $jokiItem->harga_joki }}"
                                                             id="jokiSatuan-radio-{{ $loop->index }}" class="hidden">
                                                         <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
@@ -702,11 +706,9 @@
                                                             data-radio="jokiSatuan-radio-{{ $loop->index }}">
                                                             <span class="flex flex-1">
                                                                 <span class="flex flex-col justify-between">
-                                                                    <span
-                                                                        class="trunc block text-xs font-semibold text-white dark:text-white">{{ $jokiItem->joki_rank }}</span>
+                                                                    <span class="trunc block text-xs font-semibold text-white dark:text-white">{{ $jokiItem->joki_rank }}</span>
                                                                     <div>
-                                                                        <span
-                                                                            class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
+                                                                        <span class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
                                                                     </div>
                                                                 </span>
                                                             </span>
@@ -722,12 +724,13 @@
                                                     @endforeach
                                                 </div>
                                             </div>
+
                                             <div class="jokiPaketan">
                                                 <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki
                                                     Paketan</h3>
                                                 <div class="grid grid-cols-3 gap-4">
                                                     @foreach ($jokiPaketan as $jokiItem)
-                                                        <input type="radio" name="itemPaket"
+                                                        <input type="radio" name="id_paket"
                                                             value="{{ $jokiItem->joki_rank }}"
                                                             id="jokiPaketan-radio-{{ $loop->index }}">
                                                         class="hidden">
@@ -899,7 +902,7 @@
                                                         </div>
                                                         <div class="modal-action mt-5 grid grid-cols-2 gap-3">
                                                             <div>
-                                                                <button for="my_modal_6" type="sumbit"
+                                                                <button for="my_modal_6" type="sumbit" id="pay-button"
                                                                     class=" bg-emerald-500 text-white btn mt-3 inline-flex w-full justify-center rounded-md border
                                                                 border-secondary-700 bg-secondary-600 px-4 py-2 text-base font-medium
                                                                 text-text-color shadow-sm hover:bg-emerald-600 focus:outline-none
@@ -1022,7 +1025,7 @@
             var passwordValue = document.getElementById('password').value;
             var heroValue = document.getElementById('hero').value;
             var catatanValue = document.getElementById('catatan').value;
-            var itemValue = document.querySelector('input[name="itemPaket"]:checked').value;
+            var itemValue = document.querySelector('input[name="id_paket"]:checked').value;
 
             // Update nilai-nilai di dalam modal
             document.getElementById('modal-login-value').innerText = ': ' + loginValue;
@@ -1045,7 +1048,7 @@
 
         jumlahBintang.addEventListener("input", function () {
             const jumlahBintangValue = parseInt(jumlahBintang.value); // Pastikan nilai berupa angka
-            const radioChecked = document.querySelector('input[name="itemPaket"]:checked');
+            const radioChecked = document.querySelector('input[name="id_paket"]:checked');
             if (radioChecked && !isNaN(jumlahBintangValue)) { // Periksa bahwa nilai bintang adalah angka dan ada radio yang dipilih
                 const hargaJoki = parseInt(radioChecked.dataset.harga);
                 const totalHarga = hargaJoki * jumlahBintangValue;
@@ -1065,6 +1068,31 @@
         }
     });
     </script>
+    <script type="text/javascript">
+        // For example trigger on button clicked, or any time you need
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function () {
+          // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+          window.snap.pay('{{ session('snapToken') }}', {
+            onSuccess: function(result){
+              /* You may add your own implementation here */
+              alert("payment success!"); console.log(result);
+            },
+            onPending: function(result){
+              /* You may add your own implementation here */
+              alert("wating your payment!"); console.log(result);
+            },
+            onError: function(result){
+              /* You may add your own implementation here */
+              alert("payment failed!"); console.log(result);
+            },
+            onClose: function(){
+              /* You may add your own implementation here */
+              alert('you closed the popup without finishing the payment');
+            }
+          })
+        });
+      </script>
 </body>
 
 </html>

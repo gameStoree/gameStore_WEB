@@ -44,43 +44,40 @@ class pemesananJokiController extends Controller
         ]);
 
         $validatedData['status'] = 'Belum Bayar';
-        pemesananJoki::create($validatedData);
+        $pemesananJoki = pemesananJoki::create($validatedData);
 
-        /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
-        composer require midtrans/midtrans-php
+        // Set up konfigurasi Midtrans
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        \Midtrans\Config::$isProduction = false; // Set true untuk Lingkungan Produksi
+        \Midtrans\Config::$isSanitized = true;
+        \Midtrans\Config::$is3ds = true;
 
-        Alternatively, if you are not using **Composer**, you can download midtrans-php library
-        (https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require
-        the file manually.
+        // Siapkan detail transaksi untuk Midtrans
+        $params = [
+            'transaction_details' => [
+                'order_id' => $pemesananJoki->id, // Gunakan ID kustom yang dihasilkan
+                'gross_amount' => $validatedData['harga_keseluruhan'], // Gunakan harga total yang divalidasi
+            ],
+            'customer_details' => [
+                'first_name' => 'Pelanggan', // Anda dapat menyesuaikan ini
+                'last_name' => 'Nama', // Anda dapat menyesuaikan ini
+                'email' => $validatedData['email_no_hp_montonID'], // Gunakan alamat email
+                'phone' => $validatedData['no_hp'], // Gunakan nomor telepon
+            ],
+            'item_details' => [
+                [
+                    'id' => $validatedData['id_paket'], // Gunakan ID paket
+                    'price' => $validatedData['harga_keseluruhan'], // Gunakan harga paket
+                    'quantity' => 1, // Jumlah adalah 1 untuk satu paket
+                    'name' => 'Paket Joki - ' . $validatedData['login_via'], // Nama deskriptif untuk paket
+                ],
+            ],
+        ];
 
-        require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
+        // Dapatkan token Snap dari Midtrans
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        // dd($snapToken);
 
-        //SAMPLE REQUEST START HERE
-
-        // Set your Merchant Server Key
-        // \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        // \Midtrans\Config::$isProduction = false;
-        // // Set sanitization on (default)
-        // Config::$isSanitized = true;
-        // // Set 3DS transaction for credit card to true
-        // \Midtrans\Config::$is3ds = true;
-
-        // $params = array(
-        //     'transaction_details' => array(
-        //         'order_id' => rand(),
-        //         'gross_amount' => 10000,
-        //     ),
-        //     'customer_details' => array(
-        //         'first_name' => 'budi',
-        //         'last_name' => 'pratama',
-        //         'email' => 'budi.pra@example.com',
-        //         'phone' => '08111222333',
-        //     ),
-        // );
-
-        // $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-        return redirect()->route('dashboardCustomer.index')->with('success', 'Pemesanan Joki Berhasil');
+        return redirect()->route('dashboardCustomer.index')->with(['success' => 'Pemesanan Joki Berhasil', 'snapToken' => $snapToken]);
     }
 }
