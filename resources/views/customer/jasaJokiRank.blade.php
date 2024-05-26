@@ -597,7 +597,7 @@
                         <div class="grid ">
 
                             <div class="1 h-auto">
-                                <form action="{{ route('pemesananJoki.addPemesanan') }}" method="POST">
+                                <form action="{{ route('jokiRankCustomer.addPemesanan') }}" method="POST" id="order-form">
                                     @csrf
                                     <div class="flex w-full h-auto ">
                                         <div
@@ -1068,31 +1068,46 @@
         }
     });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-        // For example trigger on button clicked, or any time you need
         var payButton = document.getElementById('pay-button');
         payButton.addEventListener('click', function () {
-          // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-          window.snap.pay('{{ session('snapToken') }}', {
-            onSuccess: function(result){
-              /* You may add your own implementation here */
-              alert("payment success!"); console.log(result);
-            },
-            onPending: function(result){
-              /* You may add your own implementation here */
-              alert("wating your payment!"); console.log(result);
-            },
-            onError: function(result){
-              /* You may add your own implementation here */
-              alert("payment failed!"); console.log(result);
-            },
-            onClose: function(){
-              /* You may add your own implementation here */
-              alert('you closed the popup without finishing the payment');
-            }
-          })
+            var formData = $('#order-form').serialize(); // Serialize the form data
+
+            $.ajax({
+                url: '{{ route("jokiRankCustomer.addPemesanan") }}', // Your route to the controller method
+                type: 'POST',
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token
+                },
+                success: function(response) {
+                    // Trigger snap popup with the snap token from the response
+                        window.snap.pay('{{ session('snapToken') }}', {
+                            onSuccess: function(result){
+                                alert("Payment success!");
+                                console.log(result);
+                            },
+                            onPending: function(result){
+                                alert("Waiting for your payment!");
+                                console.log(result);
+                            },
+                            onError: function(result){
+                                alert("Payment failed!");
+                                console.log(result);
+                            },
+                            onClose: function(){
+                                alert('You closed the popup without finishing the payment');
+                            }
+                        });
+                },
+                error: function(xhr, status, error) {
+                alert("Something went wrong!");
+                console.error(xhr.responseText);
+                }
+            });
         });
-      </script>
+    </script>
 </body>
 
 </html>
