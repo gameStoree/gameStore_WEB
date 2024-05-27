@@ -72,8 +72,9 @@
             <div class="container flex w-full justify-end pb-4 print:hidden"><button
                     class="inline-flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75"
                     type="button">Download Invoice</button></div>
-            <div class="container grid grid-cols-3 gap-4">
-                <div class="col-span-3 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2  bg-[#34A0A4]">
+            <div class="container ">
+                <div
+                    class="col-span-3 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2  bg-[#34A0A4]">
                     <div>
                         <div>
                             <h3 class="text-base font-semibold leading-7 text-text-color print:text-black">Detail
@@ -139,62 +140,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="hidden h-0 print:block print:h-56"></div>
-                <div
-                    class="col-span-3 flex flex-col gap-4 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-1 bg-[#34A0A4]">
-                    <div class="w-full text-center text-sm font-medium">
-                        <dt class="text-text-color print:text-black">Transaksi ini dibuat pada</dt>
-                        <dd class="mt-2 rounded-md bg-green-500 py-2 text-text-color print:text-black">19/05/2024
-                            14:00:20</dd>
-                    </div>
-                    <div class="rounded-md bg-secondary-800/50 p-4">
-                        <h2 class="text-sm font-semibold leading-6">Metode Pembayaran</h2>
-                        <h3 class="text-sm font-semibold leading-6">QRIS (All Payment)</h3>
-                    </div>
-                    <div class="prose prose-sm"><button
-                            class="flex w-full justify-between rounded-lg bg-secondary-800/50 px-4 py-3 text-left text-sm font-medium text-text-color focus:outline-none print:text-black"
-                            id="headlessui-disclosure-button-:rks:" type="button" aria-expanded="false"
-                            data-headlessui-state=""><span>Cara Melakukan Pembayaran</span><svg
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                aria-hidden="true" class=" h-5 w-5 text-text-color print:text-black">
-                                <path fill-rule="evenodd"
-                                    d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
-                                    clip-rule="evenodd"></path>
-                            </svg></button></div>
-                    <div class="mt-1 rounded-lg border border-secondary-700/50 bg-secondary-800/50 px-4 pb-1 pt-1 text-sm"
-                        id="headlessui-disclosure-panel-:r6:" data-headlessui-state="open">
-                        <div>
-                            <p class="selectable-text copyable-text x15bjb6t x1n2onr6" dir="ltr"><span
-                                    class="selectable-text copyable-text">Cara Melakukan Pembayaran Dengan Upload
-                                    Gambar QRIS Di Semua Aplikasi E-Wallet atau E-Banking</span><span
-                                    class="selectable-text copyable-text"><br><br></span><span
-                                    class="selectable-text copyable-text x1sdyfia xss6m8b">1.</span><span
-                                    class="selectable-text copyable-text"> Undur Kode QR Atau Screenshot Kode QR Pada
-                                    Invoice.<br></span><span
-                                    class="selectable-text copyable-text x1sdyfia xss6m8b">2.</span><span
-                                    class="selectable-text copyable-text"> Masuk ke aplikasi E-Wallet atau E-Banking
-                                    yang Anda gunakan, kemudian klik tombol Scanner atau Bayar.<br></span><span
-                                    class="selectable-text copyable-text x1sdyfia xss6m8b">3.</span><span
-                                    class="selectable-text copyable-text"> Setelah itu, klik ikon Upload QR dari Galeri
-                                    atau yang ada logo Gambar.<br></span><span
-                                    class="selectable-text copyable-text x1sdyfia xss6m8b">4.</span><span
-                                    class="selectable-text copyable-text"> Pilih gambar QRIS yang Kamu Download Atau
-                                    Screenshot Di Takapedia Yang telah disimpan di galeri.<br></span><span
-                                    class="selectable-text copyable-text x1sdyfia xss6m8b">5.</span><span
-                                    class="selectable-text copyable-text"> Klik OK untuk melanjutkan ke proses
-                                    berikutnya.<br></span><span
-                                    class="selectable-text copyable-text x1sdyfia xss6m8b">6.</span><span
-                                    class="selectable-text copyable-text"> Klik Bayar Sekarang untuk menyelesaikan
-                                    proses transaksi.</span></p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col"></div>
 
-                </div>
                 <div
-                    class="col-span-3 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-3 bg-[#34A0A4]">
+                    class="col-span-3 mt-10 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-3 bg-[#34A0A4]">
                     <div class="flex flex-col gap-4 md:flex-row">
-                        <div class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
+                        <div
+                            class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
                             <div>
                                 <h3 class="text-sm font-semibold leading-6">Informasi akun</h3>
                                 <div
@@ -256,8 +207,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div><a class="print:text-black-foreground flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                        href="/id/joki-rank" style="outline: none;">Beli Lagi</a></div>
+
                                 <div class="pt-4 print:hidden">
                                     <form
                                         class="flex flex-col gap-y-3 rounded-lg border border-secondary-700/25 bg-secondary-800/50 p-4">
@@ -322,14 +272,21 @@
                                     </form>
                                 </div>
                             </div>
+                            <div><a class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
+                                    href="/id/joki-rank" style="outline: none;">Bayar Sekarang</a></div>
+
+                            <div><a class="print:text-black-foreground bg-red-600    flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
+                                    href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a></div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="container md:pt-8">
                 <ul class="grid grid-cols-2 gap-4 md:grid-cols-4">
-                    <li><a href="#"
-                            target="#" rel="noreferrer"
+                    <li><a href="#" target="#" rel="noreferrer"
                             class="relative flex aspect-video h-full w-full items-center justify-center border border-secondary-600">
                             <div class="relative aspect-video h-full w-full"><img alt="" loading="lazy"
                                     decoding="async" data-nimg="fill" class="h-full w-full object-contain"
@@ -435,17 +392,17 @@
 
     // Menambahkan event listener untuk mengklik tombol salin
     copyButton.addEventListener("click", function() {
-      // Mendapatkan teks dari tombol
-      var textToCopy = copyButton.textContent.trim();
+        // Mendapatkan teks dari tombol
+        var textToCopy = copyButton.textContent.trim();
 
-      // Salin teks ke clipboard
-      navigator.clipboard.writeText(textToCopy)
-        .then(function() {
-          // Tampilkan notifikasi bahwa teks telah disalin
-          alert("Teks telah disalin ke clipboard!");
-        })
-        .catch(function(error) {
-          console.error('Gagal menyalin teks: ', error);
-        });
+        // Salin teks ke clipboard
+        navigator.clipboard.writeText(textToCopy)
+            .then(function() {
+                // Tampilkan notifikasi bahwa teks telah disalin
+                alert("Teks telah disalin ke clipboard!");
+            })
+            .catch(function(error) {
+                console.error('Gagal menyalin teks: ', error);
+            });
     });
-  </script>
+</script>
