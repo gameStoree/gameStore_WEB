@@ -64,9 +64,8 @@ class jokiRankCustomerController extends Controller
         ];
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-        // return redirect()->route('jokiRankCustomer.index')->with(['success' => 'Pemesanan Joki Berhasil', 'snapToken' => $snapToken]);
-        return view('customer.jasaJokiRank', compact('snapToken'));
+        // dd($snapToken);
+        return redirect()->route('pesanJokiInvoice.index', ['id' => $pemesananJoki->id, 'snapToken' => $snapToken]);
         // return response()->json(['snapToken' => $snapToken]);
     }
 }

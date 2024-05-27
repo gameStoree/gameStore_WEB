@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     @vite('resources/css/app.css')
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript"
+        src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ config('midtrans.client_key') }}"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
 </head>
 
 
@@ -60,18 +65,10 @@
                     <p class="mt-2 text-2xl font-bold tracking-tight text-text-color print:text-black md:text-4xl">
                         Transaksi sudah selesai.</p>
                     <p class="mt-3.5 text-base text-text-color print:text-black">
-                        Pesanan kamu
-                        <button id="copyButton" type="button"
-                            class="mx-1 rounded-md border border-secondary-700/25 bg-secondary-800/25 px-1 font-bold text-text-color print:text-black">
-                            TPO49F7A2223A706530368732
-                        </button>
-                        telah dikirim dan akan segera tiba.
+                        Pesanan kamu {{ $pemesanan->id }} telah dikirim dan akan segera tiba.
                     </p>
                 </div>
             </div>
-            <div class="container flex w-full justify-end pb-4 print:hidden"><button
-                    class="inline-flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75"
-                    type="button">Download Invoice</button></div>
             <div class="container ">
                 <div
                     class="col-span-3 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2  bg-[#34A0A4]">
@@ -89,16 +86,7 @@
                                         Invoice</dt>
                                     <dd
                                         class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
-                                        TPO49F7A2223A706530368732</dd>
-                                </div>
-                                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Status
-                                        Transaksi</dt>
-                                    <dd
-                                        class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
-                                        <span
-                                            class="inline-flex rounded-sm px-2 text-xs font-semibold leading-5 print:p-0 bg-emerald-200 text-emerald-900">Success</span>
-                                    </dd>
+                                        {{ $pemesanan->id }}</dd>
                                 </div>
                                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
                                     <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Status
@@ -106,35 +94,27 @@
                                     <dd
                                         class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
                                         <span id="badge-paid"
-                                            class="inline-flex rounded-sm px-2 text-xs font-semibold leading-5 print:p-0 bg-emerald-200 text-emerald-900">Paid</span>
+                                            class="inline-flex rounded-sm px-2 text-xs font-semibold leading-5 print:p-0 bg-emerald-200 text-emerald-900">{{ $pemesanan->status }}</span>
                                     </dd>
                                 </div>
                                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Pesan
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Tanggal Transakasi
                                     </dt>
                                     <dd
                                         class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
-                                        Transaksi berhasil pada 2024/05/20 16:07:11 WIB</dd>
+                                        {{ $pemesanan->created_at }}</dd>
                                 </div>
                                 <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Rincian
-                                        Pembayaran</dt>
-                                    <div class="space-y-4 sm:col-span-2"><button
-                                            class="mt-1 flex w-full items-center justify-between rounded-md bg-secondary-800/25 py-2 pr-2 pl-4 text-sm"
-                                            id="headlessui-disclosure-button-:rkq:" type="button" aria-expanded="false"
-                                            data-headlessui-state=""><span>Lihat Rincian Pembayaran</span><svg
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                                class="h-5 w-5 text-text-color print:text-black">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
-                                            </svg></button>
-                                        <div
-                                            class="mt-1 flex items-center justify-between rounded-md bg-secondary-800/25 p-4 text-sm leading-6 text-text-color print:py-0 print:text-black sm:mt-0">
-                                            <div>Total Pembayaran</div>
-                                            <div>Rp&nbsp;111.190</div>
-                                        </div>
-                                    </div>
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Produk</dt>
+                                    <dd
+                                        class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
+                                        {{ $pemesanan->id_paket }}</dd>
+                                </div>
+                                <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Total Harga</dt>
+                                    <dd
+                                        class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">Rp.
+                                        {{ $pemesanan->harga_keseluruhan }}</dd>
                                 </div>
                             </dl>
                         </div>
@@ -156,16 +136,16 @@
                                             Login Via</dt>
                                         <dd
                                             class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>Moonton (Rekomendasi)</p>
+                                            <p>{{ $pemesanan->login_via }}</p>
                                         </dd>
                                     </div>
                                     <div class="grid grid-cols-3 gap-x-4 py-2">
                                         <dt
                                             class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            User ID &amp; Nick Name</dt>
+                                            User ID &amp; Server</dt>
                                         <dd
                                             class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>313975404 (Odyssey)</p>
+                                            <p>{{ $pemesanan->Id_Server }}</p>
                                         </dd>
                                     </div>
                                     <div class="grid grid-cols-3 gap-x-4 py-2">
@@ -174,7 +154,7 @@
                                             Email/No. Hp/Moonton ID</dt>
                                         <dd
                                             class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>gedeodi29@gmail.com</p>
+                                            <p>{{ $pemesanan->email_no_hp_montonID }}</p>
                                         </dd>
                                     </div>
                                     <div class="grid grid-cols-3 gap-x-4 py-2">
@@ -183,7 +163,7 @@
                                             Password</dt>
                                         <dd
                                             class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>Bayugede1</p>
+                                            <p>{{ $pemesanan->password }}</p>
                                         </dd>
                                     </div>
                                     <div class="grid grid-cols-3 gap-x-4 py-2">
@@ -192,7 +172,7 @@
                                             Request Hero</dt>
                                         <dd
                                             class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>Diggie, Khufra, Floryn</p>
+                                            <p>{{ $pemesanan->request_hero }}</p>
                                         </dd>
                                     </div>
                                     <div class="grid grid-cols-3 gap-x-4 py-2">
@@ -201,7 +181,7 @@
                                             Catatan Untuk Penjoki</dt>
                                         <dd
                                             class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>Roam Only</p>
+                                            <p>{{ $pemesanan->catatan_penjoki }}</p>
                                         </dd>
                                     </div>
                                 </div>
@@ -272,13 +252,15 @@
                                     </form>
                                 </div>
                             </div>
-                            <div><a class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                    href="/id/joki-rank" style="outline: none;">Bayar Sekarang</a></div>
+                            <div>
+                                <button id="pay-button" class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
+                                style="outline: none;">Bayar Sekarang</button>
+                            </div>
 
-                            <div><a class="print:text-black-foreground bg-red-600    flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                    href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a></div>
-
-
+                            <div>
+                                <a class="print:text-black-foreground bg-red-600    flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
+                                    href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -297,7 +279,7 @@
                             </div>
                         </a></li>
                 </ul>
-                <div class="prose prose-sm pt-4">
+                {{-- <div class="prose prose-sm pt-4">
                     <p class="py-2">Halo, Orderanmu Telah Selesai! Terima kasih Telah Order di TAKAPEDIA.</p>
                     <p class="py-2">Keterangan Order:</p>
                     <div class="-mt-4 break-words p-4">
@@ -319,7 +301,7 @@
                     <p class="py-2">Terimakasih Sudah Order Di TAKAPEDIA, Di tunggu Next Ordernya Semoga Sehat Selalu
                         Dan Lancar
                         Rezekinya.</p>
-                </div>
+                </div> --}}
             </div>
         </main>
 
@@ -404,5 +386,31 @@
             .catch(function(error) {
                 console.error('Gagal menyalin teks: ', error);
             });
+    });
+</script>
+
+<script type="text/javascript">
+    // For example trigger on button clicked, or any time you need
+    var payButton = document.getElementById('pay-button');
+    payButton.addEventListener('click', function () {
+      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+      window.snap.pay('{{ $snapToken }}', {
+        onSuccess: function(result){
+          /* You may add your own implementation here */
+          alert("payment success!"); console.log(result);
+        },
+        onPending: function(result){
+          /* You may add your own implementation here */
+          alert("wating your payment!"); console.log(result);
+        },
+        onError: function(result){
+          /* You may add your own implementation here */
+          alert("payment failed!"); console.log(result);
+        },
+        onClose: function(){
+          /* You may add your own implementation here */
+          alert('you closed the popup without finishing the payment');
+        }
+      })
     });
 </script>
