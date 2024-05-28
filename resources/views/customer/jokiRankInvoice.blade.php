@@ -388,29 +388,40 @@
             });
     });
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
-    // For example trigger on button clicked, or any time you need
     var payButton = document.getElementById('pay-button');
     payButton.addEventListener('click', function () {
-      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-      window.snap.pay('{{ $snapToken }}', {
-        onSuccess: function(result){
-          /* You may add your own implementation here */
-          alert("payment success!"); console.log(result);
-        },
-        onPending: function(result){
-          /* You may add your own implementation here */
-          alert("wating your payment!"); console.log(result);
-        },
-        onError: function(result){
-          /* You may add your own implementation here */
-          alert("payment failed!"); console.log(result);
-        },
-        onClose: function(){
-          /* You may add your own implementation here */
-          alert('you closed the popup without finishing the payment');
-        }
-      })
+        window.snap.pay('{{ $snapToken }}', {
+            onSuccess: function(result) {
+                $.ajax({
+                    url: '/jokiRankInvoice/updateStatus/' + '{{ $pemesanan->id }}',
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        status: 'Lunas'
+                    },
+                    success: function(response) {
+                        alert('Payment successful! Status updated to Lunas.');
+                        console.log(response.message);
+                    },
+                    error: function(response) {
+                        alert('Error updating status.');
+                        console.log(response);
+                    }
+                });
+            },
+            onPending: function(result) {
+                alert("Waiting for your payment!");
+                console.log(result);
+            },
+            onError: function(result) {
+                alert("Payment failed!");
+                console.log(result);
+            },
+            onClose: function() {
+                alert('You closed the popup without finishing the payment');
+            }
+        });
     });
 </script>

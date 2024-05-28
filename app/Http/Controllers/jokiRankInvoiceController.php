@@ -16,12 +16,11 @@ class jokiRankInvoiceController extends Controller
         return view('customer.jokiRankInvoice', compact('pemesanan', 'snapToken'));
     }
 
-    public function updateStatus(string $id)
+    public function updateStatus(Request $request, $id)
     {
-        // Find the order by ID, if not found it will throw a 404 error
         $pemesanan = pemesananJoki::findOrFail($id);
-
-        // Update the order status to 'paid'
         $pemesanan->update(['status' => 'Lunas']);
+
+        return response()->json(['message' => 'Status updated to Lunas successfully']);
     }
 }
