@@ -86,7 +86,9 @@ Route::prefix('customer')->group(
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
         Route::get('/Invoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
         Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
-        Route::get('/pesanDiamondInvoice', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::post('/pesan-diamond/addPemesanan', [pesanDiamondCustomerController::class, 'addPemesananDiamond'])->name('pesanDiamondCustomer.addPemesanan');
+        Route::get('/pesanDiamondInvoice/{id}', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::post('/pesanDiamondInvoice/updateStatus/{id}', [diamondInvoiceController::class, 'updateStatus']);
         Route::get('/jokiRankInvoice/{id}', [jokiRankInvoiceController::class, 'index'])->name('pesanJokiInvoice.index');
         Route::post('/jokiRankInvoice/updateStatus/{id}', [jokiRankInvoiceController::class, 'updateStatus']);
         Route::post('/jokiRank/addPemesanan', [jokiRankCustomerController::class, 'addPemesananJoki'])->name('jokiRankCustomer.addPemesanan');
