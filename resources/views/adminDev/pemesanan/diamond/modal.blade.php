@@ -44,11 +44,11 @@
                         src="{{ asset('storage/' . $pesananMasuk->bukti_tf) }}" alt="">
                     <div class="container">
                         <p><b>ID Transaksi :</b> {{ $pesananMasuk->id }}</p>
-                        <p><b>ID Game :</b> {{ $pesananMasuk->id_game }}</p>
+                        <p><b>ID Game :</b> {{ $pesananMasuk->id_server }}</p>
                         <p><b>Nama Game :</b> {{ $pesananMasuk->nama_game }}</p>
                         <p><b>Nama Customer :</b> {{ $pesananMasuk->nama_lengkap }}</p>
                         <p><b>No HP :</b> {{ $pesananMasuk->no_hp }}</p>
-                        <p><b>Metode Pembayaran :</b> {{ $pesananMasuk->metode_pembayaran }}</p>
+                        <p><b>Harga :</b> {{ $pesananMasuk->harga_keseluruhan }}</p>
                         <p><b>Status :</b> {{ $pesananMasuk->status }}</p>
                         <p><b>Tanggal Pemesanan :</b> {{ $pesananMasuk->created_at }}</p>
                     </div>

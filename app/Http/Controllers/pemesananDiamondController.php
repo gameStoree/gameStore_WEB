@@ -10,16 +10,18 @@ class pemesananDiamondController extends Controller
 {
     public function pesananMasuk()
     {
-        $dataMasuk = pemesananDiamond::select('pemesanan_diamonds.*', 'diamond_game.nama_game', 'users.nama_lengkap')
+        $dataMasuk = pemesananDiamond::select('pemesanan_diamonds.*', 'kategori_games.nama_game')
             ->join('diamond_game', 'pemesanan_diamonds.id_diamond', '=', 'diamond_game.id')
-            ->join('users', 'pemesanan_diamonds.id_user', '=', 'users.id')
+            ->join('kategori_games', 'diamond_game.nama_game', '=', 'kategori_games.id')
+            // ->join('users', 'pemesanan_diamonds.id_user', '=', 'users.id')
             ->where('pemesanan_diamonds.status', '=', 'Belum bayar')
             ->get();
 
-        $dataTerkonfirmasi = pemesananDiamond::select('pemesanan_diamonds.*', 'diamond_game.nama_game', 'users.nama_lengkap')
+        $dataTerkonfirmasi = pemesananDiamond::select('pemesanan_diamonds.*', 'kategori_games.nama_game')
             ->join('diamond_game', 'pemesanan_diamonds.id_diamond', '=', 'diamond_game.id')
-            ->join('users', 'pemesanan_diamonds.id_user', '=', 'users.id')
-            ->where('pemesanan_diamonds.status', '=', 'Terkirim')
+            ->join('kategori_games', 'diamond_game.nama_game', '=', 'kategori_games.id')
+            // ->join('users', 'pemesanan_diamonds.id_user', '=', 'users.id')
+            ->where('pemesanan_diamonds.status', '=', 'Lunas')
             ->get();
 
         return view('adminDev.pemesanan.diamond.index', [

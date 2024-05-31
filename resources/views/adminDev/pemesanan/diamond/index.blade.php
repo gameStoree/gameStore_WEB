@@ -21,8 +21,7 @@
                                 <th>ID Transaksi TopUp</th>
                                 <th>ID Game</th>
                                 <th>Nama Game</th>
-                                <th>Customer</th>
-                                <th>Metode Pembayaran</th>
+                                <th>Harga</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -33,10 +32,9 @@
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $pesananMasuk->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->id_game }}</td>
+                                    <td>{{ $pesananMasuk->id_server }}</td>
                                     <td>{{ $pesananMasuk->nama_game }}</td>
-                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
-                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
+                                    <td>{{ $pesananMasuk->harga_keseluruhan }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
                                     <td class="d-flex gap-2">
                                         <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
@@ -72,10 +70,7 @@
                                 <th>ID Transaksi TopUp</th>
                                 <th>ID Game</th>
                                 <th>Nama Game</th>
-                                <th>No Hp</th>
-                                <th>Customer</th>
-                                <th>Metode Pembayaran</th>
-                                <th>Bukti Pembayaran</th>
+                                <th>Harga</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -85,12 +80,9 @@
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $pesananMasuk->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->id_game }}</td>
+                                    <td>{{ $pesananMasuk->id_server }}</td>
                                     <td>{{ $pesananMasuk->nama_game }}</td>
-                                    <td>{{ $pesananMasuk->no_hp }}</td>
-                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
-                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
-                                    <td>{{ $pesananMasuk->bukti_tf }}</td>
+                                    <td>{{ $pesananMasuk->harga_keseluruhan }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
                                 </tr>
                             @endforeach
