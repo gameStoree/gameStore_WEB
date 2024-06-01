@@ -19,10 +19,10 @@
                             <p><b>Password :</b> {{ $pesananMasuk->password }}</p>
                             <p><b>Request Hero :</b> {{ $pesananMasuk->request_hero }}</p>
                             <p><b>Catatan Penjoki :</b> {{ $pesananMasuk->catatan_penjoki }}</p>
-                            <p><b>Metode Pembayaran :</b> {{ $pesananMasuk->metode_pembayaran }}</p>
                             <p><b>No HP :</b> {{ $pesananMasuk->no_hp }}</p>
                             <p><b>Status :</b> {{ $pesananMasuk->status }}</p>
-                            <p><b>Tanggal Pemesanan :</b> {{ $pesananMasuk->creat_at }}</p>
+                            <p><b>Metode Pembayaran :</b> {{ $pesananMasuk->harga_keseluruhan }}</p>
+                            <p><b>Tanggal Pemesanan :</b> {{ $pesananMasuk->created_at }}</p>
                         </div>
                     </div>
                     <div class="modal-footer">

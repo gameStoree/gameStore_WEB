@@ -42,7 +42,7 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
-Route::prefix('adminDev')->middleware('UserAkses:admin')->group(
+Route::prefix('adminDev')->group(
     function () {
         Route::get('/', function () {
             return view('adminDev.layout');
@@ -64,7 +64,7 @@ Route::prefix('adminDev')->middleware('UserAkses:admin')->group(
     }
 );
 
-Route::prefix('worker')->middleware('UserAkses:worker')->group(
+Route::prefix('worker')->group(
     function () {
         Route::get('/', function () {
             return view('worker.layout');

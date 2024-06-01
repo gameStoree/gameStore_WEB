@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\pemesananJoki;
+use Illuminate\Support\Facades\Auth;
 
 class takeJobController extends Controller
 {
@@ -11,9 +13,23 @@ class takeJobController extends Controller
      */
     public function index()
     {
+        $workerId = Auth::id();
+
+        $jokiTerkonfirmasi = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.nama_paket', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            // ->join('users', 'pemesanan_jokis.id_user', '=', 'users.id')
+            ->where('pemesanan_jokis.status', '=', 'Lunas')
+            ->get();
+
+        $jokiProgress = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.nama_paket', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+        ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+        ->where('pemesanan_jokis.status', '=', 'Progress')
+        ->where('pemesanan_jokis.id_worker', '=', $workerId)
+        ->get();
+
         return view('worker.takeJob.index', [
             'judul' => 'TAKE JOB'
-        ]);
+        ], compact('jokiTerkonfirmasi', 'jokiProgress'));
     }
 
     /**
@@ -53,7 +69,14 @@ class takeJobController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = [
+            'id_worker' => Auth::id()
+        ];
+
+        $validatedData['status'] = 'Progress';
+        pemesananJoki::where('id', $id)->update($validatedData);
+
+        return redirect()->route('takeJob.index')->with('success', 'Update status data progress');
     }
 
     /**
