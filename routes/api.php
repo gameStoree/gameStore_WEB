@@ -2,16 +2,18 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthCustomerController;
-use App\Http\Controllers\Api\DiamondGameController;
-use App\Http\Controllers\Api\UploadFotoController;
-use App\Http\Controllers\Api\JokiRankController;
-use App\Http\Controllers\Api\PemesananJokiController;
 use App\Http\Controllers\ApiTransaksiIpaymu;
-use App\Http\Controllers\Api\UserApiController;
 use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\Api\PemesananDiamondController;
+use App\Http\Controllers\Api\UserApiController;
+use App\Http\Controllers\Api\JokiRankController;
+use App\Http\Controllers\Api\UploadFotoController;
+use App\Http\Controllers\diamondInvoiceController;
+use App\Http\Controllers\Api\DiamondGameController;
+use App\Http\Controllers\jokiRankInvoiceController;
+use App\Http\Controllers\Api\AuthCustomerController;
+use App\Http\Controllers\Api\PemesananJokiController;
 use App\Http\Controllers\Api\ForgotPasswordController;
+use App\Http\Controllers\Api\PemesananDiamondController;
 
 
 
@@ -60,5 +62,6 @@ Route::post('/verify-otp', [ForgotPasswordController::class, 'verifyOTP']);
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword']);
 
 
-
+Route::post('/jokiRankInvoice/updateStatus', [jokiRankInvoiceController::class, 'updateStatus']);
+Route::post('/pesanDiamondInvoice/updateStatus', [diamondInvoiceController::class, 'updateStatus']);
 
