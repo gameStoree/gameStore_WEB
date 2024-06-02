@@ -14,7 +14,7 @@ class pemesananDiamond extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $table = "pemesanan_diamonds";
+    protected $table = "pemesanan_diamonds";    
     protected $fillable = ['id', 'id_server', 'harga_keseluruhan', 'no_hp', 'status', 'id_diamond', 'id_user'];
     // public $incrementing = false;
     // protected $keyType = 'unsignedBigInteger';

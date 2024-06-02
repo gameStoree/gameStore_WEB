@@ -14,6 +14,7 @@ class ApiTransaksiIpaymu extends Controller
             'jumlah_bintang' => 'required',
             'login_via' => 'required',
             'id_server' => 'required',
+            'harga_keseluruhan' => 'required',
             'email_no_hp_montonID' => 'required',
             'password' => 'required',
             'request_hero' => 'required',
@@ -27,6 +28,7 @@ class ApiTransaksiIpaymu extends Controller
         $transaction->id = $this->generateidjoki();
         $transaction->id_paket = $validatedData['id_paket'];
         $transaction->jumlah_bintang = $validatedData['jumlah_bintang'];
+        $transaction->harga_keseluruhan = $validatedData ['harga_keseluruhan'];
         $transaction->login_via = $validatedData['login_via'];
         $transaction->id_server = $validatedData['id_server'];
         $transaction->email_no_hp_montonID = $validatedData['email_no_hp_montonID'];
@@ -46,22 +48,25 @@ class ApiTransaksiIpaymu extends Controller
 
 
     public function generateidjoki(){
-        $prefix = 821;
-        $randomNumber = rand(100, 99999);
-        $suffix = str_pad($this->getidakhir(), 4, '0', STR_PAD_LEFT);
-            return(int) ($prefix.$randomNumber.$suffix);
-
-    }
-
-    public function getidakhir() {
-        $lastRecord = pemesananJoki::orderby('id', 'desc')-> first();
-        if(!$lastRecord){
-            return 10;
-        }else {
-            $lastId = (string) $lastRecord -> id;
-            $lastakhirid = (int) substr($lastId, -4);
-            return $lastakhirid + 1;
+        $prefix = 'INVJ';
+            $randomString = $this->generateRandomString(7);
+            $lastChar = substr($randomString, -1);
+            if (is_numeric($lastChar)) {
+                $randomString[strlen($randomString) - 1] = ++$lastChar;
+            } else {
+                $randomString .= '1';
+            }
+            $id = $prefix . $randomString;
+            return $id;
         }
+
+        private function generateRandomString($length = 6) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= strtoupper($characters[rand(0, strlen($characters) - 1)]);
+            }
+            return $randomString;
     }
 
 

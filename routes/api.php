@@ -49,7 +49,8 @@ Route::get('/jokirank', [JokiRankController::class, 'index']);
 Route::get('/pemesanan/{orderId}', [PemesananJokiController::class, 'searchById']);
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);
-Route::get('order-ids/{id_user}', [PemesananDiamondController::class, 'getOrdersByUser']);
+Route::get('/pemesanan-dm-terbaru/{id_user}', [pemesananDiamondController::class, 'getPemesananDiamondTerbaru']);
+Route::get('/order-ids/{id_user}', [PemesananDiamondController::class, 'getCombinedOrdersByUser']);
 
 
 
