@@ -23,6 +23,8 @@ use App\Http\Controllers\cekInvoiceCustomerController;
 use App\Http\Controllers\diamondInvoiceController;
 use App\Http\Controllers\jokiRankInvoiceController;
 use App\Http\Controllers\pesanDiamondCustomerController;
+use App\Http\Controllers\loginControllerReal;
+
 use Illuminate\Routing\Route as RoutingRoute;
 
 Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
@@ -40,7 +42,7 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
-Route::prefix('adminDev')->middleware('UserAkses:admin')->group(
+Route::prefix('adminDev')->group(
     function () {
         Route::get('/', function () {
             return view('adminDev.layout');
@@ -62,7 +64,7 @@ Route::prefix('adminDev')->middleware('UserAkses:admin')->group(
     }
 );
 
-Route::prefix('worker')->middleware('UserAkses:worker')->group(
+Route::prefix('worker')->group(
     function () {
         Route::get('/', function () {
             return view('worker.layout');
@@ -84,8 +86,12 @@ Route::prefix('customer')->group(
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
         Route::get('/Invoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
         Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
-        Route::get('/pesanDiamondInvoice', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
-        Route::get('/jokiRankInvoice', [jokiRankInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::post('/pesan-diamond/addPemesanan', [pesanDiamondCustomerController::class, 'addPemesananDiamond'])->name('pesanDiamondCustomer.addPemesanan');
+        Route::get('/pesanDiamondInvoice/{id}', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
+        Route::post('/pesanDiamondInvoice/updateStatus/{id}', [diamondInvoiceController::class, 'updateStatus']);
+        Route::get('/jokiRankInvoice/{id}', [jokiRankInvoiceController::class, 'index'])->name('pesanJokiInvoice.index');
+        Route::post('/jokiRankInvoice/updateStatus/{id}', [jokiRankInvoiceController::class, 'updateStatus']);
         Route::post('/jokiRank/addPemesanan', [jokiRankCustomerController::class, 'addPemesananJoki'])->name('jokiRankCustomer.addPemesanan');
+        Route::get('/loginAll', [loginControllerReal::class, 'index'])->name('loginAll.index');
     }
 );

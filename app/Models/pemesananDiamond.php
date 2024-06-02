@@ -2,15 +2,36 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class pemesananDiamond extends Model
 {
     use HasFactory;
 
-    protected $table = "pemesanan_diamonds";
-    protected $fillable = ['id_game', 'metode_pembayaran', 'bukti_tf', 'no_hp', 'status', 'id_diamond', 'id_user'];
+    protected $primaryKey = 'id';
     public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $table = "pemesanan_diamonds";    
+    protected $fillable = ['id', 'id_server', 'harga_keseluruhan', 'no_hp', 'status', 'id_diamond', 'id_user'];
+    // public $incrementing = false;
     // protected $keyType = 'unsignedBigInteger';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->id = self::generateCustomId();
+        });
+    }
+
+    public static function generateCustomId()
+    {
+        $prefix = 'INVD';
+        $randomString = strtoupper(Str::random(8));
+        return $prefix . $randomString;
+    }
 }

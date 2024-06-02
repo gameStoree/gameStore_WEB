@@ -590,9 +590,11 @@
                     <div class="row-span-2 col-span-2 ...">
                         <div class="grid ">
                             <div class="1 h-auto">
+                                <form action="{{ route('pesanDiamondCustomer.addPemesanan') }}" method="post">
+                                @csrf
                                 <div class="flex w-full h-auto ">
                                     <div
-                                        class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
+                                        class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl ">
                                         1</div>
                                     <h3class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
                                     Masukkan Data Akun Kamu
@@ -606,7 +608,7 @@
                                         <div class="flex flex-col items-start">
                                             <input
                                                 class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                type="text" id="idServer" name="idnick"
+                                                type="text" id="idServer" name="id_server"
                                                 placeholder="contoh:1373886755(15647)" value="">
                                         </div>
                                     </div>
@@ -629,26 +631,23 @@
                                     </div>
                                     <div class="h-auto w-full p-[24px] bg-[#184E77] rounded-b-xl">
                                         <div class="jokiPaketan">
-                                            <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Diamond
-                                            </h3>
+                                            <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Diamond</h3>
                                             <div class="grid grid-cols-3 gap-4">
                                                 @foreach ($diamonds as $diamond)
-                                                    <input type="radio" name="itemPaket"
-                                                        value="{{ $diamond->jumlah_diamond }}"
-                                                        id="jokiSatuan-radio-{{ $loop->index }}" class="hidden">
+                                                    <input type="radio" name="id_diamond"
+                                                        value="{{ $diamond->id }}"
+                                                        id="jokiSatuan-radio-{{ $loop->index }}"
+                                                        data-price="{{ $diamond->harga_diamond }}"
+                                                        class="hidden">
                                                     <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
                                                         role="radio" aria-checked="false" tabindex="-1"
                                                         onclick="selectRadio('jokiSatuan-radio-{{ $loop->index }}')"
                                                         data-radio="jokiSatuan-radio-{{ $loop->index }}">
                                                         <span class="flex flex-1">
                                                             <span class="flex flex-col justify-between">
-                                                                <span
-                                                                    class="block text-xs font-semibold text-white dark:text-white">{{ $diamond->jumlah_diamond }}
-                                                                    Diamond</span>
+                                                                <span class="block text-xs font-semibold text-white dark:text-white">{{ $diamond->jumlah_diamond }} Diamond</span>
                                                                 <div>
-                                                                    <span
-                                                                        class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.
-                                                                        {{ number_format($diamond->harga_diamond, 0, ',', '.') }}</span>
+                                                                    <span class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp. {{ number_format($diamond->harga_diamond, 0, ',', '.') }}</span>
                                                                 </div>
                                                             </span>
                                                         </span>
@@ -660,67 +659,14 @@
                                                     </div>
                                                 @endforeach
                                             </div>
+                                            <input class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                type="text" id="promo-code" name="harga_keseluruhan" value="">
                                         </div>
                                     </div>
                                     <div class="flex w-full h-auto mt-8">
                                         <div
                                             class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
                                             3</div>
-                                        <h3
-                                            class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
-                                            Pilih Metode Pembayaran</h3>
-                                    </div>
-                                    <div class="bg-[#184E77]  p-4 sm:grid-cols-2 sm:px-6 sm:pb-4">
-                                        <div class="flex w-full bg-[#34A0A4] text-white transform flex-col justify-between rounded-md bg-secondary-600 text-left text-sm font-medium text-text-color duration-300 focus:outline-none"
-                                            data-headlessui-state="">
-                                            <dt class="relative"><button class="w-full disabled:opacity-75"
-                                                    disabled="" id="headlessui-disclosure-button-:r4d:"
-                                                    type="button" data-headlessui-state="">
-                                                    <div class="flex w-full justify-between px-4 py-2"><span
-                                                            class="transform text-base font-semibold leading-7 duration-300">
-                                                            <div>E-Wallet</div>
-                                                        </span><span class="ml-6 flex h-7 items-center"><svg
-                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 24 24" stroke-width="1.5"
-                                                                stroke="currentColor" aria-hidden="true"
-                                                                class="h-6 w-6 transform duration-300">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
-                                                            </svg></span></div>
-                                                </button>
-                                                <div class="absolute inset-0 z-30"></div>
-                                                <div class="overflow-hidden">
-                                                    <div class="w-full rounded-b-md bg-secondary-300 px-4 py-2">
-                                                        <div class="flex justify-end gap-x-2">
-                                                            <div class="pl-0.5"><img
-                                                                    src="https://cdn.takapedia.com/common/f1eaf2bf-45f2-4ef9-9407-cb933d05248e.png"
-                                                                    alt="Logo DANA Official" class="max-h-[18px]">
-                                                            </div>
-                                                            <div class="pl-0.5"><img
-                                                                    src="https://cdn.takapedia.com/common/QRIS Dana-08004351.png"
-                                                                    alt="Logo Dana" class="max-h-[18px]"></div>
-                                                            <div class="pl-0.5"><img
-                                                                    src="https://cdn.takapedia.com/common/QRIS GoPay-78939023.png"
-                                                                    alt="Logo Gopay" class="max-h-[18px]"></div>
-                                                            <div class="pl-0.5"><img
-                                                                    src="https://cdn.takapedia.com/common/7a78c0bc-e1a8-419e-a40a-df91ca62269b.png"
-                                                                    alt="Logo OVO" class="max-h-[18px]"></div>
-                                                            <div class="pl-0.5"><img
-                                                                    src="https://cdn.takapedia.com/common/QRIS ShopeePay-59701533.png"
-                                                                    alt="Logo ShopeePay" class="max-h-[18px]"></div>
-                                                            <div class="pl-0.5"><img
-                                                                    src="https://cdn.takapedia.com/common/QRIS LinkAja-18397651.png"
-                                                                    alt="Logo Link Aja" class="max-h-[18px]"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </dt>
-                                        </div>
-                                    </div>
-                                    <div class="flex w-full h-auto mt-8">
-                                        <div
-                                            class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
-                                            4</div>
                                         <h3
                                             class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
                                             Detail Kontak Anda</h3>
@@ -730,7 +676,7 @@
                                             <div class="grow">
                                                 <div class=" flex flex-col items-start"><input
                                                         class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                        type="text" id="promo-code"
+                                                        type="text" id="promo-code" name="no_hp"
                                                         placeholder="Masukkan nomor whatsApp anda" value="">
                                                 </div>
                                             </div>
@@ -791,9 +737,9 @@
                                                         </div>
                                                         <div class="modal-action mt-5 grid grid-cols-2 gap-3">
                                                             <div>
-                                                                <label for="my_modal_6"
+                                                                <button type="submit" for="my_modal_6"
                                                                     class="btn bg-emerald-500 text-white w-full">Pesan
-                                                                    Sekarang</label>
+                                                                    Sekarang</button>
                                                             </div>
                                                             <div>
                                                                 <label for="my_modal_6"
@@ -806,6 +752,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -881,7 +828,7 @@
 
         function tampilkanPesanan() {
             var idServerValue = document.getElementById('idServer').value;
-            var itemValue = document.querySelector('input[name="itemPaket"]:checked').value;
+            var itemValue = document.querySelector('input[name="id_diamond"]:checked').value;
             var parts = idServerValue.split("(");
             var idMl = parts[0];
             var zone = parts[1].replace(")", ""); // Hapus tanda kurung tutup
@@ -914,6 +861,15 @@
             });
         }
     </script>
+    <script type="text/javascript">
+        function selectRadio(radioId) {
+            const radio = document.getElementById(radioId);
+            radio.checked = true;
+            const price = radio.getAttribute('data-price');
+            document.getElementById('promo-code').value = price;
+        }
+    </script>
+
 
 </body>
 

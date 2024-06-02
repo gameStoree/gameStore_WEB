@@ -180,3 +180,14 @@
     animation: spinAndGrow10 36s linear infinite; /* Animasi tanpa batas, dengan durasi 10 detik */
 }
 
+
+.carousel-img {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.show {
+    opacity: 1;
+}
+

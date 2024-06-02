@@ -165,7 +165,7 @@
             <div class="h-auto w-[70%] m-auto flex my-4">
                 <ul class="menu grid grid-cols-3 gap-4 rounded-box">
                     <li id="topUp"
-                        class="bg-[#] text-white rounded-xl w-auto justify-center items-center w-auto topup1"
+                        class="bg-[#] text-white rounded-xl  justify-center items-center w-auto topup1"
                         style="font-size: 16px; padding: 10px 20px; border: 2px solid white; border-radius: 10px;">Top
                         Up</li>
                     <li id="jasa_ml" class="bg-[#] text-white rounded-xl w-auto justify-center items-center jasa_ml"

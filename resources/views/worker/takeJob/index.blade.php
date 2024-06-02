@@ -4,11 +4,11 @@
     <div class="content-wrapper">
         <div id="pemesanan_top" class="w-full">
             <div id="pesanan_masuk">
-                <h4 id="pesanan-masuk">Pesanan Masuk</h4>
+                <h4 id="pesanan-masuk">Pesanan Joki</h4>
                 <span class="line-text"></span>
             </div>
             <div id="pesanan_terkonfirmasi">
-                <h4 id="pesanan-terkonfimasi">Pesanan Terkonfirmasi</h4>
+                <h4 id="pesanan-terkonfimasi">Pesanan Take Job</h4>
                 <span class="line-text"></span>
             </div>
         </div>
@@ -18,28 +18,28 @@
                     <table class="table table-hover large" id="myTable">
                         <thead>
                             <tr>
-                                <th>ID Transaksi TopUp</th>
-                                <th>ID Game</th>
-                                <th>Nama Game</th>
-                                <th>Customer</th>
-                                <th>Metode Pembayaran</th>
+                                <th>ID Transaksi Joki</th>
+                                <th>Nama Paket</th>
+                                <th>Joki Rank</th>
+                                <th>Harga</th>
                                 <th>Status</th>
+                                <th>No Hp</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            {{-- @foreach ($dataMasuk as $pesananMasuk)
+                            @foreach ($jokiTerkonfirmasi as $pesananMasuk)
                                 <tr>
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $pesananMasuk->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->id_game }}</td>
-                                    <td>{{ $pesananMasuk->nama_game }}</td>
-                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
-                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
+                                    <td>{{ $pesananMasuk->nama_paket }}</td>
+                                    <td>{{ $pesananMasuk->joki_rank }}</td>
+                                    <td>{{ $pesananMasuk->harga_joki }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
+                                    <td>{{ $pesananMasuk->no_hp }}</td>
                                     <td class="d-flex gap-2">
-                                        <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
+                                        {{-- <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('PUT')
@@ -49,14 +49,24 @@
                                         </form>
                                         <button type="button" class="btn btn-icon btn-outline-danger">
                                             <i class="bx bx-trash-alt"></i>
-                                        </button>
+                                        </button> --}}
                                         <button type="button" class="btn btn-icon btn-outline-secondary"
                                             data-bs-toggle="modal" data-bs-target="#modalLong">
                                             <i class="bx bx-info-circle"></i>
                                         </button>
+                                        <form action="{{ route('takeJob.update', $pesananMasuk->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="btn btn-icon btn-outline-success">
+                                                <i class="bx bxs-hand-up"></i>
+                                            </button>
+                                        </form>
+                                        {{-- <button type="button" class="btn btn-icon btn-outline-danger">
+                                            <i class="bx bx-flag"></i>
+                                        </button> --}}
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -69,36 +79,45 @@
                     <table class="table table-hover large" id="myTable1">
                         <thead>
                             <tr>
-                                <th>ID Transaksi TopUp</th>
-                                <th>ID Game</th>
-                                <th>Nama Game</th>
+                                <th>ID Transaksi Joki</th>
+                                <th>Nama Paket</th>
+                                <th>Joki Rank</th>
+                                <th>Harga</th>
+                                <th>Status</th>
                                 <th>No Hp</th>
-                                <th>Customer</th>
-                                <th>Metode Pembayaran</th>
-                                <th>Bukti Pembayaran</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            {{-- @foreach ($dataTerkonfirmasi as $pesananMasuk)
+                            @foreach ($jokiProgress as $pesananProgress)
                                 <tr>
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
-                                        <strong>{{ $pesananMasuk->id }}</strong>
+                                        <strong>{{ $pesananProgress->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->id_game }}</td>
-                                    <td>{{ $pesananMasuk->nama_game }}</td>
-                                    <td>{{ $pesananMasuk->no_hp }}</td>
-                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
-                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
-                                    <td>{{ $pesananMasuk->bukti_tf }}</td>
-                                    <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
+                                    <td>{{ $pesananProgress->nama_paket }}</td>
+                                    <td>{{ $pesananProgress->joki_rank }}</td>
+                                    <td>{{ $pesananProgress->harga_joki }}</td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananProgress->status }}</span></td>
+                                    <td>{{ $pesananProgress->no_hp }}</td>
+                                    <td class="d-flex gap-2">
+                                        <button type="button" class="btn btn-icon btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananProgress->id }}">
+                                            <i class="bx bx-info-circle"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-icon btn-outline-danger"
+                                            data-bs-toggle="modal" data-bs-target="#modalLaporan{{ $pesananProgress->id }}">
+                                            <i class="bx bx-flag"></i>
+                                        </button>
+                                    </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -129,4 +148,5 @@
         });
     </script>
     @include('sweetalert::alert')
+    @include('worker.takeJob.modal')
 @endsection

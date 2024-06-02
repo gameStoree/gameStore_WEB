@@ -726,14 +726,12 @@
                                             </div>
 
                                             <div class="jokiPaketan">
-                                                <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki
-                                                    Paketan</h3>
+                                                <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki Paketan</h3>
                                                 <div class="grid grid-cols-3 gap-4">
                                                     @foreach ($jokiPaketan as $jokiItem)
                                                         <input type="radio" name="id_paket"
                                                             value="{{ $jokiItem->joki_rank }}"
-                                                            id="jokiPaketan-radio-{{ $loop->index }}">
-                                                        class="hidden">
+                                                            id="jokiPaketan-radio-{{ $loop->index }}" class="hidden">
                                                         <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
                                                             role="radio" aria-checked="false" tabindex="-1"
                                                             onclick="selectRadio('jokiPaketan-radio-{{ $loop->index }}')"
@@ -1068,7 +1066,7 @@
         }
     });
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         var payButton = document.getElementById('pay-button');
         payButton.addEventListener('click', function () {
@@ -1107,7 +1105,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>
