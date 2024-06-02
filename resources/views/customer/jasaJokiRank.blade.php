@@ -1047,9 +1047,9 @@
         const hargaKeseluruhanElement = document.getElementById("harga-keseluruhan");
 
         jumlahBintang.addEventListener("input", function () {
-            const jumlahBintangValue = parseInt(jumlahBintang.value); // Pastikan nilai berupa angka
+            const jumlahBintangValue = parseInt(jumlahBintang.value);
             const radioChecked = document.querySelector('input[name="id_paket"]:checked');
-            if (radioChecked && !isNaN(jumlahBintangValue)) { // Periksa bahwa nilai bintang adalah angka dan ada radio yang dipilih
+            if (radioChecked && !isNaN(jumlahBintangValue)) {
                 const hargaJoki = parseInt(radioChecked.dataset.harga);
                 const totalHarga = hargaJoki * jumlahBintangValue;
                 hargaJokiElement.innerText = ": Rp. " + formatNumber(hargaJoki);
