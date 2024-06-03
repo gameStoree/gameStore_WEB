@@ -25,7 +25,9 @@ use App\Http\Controllers\jokiRankInvoiceController;
 use App\Http\Controllers\pesanDiamondCustomerController;
 use App\Http\Controllers\loginControllerReal;
 
+
 use Illuminate\Routing\Route as RoutingRoute;
+use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
 Route::get('/apiML', [ApiMlController::class, 'tampilan'])->name('apiMl.tampilan');
 
@@ -84,7 +86,7 @@ Route::prefix('customer')->group(
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
-        Route::get('/Invoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
+        Route::get('/invoice', [cekInvoiceCustomerController::class, 'index'])->name('cekInvoice.index');
         Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
         Route::post('/pesan-diamond/addPemesanan', [pesanDiamondCustomerController::class, 'addPemesananDiamond'])->name('pesanDiamondCustomer.addPemesanan');
         Route::get('/pesanDiamondInvoice/{id}', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
