@@ -395,11 +395,10 @@
         window.snap.pay('{{ $snapToken }}', {
             onSuccess: function(result) {
                 $.ajax({
-                    url: '/jokiRankInvoice/updateStatus/' + '{{ $pemesanan->id }}',
+                    url: '/api/jokiRankInvoice/updateStatus',
                     type: 'POST',
                     data: {
-                        _token: '{{ csrf_token() }}',
-                        status: 'Lunas'
+                        id: result.order_id
                     },
                     success: function(response) {
                         alert('Payment successful! Status updated to Lunas.');

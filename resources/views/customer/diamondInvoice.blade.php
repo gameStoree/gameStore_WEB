@@ -112,114 +112,6 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- <div
-                    class="col-span-3 mt-10 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-3 bg-[#34A0A4]">
-                    <div class="flex flex-col gap-4 md:flex-row">
-                        <div
-                            class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
-                            <div>
-                                <h3 class="text-sm font-semibold leading-6">Informasi akun</h3>
-                                <div
-                                    class="mt-4 divide-y divide-secondary-700/50 border-t border-secondary-700/50 text-sm font-medium text-text-color print:text-black">
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            Login Via</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->login_via }}</p>
-                                        </dd>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            User ID &amp; Server</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->id_server }}</p>
-                                        </dd>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-
-                                <div class="pt-4 print:hidden">
-                                    <form
-                                        class="flex flex-col gap-y-3 rounded-lg border border-secondary-700/25 bg-secondary-800/50 p-4">
-                                        <div class="font-semibold">Tinggalkan ulasan untuk transaksi ini.</div>
-                                        <div class="flex items-center"><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button></div>
-                                        <div><label for="review"
-                                                class="flex items-center justify-between text-sm font-medium leading-6 text-white">
-                                                <div>Tambahkan ulasan Kamu</div>
-                                            </label>
-                                            <div class="my-2 flex flex-wrap gap-1"><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Pelayanan
-                                                    ramah</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Proses
-                                                    cepat banget</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Harganya
-                                                    murah</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Puas
-                                                    banget topup disini</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Penyelesaian
-                                                    masalah cepat</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Custom</button>
-                                            </div>
-                                        </div>
-                                        <div class="flex-shrink-0"><button
-                                                class="inline-flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75"
-                                                type="submit">Kirim</button></div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div>
-                                <button id="pay-button" class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                style="outline: none;">Bayar Sekarang</button>
-                            </div>
-
-                            <div>
-                                <a class="print:text-black-foreground bg-red-600    flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                    href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a>
-                                </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
 
             <div class="container md:pt-8">
@@ -318,13 +210,14 @@
     payButton.addEventListener('click', function () {
         window.snap.pay('{{ $snapToken }}', {
             onSuccess: function(result) {
-                console.log('Payment successful', result);
                 $.ajax({
-                    url: '/pesanDiamondInvoice/updateStatus/' + '{{ $pemesanan->id }}',
+                    url: '/api/pesanDiamondInvoice/updateStatus',
                     type: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
                     data: {
-                        _token: '{{ csrf_token() }}',
-                        status: 'Lunas'
+                        id: result.order_id
                     },
                     success: function(response) {
                         alert('Payment successful! Status updated to Lunas.');
@@ -332,8 +225,7 @@
                     },
                     error: function(response) {
                         alert('Error updating status.');
-                        console.log('Error response:', response);
-                        console.log('Response text:', response.responseText);
+                        console.log(response);
                     }
                 });
             },
@@ -351,4 +243,3 @@
         });
     });
 </script>
-

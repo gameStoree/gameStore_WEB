@@ -16,11 +16,11 @@ class diamondInvoiceController extends Controller
         return view('customer.diamondInvoice', compact('pemesanan', 'snapToken'));
     }
 
-    public function updateStatus(Request $request, $id)
+    public function updateStatus(Request $request)
     {
-        $order = pemesananDiamond::findOrFail($id);
+        $pemesanan = pemesananDiamond::findOrFail($request->id);
+        $pemesanan->update(['status' => 'Lunas']);
 
-        // Update the order status to 'paid'
-        $order->update(['status' => 'Lunas']);
+        return response()->json(['message' => 'Status updated to Lunas successfully']);
     }
 }
