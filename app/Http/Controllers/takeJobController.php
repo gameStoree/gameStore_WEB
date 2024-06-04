@@ -15,13 +15,13 @@ class takeJobController extends Controller
     {
         $workerId = Auth::id();
 
-        $jokiTerkonfirmasi = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.nama_paket', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+        $jokiTerkonfirmasi = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.joki_rank', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
             ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
             // ->join('users', 'pemesanan_jokis.id_user', '=', 'users.id')
             ->where('pemesanan_jokis.status', '=', 'Lunas')
             ->get();
 
-        $jokiProgress = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.nama_paket', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+        $jokiProgress = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.joki_rank', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
         ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
         ->where('pemesanan_jokis.status', '=', 'Progress')
         ->where('pemesanan_jokis.id_worker', '=', $workerId)
@@ -85,5 +85,25 @@ class takeJobController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function report(Request $request, string $id)
+    {
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'laporan_akun' => 'required|string'
+        ]);
+
+        pemesananJoki::where('id', $id)->update([
+            'laporan_akun' => $validatedData['laporan_akun'],
+            'status' => 'Akun Bermasalah'
+        ]);
+
+        return redirect()->route('takeJob.index')->with('success', 'Akun sudah dilaporkan kepada admin');
+    }
+
+    public function jokiDone(Request $request, string $id)
+    {
+
     }
 }
