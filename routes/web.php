@@ -73,6 +73,8 @@ Route::prefix('worker')->group(
         });
         Route::get('/', [dashboardWorkerController::class, 'index'])->name('dashboardWorker.index');
         Route::resource('takeJob', takeJobController::class);
+        Route::put('takeJob/report/{id}', [takeJobController::class, 'report'])->name('takeJob.report');
+
     }
 );
 
