@@ -115,14 +115,14 @@
 <style>
     .preview {
         margin-top: 10px;
-        max-width: 100%; /* Ensure the image does not exceed the container width */
-        height: auto;   /* Maintain aspect ratio */
+        max-width: 100%;
+        height: auto;
     }
 </style>
     <!-- Modal joki done -->
     <div class="modal fade" id="modalJokiDone{{ $pesananProgress->id }}" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <form action="{{ route('takeJob.report', $pesananProgress->id) }}" method="post">
+            <form action="{{ route('takeJob.jokiDone', $pesananProgress->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-content">
@@ -141,23 +141,23 @@
                             <p><b>Password :</b> {{ $pesananProgress->password }}</p>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-nickname"><b>SS HASIL JOKI</b></label>
-                                <input type="file" class="form-control" name="ss_hasil_joki" onchange="showPreview(event, 0)">
+                                <input type="file" class="form-control" name="ss_hasil_joki[]" onchange="showPreview(event, 0)">
                                 <img id="preview0" class="preview" src="#" alt="Preview" style="display:none;">
                             </div>
                             <div class="mb-3">
-                                <input type="file" class="form-control" name="ss_hasil_joki" onchange="showPreview(event, 1)">
+                                <input type="file" class="form-control" name="ss_hasil_joki[]" onchange="showPreview(event, 1)">
                                 <img id="preview1" class="preview" src="#" alt="Preview" style="display:none;">
                             </div>
                             <div class="mb-3">
-                                <input type="file" class="form-control" name="ss_hasil_joki" onchange="showPreview(event, 2)">
+                                <input type="file" class="form-control" name="ss_hasil_joki[]" onchange="showPreview(event, 2)">
                                 <img id="preview2" class="preview" src="#" alt="Preview" style="display:none;">
                             </div>
                             <div class="mb-3">
-                                <input type="file" class="form-control" name="ss_hasil_joki" onchange="showPreview(event, 3)">
+                                <input type="file" class="form-control" name="ss_hasil_joki[]" onchange="showPreview(event, 3)">
                                 <img id="preview3" class="preview" src="#" alt="Preview" style="display:none;">
                             </div>
                             <div class="mb-3">
-                                <input type="file" class="form-control" name="ss_hasil_joki" onchange="showPreview(event, 4)">
+                                <input type="file" class="form-control" name="ss_hasil_joki[]" onchange="showPreview(event, 4)">
                                 <img id="preview4" class="preview" src="#" alt="Preview" style="display:none;">
                             </div>
                         </div>

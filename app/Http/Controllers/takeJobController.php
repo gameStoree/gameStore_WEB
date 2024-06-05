@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pemesananJoki;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class takeJobController extends Controller
 {
@@ -22,10 +23,10 @@ class takeJobController extends Controller
             ->get();
 
         $jokiProgress = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.joki_rank', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
-        ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
-        ->where('pemesanan_jokis.status', '=', 'Progress')
-        ->where('pemesanan_jokis.id_worker', '=', $workerId)
-        ->get();
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            ->where('pemesanan_jokis.status', '=', 'Progress')
+            ->where('pemesanan_jokis.id_worker', '=', $workerId)
+            ->get();
 
         return view('worker.takeJob.index', [
             'judul' => 'TAKE JOB'
@@ -104,6 +105,42 @@ class takeJobController extends Controller
 
     public function jokiDone(Request $request, string $id)
     {
+        $validatedData = $request->validate([
+            'ss_hasil_joki.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
+        $pemesanan = pemesananJoki::find($id);
+
+        if ($request->hasFile('ss_hasil_joki')) {
+            $images = $request->file('ss_hasil_joki');
+            $imageNames = [];
+
+            foreach ($images as $image) {
+                $fileName = $image->getClientOriginalName();
+                $filePath = 'hasil-joki/' . $fileName;
+                $filePathStorage = 'public/hasil-joki/' . $fileName;
+                Storage::put($filePathStorage, file_get_contents($image));
+                $imageNames[] = $filePath;
+            }
+
+            $pemesanan->ss_hasilJoki = implode(',', $imageNames);
+        }
+        // if ($request->hasFile('ss_hasil_joki')) {
+        //     $images = $request->file('ss_hasil_joki');
+        //     $imageNames = [];
+
+        //     foreach ($images as $index => $image) {
+        //         $fileName = 'img' . ($index + 1) . '.' . $image->getClientOriginalExtension();
+        //         $filePath = 'hasil-joki/' . $fileName;
+        //         $filePathStorage = 'public/hasil-joki/' . $fileName;
+        //         Storage::put($filePathStorage, file_get_contents($image));
+        //         $imageNames[] = $filePath;
+        //     }
+        // }
+
+        $pemesanan->status = 'Done';
+        $pemesanan->save();
+
+        return redirect()->back()->with('success', 'Laporan berhasil diunggah.');
     }
 }

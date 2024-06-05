@@ -17,7 +17,7 @@ class pemesananJoki extends Model
     protected $fillable = [
         'id_paket', 'jumlah_bintang', 'harga_keseluruhan', 'login_via', 'Id_Server',
         'email_no_hp_montonID', 'password', 'request_hero', 'catatan_penjoki', 'no_hp',
-        'status', 'id_user', 'id_worker'
+        'status', 'id_user', 'id_worker', 'ss_hasilJoki', 'akun_bermasalah'
     ];
 
     protected static function boot()
