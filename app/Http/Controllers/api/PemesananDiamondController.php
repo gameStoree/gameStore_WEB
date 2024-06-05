@@ -18,6 +18,7 @@ class PemesananDiamondController extends Controller
                 'no_hp' => 'required',
                 'id_diamond' => 'required',
                 'id_user' => 'required',
+                'harga_keseluruhan' => 'required',
             ]);
 
             $pemesanan = new PemesananDiamond();
@@ -25,6 +26,7 @@ class PemesananDiamondController extends Controller
             $pemesanan->id_server = $validatedData['id_server'];
             $pemesanan->status = $validatedData['status'];
             $pemesanan->no_hp = $validatedData['no_hp'];
+            $pemesanan->harga_keseluruhan = $validatedData['harga_keseluruhan'];
             $pemesanan->id_diamond = $validatedData['id_diamond'];
             $pemesanan->id_user = $validatedData['id_user'];
             $pemesanan->save();
@@ -83,7 +85,7 @@ class PemesananDiamondController extends Controller
             return response()->json(['orders' => $orders]);
         }
 
-        
+
         public function getPemesananDiamondTerbaru(Request $request, $id_user){
         $pemesanan = PemesananDiamond::where('id_user', $id_user)
                                   ->orderBy('created_at', 'desc')

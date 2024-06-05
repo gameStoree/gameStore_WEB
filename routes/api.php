@@ -1,5 +1,5 @@
 <?php
-
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiTransaksiIpaymu;
@@ -48,10 +48,15 @@ Route::get('/diamonds/{gameName}', [DiamondGameController::class, 'GetdataDiamon
 // JokiRankShow
 Route::get('/jokirank', [JokiRankController::class, 'index']);
 // Route::get('/pemesanan/{orderId}', 'PemesananJokiController@searchById');
-Route::get('/pemesanan/{orderId}', [PemesananJokiController::class, 'searchById']);
+// Route::get('/pemesanan/{orderId}', [PemesananJokiController::class, 'searchById']);
+
+Route::get('/pemesananjoki/{id}', [PemesananJokiController::class, 'getPemesanan']);
+Route::get('/search/{id}', [PemesananJokiController::class, 'searchPemesanan']);
+
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);
 Route::get('/pemesanan-dm-terbaru/{id_user}', [pemesananDiamondController::class, 'getPemesananDiamondTerbaru']);
+Route::get('/pemesanan-jk-terbaru/{id_user}', [ApiTransaksiIpaymu::class, 'getPemesananjokiTerbaru']);
 Route::get('/order-ids/{id_user}', [PemesananDiamondController::class, 'getCombinedOrdersByUser']);
 
 

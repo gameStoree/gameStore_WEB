@@ -84,4 +84,20 @@ class ApiTransaksiIpaymu extends Controller
             return response()->json(['message' => 'Transaction not found'], 404);
         }
     }
+
+    public function getPemesananJokiTerbaru(Request $request, $id_user){
+    $pemesanan = PemesananJoki::where('id_user', $id_user)
+                              ->orderBy('created_at', 'desc')
+                              ->first();
+
+    if ($pemesanan) {
+        return response()->json($pemesanan);
+    } else {
+        return response()->json(['message' => 'Tidak ada pemesanan ditemukan untuk pengguna ini.'], 404);
+    }
+    }
+
+
+
+
 }
