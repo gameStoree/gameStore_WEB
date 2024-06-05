@@ -12,6 +12,7 @@
                 <span class="line-text"></span>
             </div>
         </div>
+        {{-- PESANAN JOKI LUNAS --}}
         <div id="pemesanan_content_masuk">
             <div class="col-md-6e p-1">
                 <div class="card-body bg-white p-2" style="border-radius: 18px;">
@@ -33,7 +34,7 @@
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $pesananMasuk->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->nama_paket }}</td>
+                                    <td>{{ $pesananMasuk->joki_rank }}</td>
                                     <td>{{ $pesananMasuk->joki_rank }}</td>
                                     <td>{{ $pesananMasuk->harga_joki }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
@@ -46,10 +47,7 @@
                                             <button type="submit" class="btn btn-icon btn-outline-success">
                                                 <i class='bx bx-check'></i>
                                             </button>
-                                        </form>
-                                        <button type="button" class="btn btn-icon btn-outline-danger">
-                                            <i class="bx bx-trash-alt"></i>
-                                        </button> --}}
+                                        </form> --}}
                                         <button type="button" class="btn btn-icon btn-outline-secondary"
                                             data-bs-toggle="modal" data-bs-target="#modalLong">
                                             <i class="bx bx-info-circle"></i>
@@ -61,9 +59,6 @@
                                                 <i class="bx bxs-hand-up"></i>
                                             </button>
                                         </form>
-                                        {{-- <button type="button" class="btn btn-icon btn-outline-danger">
-                                            <i class="bx bx-flag"></i>
-                                        </button> --}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -73,6 +68,7 @@
             </div>
         </div>
 
+        {{-- PESANAN JOKI PROGRES --}}
         <div id="pemesanan_content_terkonfirmasi">
             <div class="col-md-6e p-1">
                 <div class="card-body bg-white p-2" style="border-radius: 18px;">
@@ -94,7 +90,7 @@
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $pesananProgress->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananProgress->nama_paket }}</td>
+                                    <td>{{ $pesananProgress->joki_rank }}</td>
                                     <td>{{ $pesananProgress->joki_rank }}</td>
                                     <td>{{ $pesananProgress->harga_joki }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananProgress->status }}</span></td>
@@ -107,6 +103,10 @@
                                         <button type="button" class="btn btn-icon btn-outline-danger"
                                             data-bs-toggle="modal" data-bs-target="#modalLaporan{{ $pesananProgress->id }}">
                                             <i class="bx bx-flag"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-icon btn-outline-success"
+                                            data-bs-toggle="modal" data-bs-target="#modalJokiDone{{ $pesananProgress->id }}">
+                                            <i class="bx bx-check"></i>
                                         </button>
                                     </td>
                                 </tr>
