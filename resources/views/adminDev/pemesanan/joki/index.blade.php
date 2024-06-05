@@ -90,33 +90,22 @@
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($jokiTerkonfirmasi as $pesananMasuk)
+                            @foreach ($jokiTerkonfirmasi as $pesananTerkonfirmasi)
                                 <tr>
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
-                                        <strong>{{ $pesananMasuk->id }}</strong>
+                                        <strong>{{ $pesananTerkonfirmasi->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->nama_paket }}</td>
-                                    <td>{{ $pesananMasuk->joki_rank }}</td>
-                                    <td>{{ $pesananMasuk->harga_joki }}</td>
-                                    <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
-                                    <td>{{ $pesananMasuk->no_hp }}</td>
+                                    <td>{{ $pesananTerkonfirmasi->nama_paket }}</td>
+                                    <td>{{ $pesananTerkonfirmasi->joki_rank }}</td>
+                                    <td>{{ $pesananTerkonfirmasi->harga_joki }}</td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananTerkonfirmasi->status }}</span></td>
+                                    <td>{{ $pesananTerkonfirmasi->no_hp }}</td>
                                     <td class="d-flex gap-2">
-                                        {{-- <form action="{{ route('pemesanan.diamond.kirim', $pesananMasuk->id) }}"
-                                            method="POST">
-                                            @csrf
-                                            @method('PUT')
-                                            <button type="submit" class="btn btn-icon btn-outline-success">
-                                                <i class='bx bx-check'></i>
-                                            </button>
-                                        </form>
-                                        <button type="button" class="btn btn-icon btn-outline-danger">
-                                            <i class="bx bx-trash-alt"></i>
-                                        </button> --}}
                                         <button type="button" class="btn btn-icon btn-outline-secondary"
-                                            data-bs-toggle="modal" data-bs-target="#modalLong">
+                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananTerkonfirmasi->id }}">
                                             <i class="bx bx-info-circle"></i>
                                         </button>
-                                        <a href="https://wa.me/{{ $pesananMasuk->no_hp }}" class="btn btn-icon btn-outline-success">
+                                        <a href="https://wa.me/{{ $pesananTerkonfirmasi->no_hp }}" class="btn btn-icon btn-outline-success">
                                             <i class="bx bxl-whatsapp"></i>
                                         </a>
                                     </td>
@@ -131,34 +120,39 @@
         <div id="pemesanan_content_progres">
             <div class="col-md-6e p-1">
                 <div class="card-body bg-white p-2" style="border-radius: 18px;">
-                    {{-- <table class="table table-hover large" id="myTable2">
+                    <table class="table table-hover large" id="myTable2">
                         <thead>
                             <tr>
                                 <th>ID Transaksi Joki</th>
-                                <th>Nama Customer</th>
                                 <th>Nama Paket</th>
                                 <th>Joki Rank</th>
                                 <th>Harga</th>
-                                {{-- <th>Metode Pembayaran</th> --}}
                                 <th>Status</th>
+                                <th>No Hp</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($jokiTerkonfirmasi as $pesananMasuk)
+                            @foreach ($jokiProgress as $pesananProgress)
                                 <tr>
                                     <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
-                                        <strong>{{ $pesananMasuk->id }}</strong>
+                                        <strong>{{ $pesananProgress->id }}</strong>
                                     </td>
-                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
-                                    <td>{{ $pesananMasuk->nama_paket }}</td>
-                                    <td>{{ $pesananMasuk->joki_rank }}</td>
-                                    <td>{{ $pesananMasuk->harga_joki }}</td>
-                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
-                                    <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
+                                    <td>{{ $pesananProgress->nama_paket }}</td>
+                                    <td>{{ $pesananProgress->joki_rank }}</td>
+                                    <td>{{ $pesananProgress->harga_joki }}</td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananProgress->status }}</span></td>
+                                    <td>{{ $pesananProgress->no_hp }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-icon btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananProgress->id }}">
+                                            <i class="bx bx-info-circle"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table> --}}
+                    </table>
                 </div>
             </div>
         </div>
@@ -166,34 +160,39 @@
         <div id="pemesanan_content_done">
             <div class="col-md-6e p-1">
                 <div class="card-body bg-white p-2" style="border-radius: 18px;">
-                    {{-- <table class="table table-hover large" id="myTable3">
+                    <table class="table table-hover large" id="myTable3">
                         <thead>
                             <tr>
                                 <th>ID Transaksi Joki</th>
-                                <th>Nama Customer</th>
                                 <th>Nama Paket</th>
                                 <th>Joki Rank</th>
                                 <th>Harga</th>
-                                <th>Metode Pembayaran</th>
-                                {{-- <th>Status</th> --}}
+                                <th>Status</th>
+                                <th>No Hp</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($jokiTerkonfirmasi as $pesananMasuk)
-                                <tr>
-                                    <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
-                                        <strong>{{ $pesananMasuk->id }}</strong>
-                                    </td>
-                                    <td>{{ $pesananMasuk->nama_lengkap }}</td>
-                                    <td>{{ $pesananMasuk->nama_paket }}</td>
-                                    <td>{{ $pesananMasuk->joki_rank }}</td>
-                                    <td>{{ $pesananMasuk->harga_joki }}</td>
-                                    <td>{{ $pesananMasuk->metode_pembayaran }}</td>
-                                    <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
-                                </tr>
+                            @foreach ($jokiDone as $pesananDone)
+                            <tr>
+                                <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
+                                    <strong>{{ $pesananDone->id }}</strong>
+                                </td>
+                                <td>{{ $pesananDone->nama_paket }}</td>
+                                <td>{{ $pesananDone->joki_rank }}</td>
+                                <td>{{ $pesananDone->harga_joki }}</td>
+                                <td><span class="badge bg-label-warning me-1">{{ $pesananDone->status }}</span></td>
+                                <td>{{ $pesananDone->no_hp }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-icon btn-outline-secondary"
+                                        data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananDone->id }}">
+                                        <i class="bx bx-info-circle"></i>
+                                    </button>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
-                    </table> --}}
+                    </table>
                 </div>
             </div>
         </div>

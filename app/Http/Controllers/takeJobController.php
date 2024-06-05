@@ -141,6 +141,6 @@ class takeJobController extends Controller
         $pemesanan->status = 'Done';
         $pemesanan->save();
 
-        return redirect()->back()->with('success', 'Laporan berhasil diunggah.');
+        return redirect()->back()->with('success', 'Jokian telah selesai dikerjakan');
     }
 }
