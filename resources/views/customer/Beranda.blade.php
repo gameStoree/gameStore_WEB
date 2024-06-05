@@ -88,7 +88,7 @@
 
 
 
-        <div class="w-full h-full p-[32px 0px]">
+        <div class="w-full h-full p-[0px 0px]">
             <div class="h-auto w-[70%]  m-auto ">
                 <h3 class="mb-3 mt-3 text-2xl text-white  font-semibold uppercase leading-relaxed tracking-wider ">
                     ✨ POPULER
@@ -165,8 +165,9 @@
                 </div>
             </div>
 
-            @include('partials.footer')
+
         </div>
+        @include('partials.footer')
     </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

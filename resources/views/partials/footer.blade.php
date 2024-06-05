@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./carousel.css">
 
 {{-- GAMBAR FOOTER --}}
-<div class="m-auto w-auto pt-32  ">
+<div class="m-auto w-auto pt-1  ">
     <div class="bg-cover bg-center">
         <img src="{{ asset('admin/img/img/footer.png') }}" class="w-full" />
     </div>
