@@ -10,7 +10,7 @@ class cekInvoiceCustomerController extends Controller
     public function index()
     {
         $pemesananDiamonds = pemesananDiamond::take(10)->get();
-        return view('invoice', compact('pemesananDiamonds'));
+        return view('customer.invoice', compact('pemesananDiamonds'));
     }
 }
 
