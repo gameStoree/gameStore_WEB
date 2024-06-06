@@ -49,7 +49,7 @@
                                             <i class="bx bx-trash-alt"></i>
                                         </button>
                                         <button type="button" class="btn btn-icon btn-outline-secondary"
-                                            data-bs-toggle="modal" data-bs-target="#modalLong">
+                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananMasuk->id }}">
                                             <i class="bx bx-info-circle"></i>
                                         </button>
                                     </td>
@@ -72,6 +72,7 @@
                                 <th>Nama Game</th>
                                 <th>Harga</th>
                                 <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -84,6 +85,12 @@
                                     <td>{{ $pesananMasuk->nama_game }}</td>
                                     <td>{{ $pesananMasuk->harga_keseluruhan }}</td>
                                     <td><span class="badge bg-label-warning me-1">{{ $pesananMasuk->status }}</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-icon btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananMasuk->id }}">
+                                            <i class="bx bx-info-circle"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
