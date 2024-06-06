@@ -1,4 +1,3 @@
-
 {{-- NAVBARNYA --}}
 @include('partials.navbar')
 
@@ -95,32 +94,42 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($pemesananDiamonds as $pemesanan)
+                            @foreach ($invoices as $invoice)
                                 <tr>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
-                                        <div class="whitespace-nowrap">{{ $pemesanan->created_at->format('d-m-Y H:i:s') }}</div>
+                                        <div class="whitespace-nowrap">{{ $invoice->created_at->format('d-m-Y H:i:s') }}
+                                        </div>
                                     </td>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
-                                        <div class="whitespace-nowrap">{{ $pemesanan->id }}</div>
+                                        <div class="whitespace-nowrap">{{ $invoice->id }}</div>
                                     </td>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
-                                        <div class="whitespace-nowrap">{{ $pemesanan->no_hp }}</div>
+                                        <div class="whitespace-nowrap">{{ $invoice->no_hp }}</div>
                                     </td>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
-                                        <div class="whitespace-nowrap"><span>Rp {{ number_format($pemesanan->harga_keseluruhan, 0, ',', '.') }}</span></div>
+                                        <div class="whitespace-nowrap">Rp
+                                            {{ number_format($invoice->harga_keseluruhan, 0, ',', '.') }}</div>
                                     </td>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
-                                        <div class="whitespace-nowrap"><span
-                                                class="inline-flex rounded-sm px-2 text-xs font-semibold leading-5 print:p-0 bg-yellow-300 text-yellow-800">Pending</span>
+                                        <div class="whitespace-nowrap">
+                                            <span
+                                                class="inline-flex rounded-sm px-2 text-xs font-semibold leading-5 print:p-0
+                    @if ($invoice->status == 'Pending') bg-yellow-300 text-yellow-800
+                    @elseif($invoice->status == 'Selesai') bg-green-300 text-green-800
+                    @else bg-gray-300 text-gray-800 @endif">
+                                                {{ $invoice->status }}
+                                            </span>
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
+
+
 
                         </tbody>
                     </table>
