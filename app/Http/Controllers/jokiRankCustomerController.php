@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JokiML;
 use Illuminate\Http\Request;
 use App\Models\pemesananJoki;
+use Illuminate\Support\Facades\Auth;
 
 class jokiRankCustomerController extends Controller
 {
@@ -35,6 +36,8 @@ class jokiRankCustomerController extends Controller
         ]);
 
         $validatedData['status'] = 'Belum Bayar';
+        $validatedData['id_user'] = Auth::id();
+
         $pemesananJoki = pemesananJoki::create($validatedData);
 
         \Midtrans\Config::$serverKey = config('midtrans.server_key');

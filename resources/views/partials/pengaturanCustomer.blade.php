@@ -13,9 +13,8 @@
 
 <div>
     <div><a class="inline-flex  items-center justify-center whitespace-nowrap text-xs font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent/75 hover:text-accent-foreground h-8 rounded-md px-3 pl-3 inline-flex items-center gap-x-2"
-            type="button" href="/id/dashboard" style="outline: none;"><svg
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                aria-hidden="true" class="h-4 w-4">
+            type="button" href="/id/dashboard" style="outline: none;"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-4 w-4">
                 <path fill-rule="evenodd"
                     d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
                     clip-rule="evenodd"></path>
@@ -31,11 +30,14 @@
                             <p class="text-murky-200 mt-1 max-w-2xl text-sm">Informasi ini bersifat rahasia,
                                 jadi berhati-hatilah dengan apa yang Anda bagikan.</p>
                         </div>
-                        <div class=" my-2 justify-center items-center relative flex w-32 h-32">
-                            <img src="{{ asset('admin/img/img/tesProfile.JPG') }}" alt="tesProfile"
-                                class="object-cover w-full h-full rounded-full border-2 border-white">
-
+                        <div class="my-2 justify-center items-center relative flex w-32 h-32">
+                            @if($user->foto_user)
+                                <img src="{{ $user->foto_user }}" alt="{{ $user->name }}" class="object-cover w-full h-full rounded-full border-2 border-white">
+                            @else
+                                <img src="https://ui-avatars.com/api/?color=FFFFFF&amp;background=f97316&amp;name={{ $user->nama_lengkap }}" alt="{{ $user->name }}" class="object-cover w-full h-full rounded-full border-2 border-white">
+                            @endif
                         </div>
+
                         <div class="w-32 justify-center items-center ">
                             <div class="justify-center items-center w-32 m-auto">
                                 <button
@@ -44,39 +46,36 @@
                                 </button>
                             </div>
                         </div>
-
-
                     </div>
                     <form class="grid grid-cols-2 gap-4">
                         <div class="col-span-2"></div>
-                        <div><label for="name"
-                                class="block text-xs font-medium text-foreground pb-2">Nama Anda</label>
+                        <div><label for="name" class="block text-xs font-medium text-foreground pb-2">Nama
+                                Anda</label>
                             <div class="flex flex-col items-start"><input
                                     class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-white focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
-                                    type="text" id="name" autocomplete="name"
-                                    placeholder="Nama Anda" name="name"></div>
+                                    type="text" id="name" autocomplete="name" placeholder="Nama Anda"
+                                    name="name" value="{{ $user->nama_lengkap }}"></div>
                         </div>
-                        <div><label for="username"
-                                class="block text-xs font-medium text-foreground pb-2">ID USER</label>
+                        <div><label for="username" class="block text-xs font-medium text-foreground pb-2">Role</label>
                             <div class="flex flex-col items-start"><input
                                     class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-white focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
-                                    type="text" id="iduser" autocomplete="iduser" disabled=""
-                                    placeholder="ID USER" name="iduser"></div>
+                                    type="text" id="iduser" autocomplete="iduser" readonly
+                                    placeholder="ID USER" name="iduser" value="Member"></div>
                         </div>
                         <div class="col-span-2"><label for="email"
                                 class="block text-xs font-medium text-foreground pb-2">Alamat Email</label>
                             <div class="flex flex-col items-start"><input
                                     class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-white focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
-                                    type="email" id="email" autocomplete="email"
-                                    placeholder="Alamat Email" name="email"></div>
+                                    type="email" id="email" autocomplete="email" placeholder="Alamat Email"
+                                    name="email" value="{{ $user->email }}"></div>
                         </div>
                         <div class="col-span-2"><label for="no"
                                 class="block text-xs font-medium text-foreground pb-2">No.
                                 Handphone</label>
                             <div class="flex flex-col items-start"><input
                                     class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-white focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
-                                    type="text" id="no" autocomplete="no"
-                                    placeholder="No. Handphone" name="no"></div>
+                                    type="text" id="no" autocomplete="no" placeholder="No. Handphone"
+                                    name="no" value="{{ $user->no_hp }}"></div>
                         </div>
                         <div class=""><button
                                 class="inline-flex items-center  justify-center whitespace-nowrap text-xs font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-md px-3"
@@ -99,8 +98,7 @@
                                     placeholder="Kata Sandi Saat Ini" name="current-password"></div><span
                                 class="text-xs text-destructive"></span>
                         </div>
-                        <div><label for="new-password"
-                                class="block text-xs font-medium text-foreground pb-2">Kata Sandi
+                        <div><label for="new-password" class="block text-xs font-medium text-foreground pb-2">Kata Sandi
                                 Baru</label>
                             <div class="flex flex-col items-start"><input
                                     class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-white focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
@@ -113,8 +111,7 @@
                                 Sandi Baru</label>
                             <div class="flex flex-col items-start"><input
                                     class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-white focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
-                                    type="password" id="confirm-new-password"
-                                    autocomplete="confirm-new-password"
+                                    type="password" id="confirm-new-password" autocomplete="confirm-new-password"
                                     placeholder="Konfirmasi Kata Sandi Baru" name="password-confirmation">
                             </div><span class="text-xs text-destructive"></span>
                         </div>
