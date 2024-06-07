@@ -74,7 +74,6 @@ Route::prefix('worker')->group(
         Route::resource('takeJob', takeJobController::class);
         Route::put('takeJob/report/{id}', [takeJobController::class, 'report'])->name('takeJob.report');
         Route::put('takeJob/jokiDone/{id}', [takeJobController::class, 'jokiDone'])->name('takeJob.jokiDone');
-
     }
 );
 
@@ -89,6 +88,7 @@ Route::prefix('customer')->group(
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
         Route::get('/invoice', [cekInvoiceCustomerController::class, 'index'])->name('invoice');
+        // Route::get('/invoice', [cekInvoiceCustomerController::class, 'show'])->name('invoice.show');
         Route::get('/profileCustomer', [profileCustomerController::class, 'index'])->name('profileCustomer.index');
         Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
         Route::post('/pesan-diamond/addPemesanan', [pesanDiamondCustomerController::class, 'addPemesananDiamond'])->name('pesanDiamondCustomer.addPemesanan');

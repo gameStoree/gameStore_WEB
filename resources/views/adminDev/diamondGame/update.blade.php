@@ -11,16 +11,16 @@
                     @method('put')
                     <div class="mb-4">
                         <label for="exampleFormControlSelect1" class="form-label">Nama Game</label>
-                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="nama_game">
-                            <option selected><--- Pilih Game ---></option>
-                            <option value="Mobile Legend" {{ $data->nama_game == "Mobile Legend" ? 'selected' : '' }}>Mobile Legend</option>
-                            <option value="Free Fire" {{ $data->nama_game == "Free Fire" ? 'selected' : '' }}>Free Fire</option>
-                            <option value="PUBG" {{ $data->nama_game == "PUBG" ? 'selected' : '' }}>PUBG</option>
+                        <select class="form-select" id="exampleFormControlSelect1" name="nama_game">
+                            <option value="" disabled selected><--- Pilih Game ---></option>
+                            @foreach ($games as $game)
+                                <option value="{{ $game->id }}" {{ $data->nama_game == $game->id ? 'selected' : '' }}>{{ $game->nama_game }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-company">Jumlah Diamond</label>
-                        <input type="text" class="form-control" id="basic-default-company" placeholder="Masukkan jumlah diamond" 
+                        <input type="text" class="form-control" id="basic-default-company" placeholder="Masukkan jumlah diamond"
                         value="{{ $data->jumlah_diamond }}" name="jumlah_diamond"/>
                     </div>
                     <div class="mb-3">

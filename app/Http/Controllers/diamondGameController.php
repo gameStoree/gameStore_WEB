@@ -62,13 +62,13 @@ class diamondGameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        $data = diamondGame::where('id', $id)->first();
-        return view('adminDev.diamondGame.update', [
-            'judul' => 'DIAMOND GAME',
-        ])->with('data', $data);
-    }
+        public function edit(string $id)
+        {
+            $data = diamondGame::where('id', $id)->first();
+            $games = KategoriGame::all();
+            return view('adminDev.diamondGame.update',
+            compact('data', 'games'))->with('judul', 'DIAMOND GAME');
+        }
 
     /**
      * Update the specified resource in storage.

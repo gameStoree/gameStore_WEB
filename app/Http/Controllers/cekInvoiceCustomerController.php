@@ -2,29 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pemesananDiamond;
-use App\Models\pemesananJoki;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\pemesananJoki;
+use App\Models\pemesananDiamond;
 
 class cekInvoiceCustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Mengambil data pemesananDiamond terbaru dengan jumlah yang cukup
-        $pemesananDiamonds = pemesananDiamond::latest()->take(10)->get();
+        $invoiceNumber = $request->query('invoice');
+        $isSearched = false; // Tambahkan variabel untuk menandai hasil pencarian
 
-        // Mengambil data pemesananJoki terbaru dengan jumlah yang cukup
-        $pemesananJokis = pemesananJoki::latest()->take(10)->get();
+        if ($invoiceNumber) {
+            $pemesananDiamond = pemesananDiamond::where('id', $invoiceNumber)->first();
+            $pemesananJoki = pemesananJoki::where('id', $invoiceNumber)->first();
 
-        // Menggabungkan hasil query dari kedua tabel
-        $invoices = $pemesananDiamonds->merge($pemesananJokis);
+            if ($pemesananDiamond) {
+                $invoices = collect([$pemesananDiamond]);
+                $isSearched = true; // Menandakan bahwa ini hasil pencarian
+            } elseif ($pemesananJoki) {
+                $invoices = collect([$pemesananJoki]);
+                $isSearched = true; // Menandakan bahwa ini hasil pencarian
+            } else {
+                return view('customer.invoice', ['invoices' => collect(), 'error' => 'Nomor invoice tidak ditemukan.']);
+            }
+        } else {
+            $pemesananDiamonds = pemesananDiamond::latest()->take(5)->get();
+            $pemesananJokis = pemesananJoki::latest()->take(5)->get();
+            $invoices = $pemesananDiamonds->merge($pemesananJokis);
+            $invoices = $invoices->sortByDesc('created_at')->take(10);
+        }
 
-        // Mengurutkan hasil penggabungan berdasarkan tanggal pembuatan, terbaru dulu
-        $invoices = $invoices->sortByDesc('created_at');
+        return view('customer.invoice', compact('invoices', 'isSearched'))->with([
+            'maskId' => [$this, 'maskId'],
+            'maskNoHP' => [$this, 'maskNoHP']
+        ]);
+    }
 
-        // Mengambil 10 data teratas dari hasil penggabungan
-        $invoices = $invoices->take(10);
+    function maskId($id)
+    {
+        $length = strlen($id);
+        $maskedId = substr_replace($id, str_repeat('*', $length - 2), 1, $length - 1);
+        return '' . $maskedId . substr($id, -1);
+    }
 
-        return view('customer.invoice', compact('invoices'));
+    function maskNoHP($no_hp)
+    {
+        $length = strlen($no_hp);
+        $maskedId = substr_replace($no_hp, str_repeat('*', $length - 2), 1, $length - 1);
+        return '' . $maskedId . substr($no_hp, -1);
     }
 }

@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             </div>
-            <form class="container w-[70%] text-white mt-16 m-auto relative z-20 py-12 text-left">
+            <form action="{{ route('invoice') }}" method="GET" class="container w-[70%] text-white mt-16 m-auto relative z-20 py-12 text-left">
                 <h2 class="max-w-2xl text-3xl font-bold tracking-tight text-text-color sm:text-4xl">Lacak pesanan kamu
                     dengan nomor invoice!</h2>
                 <p class="mt-6 max-w-3xl text-text-color">Pesanan Kamu tidak terdaftar meskipun Kamu yakin telah
@@ -52,7 +52,6 @@
                         </svg><span>Find Transactions</span></button></div>
             </form>
         </div>
-
         {{-- TABEL --}}
 
         <div class="container text-white w-[70%] m-auto justify-center items-center">
@@ -103,11 +102,23 @@
                                     </td>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
-                                        <div class="whitespace-nowrap">{{ $invoice->id }}</div>
+                                        <div class="whitespace-nowrap">
+                                            @if ($isSearched)
+                                                <a href="{{ route('pesanJokiInvoice.index', $invoice->id) }}" class="text-white-500 hover:underline"><u>{{ $invoice->id }}</u></a>
+                                            @else
+                                                {{ $maskId($invoice->id) }} <!-- Tampilkan ID masked jika bukan hasil pencarian -->
+                                            @endif
+                                        </div>
                                     </td>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
-                                        <div class="whitespace-nowrap">{{ $invoice->no_hp }}</div>
+                                        <div class="whitespace-nowrap">
+                                            @if ($isSearched)
+                                                {{ $invoice->no_hp }} <!-- Tampilkan nomor HP asli jika hasil pencarian -->
+                                            @else
+                                                {{ $maskNoHP($invoice->no_hp) }} <!-- Tampilkan nomor HP masked jika bukan hasil pencarian -->
+                                            @endif
+                                        </div>
                                     </td>
                                     <td
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
