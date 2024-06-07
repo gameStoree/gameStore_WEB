@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/css/output.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
-    <script type="text/javascript"
-        src="https://app.sandbox.midtrans.com/snap/snap.js"
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key="{{ config('midtrans.client_key') }}"></script>
     <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -149,9 +148,8 @@
                                                         <p class="w-3 font-medium text-text-color">5<span
                                                                 class="sr-only"> star reviews</span></p>
                                                         <div aria-hidden="true" class="ml-1 flex flex-1 items-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 20 20" fill="currentColor"
-                                                                aria-hidden="true"
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true"
                                                                 class="text-yellow-400 h-5 w-5 flex-shrink-0">
                                                                 <path fill-rule="evenodd"
                                                                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
@@ -175,9 +173,8 @@
                                                         <p class="w-3 font-medium text-text-color">4<span
                                                                 class="sr-only"> star reviews</span></p>
                                                         <div aria-hidden="true" class="ml-1 flex flex-1 items-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 20 20" fill="currentColor"
-                                                                aria-hidden="true"
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true"
                                                                 class="text-yellow-400 h-5 w-5 flex-shrink-0">
                                                                 <path fill-rule="evenodd"
                                                                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
@@ -565,7 +562,8 @@
                         <div class="grid ">
 
                             <div class="1 h-auto">
-                                <form action="{{ route('jokiRankCustomer.addPemesanan') }}" method="POST" id="order-form">
+                                <form action="{{ route('jokiRankCustomer.addPemesanan') }}" method="POST"
+                                    id="order-form">
                                     @csrf
                                     <div class="flex w-full h-auto ">
                                         <div
@@ -661,7 +659,8 @@
                                         </div>
                                         <div class="h-auto w-full p-[24px] bg-[#184E77] rounded-b-xl">
                                             <div id="jokiSatuan">
-                                                <h3 class="font-semibold text-text-color pb-2 text-white">Joki Satuan</h3>
+                                                <h3 class="font-semibold text-text-color pb-2 text-white">Joki Satuan
+                                                </h3>
                                                 <div class="grid grid-cols-3 gap-4">
                                                     @foreach ($jokiSatuan as $jokiItem)
                                                         <input type="radio" name="id_paket"
@@ -674,9 +673,11 @@
                                                             data-radio="jokiSatuan-radio-{{ $loop->index }}">
                                                             <span class="flex flex-1">
                                                                 <span class="flex flex-col justify-between">
-                                                                    <span class="trunc block text-xs font-semibold text-white dark:text-white">{{ $jokiItem->joki_rank }}</span>
+                                                                    <span
+                                                                        class="trunc block text-xs font-semibold text-white dark:text-white">{{ $jokiItem->joki_rank }}</span>
                                                                     <div>
-                                                                        <span class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
+                                                                        <span
+                                                                            class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.&nbsp;{{ $jokiItem->harga_joki }}</span>
                                                                     </div>
                                                                 </span>
                                                             </span>
@@ -694,12 +695,15 @@
                                             </div>
 
                                             <div class="jokiPaketan">
-                                                <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki Paketan</h3>
+                                                <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Joki
+                                                    Paketan</h3>
                                                 <div class="grid grid-cols-3 gap-4">
                                                     @foreach ($jokiPaketan as $jokiItem)
                                                         <input type="radio" name="id_paket"
                                                             value="{{ $jokiItem->joki_rank }}"
-                                                            id="jokiPaketan-radio-{{ $loop->index }}" class="hidden">
+                                                            data-harga="{{ $jokiItem->harga_joki }}"
+                                                            id="jokiPaketan-radio-{{ $loop->index }}"
+                                                            class="hidden">
                                                         <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
                                                             role="radio" aria-checked="false" tabindex="-1"
                                                             onclick="selectRadio('jokiPaketan-radio-{{ $loop->index }}')"
@@ -741,7 +745,7 @@
                                                 <div class="grow">
                                                     <div class="flex flex-col items-start">
                                                         <input
-                                                            class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                            class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
                                                             type="text" id="jumlah-bintang" name="jumlah_bintang"
                                                             placeholder="Isi jumlah bintang yang kamu inginkan"
                                                             value="">
@@ -868,7 +872,8 @@
                                                         </div>
                                                         <div class="modal-action mt-5 grid grid-cols-2 gap-3">
                                                             <div>
-                                                                <button for="my_modal_6" type="sumbit" id="pay-button"
+                                                                <button for="my_modal_6" type="sumbit"
+                                                                    id="pay-button"
                                                                     class=" bg-emerald-500 text-white btn mt-3 inline-flex w-full justify-center rounded-md border
                                                                 border-secondary-700 bg-secondary-600 px-4 py-2 text-base font-medium
                                                                 text-text-color shadow-sm hover:bg-emerald-600 focus:outline-none
@@ -908,24 +913,60 @@
         {{-- FOOTER --}}
 
 
-        
+
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const jokiPaketanLink = document.querySelector(".jokiPaketan a");
-            const jokiSatuanLink = document.querySelector("#jokiSatuan a");
             const jumlahBintang = document.getElementById("jumlah-bintang");
+            const hargaJokiElement = document.getElementById("harga-joki");
+            const totalHargaElement = document.getElementById("total-harga");
+            const hargaKeseluruhanElement = document.getElementById("harga-keseluruhan");
 
-            jokiPaketanLink.addEventListener("click", function(event) {
-                event.preventDefault(); // Menghentikan tindakan default dari link
-                jumlahBintang.disabled = true; // Mengatur input menjadi disable
+            document.querySelectorAll('input[name="id_paket"]').forEach(radio => {
+                radio.addEventListener("change", function() {
+                    if (this.id.startsWith("jokiPaketan-radio")) {
+                        jumlahBintang.value = 1;
+                        jumlahBintang.disabled = true;
+                    } else if (this.id.startsWith("jokiSatuan-radio")) {
+                        jumlahBintang.disabled = false;
+                        jumlahBintang.value = '';
+                    }
+                    updateHarga();
+                });
             });
 
-            jokiSatuanLink.addEventListener("click", function(event) {
-                event.preventDefault();
-                jumlahBintang.disabled = false;
+            jumlahBintang.addEventListener("input", function() {
+                updateHarga();
             });
+
+            function updateHarga() {
+                const radioChecked = document.querySelector('input[name="id_paket"]:checked');
+                const jumlahBintangValue = parseInt(jumlahBintang.value);
+                if (radioChecked) {
+                    const hargaJoki = parseInt(radioChecked.dataset.harga);
+                    const totalHarga = hargaJoki * jumlahBintangValue;
+                    if (!isNaN(totalHarga)) {
+                        hargaJokiElement.innerText = ": Rp. " + formatNumber(hargaJoki);
+                        totalHargaElement.innerText = ": Rp. " + formatNumber(totalHarga);
+                        hargaKeseluruhanElement.value = totalHarga;
+                    } else {
+                        hargaJokiElement.innerText = ": -";
+                        totalHargaElement.innerText = ": -";
+                        hargaKeseluruhanElement.value = "";
+                    }
+                }
+            }
+
+            function formatNumber(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
         });
+
+        function selectRadio(radioId) {
+            const radio = document.getElementById(radioId);
+            radio.checked = true;
+            radio.dispatchEvent(new Event('change'));
+        }
     </script>
     <script>
         function selectRadio(radioId) {
@@ -956,74 +997,34 @@
         }
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        const jumlahBintang = document.getElementById("jumlah-bintang");
-        const hargaJokiElement = document.getElementById("harga-joki");
-        const totalHargaElement = document.getElementById("total-harga");
-        const hargaKeseluruhanElement = document.getElementById("harga-keseluruhan");
+        document.addEventListener("DOMContentLoaded", function() {
+            const jumlahBintang = document.getElementById("jumlah-bintang");
+            const hargaJokiElement = document.getElementById("harga-joki");
+            const totalHargaElement = document.getElementById("total-harga");
+            const hargaKeseluruhanElement = document.getElementById("harga-keseluruhan");
 
-        jumlahBintang.addEventListener("input", function () {
-            const jumlahBintangValue = parseInt(jumlahBintang.value);
-            const radioChecked = document.querySelector('input[name="id_paket"]:checked');
-            if (radioChecked && !isNaN(jumlahBintangValue)) {
-                const hargaJoki = parseInt(radioChecked.dataset.harga);
-                const totalHarga = hargaJoki * jumlahBintangValue;
-                hargaJokiElement.innerText = ": Rp. " + formatNumber(hargaJoki);
-                totalHargaElement.innerText = ": Rp. " + formatNumber(totalHarga);
-                hargaKeseluruhanElement.value = totalHarga;
-            } else {
-                // Handle jika nilai bintang tidak valid
-                hargaJokiElement.innerText = ": -";
-                totalHargaElement.innerText = ": -";
-                hargaKeseluruhanElement.value = "";
-            }
-        });
-
-        function formatNumber(number) {
-            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-    });
-    </script>
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        var payButton = document.getElementById('pay-button');
-        payButton.addEventListener('click', function () {
-            var formData = $('#order-form').serialize(); // Serialize the form data
-
-            $.ajax({
-                url: '{{ route("jokiRankCustomer.addPemesanan") }}', // Your route to the controller method
-                type: 'POST',
-                data: formData,
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token
-                },
-                success: function(response) {
-                    // Trigger snap popup with the snap token from the response
-                        window.snap.pay('{{ session('snapToken') }}', {
-                            onSuccess: function(result){
-                                alert("Payment success!");
-                                console.log(result);
-                            },
-                            onPending: function(result){
-                                alert("Waiting for your payment!");
-                                console.log(result);
-                            },
-                            onError: function(result){
-                                alert("Payment failed!");
-                                console.log(result);
-                            },
-                            onClose: function(){
-                                alert('You closed the popup without finishing the payment');
-                            }
-                        });
-                },
-                error: function(xhr, status, error) {
-                alert("Something went wrong!");
-                console.error(xhr.responseText);
+            jumlahBintang.addEventListener("input", function() {
+                const jumlahBintangValue = parseInt(jumlahBintang.value);
+                const radioChecked = document.querySelector('input[name="id_paket"]:checked');
+                if (radioChecked && !isNaN(jumlahBintangValue)) {
+                    const hargaJoki = parseInt(radioChecked.dataset.harga);
+                    const totalHarga = hargaJoki * jumlahBintangValue;
+                    hargaJokiElement.innerText = ": Rp. " + formatNumber(hargaJoki);
+                    totalHargaElement.innerText = ": Rp. " + formatNumber(totalHarga);
+                    hargaKeseluruhanElement.value = totalHarga;
+                } else {
+                    // Handle jika nilai bintang tidak valid
+                    hargaJokiElement.innerText = ": -";
+                    totalHargaElement.innerText = ": -";
+                    hargaKeseluruhanElement.value = "";
                 }
             });
+
+            function formatNumber(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
         });
-    </script> --}}
+    </script>
 </body>
 
 </html>

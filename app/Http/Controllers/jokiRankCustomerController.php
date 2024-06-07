@@ -48,16 +48,14 @@ class jokiRankCustomerController extends Controller
                 'gross_amount' => $validatedData['harga_keseluruhan'],
             ],
             'customer_details' => [
-                'first_name' => 'Pelanggan',
-                'last_name' => 'Nama',
-                'email' => $validatedData['email_no_hp_montonID'],
+                // 'email' => $validatedData['email_no_hp_montonID'],
                 'phone' => $validatedData['no_hp'],
             ],
             'item_details' => [
                 [
                     'id' => $validatedData['id_paket'],
                     'price' => $validatedData['harga_keseluruhan'],
-                    'quantity' => 1,
+                    'quantity' => $validatedData['jumlah_bintang'],
                     'name' => 'Paket Joki - ' . $validatedData['login_via'],
                 ],
             ],

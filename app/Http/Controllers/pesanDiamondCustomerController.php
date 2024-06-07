@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DiamondGame;
 use App\Models\pemesananDiamond;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class pesanDiamondCustomerController extends Controller
 {
@@ -16,15 +17,17 @@ class pesanDiamondCustomerController extends Controller
 
     public function addPemesananDiamond(Request $request)
     {
+
         // dd($request->all());
         $validatedData = $request->validate([
             'id_server' => 'required|max:30',
             'id_diamond' => 'required|max:20',
             'harga_keseluruhan' => 'required|max:11',
-            'no_hp' => 'required|max:13'
+            'no_hp' => 'required|max:13',
         ]);
 
         $validatedData['status'] = 'Belum Bayar';
+        $validatedData['id_user'] = Auth::id();
         $pemesananDiamond = pemesananDiamond::create($validatedData);
 
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
