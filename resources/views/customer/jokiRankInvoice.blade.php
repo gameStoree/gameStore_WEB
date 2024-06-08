@@ -92,22 +92,21 @@
                     </div>
                 </div>
                 <div class="p-4 rounded-xl border border-secondary-700/25 bg-secondary-800/25">
-                    <div class="relative aspect-video h-full w-full bg-[#184E77] p-2 rounded-md  ">
-                        <div class="flex flex-wrap overflow-x-auto space-x-2">
+                    <div class="relative aspect-video h-full w-full bg-[#184E77] p-2 rounded-md overflow-x-auto">
+                        <div class="flex flex-nowrap overflow-x-auto space-x-4">
                             @if ($pemesanan->ss_hasilJoki)
-                            @php
-                                $gambarArray = explode(',', $pemesanan->ss_hasilJoki);
-                            @endphp
-                            @foreach ($gambarArray as $gambar)
-                                <img alt="" loading="lazy" decoding="async"
-                                    class="h-full w-full object-contain" sizes="100vw"
-                                    src="{{ asset('storage/' . trim($gambar)) }}" alt=""
+                                @php
+                                    $gambarArray = explode(',', $pemesanan->ss_hasilJoki);
+                                @endphp
+                                @foreach ($gambarArray as $gambar)
+                                    <img alt="" loading="lazy" decoding="async" class="h-40 object-cover"
+                                        src="{{ asset('storage/' . trim($gambar)) }}" alt=""
                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
-                            @endforeach
-                        @else
-                            <img style="max-height: 180px; overflow:hidden"
-                                src="{{ asset('dist/img/not-found.jpg') }}" alt="Not Found">
-                        @endif
+                                @endforeach
+                            @else
+                                <img style="max-height: 180px; overflow:hidden"
+                                    src="{{ asset('dist/img/not-found.jpg') }}" alt="Not Found">
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -248,9 +247,8 @@
                                     class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
                                     style="outline: none;">Bayar Sekarang</button>
                             </div>
-
                             <div>
-                                <a class="print:text-black-foreground bg-red-600    flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
+                                <a class="print:text-black-foreground bg-red-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
                                     href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a>
                             </div>
                         </div>

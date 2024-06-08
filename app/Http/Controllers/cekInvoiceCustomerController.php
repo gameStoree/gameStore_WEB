@@ -22,7 +22,7 @@ class cekInvoiceCustomerController extends Controller
 
             if ($pemesananDiamond) {
                 $invoices = collect([$pemesananDiamond]);
-                $isSearched = true; // Menandakan bahwa ini hasil pencarian
+                $isSearched = true; 
                 $transactionType = 'diamond'; // sebagai transaksi Diamond
             } elseif ($pemesananJoki) {
                 $invoices = collect([$pemesananJoki]);
@@ -38,11 +38,7 @@ class cekInvoiceCustomerController extends Controller
             $invoices = $invoices->sortByDesc('created_at')->take(10);
         }
 
-<<<<<<< HEAD
-        return view('customer.invoice', compact('invoices', 'isSearched', 'transactionType'))->with([
-=======
-        return view('customer.invoice', compact('invoices', 'isSearched','user'))->with([
->>>>>>> 3139f00bdc22e488c1fecebd19c1d35df7feac11
+        return view('customer.invoice', compact('invoices', 'isSearched', 'transactionType', 'user'))->with([
             'maskId' => [$this, 'maskId'],
             'maskNoHP' => [$this, 'maskNoHP']
         ]);
