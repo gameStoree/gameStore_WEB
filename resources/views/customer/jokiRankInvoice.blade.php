@@ -36,9 +36,8 @@
                     </p>
                 </div>
             </div>
-            <div class="container grid grid-cols-2 gap-4">
-                <div
-                    class="col-sp rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2  bg-[#34A0A4]">
+            <div class="grid grid-rows-2 grid-flow-col gap-4">
+                <div class=" rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 bg-[#34A0A4]">
                     <div class="rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
                         <div>
                             <h3 class="text-base font-semibold leading-7 text-text-color print:text-black">Detail
@@ -91,31 +90,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-4 rounded-xl border border-secondary-700/25 bg-secondary-800/25">
-                    <div class="relative aspect-video h-full w-full bg-[#184E77] p-2 rounded-md overflow-x-auto">
-                        <div class="flex flex-nowrap overflow-x-auto space-x-4">
-                            @if ($pemesanan->ss_hasilJoki)
-                                @php
-                                    $gambarArray = explode(',', $pemesanan->ss_hasilJoki);
-                                @endphp
-                                @foreach ($gambarArray as $gambar)
-                                    <img alt="" loading="lazy" decoding="async" class="h-40 object-cover"
-                                        src="{{ asset('storage/' . trim($gambar)) }}" alt=""
-                                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
-                                @endforeach
-                            @else
-                                <img style="max-height: 180px; overflow:hidden"
-                                    src="{{ asset('dist/img/not-found.jpg') }}" alt="Not Found">
-                            @endif
-                        </div>
-                    </div>
-                </div>
 
-                <div
-                    class="col-span-3 mt-10 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-3 bg-[#34A0A4]">
-                    <div class="flex flex-col gap-4 md:flex-row">
+
+                <div class="  rounded-xl border border-secondary-700/25 bg-secondary-800/25 bg-[#34A0A4]">
+                    <div class="flex flex-col gap-4 md:flex-row p-4">
                         <div
-                            class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
+                            class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25
+                            p-4 md:grid-cols-2 bg-[#184E77] ">
                             <div>
                                 <h3 class="text-sm font-semibold leading-6">Informasi akun</h3>
                                 <div
@@ -254,9 +235,43 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="container md:pt-8">
+
+            </div>
+            <div class="p-4 mt-4 rounded-xl border border-secondary-700/25 bg-secondary-800/25">
+                <div class="relative h-auto w-full bg-[#184E77] p-2 rounded-md overflow-x-auto">
+                    <ul class="w-auto h-auto p-2 text-white text-lg font-semibold">
+                        Detail Hasil Pesanan
+                    </ul>
+                    <div class="grid grid-cols-4 gap-4 w-full h-auto">
+                        @if ($pemesanan->ss_hasilJoki)
+                            @php
+                                $gambarArray = explode(',', $pemesanan->ss_hasilJoki);
+                            @endphp
+                            @foreach ($gambarArray as $gambar)
+                                <div class="col-span-1">
+                                    <img alt="" loading="lazy" decoding="async"
+                                        class="h-40 object-cover rounded-md"
+                                        src="{{ asset('storage/' . trim($gambar)) }}"
+                                        style="height: 100%; width: 100%;">
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="col-span-4 text-center">
+                                <p class="text-white text-2xl font-bold shadow-lg bg-[#1D3557] p-4 rounded-md">
+                                    Pesanan Sedang Di Proses
+                                </p>
+                                {{-- Gambar "Not Found" hanya akan muncul jika tidak ada gambar hasil joki --}}
+                                <img class="mx-auto mt-4 rounded-md hidden" style="max-height: 180px; overflow:hidden"
+                                    src="{{ asset('dist/img/not-found.jpg') }}" alt="Not Found">
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+
+
+
 
                 {{-- <div class="prose prose-sm pt-4">
                     <p class="py-2">Halo, Orderanmu Telah Selesai! Terima kasih Telah Order di TAKAPEDIA.</p>
