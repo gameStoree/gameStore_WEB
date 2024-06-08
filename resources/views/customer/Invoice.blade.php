@@ -104,7 +104,13 @@
                                         class="table-cell px-3 py-3.5 text-left text-xs font-medium text-text-color first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell !text-text-color">
                                         <div class="whitespace-nowrap">
                                             @if ($isSearched)
-                                                <a href="{{ route('pesanJokiInvoice.index', $invoice->id) }}" class="text-white-500 hover:underline"><u>{{ $invoice->id }}</u></a>
+                                                @if ($transactionType === 'diamond')
+                                                    <a href="{{ route('pesanDiamondInvoice.index', $invoice->id) }}"
+                                                        class="text-white-500 hover:underline"><u>{{ $invoice->id }}</u></a>
+                                                @elseif ($transactionType === 'joki')
+                                                    <a href="{{ route('pesanJokiInvoice.index', $invoice->id) }}"
+                                                        class="text-white-500 hover:underline"><u>{{ $invoice->id }}</u></a>
+                                                @endif
                                             @else
                                                 {{ $maskId($invoice->id) }} <!-- Tampilkan ID masked jika bukan hasil pencarian -->
                                             @endif

@@ -11,17 +11,17 @@ class jokiRankCustomerController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
         $jokiSatuan = JokiML::where('nama_paket', 'joki satuan')->get();
         $jokiPaketan = JokiML::where('nama_paket', 'joki paketan')->get();
-        return view('customer.jasaJokiRank', [
-            'jokiSatuan' => $jokiSatuan,
-            'jokiPaketan' => $jokiPaketan,
-            // 'snapToken' => ''
-        ]);
+
+        return view('customer.jasaJokiRank', compact('jokiSatuan', 'jokiPaketan', 'user'));
     }
+
 
     public function addPemesananJoki(Request $request)
     {
+
         $validatedData = $request->validate([
             'login_via' => 'required|max:20',
             'Id_Server' => 'required|max:30',

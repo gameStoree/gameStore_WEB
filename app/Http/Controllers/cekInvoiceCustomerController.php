@@ -11,8 +11,10 @@ class cekInvoiceCustomerController extends Controller
 {
     public function index(Request $request)
     {
+        $user = auth()->user();
         $invoiceNumber = $request->query('invoice');
         $isSearched = false; // Tambahkan variabel untuk menandai hasil pencarian
+        $transactionType = null;
 
         if ($invoiceNumber) {
             $pemesananDiamond = pemesananDiamond::where('id', $invoiceNumber)->first();
@@ -21,9 +23,11 @@ class cekInvoiceCustomerController extends Controller
             if ($pemesananDiamond) {
                 $invoices = collect([$pemesananDiamond]);
                 $isSearched = true; // Menandakan bahwa ini hasil pencarian
+                $transactionType = 'diamond'; // sebagai transaksi Diamond
             } elseif ($pemesananJoki) {
                 $invoices = collect([$pemesananJoki]);
-                $isSearched = true; // Menandakan bahwa ini hasil pencarian
+                $isSearched = true;
+                $transactionType = 'joki';
             } else {
                 return view('customer.invoice', ['invoices' => collect(), 'error' => 'Nomor invoice tidak ditemukan.']);
             }
@@ -34,7 +38,11 @@ class cekInvoiceCustomerController extends Controller
             $invoices = $invoices->sortByDesc('created_at')->take(10);
         }
 
-        return view('customer.invoice', compact('invoices', 'isSearched'))->with([
+<<<<<<< HEAD
+        return view('customer.invoice', compact('invoices', 'isSearched', 'transactionType'))->with([
+=======
+        return view('customer.invoice', compact('invoices', 'isSearched','user'))->with([
+>>>>>>> 3139f00bdc22e488c1fecebd19c1d35df7feac11
             'maskId' => [$this, 'maskId'],
             'maskNoHP' => [$this, 'maskNoHP']
         ]);

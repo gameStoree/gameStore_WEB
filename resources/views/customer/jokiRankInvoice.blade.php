@@ -36,10 +36,10 @@
                     </p>
                 </div>
             </div>
-            <div class="container ">
+            <div class="container grid grid-cols-2 gap-4">
                 <div
-                    class="col-span-3 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2  bg-[#34A0A4]">
-                    <div>
+                    class="col-sp rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2  bg-[#34A0A4]">
+                    <div class="rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
                         <div>
                             <h3 class="text-base font-semibold leading-7 text-text-color print:text-black">Detail
                                 Pembelian</h3>
@@ -88,6 +88,26 @@
                                         {{ $pemesanan->harga_keseluruhan }}</dd>
                                 </div>
                             </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl border border-secondary-700/25 bg-secondary-800/25">
+                    <div class="relative aspect-video h-full w-full bg-[#184E77] p-2 rounded-md  ">
+                        <div class="flex flex-wrap overflow-x-auto space-x-2">
+                            @if ($pemesanan->ss_hasilJoki)
+                            @php
+                                $gambarArray = explode(',', $pemesanan->ss_hasilJoki);
+                            @endphp
+                            @foreach ($gambarArray as $gambar)
+                                <img alt="" loading="lazy" decoding="async"
+                                    class="h-full w-full object-contain" sizes="100vw"
+                                    src="{{ asset('storage/' . trim($gambar)) }}" alt=""
+                                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                            @endforeach
+                        @else
+                            <img style="max-height: 180px; overflow:hidden"
+                                src="{{ asset('dist/img/not-found.jpg') }}" alt="Not Found">
+                        @endif
                         </div>
                     </div>
                 </div>
@@ -239,28 +259,7 @@
             </div>
 
             <div class="container md:pt-8">
-                <ul class="grid grid-cols-2 gap-4 md:grid-cols-4">
-                    <li>
-                        <div class="relative aspect-video h-full w-full">
-                            <div class="flex flex-wrap overflow-x-auto space-x-2">
-                                @if ($pemesanan->ss_hasilJoki)
-                                @php
-                                    $gambarArray = explode(',', $pemesanan->ss_hasilJoki);
-                                @endphp
-                                @foreach ($gambarArray as $gambar)
-                                    <img alt="" loading="lazy" decoding="async"
-                                        class="h-full w-full object-contain" sizes="100vw"
-                                        src="{{ asset('storage/' . trim($gambar)) }}" alt=""
-                                        style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
-                                @endforeach
-                            @else
-                                <img style="max-height: 180px; overflow:hidden"
-                                    src="{{ asset('dist/img/not-found.jpg') }}" alt="Not Found">
-                            @endif
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+
                 {{-- <div class="prose prose-sm pt-4">
                     <p class="py-2">Halo, Orderanmu Telah Selesai! Terima kasih Telah Order di TAKAPEDIA.</p>
                     <p class="py-2">Keterangan Order:</p>

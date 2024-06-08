@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class kalkulatorCustomerController extends Controller
 {
     public function index() {
-        return view('customer.kalkulator');
+        $user = auth()->user();
+        return view('customer.kalkulator', compact('user'));
     }
 }
 

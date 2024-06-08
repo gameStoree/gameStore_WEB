@@ -10,10 +10,11 @@ class diamondInvoiceController extends Controller
 {
     public function index(Request $request, $id)
     {
+        $user = auth()->user();
         $pemesanan = pemesananDiamond::findOrFail($id);
         $snapToken = $request->input('snapToken');
 
-        return view('customer.diamondInvoice', compact('pemesanan', 'snapToken'));
+        return view('customer.diamondInvoice', compact('pemesanan', 'snapToken','user'));
     }
 
     public function updateStatus(Request $request)
