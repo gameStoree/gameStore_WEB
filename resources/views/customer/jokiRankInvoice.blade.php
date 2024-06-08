@@ -11,8 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     @vite('resources/css/app.css')
     <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
-    <script type="text/javascript"
-        src="https://app.sandbox.midtrans.com/snap/snap.js"
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key="{{ config('midtrans.client_key') }}"></script>
     <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
 </head>
@@ -66,22 +65,26 @@
                                     </dd>
                                 </div>
                                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Tanggal Transakasi
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Tanggal
+                                        Transakasi
                                     </dt>
                                     <dd
                                         class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
                                         {{ $pemesanan->created_at }}</dd>
                                 </div>
                                 <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Produk</dt>
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Produk
+                                    </dt>
                                     <dd
                                         class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
                                         {{ $pemesanan->id_paket }}</dd>
                                 </div>
                                 <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Total Harga</dt>
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Total
+                                        Harga</dt>
                                     <dd
-                                        class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">Rp.
+                                        class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
+                                        Rp.
                                         {{ $pemesanan->harga_keseluruhan }}</dd>
                                 </div>
                             </dl>
@@ -221,14 +224,15 @@
                                 </div>
                             </div>
                             <div>
-                                <button id="pay-button" class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                style="outline: none;">Bayar Sekarang</button>
+                                <button id="pay-button"
+                                    class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
+                                    style="outline: none;">Bayar Sekarang</button>
                             </div>
 
                             <div>
                                 <a class="print:text-black-foreground bg-red-600    flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
                                     href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -236,16 +240,26 @@
 
             <div class="container md:pt-8">
                 <ul class="grid grid-cols-2 gap-4 md:grid-cols-4">
-                    <li><a href="#" target="#" rel="noreferrer"
-                            class="relative flex aspect-video h-full w-full items-center justify-center border border-secondary-600">
-                            <div class="relative aspect-video h-full w-full"><img alt="" loading="lazy"
-                                    decoding="async" data-nimg="fill" class="h-full w-full object-contain"
-                                    sizes="100vw"
-                                    srcset="/_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2Finvoices%2FTPO49F7A2223A706530368732%2Fproof_0001-82179431.jpeg&amp;w=3840&amp;q=75 3840w"
-                                    src="#"
-                                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                    <li>
+                        <div class="relative aspect-video h-full w-full">
+                            <div class="flex flex-wrap overflow-x-auto space-x-2">
+                                @if ($pemesanan->ss_hasilJoki)
+                                @php
+                                    $gambarArray = explode(',', $pemesanan->ss_hasilJoki);
+                                @endphp
+                                @foreach ($gambarArray as $gambar)
+                                    <img alt="" loading="lazy" decoding="async"
+                                        class="h-full w-full object-contain" sizes="100vw"
+                                        src="{{ asset('storage/' . trim($gambar)) }}" alt=""
+                                        style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                                @endforeach
+                            @else
+                                <img style="max-height: 180px; overflow:hidden"
+                                    src="{{ asset('dist/img/not-found.jpg') }}" alt="Not Found">
+                            @endif
                             </div>
-                        </a></li>
+                        </div>
+                    </li>
                 </ul>
                 {{-- <div class="prose prose-sm pt-4">
                     <p class="py-2">Halo, Orderanmu Telah Selesai! Terima kasih Telah Order di TAKAPEDIA.</p>
@@ -302,7 +316,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
     var payButton = document.getElementById('pay-button');
-    payButton.addEventListener('click', function () {
+    payButton.addEventListener('click', function() {
         window.snap.pay('{{ $snapToken }}', {
             onSuccess: function(result) {
                 $.ajax({
