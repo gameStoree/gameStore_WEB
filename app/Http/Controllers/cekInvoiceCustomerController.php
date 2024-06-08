@@ -11,6 +11,7 @@ class cekInvoiceCustomerController extends Controller
 {
     public function index(Request $request)
     {
+        $user = auth()->user();
         $invoiceNumber = $request->query('invoice');
         $isSearched = false; // Tambahkan variabel untuk menandai hasil pencarian
 
@@ -34,7 +35,7 @@ class cekInvoiceCustomerController extends Controller
             $invoices = $invoices->sortByDesc('created_at')->take(10);
         }
 
-        return view('customer.invoice', compact('invoices', 'isSearched'))->with([
+        return view('customer.invoice', compact('invoices', 'isSearched','user'))->with([
             'maskId' => [$this, 'maskId'],
             'maskNoHP' => [$this, 'maskNoHP']
         ]);

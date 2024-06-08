@@ -53,8 +53,11 @@
                 <div class="dropdown dropdown-end">
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                         <div class="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            @if($user->foto_user)
+                                <img src="{{ $user->foto_user }}" alt="{{ $user->name }}" class="object-cover w-full h-full rounded-full border-2 border-white">
+                            @else
+                                <img src="https://ui-avatars.com/api/?color=FFFFFF&amp;background=f97316&amp;name={{ $user->nama_lengkap }}" alt="{{ $user->name }}" class="object-cover w-full h-full rounded-full border-2 border-white">
+                            @endif
                         </div>
                     </div>
                     <ul tabindex="0"
@@ -66,6 +69,7 @@
                         </li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
+
                 </div>
             @endauth
         </div>
