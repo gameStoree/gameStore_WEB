@@ -20,7 +20,7 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                             <?php $i = 1; ?>
-                            @foreach ($data as $item)
+                            @foreach ($diamondGames as $item)
                                 <tr>
                                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                         <strong>{{ $i }}</strong>
