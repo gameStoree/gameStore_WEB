@@ -10,10 +10,11 @@ class jokiRankInvoiceController extends Controller
 {
     public function index(Request $request, $id)
     {
+        $user = auth()->user();
         $pemesanan = pemesananJoki::findOrFail($id);
         $snapToken = $request->input('snapToken');
 
-        return view('customer.jokiRankInvoice', compact('pemesanan', 'snapToken'));
+        return view('customer.jokiRankInvoice', compact('pemesanan', 'snapToken', 'user'));
     }
 
     public function updateStatus(Request $request)
