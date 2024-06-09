@@ -191,3 +191,57 @@
         }
     </script>
 @endforeach
+
+@foreach ($jokiDone as $pesananDone)
+    <div class="col-lg-4 col-md-3">
+        <!-- Modal -->
+        <div class="modal fade" id="modalLong{{ $pesananDone->id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="rounded-circle mt-5 img-fluid mx-auto d-block "
+                            style="object-fit: cover; height:260px; width:260px; margin-bottom: 40px;"
+                            src="{{ asset('admin/img/img/jokirank.png') }}" alt="">
+                        <div class="container">
+                            <p><b>Status :</b> {{ $pesananDone->status }}</p>
+                            <p><b>ID Transaksi :</b> {{ $pesananDone->id }}</p>
+                            <p><b>Nama Worker :</b> {{ $pesananDone->nama_lengkap }}</p>
+                            <p><b>Nama Paket :</b> {{ $pesananDone->nama_paket }}</p>
+                            <p><b>Joki :</b> {{ $pesananDone->joki_rank }}</p>
+                            <p><b>Login_Via :</b> {{ $pesananDone->login_via }}</p>
+                            <p><b>Email/No HP/Moonton ID :</b> {{ $pesananDone->email_no_hp_montonID }}</p>
+                            <p><b>Password :</b> {{ $pesananDone->password }}</p>
+                            <p><b>Request Hero :</b> {{ $pesananDone->request_hero }}</p>
+                            <p><b>Catatan Penjoki :</b> {{ $pesananDone->catatan_penjoki }}</p>
+                            <p><b>No HP :</b> {{ $pesananDone->no_hp }}</p>
+                            <p><b>Harga :</b> {{ $pesananDone->harga_keseluruhan }}</p>
+                            <p><b>Tanggal Pemesanan :</b> {{ $pesananDone->created_at }}</p>
+                            @if ($pesananDone->ss_hasilJoki)
+                                @php
+                                    $gambarArray = explode(',', $pesananDone->ss_hasilJoki);
+                                @endphp
+                                @foreach ($gambarArray as $gambar)
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#zoomedImage">
+                                        <img class="mb-3" style="max-height: 150px; margin: 5px;"
+                                            src="{{ asset('storage/' . $gambar) }}" alt="">
+                                    </a>
+                                @endforeach
+                            @else
+                                <img style="max-height: 180px; overflow:hidden"
+                                    src="{{ asset('dist/img/not-found.jpg') }}" alt="">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
