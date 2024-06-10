@@ -166,3 +166,43 @@
         </div>
     </div>
 @endforeach
+
+@foreach ($jokiAkunBermasalah as $pesananBermasalah)
+    <!-- Modal joki progress -->
+    <div class="modal fade" id="modalLong{{ $pesananBermasalah->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img class="rounded-circle mt-5 img-fluid mx-auto d-block "
+                        style="object-fit: cover; height:260px; width:260px; margin-bottom: 40px;"
+                        src="{{ asset('admin/img/img/jokirank.png') }}" alt="">
+                    <div class="container">
+                        <p><b>Status :</b> {{ $pesananBermasalah->status }}</p>
+                        <p><b>ID Transaksi :</b> {{ $pesananBermasalah->id }}</p>
+                        <p><b>Nama Paket :</b> {{ $pesananBermasalah->joki_rank }}</p>
+                        <p><b>Login_Via :</b> {{ $pesananBermasalah->login_via }}</p>
+                        <p><b>Email/No HP/Moonton ID :</b> {{ $pesananBermasalah->email_no_hp_montonID }}</p>
+                        <p><b>Password :</b> {{ $pesananBermasalah->password }}</p>
+                        <p><b>Request Hero :</b> {{ $pesananBermasalah->request_hero }}</p>
+                        <p><b>Catatan Penjoki :</b> {{ $pesananBermasalah->catatan_penjoki }}</p>
+                        <p><b>No HP :</b> {{ $pesananBermasalah->no_hp }}</p>
+                        <p><b>Tanggal Pemesanan :</b> {{ $pesananBermasalah->created_at }}</p>
+                        <p><b>Laporan Akun :</b> {{ $pesananBermasalah->laporan_akun }}</p>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-nickname">Laporan</label>
+                            <textarea class="form-control" value="{{ $pesananBermasalah->laporan_akun }}" name="laporan_akun" aria-label="With textarea" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
