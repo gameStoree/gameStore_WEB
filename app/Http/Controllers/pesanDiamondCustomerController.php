@@ -11,8 +11,9 @@ class pesanDiamondCustomerController extends Controller
 {
     public function show($game_id)
     {
+        $user = auth()->user();
         $diamonds = DiamondGame::where('nama_game', $game_id)->get();
-        return view('customer.pesanDiamond', ['diamonds' => $diamonds]);
+        return view('customer.pesanDiamond', ['diamonds' => $diamonds, 'user' => $user]);
     }
 
     public function addPemesananDiamond(Request $request)
