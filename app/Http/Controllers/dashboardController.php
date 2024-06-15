@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pemesananJoki;
 use App\Models\User;
 use App\Models\worker;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class dashboardController extends Controller
             'joki_m_l.nama_paket as item',
             'joki_m_l.joki_rank as jenis_item',
             'pemesanan_jokis.harga_keseluruhan as harga',
-            'pemesanan_jokis.created_at' 
+            'pemesanan_jokis.created_at'
         )
         ->unionAll(
             DB::table('pemesanan_diamonds')
@@ -43,6 +44,8 @@ class dashboardController extends Controller
 
         $jumlahWorker = worker::count();
         $jumlahCustomer = User::where('role', 'customer')->count();
+        $jumlahJokiProgress = pemesananJoki::where('status', 'progress')->count();
+        $jumlahJokiDone = pemesananJoki::where('status', 'done')->count();
 
         return view('adminDev.dashboard.index', [
             'active' => 'dashboard',
@@ -50,6 +53,8 @@ class dashboardController extends Controller
             'totalPendapatan' => $totalPendatan,
             'jumlahWorker' => $jumlahWorker,
             'jumlahCustomer' => $jumlahCustomer,
+            'jumlahJokiProgress' => $jumlahJokiProgress,
+            'jumlahJokiDone' => $jumlahJokiDone,
             'transaksi' => $transakasi
         ]);
     }

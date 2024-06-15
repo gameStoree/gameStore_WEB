@@ -36,11 +36,12 @@
                 </div>
             </div>
             <div class="container ">
+                @if ($pemesanan->status == 'Belum Bayar')
                 <div class="col-span-3 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2 bg-[#34A0A4]">
                     <div>
                         <div>
                             <h3 class="text-base font-semibold leading-7 text-text-color print:text-black">Detail Pembelian</h3>
-                            <p class="text- mt-1 max-w-2xl text-sm leading-6">Pembelian produk Joki Rank 5 Star Glory</p>
+                            <p class="text- mt-1 max-w-2xl text-sm leading-6">{{ $pemesanan->id_diamond }}</p>
                         </div>
                         <div class="mt-4 border-t border-secondary-700/25">
                             <dl class="divide-y divide-secondary-700/25">
@@ -78,10 +79,52 @@
                         </div>
                     </div>
                 </div>
+                @elseif ($pemesanan->status == 'Lunas')
+                <div class="col-span-3 rounded-xl border border-secondary-700/25 bg-secondary-800/25 p-4 md:col-span-2 bg-[#34A0A4]">
+                    <div>
+                        <div>
+                            <h3 class="text-base font-semibold leading-7 text-text-color print:text-black">Detail Pembelian</h3>
+                            <p class="text- mt-1 max-w-2xl text-sm leading-6">{{ $pemesanan->id_diamond }}</p>
+                        </div>
+                        <div class="mt-4 border-t border-secondary-700/25">
+                            <dl class="divide-y divide-secondary-700/25">
+                                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Nomor Invoice</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">{{ $pemesanan->id }}</dd>
+                                </div>
+                                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Status Pembayaran</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">
+                                        <span id="badge-paid" class="inline-flex rounded-sm px-2 text-xs font-semibold leading-5 print:p-0 bg-emerald-200 text-emerald-900">{{ $pemesanan->status }}</span>
+                                    </dd>
+                                </div>
+                                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Tanggal Transaksi</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">{{ $pemesanan->created_at }}</dd>
+                                </div>
+                                <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Produk</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">{{ $pemesanan->id_diamond }}</dd>
+                                </div>
+                                <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Id & Server</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">{{ $pemesanan->id_server }}</dd>
+                                </div>
+                                <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium leading-6 text-text-color print:text-black">Total Harga</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-text-color print:text-black sm:col-span-2 sm:mt-0">Rp. {{ $pemesanan->harga_keseluruhan }}</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
             </div>
 
+            @if ($pemesanan->status == 'Lunas')
             <div class="container md:pt-8">
-                {{-- <div class="prose prose-sm pt-4">
+                <div class="prose prose-sm pt-4">
                     <p class="py-2">Halo, Orderanmu Telah Selesai! Terima kasih Telah Order di TAKAPEDIA.</p>
                     <p class="py-2">Keterangan Order:</p>
                     <div class="-mt-4 break-words p-4">
@@ -103,11 +146,13 @@
                     <p class="py-2">Terimakasih Sudah Order Di TAKAPEDIA, Di tunggu Next Ordernya Semoga Sehat Selalu
                         Dan Lancar
                         Rezekinya.</p>
-                </div> --}}
+                </div>
             </div>
+            @endif
+
         </main>
     </div>
-    
+
     {{-- FOOTER --}}
     @include('partials.footer')
     {{-- FOOTER --}}
