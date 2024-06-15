@@ -700,7 +700,7 @@
                                                 <div class="grid grid-cols-3 gap-4">
                                                     @foreach ($jokiPaketan as $jokiItem)
                                                         <input type="radio" name="id_paket"
-                                                            value="{{ $jokiItem->joki_rank }}"
+                                                            value="{{ $jokiItem->id }}"
                                                             data-harga="{{ $jokiItem->harga_joki }}"
                                                             id="jokiPaketan-radio-{{ $loop->index }}"
                                                             class="hidden">
