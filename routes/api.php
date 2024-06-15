@@ -14,6 +14,9 @@ use App\Http\Controllers\Api\AuthCustomerController;
 use App\Http\Controllers\Api\PemesananJokiController;
 use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\PemesananDiamondController;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\takeJobController;
+
 
 
 
@@ -28,14 +31,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 });
-
-Route::post('/users/{id}/photo', [UploadFotoController::class, 'updatePhoto']);
-Route::get('/users/{id}/getphoto', [UploadFotoController::class, 'getPhoto']);
+Route::post('/upload-photo/{id}', [UploadFotoController::class, 'uploadPhoto']);
+Route::get('/get-user-photo/{id}', [UploadFotoController::class, 'getUserPhoto']);
 
 
 Route::get('/data', [AuthCustomerController::class, 'getData']);
 Route::get('/pemesanan',[UserApiController::class, 'getPemesanan']);
-Route::get('/pemesanan/{id}',[UserApiController::class, 'getPemesananByid']);//by_id
+Route::get('/pemesanan/{id}',[UserApiController::class, 'getPemesananByid']);
 Route::post('/postPemesanan',[UserApiController::class, 'postPemesanan']);
 
 // // Diamond Game //
@@ -52,6 +54,14 @@ Route::get('/jokirank', [JokiRankController::class, 'index']);
 
 Route::get('/pemesananjoki/{id}', [PemesananJokiController::class, 'getPemesanan']);
 Route::get('/search/{id}', [PemesananJokiController::class, 'searchPemesanan']);
+
+
+
+Route::get('pemesanan/{id}/images', [PemesananJokiController::class, 'getImageById']);
+Route::post('/joki-done/{id}', [takeJobController::class , 'jokiDone']);
+Route::get('/joki-done/images/{id}', [takeJobController::class, 'getImages']);
+// Route::get('/test-image/{id}', [takeJobController::class, 'jokiDone']);
+
 
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);

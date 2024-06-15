@@ -142,5 +142,26 @@ class takeJobController extends Controller
         $pemesanan->save();
 
         return redirect()->back()->with('success', 'Jokian telah selesai dikerjakan');
+        return response()->json(['message'=> 'suksses'], 200);
     }
+
+
+    public function getImages(string $id) {
+    $pemesanan = pemesananJoki::find($id);
+    if (!$pemesanan) {
+        return response()->json(['message' => 'Pesanan tidak ditemukan'], 404);
+    }
+    $imagePaths = explode(',', $pemesanan->ss_hasilJoki);
+    $images = [];
+    foreach ($imagePaths as $path) {
+        $images[] = url('storage/public/' . $path);
+    }
+    return response()->json(['images' => $images], 200);
+}
+
+
+
+
+
+
 }
