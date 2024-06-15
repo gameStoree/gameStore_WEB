@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <span class="fw-semibold d-block mb-1">Jumlah Jokian Progress</span>
-                    <h3 class="card-title mb-2">{{ $jumlahCustomer }}</h3>
+                    <h3 class="card-title mb-2">{{ $jumlahJokiProgress }}</h3>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <span class="fw-semibold d-block mb-1">Jumlah Jokian Done</span>
-                    <h3 class="card-title mb-2">{{ $jumlahCustomer }}</h3>
+                    <h3 class="card-title mb-2">{{ $jumlahJokiDone }}</h3>
                 </div>
             </div>
         </div>

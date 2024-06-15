@@ -91,150 +91,120 @@
                     </div>
                 </div>
 
-
-                <div class="  rounded-xl border border-secondary-700/25 bg-secondary-800/25 bg-[#34A0A4]">
+                @if($pemesanan->status == 'Belum Bayar')
+                <div class="rounded-xl border border-secondary-700/25 bg-secondary-800/25 bg-[#34A0A4]">
                     <div class="flex flex-col gap-4 md:flex-row p-4">
-                        <div
-                            class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25
-                            p-4 md:grid-cols-2 bg-[#184E77] ">
+                        <div class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
                             <div>
                                 <h3 class="text-sm font-semibold leading-6">Informasi akun</h3>
-                                <div
-                                    class="mt-4 divide-y divide-secondary-700/50 border-t border-secondary-700/50 text-sm font-medium text-text-color print:text-black">
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            Login Via</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->login_via }}</p>
-                                        </dd>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            User ID &amp; Server</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->Id_Server }}</p>
-                                        </dd>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            Email/No. Hp/Moonton ID</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->email_no_hp_montonID }}</p>
-                                        </dd>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            Password</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->password }}</p>
-                                        </dd>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            Request Hero</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->request_hero }}</p>
-                                        </dd>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-x-4 py-2">
-                                        <dt
-                                            class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">
-                                            Catatan Untuk Penjoki</dt>
-                                        <dd
-                                            class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
-                                            <p>{{ $pemesanan->catatan_penjoki }}</p>
-                                        </dd>
-                                    </div>
+                                <div class="mt-4 divide-y divide-secondary-700/50 border-t border-secondary-700/50 text-sm font-medium text-text-color print:text-black">
+                                    <!-- Account Information -->
+                                    @foreach(['Login Via' => 'login_via', 'User ID & Server' => 'Id_Server', 'Email/No. Hp/Moonton ID' => 'email_no_hp_montonID', 'Password' => 'password', 'Request Hero' => 'request_hero', 'Catatan Untuk Penjoki' => 'catatan_penjoki'] as $label => $field)
+                                        <div class="grid grid-cols-3 gap-x-4 py-2">
+                                            <dt class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">{{ $label }}</dt>
+                                            <dd class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
+                                                <p>{{ $pemesanan->$field }}</p>
+                                            </dd>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div>
-
                                 <div class="pt-4 print:hidden">
-                                    <form
-                                        class="flex flex-col gap-y-3 rounded-lg border border-secondary-700/25 bg-secondary-800/50 p-4">
+                                    <form class="flex flex-col gap-y-3 rounded-lg border border-secondary-700/25 bg-secondary-800/50 p-4">
                                         <div class="font-semibold">Tinggalkan ulasan untuk transaksi ini.</div>
-                                        <div class="flex items-center"><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button><button type="button" class=""><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" aria-hidden="true"
-                                                    class="h-5 w-5 flex-shrink-0">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg></button></div>
-                                        <div><label for="review"
-                                                class="flex items-center justify-between text-sm font-medium leading-6 text-white">
+                                        <!-- Star Rating and Review Form -->
+                                        <!-- Star Rating -->
+                                        <div class="flex items-center">
+                                            @for($i = 0; $i < 5; $i++)
+                                                <button type="button" class="">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5 flex-shrink-0">
+                                                        <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </button>
+                                            @endfor
+                                        </div>
+                                        <!-- Review Text -->
+                                        <div>
+                                            <label for="review" class="flex items-center justify-between text-sm font-medium leading-6 text-white">
                                                 <div>Tambahkan ulasan Kamu</div>
                                             </label>
-                                            <div class="my-2 flex flex-wrap gap-1"><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Pelayanan
-                                                    ramah</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Proses
-                                                    cepat banget</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Harganya
-                                                    murah</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Puas
-                                                    banget topup disini</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Penyelesaian
-                                                    masalah cepat</button><button type="button"
-                                                    class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">Custom</button>
+                                            <div class="my-2 flex flex-wrap gap-1">
+                                                @foreach(['Pelayanan ramah', 'Proses cepat banget', 'Harganya murah', 'Puas banget topup disini', 'Penyelesaian masalah cepat', 'Custom'] as $tag)
+                                                    <button type="button" class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">{{ $tag }}</button>
+                                                @endforeach
                                             </div>
                                         </div>
-                                        <div class="flex-shrink-0"><button
-                                                class="inline-flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75"
-                                                type="submit">Kirim</button></div>
+                                        <div class="flex-shrink-0">
+                                            <button class="inline-flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75" type="submit">Kirim</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
                             <div>
-                                <button id="pay-button"
-                                    class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                    style="outline: none;">Bayar Sekarang</button>
+                                <button id="pay-button" class="print:text-black-foreground bg-green-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400" style="outline: none;">Bayar Sekarang</button>
                             </div>
                             <div>
-                                <a class="print:text-black-foreground bg-red-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400"
-                                    href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a>
+                                <a class="print:text-black-foreground bg-red-600 flex w-full items-center justify-center rounded-lg bg-primary-500 py-2 text-sm font-semibold leading-6 text-text-color duration-200 ease-in-out hover:bg-primary-400" href="/id/joki-rank" style="outline: none;">Batalkan & Beli Lagi</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @elseif($pemesanan->status == 'Lunas')
+                <div class="rounded-xl border border-secondary-700/25 bg-secondary-800/25 bg-[#34A0A4]">
+                    <div class="flex flex-col gap-4 md:flex-row p-4">
+                        <div class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
+                            <div>
+                                <h3 class="text-sm font-semibold leading-6">Informasi akun</h3>
+                                <div class="mt-4 divide-y divide-secondary-700/50 border-t border-secondary-700/50 text-sm font-medium text-text-color print:text-black">
+                                    <!-- Account Information -->
+                                    @foreach(['Login Via' => 'login_via', 'User ID & Server' => 'Id_Server', 'Email/No. Hp/Moonton ID' => 'email_no_hp_montonID', 'Password' => 'password', 'Request Hero' => 'request_hero', 'Catatan Untuk Penjoki' => 'catatan_penjoki'] as $label => $field)
+                                        <div class="grid grid-cols-3 gap-x-4 py-2">
+                                            <dt class="col-span-3 text-sm font-medium leading-6 text-text-color print:text-black md:col-span-1">{{ $label }}</dt>
+                                            <dd class="col-span-3 text-xs leading-6 text-text-color print:text-black sm:col-span-2 md:text-sm">
+                                                <p>{{ $pemesanan->$field }}</p>
+                                            </dd>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div>
+                                <div class="pt-4 print:hidden">
+                                    <form class="flex flex-col gap-y-3 rounded-lg border border-secondary-700/25 bg-secondary-800/50 p-4">
+                                        <div class="font-semibold">Tinggalkan ulasan untuk transaksi ini.</div>
+                                        <!-- Star Rating and Review Form -->
+                                        <!-- Star Rating -->
+                                        <div class="flex items-center">
+                                            @for($i = 0; $i < 5; $i++)
+                                                <button type="button" class="">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5 flex-shrink-0">
+                                                        <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </button>
+                                            @endfor
+                                        </div>
+                                        <!-- Review Text -->
+                                        <div>
+                                            <label for="review" class="flex items-center justify-between text-sm font-medium leading-6 text-white">
+                                                <div>Tambahkan ulasan Kamu</div>
+                                            </label>
+                                            <div class="my-2 flex flex-wrap gap-1">
+                                                @foreach(['Pelayanan ramah', 'Proses cepat banget', 'Harganya murah', 'Puas banget topup disini', 'Penyelesaian masalah cepat', 'Custom'] as $tag)
+                                                    <button type="button" class="inline-flex items-center gap-x-1.5 rounded-full px-3 py-2 text-xs font-medium text-secondary-200 outline-none ring-1 ring-inset ring-secondary-700 bg-secondary-600 hover:bg-secondary-700">{{ $tag }}</button>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <button class="inline-flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-text-color-foreground transition-colors duration-300 hover:bg-primary-400 disabled:cursor-not-allowed disabled:opacity-75" type="submit">Kirim</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
 
 
             </div>
@@ -269,11 +239,8 @@
                     </div>
                 </div>
 
-
-
-
-
-                {{-- <div class="prose prose-sm pt-4">
+                @if ($pemesanan->status == 'Lunas')
+                <div class="prose prose-sm pt-4">
                     <p class="py-2">Halo, Orderanmu Telah Selesai! Terima kasih Telah Order di TAKAPEDIA.</p>
                     <p class="py-2">Keterangan Order:</p>
                     <div class="-mt-4 break-words p-4">
@@ -295,7 +262,9 @@
                     <p class="py-2">Terimakasih Sudah Order Di TAKAPEDIA, Di tunggu Next Ordernya Semoga Sehat Selalu
                         Dan Lancar
                         Rezekinya.</p>
-                </div> --}}
+                </div>
+                @endif
+
             </div>
         </main>
 

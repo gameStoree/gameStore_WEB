@@ -21,7 +21,6 @@ class jokiRankCustomerController extends Controller
 
     public function addPemesananJoki(Request $request)
     {
-
         $validatedData = $request->validate([
             'login_via' => 'required|max:20',
             'Id_Server' => 'required|max:30',
@@ -41,7 +40,7 @@ class jokiRankCustomerController extends Controller
         $pemesananJoki = pemesananJoki::create($validatedData);
 
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        \Midtrans\Config::$isProduction = false; // Set true untuk Lingkungan Produksi
+        \Midtrans\Config::$isProduction = false; // Set true for Production Environment
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;
 
@@ -58,7 +57,7 @@ class jokiRankCustomerController extends Controller
                 [
                     'id' => $validatedData['id_paket'],
                     'price' => $validatedData['harga_keseluruhan'],
-                    'quantity' => $validatedData['jumlah_bintang'],
+                    'quantity' => 1,
                     'name' => 'Paket Joki - ' . $validatedData['login_via'],
                 ],
             ],
@@ -67,6 +66,5 @@ class jokiRankCustomerController extends Controller
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         // dd($snapToken);
         return redirect()->route('pesanJokiInvoice.index', ['id' => $pemesananJoki->id, 'snapToken' => $snapToken]);
-        // return response()->json(['snapToken' => $snapToken]);
     }
 }

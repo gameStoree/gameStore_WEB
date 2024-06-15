@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_diamond');
             $table->unsignedBigInteger('id_user')->nullable();
             $table->timestamps();
-            $table->foreign('id_diamond')->references('id')->on('diamond_game');
+            $table->foreign('id_diamond')->references('id')->on('diamond_game')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_user')->references('id')->on('users');
         });
     }
