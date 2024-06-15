@@ -69,13 +69,29 @@ class ApiTransaksiIpaymu extends Controller
             return $randomString;
     }
 
+    public function updateStatus(Request $request, $id){
+
+        $request->validate([
+            'id' => 'required',
+            'status' => 'required',
+        ]);
+
+        $pesan = PemesananJoki::find($id);
+
+        if($pesan->status == 'Belum Bayar'){
+            $pesan->status = 'settlement';
+            $pesan->save();
+        }
+    }
+
 
 
     public function handleCallback(Request $request)
     {
         $status = $request->input('status');
         $transactionId = $request->input('transaction_id');
-        $transaction = PemesananJokis::find($transactionId);
+
+        $transaction = PemesananJoki::find($transactionId);
         if ($transaction) {
             $transaction->status = 'lunas';
             $transaction->save();

@@ -23,7 +23,7 @@ b93d8d7 :root {
     font-size: 18px;
 }
 
-#pesanan_masuk.active, #pesanan_lunas.active .line-text, #pesanan_progres.active .line-text, #pesanan_done.active .line-text {
+#pesanan_masuk.active, #pesanan_lunas.active .line-text, #pesanan_progres.active .line-text, #pesanan_done.active .line-text, #pesanan_akunBermasalah.active .line-text {
     height: 2px; /* Sesuaikan tinggi garis dengan kebutuhan */
     width: auto;
     display: block;
@@ -71,3 +71,12 @@ b93d8d7 :root {
     display: block;
     margin-top: 5px;
 }
+
+#pesanan_akunBermasalah.active .line-text {
+    height: 2px;
+    background-color: blue;
+    width: auto;
+    display: block;
+    margin-top: 5px;
+}
+

@@ -28,9 +28,21 @@ class takeJobController extends Controller
             ->where('pemesanan_jokis.id_worker', '=', $workerId)
             ->get();
 
+        $jokiDone = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.joki_rank', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            ->where('pemesanan_jokis.status', '=', 'Done')
+            ->where('pemesanan_jokis.id_worker', '=', $workerId)
+            ->get();
+
+        $jokiAkunBermasalah = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.joki_rank', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki')
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            ->where('pemesanan_jokis.status', '=', 'Akun Bermasalah')
+            ->where('pemesanan_jokis.id_worker', '=', $workerId)
+            ->get();
+
         return view('worker.takeJob.index', [
             'judul' => 'TAKE JOB'
-        ], compact('jokiTerkonfirmasi', 'jokiProgress'));
+        ], compact('jokiTerkonfirmasi', 'jokiProgress', 'jokiDone', 'jokiAkunBermasalah'));
     }
 
     /**

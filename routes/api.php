@@ -1,5 +1,6 @@
 <?php
 // use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PaymentMidtransController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiTransaksiIpaymu;
@@ -23,6 +24,7 @@ use App\Http\Controllers\takeJobController;
 
 Route::post('/register', [AuthCustomerController::class, 'register']);
 Route::post('/login', [AuthCustomerController::class, 'login']);
+Route::post('/transaksi_baru', [PaymentMidtransController::class, 'createTransaction']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthCustomerController::class, 'getUser']);
@@ -64,6 +66,7 @@ Route::get('/joki-done/images/{id}', [takeJobController::class, 'getImages']);
 
 
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
+Route::post('/status', [ApiTransaksiIpaymu::class, 'handleCallback']);
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);
 Route::get('/pemesanan-dm-terbaru/{id_user}', [pemesananDiamondController::class, 'getPemesananDiamondTerbaru']);
 Route::get('/pemesanan-jk-terbaru/{id_user}', [ApiTransaksiIpaymu::class, 'getPemesananjokiTerbaru']);

@@ -38,8 +38,14 @@ class pemesananJokiController extends Controller
             ->where('pemesanan_jokis.status', '=', 'Done')
             ->get();
 
+        $jokiAkunBermasalah = pemesananJoki::select('pemesanan_jokis.*', 'joki_m_l.joki_rank', 'joki_m_l.joki_rank', 'joki_m_l.harga_joki', 'worker.nama_lengkap')
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            ->join('worker', 'pemesanan_jokis.id_worker', '=', 'worker.id')
+            ->where('pemesanan_jokis.status', '=', 'Akun Bermasalah')
+            ->get();
+
         return view('adminDev.pemesanan.joki.index', [
             'judul' => 'PEMESANAN JOKI'
-        ], compact('jokiMasuk', 'jokiTerkonfirmasi', 'jokiProgress', 'jokiDone'));
+        ], compact('jokiMasuk', 'jokiTerkonfirmasi', 'jokiProgress', 'jokiDone', 'jokiAkunBermasalah'));
     }
 }

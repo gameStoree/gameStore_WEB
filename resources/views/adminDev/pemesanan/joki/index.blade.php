@@ -5,7 +5,6 @@
         <div id="pemesanan_top" class="w-full">
             <div id="pesanan_masuk">
                 <h4 id="pesanan-masuk">Pesanan Masuk</h4>
-                {{-- <span class="line-active"></span> --}}
                 <span class="line-text"></span>
             </div>
             <div id="pesanan_lunas">
@@ -18,6 +17,10 @@
             </div>
             <div id="pesanan_done">
                 <h4 id="pesanan-done">Pesanan Done</h4>
+                <span class="line-text"></span>
+            </div>
+            <div id="pesanan_akunBermasalah">
+                <h4 id="pesanan-akunBermasalah">Akun Bermasalah</h4>
                 <span class="line-text"></span>
             </div>
         </div>
@@ -98,14 +101,18 @@
                                     <td>{{ $pesananTerkonfirmasi->nama_paket }}</td>
                                     <td>{{ $pesananTerkonfirmasi->joki_rank }}</td>
                                     <td>{{ $pesananTerkonfirmasi->harga_joki }}</td>
-                                    <td><span class="badge bg-label-warning me-1">{{ $pesananTerkonfirmasi->status }}</span></td>
+                                    <td><span
+                                            class="badge bg-label-warning me-1">{{ $pesananTerkonfirmasi->status }}</span>
+                                    </td>
                                     <td>{{ $pesananTerkonfirmasi->no_hp }}</td>
                                     <td class="d-flex gap-2">
                                         <button type="button" class="btn btn-icon btn-outline-secondary"
-                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananTerkonfirmasi->id }}">
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalLong{{ $pesananTerkonfirmasi->id }}">
                                             <i class="bx bx-info-circle"></i>
                                         </button>
-                                        <a href="https://wa.me/{{ $pesananTerkonfirmasi->no_hp }}" class="btn btn-icon btn-outline-success">
+                                        <a href="https://wa.me/{{ $pesananTerkonfirmasi->no_hp }}"
+                                            class="btn btn-icon btn-outline-success">
                                             <i class="bx bxl-whatsapp"></i>
                                         </a>
                                     </td>
@@ -141,7 +148,8 @@
                                     <td>{{ $pesananProgress->nama_paket }}</td>
                                     <td>{{ $pesananProgress->joki_rank }}</td>
                                     <td>{{ $pesananProgress->harga_joki }}</td>
-                                    <td><span class="badge bg-label-warning me-1">{{ $pesananProgress->status }}</span></td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananProgress->status }}</span>
+                                    </td>
                                     <td>{{ $pesananProgress->no_hp }}</td>
                                     <td>
                                         <button type="button" class="btn btn-icon btn-outline-secondary"
@@ -174,22 +182,67 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                             @foreach ($jokiDone as $pesananDone)
+                                <tr>
+                                    <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
+                                        <strong>{{ $pesananDone->id }}</strong>
+                                    </td>
+                                    <td>{{ $pesananDone->nama_paket }}</td>
+                                    <td>{{ $pesananDone->joki_rank }}</td>
+                                    <td>{{ $pesananDone->harga_joki }}</td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananDone->status }}</span></td>
+                                    <td>{{ $pesananDone->no_hp }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-icon btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananDone->id }}">
+                                            <i class="bx bx-info-circle"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="pemesanan_content_akunBermasalah">
+            <div class="col-md-6e p-1">
+                <div class="card-body bg-white p-2" style="border-radius: 18px;">
+                    <table class="table table-hover large" id="myTable2">
+                        <thead>
                             <tr>
-                                <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
-                                    <strong>{{ $pesananDone->id }}</strong>
-                                </td>
-                                <td>{{ $pesananDone->nama_paket }}</td>
-                                <td>{{ $pesananDone->joki_rank }}</td>
-                                <td>{{ $pesananDone->harga_joki }}</td>
-                                <td><span class="badge bg-label-warning me-1">{{ $pesananDone->status }}</span></td>
-                                <td>{{ $pesananDone->no_hp }}</td>
-                                <td>
-                                    <button type="button" class="btn btn-icon btn-outline-secondary"
-                                        data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananDone->id }}">
-                                        <i class="bx bx-info-circle"></i>
-                                    </button>
-                                </td>
+                                <th>ID Transaksi Joki</th>
+                                <th>Nama Paket</th>
+                                <th>Joki Rank</th>
+                                <th>Harga</th>
+                                <th>Status</th>
+                                <th>No Hp</th>
+                                <th>Actions</th>
                             </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            @foreach ($jokiAkunBermasalah as $pesananBermasalah)
+                                <tr>
+                                    <td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
+                                        <strong>{{ $pesananBermasalah->id }}</strong>
+                                    </td>
+                                    <td>{{ $pesananBermasalah->nama_paket }}</td>
+                                    <td>{{ $pesananBermasalah->joki_rank }}</td>
+                                    <td>{{ $pesananBermasalah->harga_joki }}</td>
+                                    <td><span class="badge bg-label-warning me-1">{{ $pesananBermasalah->status }}</span>
+                                    </td>
+                                    <td>{{ $pesananBermasalah->no_hp }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-icon btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#modalLong{{ $pesananBermasalah->id }}">
+                                            <i class="bx bx-info-circle"></i>
+                                        </button>
+                                        <a href="https://wa.me/{{ $pesananBermasalah->no_hp }}"
+                                            class="btn btn-icon btn-outline-success">
+                                            <i class="bx bxl-whatsapp"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -200,70 +253,56 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("#pemesanan_content_lunas").hide();
-            $("#pemesanan_content_progres").hide();
-            $("#pemesanan_content_done").hide();
+            // Sembunyikan semua bagian kecuali "Pesanan Masuk" pada awalnya
+            $("#pemesanan_content_lunas, #pemesanan_content_progres, #pemesanan_content_done, #pemesanan_content_akunBermasalah")
+                .hide();
             $("#pesanan_masuk").addClass("active");
 
-            var initialPosition = $(".line-text").position().left;
+            // Hitung posisi awal line-text
+            var posisiAwal = $("#pesanan_masuk .line-text").position().left;
 
+            // Fungsi untuk menampilkan konten yang dipilih dan memperbarui tab aktif
+            function tampilkanKonten(idKonten, idTab) {
+                // Sembunyikan semua bagian konten
+                $("#pemesanan_content_masuk, #pemesanan_content_lunas, #pemesanan_content_progres, #pemesanan_content_done, #pemesanan_content_akunBermasalah")
+                    .hide();
+                // Tampilkan bagian konten yang dipilih
+                $(idKonten).show();
+
+                // Hapus kelas aktif dari semua tab
+                $("#pesanan_masuk, #pesanan_lunas, #pesanan_progres, #pesanan_done, #pesanan_akunBermasalah")
+                    .removeClass("active");
+                // Tambahkan kelas aktif ke tab yang dipilih
+                $(idTab).addClass("active");
+
+                // Perbarui posisi line-text
+                var posisiBaru = $(idTab).position().left;
+                $(".line-text").css("left", posisiBaru);
+            }
+
+            // Ikatkan fungsi click ke tab
             $("#pesanan_masuk").click(function() {
-                $("#pemesanan_content_masuk").show();
-                $("#pemesanan_content_lunas").hide();
-                $("#pemesanan_content_progres").hide();
-                $("#pemesanan_content_done").hide();
-
-                $(this).addClass("active");
-                $("#pesanan_lunas").removeClass("active");
-                $("#pesanan_progres").removeClass("active");
-                $("#pesanan_done").removeClass("active");
-
-                $(".line-text").css("left", initialPosition);
+                tampilkanKonten("#pemesanan_content_masuk", "#pesanan_masuk");
             });
 
             $("#pesanan_lunas").click(function() {
-                $("#pemesanan_content_lunas").show();
-                $("#pemesanan_content_masuk").hide();
-                $("#pemesanan_content_progres").hide();
-                $("#pemesanan_content_done").hide();
-
-                $(this).addClass("active");
-                $("#pesanan_masuk").removeClass("active");
-                $("#pesanan_progres").removeClass("active");
-                $("#pesanan_done").removeClass("active");
-
-                $(".line-text").css("left", "500px");
+                tampilkanKonten("#pemesanan_content_lunas", "#pesanan_lunas");
             });
 
             $("#pesanan_progres").click(function() {
-                $("#pemesanan_content_progres").show();
-                $("#pemesanan_content_masuk").hide();
-                $("#pemesanan_content_lunas").hide();
-                $("#pemesanan_content_done").hide();
-
-                $(this).addClass("active");
-                $("#pesanan_masuk").removeClass("active");
-                $("#pesanan_lunas").removeClass("active");
-                $("#pesanan_done").removeClass("active");
-
-                $(".line-text").css("left", "500px");
+                tampilkanKonten("#pemesanan_content_progres", "#pesanan_progres");
             });
 
             $("#pesanan_done").click(function() {
-                $("#pemesanan_content_done").show();
-                $("#pemesanan_content_masuk").hide();
-                $("#pemesanan_content_lunas").hide();
-                $("#pemesanan_content_progres").hide();
+                tampilkanKonten("#pemesanan_content_done", "#pesanan_done");
+            });
 
-                $(this).addClass("active");
-                $("#pesanan_masuk").removeClass("active");
-                $("#pesanan_lunas").removeClass("active");
-                $("#pesanan_progres").removeClass("active");
-
-                $(".line-text").css("left", "500px");
+            $("#pesanan_akunBermasalah").click(function() {
+                tampilkanKonten("#pemesanan_content_akunBermasalah", "#pesanan_akunBermasalah");
             });
         });
     </script>
+
     @include('sweetalert::alert')
     @include('adminDev.pemesanan.joki.modal')
 @endsection
