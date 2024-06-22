@@ -4,6 +4,20 @@
     <div class="content-wrapper">
         <div class="card">
             <div class="col-md-6e p-1">
+                <div class="row mb-3 align-items-end">
+                    <div class="col-3">
+                        <label for="tgl_awal" class="form-label">Tanggal Awal</label>
+                        <input type="date" class="form-control" id="tgl_awal" name="tgl_awal">
+                    </div>
+                    <div class="col-3">
+                        <label for="tgl_akhir" class="form-label">Tanggal Akhir</label>
+                        <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir">
+                    </div>
+                    <div class="col-2">
+                        <label class="form-label d-block">&nbsp;</label>
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                    </div>
+                </div>
                 <div class="table-responsive text-nowrap">
                     <div class="card-body bg-white p-2" style="border-radius: 18px;">
                         <table class="table table-hover large" id="myTable">

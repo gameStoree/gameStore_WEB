@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                @elseif($pemesanan->status == 'Lunas')
+                @elseif($pemesanan->status == 'Lunas' || $pemesanan->status == 'Done')
                 <div class="rounded-xl border border-secondary-700/25 bg-secondary-800/25 bg-[#34A0A4]">
                     <div class="flex flex-col gap-4 md:flex-row p-4">
                         <div class="grid w-full grid-cols-1 gap-4 rounded-md bg-secondary-800/25 p-4 md:grid-cols-2 bg-[#184E77]">
@@ -239,7 +239,7 @@
                     </div>
                 </div>
 
-                @if ($pemesanan->status == 'Lunas')
+                @if ($pemesanan->status == 'Lunas' || $pemesanan->status == 'Done')
                 <div class="prose prose-sm pt-4">
                     <p class="py-2">Halo, Orderanmu Telah Selesai! Terima kasih Telah Order di TAKAPEDIA.</p>
                     <p class="py-2">Keterangan Order:</p>
