@@ -1,5 +1,6 @@
 <?php
 // use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PaymentDiamondMiController;
 use App\Http\Controllers\PaymentMidtransController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,11 @@ use App\Http\Controllers\Api\PemesananDiamondController;
 
 Route::post('/register', [AuthCustomerController::class, 'register']);
 Route::post('/login', [AuthCustomerController::class, 'login']);
+//Midtrans
 Route::post('/transaksi_baru', [PaymentMidtransController::class, 'createTransaction']);
+Route::post('/transaksi_diamond', [PaymentDiamondMiController::class, 'Transactiondiamond']);
+Route::post('/status', [ApiTransaksiIpaymu::class, 'handleCallback']);
+Route::post('/status_diamond', [diamondInvoiceController::class, 'updateStatus']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthCustomerController::class, 'getUser']);
@@ -56,7 +61,7 @@ Route::get('/pemesananjoki/{id}', [PemesananJokiController::class, 'getPemesanan
 Route::get('/search/{id}', [PemesananJokiController::class, 'searchPemesanan']);
 
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
-Route::post('/status', [ApiTransaksiIpaymu::class, 'handleCallback']);
+
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);
 Route::get('/pemesanan-dm-terbaru/{id_user}', [pemesananDiamondController::class, 'getPemesananDiamondTerbaru']);
 Route::get('/pemesanan-jk-terbaru/{id_user}', [ApiTransaksiIpaymu::class, 'getPemesananjokiTerbaru']);
