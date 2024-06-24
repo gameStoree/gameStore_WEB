@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\PemesananDiamondController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\takeJobController;
+use App\Http\Controllers\PaymentDiamondMiController;
 
 
 
@@ -24,7 +25,12 @@ use App\Http\Controllers\takeJobController;
 
 Route::post('/register', [AuthCustomerController::class, 'register']);
 Route::post('/login', [AuthCustomerController::class, 'login']);
+//midtrans payment
 Route::post('/transaksi_baru', [PaymentMidtransController::class, 'createTransaction']);
+Route::post('/transaksi_diamond', [PaymentDiamondMiController::class, 'Transactiondiamond']);
+Route::post('/status_diamond', [diamondInvoiceController::class, 'updateStatus']);
+Route::post('/status', [ApiTransaksiIpaymu::class, 'handleCallback']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthCustomerController::class, 'getUser']);
@@ -66,7 +72,8 @@ Route::get('/joki-done/images/{id}', [takeJobController::class, 'getImages']);
 
 
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
-Route::post('/status', [ApiTransaksiIpaymu::class, 'handleCallback']);
+Route::post('/upstatusjoki', [ApiTransaksiIpaymu::class, 'updateStatus']);
+
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);
 Route::get('/pemesanan-dm-terbaru/{id_user}', [pemesananDiamondController::class, 'getPemesananDiamondTerbaru']);
 Route::get('/pemesanan-jk-terbaru/{id_user}', [ApiTransaksiIpaymu::class, 'getPemesananjokiTerbaru']);
@@ -83,3 +90,18 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'
 Route::post('/jokiRankInvoice/updateStatus', [jokiRankInvoiceController::class, 'updateStatus']);
 Route::post('/pesanDiamondInvoice/updateStatus', [diamondInvoiceController::class, 'updateStatus']);
 
+
+
+Route::post('/upstatusjoki', function (Request $request) {
+    // Mengambil nilai 'id' dan 'status' dari input request
+    $id = $request->input('id');
+    $status = $request->input('status');
+
+    // Mengupdate kolom 'status' dari entri di tabel 'pemesanan_jokis' yang sesuai dengan 'id'
+    DB::table('pemesanan_jokis')
+        ->where('id', $id)
+        ->update(['status' => $status]);
+
+    // Mengirimkan respons JSON dengan pesan sukses dan status HTTP 200 (OK)
+    return response()->json(['message' => 'Status updated successfully'], 200);
+});

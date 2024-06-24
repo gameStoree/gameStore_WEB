@@ -5,7 +5,7 @@ use Midtrans\Config;
 use Midtrans\Snap;
 use Illuminate\Http\Request;
 
-class PaymentMidtransController extends Controller
+class PaymentDiamondMiController extends Controller
 {
     public function __construct()
     {
@@ -15,32 +15,43 @@ class PaymentMidtransController extends Controller
         Config::$isSanitized = config('midtrans.is_sanitized');
         Config::$is3ds = config('midtrans.is_3ds');
     }
- public function createTransaction(Request $request)
+ public function TransactionDiamond(Request $request)
     {
-        $item =
-            [
-                [
-                'id' => $request->id,
-                'price' => 0,
-                'quantity' => $request->banyak_bintang,
-                'name' => "",
-                ]
-            ];
+
+
 
         $params = [
             'transaction_details' => [
                 'order_id' => uniqid(),
                 'gross_amount' => $request->amount,
             ],
-            // 'item_details' => $item,
+
+
             'customer_details' => [
                 'first_name' => $request->first_name,
-                'email' => $request->email,
                 'phone' => $request->phone,
             ],
-            // 'keterangan' => $request->keterangan, // Menyimpan keterangan
-            // 'doa' => $request->doa,        // Menyimpan doa
+
+            //   'item_details' => [
+            //     [
+            //         'id' => $request->id_diamond,
+            //         'price' => $request->harga_diamond,
+            //         'quantity' => $request->jumlah_diamond,
+            //         'name' => 'topupmlbb',
+            //         'subtotal' => $request->harga_diamond
+            //     ]
+            // ],
         ];
+
+        // $item_details = [
+        //     [
+        //         'id' => $pemesanan->id_diamond,
+        //         'price' => $pemesanan->harga_diamond,
+        //         'quantity' => 1, // jumlah item, bisa disesuaikan
+        //         'name' => 'topupmlbb', // atau bisa diambil dari $pemesanan->nama_game
+        //         'subtotal' => $pemesanan->harga_diamond * 1 // bisa disesuaikan
+        //     ]
+        // ];
 
         try {
             $snapToken = Snap::getSnapToken($params);
@@ -49,7 +60,4 @@ class PaymentMidtransController extends Controller
             return response()->json(['error' => $e->getMessage()]);
         }
     }
-
-
-
 }

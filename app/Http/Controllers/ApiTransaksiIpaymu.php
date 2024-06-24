@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PemesananJoki;
+use Illuminate\Support\Facades\DB;
+// use Illuminate\Http\Request;
+
+
 
 class ApiTransaksiIpaymu extends Controller
 {
@@ -69,21 +73,22 @@ class ApiTransaksiIpaymu extends Controller
             return $randomString;
     }
 
-    public function updateStatus(Request $request, $id){
+    // public function updateStatus(Request $request)
+    // {
+    //     $transactionStatus = $request->input('transaction_status');
+    //     $orderId = $request->input('order_id');
+    //     if ($transactionStatus && $orderId) {
+    //         if ($transactionStatus == 'settlement') {
+    //             DB::table('pemesanan_jokis')
+    //                 ->where('id', $orderId)
+    //                 ->update(['status' => 'lunas']);
+    //         }
 
-        $request->validate([
-            'id' => 'required',
-            'status' => 'required',
-        ]);
-
-        $pesan = PemesananJoki::find($id);
-
-        if($pesan->status == 'Belum Bayar'){
-            $pesan->status = 'settlement';
-            $pesan->save();
-        }
-    }
-
+    //         return response()->json(['message' => 'Callback received'], 200);
+    //     } else {
+    //         return response()->json(['message' => 'Invalid callback data'], 400);
+    //     }
+    // }
 
 
     public function handleCallback(Request $request)
@@ -99,19 +104,67 @@ class ApiTransaksiIpaymu extends Controller
         } else {
             return response()->json(['message' => 'Transaction not found'], 404);
         }
+
+
     }
 
-    public function getPemesananJokiTerbaru(Request $request, $id_user){
-    $pemesanan = PemesananJoki::where('id_user', $id_user)
-                              ->orderBy('created_at', 'desc')
-                              ->first();
+    public function getPemesananJokiTerbaru(Request $request, $id_user) {
+        $pemesanan = DB::table('pemesanan_jokis')
+            ->join('joki_m_l', 'pemesanan_jokis.id_paket', '=', 'joki_m_l.id')
+            ->leftJoin('worker', 'pemesanan_jokis.id_worker', '=', 'worker.id')
+            ->leftJoin('users', 'pemesanan_jokis.id_user', '=', 'users.id')
+            ->select(
+                'pemesanan_jokis.*',
+                'joki_m_l.nama_paket',
+                'joki_m_l.joki_rank',
+                'joki_m_l.harga_joki',
+                'worker.nama_lengkap',
+                'worker.email as worker_email',
+                'worker.no_hp as worker_no_hp',
+                'worker.alamat as worker_alamat',
+                'worker.foto as worker_foto',
+                'worker.high_rank as worker_high_rank',
+                'worker.role as worker_role',
+                'users.nama_lengkap as user_nama',
+                'users.email as user_email',
+                'users.no_hp as user_no_hp',
+                'users.alamat as user_alamat',
+                'users.foto_user as user_foto'
+            )
+            ->where('pemesanan_jokis.id_user', $id_user)
+            ->orderBy('pemesanan_jokis.created_at', 'desc')
+            ->first();
 
-    if ($pemesanan) {
-        return response()->json($pemesanan);
-    } else {
-        return response()->json(['message' => 'Tidak ada pemesanan ditemukan untuk pengguna ini.'], 404);
+        if ($pemesanan) {
+            return response()->json($pemesanan);
+        } else {
+            return response()->json(['message' => 'Tidak ada pemesanan ditemukan untuk pengguna ini.'], 404);
+        }
     }
-    }
+
+    // private function getImagePaths($pemesananJoki) {
+    //     // Implementasi fungsi ini tergantung pada bagaimana Anda menyimpan data gambar
+    //     // Misalnya, jika Anda menyimpan jalur gambar di tabel terpisah yang berhubungan dengan 'pemesanan_jokis'
+    //     $images = DB::table('joki_images')
+    //         ->where('id_pemesanan_joki', $pemesananJoki->id)
+    //         ->pluck('image_path');
+
+    //     return $images;
+    // }
+
+
+
+    // public function getPemesananJokiTerbaru(Request $request, $id_user){
+    // $pemesanan = PemesananJoki::where('id_user', $id_user)
+    //                           ->orderBy('created_at', 'desc')
+    //                           ->first();
+
+    // if ($pemesanan) {
+    //     return response()->json($pemesanan);
+    // } else {
+    //     return response()->json(['message' => 'Tidak ada pemesanan ditemukan untuk pengguna ini.'], 404);
+    // }
+    // }
 
 
 

@@ -7,6 +7,7 @@ use App\Models\PemesananDiamond;
 use App\Models\PemesananJoki;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PemesananDiamondController extends Controller
 {
@@ -86,10 +87,22 @@ class PemesananDiamondController extends Controller
         }
 
 
-        public function getPemesananDiamondTerbaru(Request $request, $id_user){
-        $pemesanan = PemesananDiamond::where('id_user', $id_user)
-                                  ->orderBy('created_at', 'desc')
-                                  ->first();
+
+
+        public function getPemesananDiamondTerbaru(Request $request, $id_user) {
+            $pemesanan = DB::table('pemesanan_diamonds')
+                ->join('diamond_game', 'pemesanan_diamonds.id_diamond', '=', 'diamond_game.id')
+                ->join('kategori_games', 'diamond_game.nama_game', '=', 'kategori_games.id')
+                ->select(
+                    'pemesanan_diamonds.*',
+                    'diamond_game.jumlah_diamond',
+                    'diamond_game.harga_diamond',
+                    'kategori_games.nama_game',
+                    'kategori_games.poster_game'
+                )
+                ->where('pemesanan_diamonds.id_user', $id_user)
+                ->orderBy('pemesanan_diamonds.created_at', 'desc')
+                ->first();
 
             if ($pemesanan) {
                 return response()->json($pemesanan);
@@ -97,6 +110,18 @@ class PemesananDiamondController extends Controller
                 return response()->json(['message' => 'Tidak ada pemesanan ditemukan untuk pengguna ini.'], 404);
             }
         }
+
+        // public function getPemesananDiamondTerbaru(Request $request, $id_user){
+        // $pemesanan = PemesananDiamond::where('id_user', $id_user)
+        //                           ->orderBy('created_at', 'desc')
+        //                           ->first();
+
+        //     if ($pemesanan) {
+        //         return response()->json($pemesanan);
+        //     } else {
+        //         return response()->json(['message' => 'Tidak ada pemesanan ditemukan untuk pengguna ini.'], 404);
+        //     }
+        // }
 
 
 
