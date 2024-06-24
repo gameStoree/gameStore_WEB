@@ -1,5 +1,6 @@
 <?php
 // use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PaymentDiamondMiController;
 use App\Http\Controllers\PaymentMidtransController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,12 +26,20 @@ use App\Http\Controllers\PaymentDiamondMiController;
 
 Route::post('/register', [AuthCustomerController::class, 'register']);
 Route::post('/login', [AuthCustomerController::class, 'login']);
+<<<<<<< HEAD
 //midtrans payment
 Route::post('/transaksi_baru', [PaymentMidtransController::class, 'createTransaction']);
 Route::post('/transaksi_diamond', [PaymentDiamondMiController::class, 'Transactiondiamond']);
 Route::post('/status_diamond', [diamondInvoiceController::class, 'updateStatus']);
 Route::post('/status', [ApiTransaksiIpaymu::class, 'handleCallback']);
 
+=======
+//Midtrans
+Route::post('/transaksi_baru', [PaymentMidtransController::class, 'createTransaction']);
+Route::post('/transaksi_diamond', [PaymentDiamondMiController::class, 'Transactiondiamond']);
+Route::post('/status', [ApiTransaksiIpaymu::class, 'handleCallback']);
+Route::post('/status_diamond', [diamondInvoiceController::class, 'updateStatus']);
+>>>>>>> c8fc994b3867a228c1e8a9affbca85e413284495
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthCustomerController::class, 'getUser']);
@@ -72,7 +81,10 @@ Route::get('/joki-done/images/{id}', [takeJobController::class, 'getImages']);
 
 
 Route::post('/transactions', [ApiTransaksiIpaymu::class, 'store']);
+<<<<<<< HEAD
 Route::post('/upstatusjoki', [ApiTransaksiIpaymu::class, 'updateStatus']);
+=======
+>>>>>>> c8fc994b3867a228c1e8a9affbca85e413284495
 
 Route::post('pemesanan-diamond', [PemesananDiamondController::class, 'pemesanan']);
 Route::get('/pemesanan-dm-terbaru/{id_user}', [pemesananDiamondController::class, 'getPemesananDiamondTerbaru']);
