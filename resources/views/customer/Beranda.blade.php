@@ -70,7 +70,8 @@
             <div class="m-auto w-[70%]">
                 <div href class="grid grid-cols-3 gap-4 ">
                     @foreach ($kategori as $item)
-                        <a href="/customer" class="card rounded-xl shadow-xl h-">
+                        <a href="/customer"
+                            class="card rounded-xl shadow-xl transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-white">
                             <div class="w-auto h-32">
                                 <img src="{{ asset('storage/' . $item->poster_game) }}"
                                     class="rounded-t-xl object-cover w-full h-full" alt="Shoes" />
@@ -101,7 +102,8 @@
                 <div class="m-auto w-[70%] p-[112px 0px 0px]">
                     <div class="grid grid-cols-4 gap-4">
                         @foreach ($kategori as $item)
-                            <a href="/customer" class="card rounded-xl shadow-xl h-">
+                            <a href="/customer"
+                                class="card rounded-xl shadow-xl transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-white">
                                 <div class="w-auto h-28">
                                     <img src="{{ asset('storage/' . $item->poster_game) }}"
                                         class="rounded-t-xl object-cover w-full h-full" alt="Shoes" />
@@ -115,42 +117,25 @@
                     </div>
                 </div>
             </div>
-            {{-- <a tabindex="0" href="/id/mobile-legends" style="outline: none; opacity: 1; transform: none;">
-                <div
-                    class="group relative transform overflow-hidden rounded-2xl bg-muted duration-300 ease-in-out hover:shadow-2xl hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background">
-                    <img alt="Mobile Legends" fetchpriority="high" width="192" height="288" decoding="async"
-                        data-nimg="1" class="aspect-[4/6] object-cover object-center" sizes="100vw"
-                        srcset="/_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=3840&amp;q=75 3840w"
-                        src="https://www.takapedia.com/_next/image?url=https%3A%2F%2Fcdn.takapedia.com%2F1e1016e8-4847-49c8-8141-51ac4a9e03e0.webp&amp;w=3840&amp;q=75"
-                        style="color: transparent;">
-                    <article
-                        class="absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4">
-                        <h2 class="truncate text-sm font-semibold text-foreground sm:text-base">Mobile Legends</h2>
-                        <p class="truncate text-xxs text-foreground sm:text-xs">Moonton</p>
-                    </article>
-                    <div
-                        class="absolute inset-0 transform bg-gradient-to-t from-transparent transition-all duration-300 group-hover:from-background">
-                    </div>
-                </div>
-            </a> --}}
             {{-- JASA MLBB --}}
             <div id="mobileLegends-content" style="display: none;">
                 <div class="m-auto w-[70%] p-[112px 0px 0px]">
-                        <div class="grid grid-cols-4 gap-4">
-                            <div>
+                    <div class="grid grid-cols-4 gap-4">
+                        <div>
 
-                                <a href="{{ route('jokiRankCustomer.index') }}" class="card rounded-xl shadow-xl h-">
-                                    <div class="w-auto h-28">
-                                        <img src="{{ asset('admin/img/img/jokirank.png') }}"
-                                            class="rounded-t-xl object-cover object-top w-full h-full" alt="Shoes" />
-                                    </div>
-                                    <div
-                                        class="h-auto w-full py-3 bg-[#184E77] rounded-b-xl flex justify-center items-center text-center ">
-                                        <h2 class="text-white text-center text-sm">Joki Rank</h2>
-                                    </div>
-                                </a>
-                            </div>
+                            <a href="{{ route('jokiRankCustomer.index') }}"
+                                class="card rounded-xl shadow-xl transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-white">
+                                <div class="w-auto h-28">
+                                    <img src="{{ asset('admin/img/img/jokirank.png') }}"
+                                        class="rounded-t-xl object-cover object-top w-full h-full" alt="Shoes" />
+                                </div>
+                                <div
+                                    class="h-auto w-full py-3 bg-[#184E77] rounded-b-xl flex justify-center items-center text-center ">
+                                    <h2 class="text-white text-center text-sm">Joki Rank</h2>
+                                </div>
+                            </a>
                         </div>
+                    </div>
                 </div>
             </div>
 
@@ -222,3 +207,15 @@
 </body>
 
 </html>
+
+
+
+<a href="ke halo"></a>
+<a href="ke EZET"></a>
+
+<div>
+    <h2>HALO</h2>
+</div>
+<div>
+    <h1>EZET</h1>
+</div>
