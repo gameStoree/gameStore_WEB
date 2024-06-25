@@ -9,7 +9,7 @@ class PaymentDiamondMiController extends Controller
 {
     public function __construct()
     {
-        // Set konfigurasi Midtrans
+        // Set konfigurasi Midtrans cobacoba
         Config::$serverKey = config('midtrans.server_key');
         Config::$isProduction = config('midtrans.is_production');
         Config::$isSanitized = config('midtrans.is_sanitized');
