@@ -144,9 +144,8 @@
                                                         <p class="w-3 font-medium text-text-color">5<span
                                                                 class="sr-only"> star reviews</span></p>
                                                         <div aria-hidden="true" class="ml-1 flex flex-1 items-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 20 20" fill="currentColor"
-                                                                aria-hidden="true"
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true"
                                                                 class="text-yellow-400 h-5 w-5 flex-shrink-0">
                                                                 <path fill-rule="evenodd"
                                                                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
@@ -170,9 +169,8 @@
                                                         <p class="w-3 font-medium text-text-color">4<span
                                                                 class="sr-only"> star reviews</span></p>
                                                         <div aria-hidden="true" class="ml-1 flex flex-1 items-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 20 20" fill="currentColor"
-                                                                aria-hidden="true"
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true"
                                                                 class="text-yellow-400 h-5 w-5 flex-shrink-0">
                                                                 <path fill-rule="evenodd"
                                                                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
@@ -559,159 +557,193 @@
                         <div class="grid ">
                             <div class="1 h-auto">
                                 <form action="{{ route('pesanDiamondCustomer.addPemesanan') }}" method="post">
-                                @csrf
-                                <div class="flex w-full h-auto ">
-                                    <div
-                                        class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl ">
-                                        1</div>
-                                    <h3 class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
-                                    Masukkan Data Akun Kamu
-                                    </h3>
-                                </div>
-                                <div class="bg-[#184E77] grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 sm:px-6 sm:pb-4">
-                                    <div>
-                                        <label for="idnick"
-                                            class="block text-xs font-medium \ text-text-color pb-2">User ID &
-                                            Server</label>
-                                        <div class="flex flex-col items-start">
-                                            <input
-                                                class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                type="text" id="idServer" name="id_server"
-                                                placeholder="contoh:1373886755(15647)" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-[#184E77] px-4 pb-4 text-[10px] text-white rounded-b-xl sm:px-6 sm:pb-6">
-                                    <div>
-                                        <p>*Jika topUp selain Mobile Legend kosongkan servernya,
-                                            isi hanya ID saja</p>
-                                    </div>
-                                </div>
-                                <div class="2 h-auto mt-8">
+                                    @csrf
                                     <div class="flex w-full h-auto ">
                                         <div
                                             class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl ">
-                                            2</div>
+                                            1</div>
                                         <h3
                                             class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
-                                            Pilih Nominal yang Ingin Kamu Beli</h3>
+                                            Masukkan Data Akun Kamu
+                                        </h3>
                                     </div>
-                                    <div class="h-auto w-full p-[24px] bg-[#184E77] rounded-b-xl">
-                                        <div class="jokiPaketan">
-                                            <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">Diamond</h3>
-                                            <div class="grid grid-cols-3 gap-4">
-                                                @foreach ($diamonds as $diamond)
-                                                    <input type="radio" name="id_diamond"
-                                                        value="{{ $diamond->id }}"
-                                                        id="jokiSatuan-radio-{{ $loop->index }}"
-                                                        data-price="{{ $diamond->harga_diamond }}"
-                                                        class="hidden">
-                                                    <div class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 md:p-4"
-                                                        role="radio" aria-checked="false" tabindex="-1"
-                                                        onclick="selectRadio('jokiSatuan-radio-{{ $loop->index }}')"
-                                                        data-radio="jokiSatuan-radio-{{ $loop->index }}">
-                                                        <span class="flex flex-1">
-                                                            <span class="flex flex-col justify-between">
-                                                                <span class="block text-xs font-semibold text-white dark:text-white">{{ $diamond->jumlah_diamond }} Diamond</span>
-                                                                <div>
-                                                                    <span class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp. {{ number_format($diamond->harga_diamond, 0, ',', '.') }}</span>
-                                                                </div>
-                                                            </span>
-                                                        </span>
-                                                        <div class="flex aspect-square w-8 items-center">
-                                                            <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
-                                                                alt="{{ $diamond->jumlah_diamond }} Diamond"
-                                                                class="object-contain object-right">
-                                                        </div>
-                                                    </div>
-                                                @endforeach
+                                    <div
+                                        class="bg-[#184E77] grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 sm:px-6 sm:pb-4">
+                                        <div>
+                                            <label for="idnick"
+                                                class="block text-xs font-medium \ text-text-color pb-2">User ID &
+                                                Server</label>
+                                            <div class="flex flex-col items-start">
+                                                <input
+                                                    class="relative block w-full bg-[#57CC99] appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                    type="text" id="idServer" name="id_server"
+                                                    placeholder="contoh:1373886755(15647)" value="">
                                             </div>
-                                            <input class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                type="hidden" id="promo-code" name="harga_keseluruhan" value="">
                                         </div>
                                     </div>
-                                    <div class="flex w-full h-auto mt-8">
-                                        <div
-                                            class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
-                                            3</div>
-                                        <h3
-                                            class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
-                                            Detail Kontak Anda</h3>
+                                    <div
+                                        class="bg-[#184E77] px-4 pb-4 text-[10px] text-white rounded-b-xl sm:px-6 sm:pb-6">
+                                        <div>
+                                            <p>*Jika topUp selain Mobile Legend kosongkan servernya,
+                                                isi hanya ID saja</p>
+                                        </div>
                                     </div>
-                                    <div class="bg-[#184E77] rounded-b-xl p-4 ">
-                                        <div class="flex items-center space-x-2">
-                                            <div class="grow">
-                                                <div class=" flex flex-col items-start"><input
-                                                        class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
-                                                        type="text" id="promo-code" name="no_hp"
-                                                        placeholder="Masukkan nomor whatsApp anda" value="">
+                                    <div class="2 h-auto mt-8">
+                                        <div class="flex w-full h-auto ">
+                                            <div
+                                                class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl ">
+                                                2</div>
+                                            <h3
+                                                class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
+                                                Pilih Nominal yang Ingin Kamu Beli</h3>
+                                        </div>
+                                        <div class="h-auto w-full p-[24px] bg-[#184E77] rounded-b-xl">
+                                            <div class="jokiPaketan">
+                                                <h3 class="font-semibold text-text-color pb-2 pt-2 p text-white">
+                                                    Diamond</h3>
+                                                <div class="grid grid-cols-3 gap-4">
+                                                    @foreach ($diamonds as $diamond)
+                                                        <input type="radio" name="id_diamond"
+                                                            value="{{ $diamond->id }}"
+                                                            id="jokiSatuan-radio-{{ $loop->index }}"
+                                                            data-price="{{ $diamond->harga_diamond }}"
+                                                            class="hidden">
+                                                        <label for="jokiSatuan-radio-{{ $loop->index }}"
+                                                            class="bg-[#34A0A4] bg-secondary-600 dark:bg-secondary-600 relative flex cursor-pointer rounded-xl border border-transparent p-2.5 shadow-sm outline-none duration-300 ease-in-out hover:ring-2 hover:ring-primary-500 hover:ring-offset-2 hover:ring-offset-secondary-600 focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 focus-within:ring-offset-secondary-600 md:p-4"
+                                                            role="radio" aria-checked="false" tabindex="-1">
+                                                            <span class="flex flex-1">
+                                                                <span class="flex flex-col justify-between">
+                                                                    <span
+                                                                        class="block text-xs font-semibold text-white dark:text-white">{{ $diamond->jumlah_diamond }}
+                                                                        Diamond</span>
+                                                                    <div>
+                                                                        <span
+                                                                            class="mt-1 flex items-center text-xxs font-medium text-white dark:text-white/75">Rp.
+                                                                            {{ number_format($diamond->harga_diamond, 0, ',', '.') }}</span>
+                                                                    </div>
+                                                                </span>
+                                                            </span>
+                                                            <div class="flex aspect-square w-8 items-center">
+                                                                <img src="{{ asset('admin/img/img/logogamingstore.png') }}"
+                                                                    alt="{{ $diamond->jumlah_diamond }} Diamond"
+                                                                    class="object-contain object-right">
+                                                            </div>
+                                                        </label>
+                                                    @endforeach
+
+
+                                                    {{-- <script>
+                                                        function selectRadio(id) {
+                                                            document.getElementById(id).click();
+                                                            var radioElement = document.getElementById(id);
+                                                            var parentDiv = radioElement.nextElementSibling;
+
+                                                            // Remove focus ring from previously focused element
+                                                            document.querySelectorAll('[role="radio"]').forEach(function(div) {
+                                                                div.setAttribute('aria-checked', 'false');
+                                                                div.classList.remove('ring-2', 'ring-primary-500', 'ring-offset-2', 'ring-offset-secondary-600');
+                                                            });
+
+                                                            // Add focus ring to the clicked element
+                                                            parentDiv.setAttribute('aria-checked', 'true');
+                                                            parentDiv.classList.add('ring-2', 'ring-primary-500', 'ring-offset-2', 'ring-offset-secondary-600');
+                                                        }
+                                                    </script> --}}
+
+                                                </div>
+                                                <input
+                                                    class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                    type="hidden" id="promo-code" name="harga_keseluruhan"
+                                                    value="">
+                                            </div>
+                                        </div>
+                                        <div class="flex w-full h-auto mt-8">
+                                            <div
+                                                class="flex items-center justify-center rounded-tl-xl bg-gradient-to-t from-[#34A0A4] to-[#57CC99] px-4 py-2 font-bold text-[#ffffff] text-2xl  ">
+                                                3</div>
+                                            <h3
+                                                class="flex bg-[#184E77] text-white w-full items-center justify-between rounded-tr-xl bg-secondary-500 px-2 py-2 text-base font-semibold leading-6 text-text-color dark:bg-secondary-700 sm:px-4">
+                                                Detail Kontak Anda</h3>
+                                        </div>
+                                        <div class="bg-[#184E77] rounded-b-xl p-4 ">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="grow">
+                                                    <div class=" flex flex-col items-start"><input
+                                                            class="bg-[#57CC99]  relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
+                                                            type="text" id="promo-code" name="no_hp"
+                                                            placeholder="Masukkan nomor whatsApp anda" value="">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- The button to open modal -->
-                                    <div class="w-full h-auto mt-8">
-                                        <label for="my_modal_6"
-                                            class="btn bg-[#57CC99] hover:bg-[#57CC99] text-white w-full"
-                                            onclick="tampilkanPesanan()">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                aria-hidden="true" class="h-5 w-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
-                                                </path>
-                                            </svg>
-                                            Pesan
-                                        </label>
+                                        <!-- The button to open modal -->
+                                        <div class="w-full h-auto mt-8">
+                                            <label for="my_modal_6"
+                                                class="btn bg-[#57CC99] hover:bg-[#57CC99] text-white w-full"
+                                                onclick="tampilkanPesanan()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    aria-hidden="true" class="h-5 w-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+                                                    </path>
+                                                </svg>
+                                                Pesan
+                                            </label>
 
-                                        <!-- Put this part before </body> tag -->
-                                        <input type="checkbox" id="my_modal_6" class="modal-toggle" />
-                                        <div class="modal" role="dialog">
-                                            <div
-                                                class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                                            <!-- Put this part before </body> tag -->
+                                            <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+                                            <div class="modal" role="dialog">
                                                 <div
-                                                    class="bg-[#184E77] text-white relative transform overflow-hidden rounded-lg bg-secondary-700 px-4 pt-5 pb-4 text-left text-text-color shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 opacity-100 translate-y-0 sm:scale-100">
-                                                    <div>
-                                                        <div
-                                                            class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 24 24" stroke-width="1.5"
-                                                                stroke="currentColor" aria-hidden="true"
-                                                                class="h-6 w-6 text-emerald-800">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    d="M4.5 12.75l6 6 9-13.5"></path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="mt-3 text-center sm:mt-5">
-                                                            <h3 class="text-lg font-semibold leading-6">Buat Pesanan
-                                                            </h3>
-                                                            <p class="pt-2 text-sm md:text-base">Pastikan data akun
-                                                                Kamu dan produk yang Kamu pilih valid dan sesuai.</p>
-                                                            <div class="mt-2">
-                                                                <div
-                                                                    class="my-4 grid grid-cols-3 gap-2 rounded-md bg-secondary-600 p-4 text-left text-sm text-text-color md:text-base">
-                                                                    <div>ID dan Server</div>
-                                                                    <div id="modal-id_server-value"
-                                                                        class="col-span-2">: </div>
-                                                                    <div>Nickname</div>
-                                                                    <div id="result" class="text-xs text-red-500">:
-                                                                    </div><br>
-                                                                    <div>Item</div>
-                                                                    <div id="modal-item-value" class="text-xs text-red-500">:
+                                                    class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                                                    <div
+                                                        class="bg-[#184E77] text-white relative transform overflow-hidden rounded-lg bg-secondary-700 px-4 pt-5 pb-4 text-left text-text-color shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 opacity-100 translate-y-0 sm:scale-100">
+                                                        <div>
+                                                            <div
+                                                                class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                                                    stroke="currentColor" aria-hidden="true"
+                                                                    class="h-6 w-6 text-emerald-800">
+                                                                    <path stroke-linecap="round"
+                                                                        stroke-linejoin="round"
+                                                                        d="M4.5 12.75l6 6 9-13.5"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="mt-3 text-center sm:mt-5">
+                                                                <h3 class="text-lg font-semibold leading-6">Buat
+                                                                    Pesanan
+                                                                </h3>
+                                                                <p class="pt-2 text-sm md:text-base">Pastikan data akun
+                                                                    Kamu dan produk yang Kamu pilih valid dan sesuai.
+                                                                </p>
+                                                                <div class="mt-2">
+                                                                    <div
+                                                                        class="my-4 grid grid-cols-3 gap-2 rounded-md bg-secondary-600 p-4 text-left text-sm text-text-color md:text-base">
+                                                                        <div>ID dan Server</div>
+                                                                        <div id="modal-id_server-value"
+                                                                            class="col-span-2">: </div>
+                                                                        <div>Nickname</div>
+                                                                        <div id="result"
+                                                                            class="text-xs text-red-500">:
+                                                                        </div><br>
+                                                                        <div>Item</div>
+                                                                        <div id="modal-item-value"
+                                                                            class="text-xs text-red-500">:
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-action mt-5 grid grid-cols-2 gap-3">
-                                                            <div>
-                                                                <button type="submit" for="my_modal_6"
-                                                                    class="btn bg-emerald-500 text-white w-full">Pesan
-                                                                    Sekarang</button>
-                                                            </div>
-                                                            <div>
-                                                                <label for="my_modal_6"
-                                                                    class="btn bg-emerald-500 text-white w-full">Batalkan</label>
+                                                            <div class="modal-action mt-5 grid grid-cols-2 gap-3">
+                                                                <div>
+                                                                    <button type="submit" for="my_modal_6"
+                                                                        class="btn bg-emerald-500 text-white w-full">Pesan
+                                                                        Sekarang</button>
+                                                                </div>
+                                                                <div>
+                                                                    <label for="my_modal_6"
+                                                                        class="btn bg-emerald-500 text-white w-full">Batalkan</label>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -719,8 +751,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                     </div>

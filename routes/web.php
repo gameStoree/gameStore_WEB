@@ -98,3 +98,4 @@ Route::prefix('customer')->group(
         Route::get('/loginAll', [loginControllerReal::class, 'index'])->name('loginAll.index');
     }
 );
+Route::get('/', [dashboardCustomerController::class, 'index'])->name('dashboardCustomer.index');
