@@ -1,4 +1,3 @@
-
 {{-- NAVBAR --}}
 @include('partials.navbar')
 {{-- NAVBAR --}}
@@ -16,25 +15,37 @@
                 <p class="mt-2 text-center text-sm text-white">Digunakan untuk menghitung total jumlah pertandingan
                     yang harus diambil untuk mencapai target tingkat kemenangan yang diinginkan.</p>
             </div>
-            <form class="mt-8 space-y-6">
+            @if (session('required_matches'))
+                <div class="bg-transparent p-4 rounded shadow border-2 border-white">
+                    <h3 class="text-lg font-bold text-white">Hasil Perhitungan:</h3>
+                    <p class="text-white">Total Pertandingan yang Dibutuhkan : {{ session('required_matches') }}</p>
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="bg-red-100 p-4 rounded shadow">
+                    <p class="text-red-700">{{ session('error') }}</p>
+                </div>
+            @endif
+            <form class="mt-8 space-y-6" action="{{ route('kalkulator.calculate') }}" method="POST">
+                @csrf
                 <div class="space-y-6 rounded-md shadow-sm">
                     <div class="flex flex-col gap-y-2"><label for="total-match"
                             class="block text-xs font-medium text-white">Total Pertandingan Kamu Saat Ini</label>
                         <div class="flex flex-col items-start"><input
                                 class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black font-bold accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800 !rounded-md"
-                                type="text" id="total-match" placeholder="Contoh: 223" name="total-match"></div>
+                                type="text" id="total-match" placeholder="Contoh: 223" name="total_match"></div>
                     </div>
                     <div class="flex flex-col gap-y-2"><label for="total-winrate"
                             class="block text-xs font-medium text-white">Total Win Rate Kamu Saat Ini</label>
                         <div class="flex flex-col items-start"><input
                                 class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-[secondary-700] px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black font-bold accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800 !rounded-md"
-                                type="text" id="total-winrate" placeholder="Contoh: 54" name="total-winrate"></div>
+                                type="text" id="total-winrate" placeholder="Contoh: 54" name="total_winrate"></div>
                     </div>
                     <div class="flex flex-col gap-y-2"><label for="winrate-request"
                             class="block text-xs font-medium text-white">Win Rate Total yang Kamu Inginkan</label>
                         <div class="flex flex-col items-start"><input
                                 class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black font-bold accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800 !rounded-md"
-                                type="text" id="winrate-request" placeholder="Contoh: 70" name="winrate-request">
+                                type="text" id="winrate-request" placeholder="Contoh: 70" name="winrate_request">
                         </div>
                     </div>
                 </div>
@@ -53,19 +64,11 @@
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" aria-hidden="true" class="h-5 w-5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25">
+                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m-6 0h6v6">
                                 </path>
-                            </svg></span>Pesan Joki</a></div>
+                            </svg></span>Order</a></div>
             </form>
         </div>
-
-
-
-        {{-- FOOTER --}}
-        @include('partials.footer')
-        {{-- FOOTER --}}
-
-
     </div>
 </body>
 

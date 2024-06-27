@@ -20,46 +20,45 @@
         <div class="space-y-4">
             <div class="grid gap-4">
                 <div class="border-murky-600 flex flex-col gap-2 rounded-xl border p-4 md:p-6">
-                    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-                        <div class="flex flex-col gap-2">
-                            <div class="text-xs">Status</div>
-                            <select
-                                class="relative block w-full appearance-none rounded-lg border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-[#184E77] disabled:cursor-not-allowed disabled:opacity-75">
-                                <option value="">Semua</option>
-                                <option value="1">Belum Bayar</option>
-                                <option value="2">Lunas</option>
-                                <option value="3">Progress</option>
-                                <option value="4">Done</option>
-                                <option value="5">Akun Bermasalah</option>
-                            </select>
-                        </div>
+                    <form method="GET" action="{{ route('profileCustomer.index') }}">
+                        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="text-xs">Status</div>
+                                <select name="status"
+                                    class="relative block w-full appearance-none rounded-lg border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-[#184E77] disabled:cursor-not-allowed disabled:opacity-75">
+                                    <option value="">Semua</option>
+                                    <option value="Belum Bayar">Belum Bayar</option>
+                                    <option value="Lunas">Lunas</option>
+                                    <option value="Progress">Progress</option>
+                                    <option value="Done">Done</option>
+                                    <option value="Akun Bermasalah">Akun Bermasalah</option>
+                                </select>
+                            </div>
 
-                        <div class="flex flex-col gap-2">
-                            <div class="text-xs">Tanggal Mulai</div>
-                            <div class="flex flex-col items-start">
-                                <input
-                                    class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-[#184E77] disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
-                                    type="date" placeholder="Tanggal Mulai" value="<?= date('Y-m-d') ?>">
+                            <div class="flex flex-col gap-2">
+                                <div class="text-xs">Tanggal Mulai</div>
+                                <div class="flex flex-col items-start">
+                                    <input name="start_date"
+                                        class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-[#184E77] disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
+                                        type="date" placeholder="Tanggal Mulai" value="{{ request('start_date') }}">
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <div class="text-xs">Tanggal Akhir</div>
+                                <div class="flex flex-col items-start">
+                                    <input name="end_date"
+                                        class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-[#184E77] disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
+                                        type="date" placeholder="Tanggal Akhir" value="{{ request('end_date') }}">
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <button type="submit"
+                                    class="hover:bg-murky-700 mt-6 border-white relative inline-flex items-center rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-foreground ring-1 ring-inset ring-transparent focus-visible:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-75 w-14">
+                                    Cari
+                                </button>
                             </div>
                         </div>
-                        <div class="flex flex-col gap-2">
-                            <div class="text-xs">Tanggal Akhir</div>
-                            <div class="flex flex-col items-start">
-                                <input
-                                    class="relative block w-full appearance-none rounded-lg border border-border bg-[#184E77] px-3 py-2 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-[#184E77] disabled:cursor-not-allowed disabled:opacity-75 !rounded-md"
-                                    type="date" placeholder="Tanggal Akhir" value="<?= date('Y-m-d') ?>">
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <button type="button"
-                                class="hover:bg-murky-700 mt-6 border-white relative inline-flex items-center rounded-md bg-green-600 px-4 py-2 text-sm
-                                font-semibold text-foreground ring-1 ring-inset ring-transparent focus-visible:outline-offset-0
-                                disabled:cursor-not-allowed disabled:opacity-75 w-14">
-                                Cari
-                            </button>
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
 
@@ -102,38 +101,40 @@
                     <tbody>
                         @forelse($diamondTransactions as $diamond)
                             <tr class="bg-transparent">
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $diamond->id }}
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">
+                                    <a href="{{ route('pesanDiamondInvoice.index', $diamond->id) }}" class="text-white-500 hover:underline">
+                                        <u>{{ $diamond->id }}</u>
+                                    </a>
                                 </td>
-
                                 <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">Diamond</td>
                                 <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">n/a</td>
-
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">
-                                    {{ $diamond->harga_keseluruhan }}</td>
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">
-                                    {{ $diamond->created_at }}</td>
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $diamond->status }}
-                                </td>
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $diamond->harga_keseluruhan }}</td>
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $diamond->created_at }}</td>
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $diamond->status }}</td>
                             </tr>
                         @empty
+                            <tr>
+                                <td colspan="6" class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">No Diamond Transactions Found</td>
+                            </tr>
                         @endforelse
 
                         @forelse($jokiTransactions as $joki)
                             <tr class="bg-transparent">
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground"></a>{{ $joki->id }}
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">
+                                    <a href="{{ route('pesanJokiInvoice.index', $joki->id) }}" class="text-white-500 hover:underline">
+                                        <u>{{ $joki->id }}</u>
+                                    </a>
                                 </td>
-
                                 <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">Jasa Mobile Legends</td>
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $joki->jumlah_bintang}}
-                                </td>
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">
-                                    {{ $joki->harga_keseluruhan }}</td>
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">
-                                    {{ $joki->created_at }}</td>
-                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $joki->status }}
-                                </td>
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $joki->jumlah_bintang }}</td>
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $joki->harga_keseluruhan }}</td>
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $joki->created_at }}</td>
+                                <td class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">{{ $joki->status }}</td>
                             </tr>
                         @empty
+                            <tr>
+                                <td colspan="6" class="whitespace-nowrap px-3 py-3.5 text-sm text-foreground">No Joki Transactions Found</td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>

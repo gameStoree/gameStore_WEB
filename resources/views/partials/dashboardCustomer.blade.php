@@ -56,11 +56,11 @@
             <div class="mt-4 grid grid-cols-2 gap-4 xl:mt-8 xl:grid-cols-3 xl:gap-8">
                 <div class="flex flex-col items-center justify-center rounded-lg border p-6 border-warning bg-warning/50 duration-200 ease-in-out hover:bg-warning/75">
                     <div class="flex items-center justify-center text-4xl font-semibold">{{ $totalUnpaidTransactions }}</div>
-                    <div class="pt-4 text-sm font-medium">Menunggu</div>
+                    <div class="pt-4 text-sm font-medium">Belum Bayar</div>
                 </div>
                 <div class="flex flex-col items-center justify-center rounded-lg border p-6 border-info bg-info/50 duration-200 ease-in-out hover:bg-info/75">
                     <div class="flex items-center justify-center text-4xl font-semibold">{{ $totalPaidTransactions }}</div>
-                    <div class="pt-4 text-sm font-medium">Dalam Proses</div>
+                    <div class="pt-4 text-sm font-medium">Pemesanan Selesai</div>
                 </div>
                 <div class="flex flex-col items-center justify-center rounded-lg border p-6 border-success bg-success/50 duration-200 ease-in-out hover:bg-success/75">
                     <div class="flex items-center justify-center text-4xl font-semibold">{{ $jokiDoneTransactions }}</div>
@@ -68,6 +68,6 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>

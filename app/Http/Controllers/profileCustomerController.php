@@ -9,9 +9,35 @@ use App\Models\pemesananJoki;
 
 class profileCustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
+        // Fetch filters from the request
+        $status = $request->input('status');
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        // Fetch diamond transactions for the logged-in user with filters
+        $diamondQuery = pemesananDiamond::where('id_user', $user->id);
+        $jokiQuery = pemesananJoki::where('id_user', $user->id);
+
+        if ($status) {
+            $diamondQuery->where('status', $status);
+            $jokiQuery->where('status', $status);
+        }
+
+        if ($startDate) {
+            $diamondQuery->whereDate('created_at', '>=', $startDate);
+            $jokiQuery->whereDate('created_at', '>=', $startDate);
+        }
+
+        if ($endDate) {
+            $diamondQuery->whereDate('created_at', '<=', $endDate);
+            $jokiQuery->whereDate('created_at', '<=', $endDate);
+        }
+
+        $diamondTransactions = $diamondQuery->get();
+        $jokiTransactions = $jokiQuery->get();
 
         // Fetch diamond transactions for the logged-in user
         $diamondTransactions = pemesananDiamond::where('id_user', $user->id)->get();
