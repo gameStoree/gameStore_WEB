@@ -86,6 +86,7 @@ Route::prefix('customer')->group(
         Route::get('/', [dashboardCustomerController::class, 'index'])->name('dashboardCustomer.index');
         Route::get('/jokiRank', [jokiRankCustomerController::class, 'index'])->name('jokiRankCustomer.index');
         Route::get('/kalkulator', [kalkulatorCustomerController::class, 'index'])->name('kalkulator.index');
+        Route::post('/customer/kalkulator/calculate', [KalkulatorCustomerController::class, 'calculate'])->name('kalkulator.calculate');
         Route::get('/hubungiKami', [hubungiKamiCustomerController::class, 'index'])->name('hubungiKami.index');
         Route::get('/invoice', [cekInvoiceCustomerController::class, 'index'])->name('invoice');
         // Route::get('/invoice', [cekInvoiceCustomerController::class, 'show'])->name('invoice.show');
