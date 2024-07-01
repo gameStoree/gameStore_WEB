@@ -102,7 +102,7 @@
                 <div class="m-auto w-[70%] p-[112px 0px 0px]">
                     <div class="grid grid-cols-4 gap-4">
                         @foreach ($kategori as $item)
-                            <a href="/customer"
+                            <a href="{{ route('pesanDiamond.show', $item->id) }}"
                                 class="card rounded-xl shadow-xl transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-white">
                                 <div class="w-auto h-28">
                                     <img src="{{ asset('storage/' . $item->poster_game) }}"
