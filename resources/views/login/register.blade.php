@@ -96,7 +96,7 @@
                                 <input type="text" class="form-control" id="no_hp" name="no_hp" />
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" value="customer" name="role" />
+                                <input type="hidden" class="form-control" value="customer" name="role" />
                             </div>
                             <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
                         </form>
