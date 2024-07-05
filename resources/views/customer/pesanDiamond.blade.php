@@ -632,24 +632,6 @@
                                                     @endforeach
 
 
-                                                    {{-- <script>
-                                                        function selectRadio(id) {
-                                                            document.getElementById(id).click();
-                                                            var radioElement = document.getElementById(id);
-                                                            var parentDiv = radioElement.nextElementSibling;
-
-                                                            // Remove focus ring from previously focused element
-                                                            document.querySelectorAll('[role="radio"]').forEach(function(div) {
-                                                                div.setAttribute('aria-checked', 'false');
-                                                                div.classList.remove('ring-2', 'ring-primary-500', 'ring-offset-2', 'ring-offset-secondary-600');
-                                                            });
-
-                                                            // Add focus ring to the clicked element
-                                                            parentDiv.setAttribute('aria-checked', 'true');
-                                                            parentDiv.classList.add('ring-2', 'ring-primary-500', 'ring-offset-2', 'ring-offset-secondary-600');
-                                                        }
-                                                    </script> --}}
-
                                                 </div>
                                                 <input
                                                     class="bg-[#57CC99] relative block w-full appearance-none rounded-none border border-primary-500 bg-secondary-700 px-3 py-2 text-xs text-white placeholder-secondary-200 focus:z-10 focus:border-primary-500 focus:outline-none focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-75 !rounded-md !border-bg-color !bg-secondary-200 !text-black !placeholder-black/60 accent-secondary-800 !ring-0 placeholder:text-xs focus:!bg-white focus:!ring-transparent dark:!text-secondary-800 dark:!placeholder-secondary-800"
