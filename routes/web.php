@@ -91,7 +91,7 @@ Route::prefix('customer')->group(
         Route::get('/invoice', [cekInvoiceCustomerController::class, 'index'])->name('invoice');
         // Route::get('/invoice', [cekInvoiceCustomerController::class, 'show'])->name('invoice.show');
         Route::get('/profileCustomer', [profileCustomerController::class, 'index'])->name('profileCustomer.index');
-        Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('pesanDiamond.show');
+        Route::get('/pesan-diamond/{game_id}', [pesanDiamondCustomerController::class, 'show'])->name('p    esanDiamond.show');
         Route::post('/pesan-diamond/addPemesanan', [pesanDiamondCustomerController::class, 'addPemesananDiamond'])->name('pesanDiamondCustomer.addPemesanan');
         Route::get('/pesanDiamondInvoice/{id}', [diamondInvoiceController::class, 'index'])->name('pesanDiamondInvoice.index');
         Route::get('/jokiRankInvoice/{id}', [jokiRankInvoiceController::class, 'index'])->name('pesanJokiInvoice.index');
